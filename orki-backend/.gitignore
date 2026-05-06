@@ -1,0 +1,56 @@
+# ==============================
+# Python
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+.env/
+.env.*
+
+# ==============================
+# Django
+# ==============================
+*.log
+db.sqlite3
+media/
+staticfiles/
+
+# Migrations (optional: keep if working in team)
+# apps/*/migrations/*
+# !apps/*/migrations/__init__.py
+
+# ==============================
+# Environment Variables
+# ==============================
+.env
+.env.local
+.env.production
+
+# ==============================
+# Firebase Secrets
+# ==============================
+serviceAccountKey.json
+services/firebase/*.json
+
+# ==============================
+# IDE / OS
+# ==============================
+.vscode/
+.idea/
+.DS_Store
+
+# ==============================
+# Testing / Coverage
+# ==============================
+htmlcov/
+.coverage
+.coverage.*
+.pytest_cache/
+
+# ==============================
+# Misc
+# ==============================
+*.sqlite3

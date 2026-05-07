@@ -1,8 +1,228 @@
-export default function ProfilePage() {
+"use client";
+
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+
+import { useAuth } from "@/hooks/useAuth";
+import { useNotification } from "@/providers/notification-provider";
+import { logout } from "@/shared/firebase/auth";
+import { routes } from "@/shared/config/routes";
+
+// ─── Settings group ───────────────────────────────────────────────────────────
+
+type SettingRowProps = {
+  label: string;
+  description?: string;
+  control?: React.ReactNode;
+  onClick?: () => void;
+  destructive?: boolean;
+};
+
+function SettingRow({ label, description, control, onClick, destructive }: SettingRowProps) {
   return (
-    <section className="space-y-3">
-      <h1 className="text-3xl font-semibold">Profile</h1>
-      <p className="text-muted">Manage account preferences, notifications, and personalization settings.</p>
-    </section>
+    <div
+      className={[
+        "flex items-center justify-between px-5 py-3.5 transition-colors",
+        onClick ? "cursor-pointer hover:bg-black/[0.025]" : "",
+      ].join(" ")}
+      onClick={onClick}
+      role={onClick ? "button" : undefined}
+      tabIndex={onClick ? 0 : undefined}
+      onKeyDown={onClick ? (e) => e.key === "Enter" && onClick() : undefined}
+    >
+      <div className="space-y-0.5">
+        <p className={`text-sm font-medium ${destructive ? "text-red-500" : "text-foreground"}`}>
+          {label}
+        </p>
+        {description && <p className="text-xs text-muted">{description}</p>}
+      </div>
+      {control ?? (
+        onClick && (
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="text-muted">
+            <path d="M5.25 2.917 9.333 7 5.25 11.083" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        )
+      )}
+    </div>
   );
 }
+
+function SettingsGroup({
+  title,
+  children,
+}: {
+  title?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="space-y-2">
+      {title && (
+        <h3 className="px-1 text-xs font-semibold uppercase tracking-widest text-muted">{title}</h3>
+      )}
+      <div className="glass overflow-hidden rounded-2xl divide-y divide-black/[0.04]">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+// ─── Toggle ────────────────────────────────────────────────────────────────────
+
+function Toggle({ checked }: { checked: boolean }) {
+  return (
+    <div
+      className="relative h-6 w-11 rounded-full transition-colors duration-200"
+      style={{ backgroundColor: checked ? "#2FA2E2" : "rgba(0,0,0,0.15)" }}
+    >
+      <div
+        className="absolute top-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform duration-200"
+        style={{ transform: checked ? "translateX(20px)" : "translateX(2px)" }}
+      />
+    </div>
+  );
+}
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
+export default function ProfilePage() {
+  const { user } = useAuth();
+  const router = useRouter();
+  const { notify } = useNotification();
+
+  const displayName = user?.displayName ?? "Orki User";
+  const email = user?.email ?? "—";
+  const initials = displayName
+    .split(" ")
+    .map((n) => n[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      notify("You've been logged out.", "success");
+      router.replace(routes.login);
+    } catch {
+      notify("Logout failed. Please try again.", "error");
+    }
+  };
+
+  return (
+    <div className="animate-page-in mx-auto max-w-2xl space-y-8">
+      {/* Header */}
+      <div className="space-y-1">
+        <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground">Profile</h1>
+        <p className="text-base text-muted">Manage your account and study preferences.</p>
+      </div>
+
+      {/* Profile card */}
+      <div className="glass rounded-2xl p-6 flex items-center gap-5">
+        {user?.photoURL ? (
+          <Image
+            src={user.photoURL}
+            alt={displayName}
+            width={72}
+            height={72}
+            className="rounded-2xl object-cover shadow-md"
+          />
+        ) : (
+          <div className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-primary/15 shadow-inner">
+            <span className="font-heading text-2xl font-bold text-primary">{initials}</span>
+          </div>
+        )}
+        <div className="flex-1 space-y-0.5">
+          <p className="font-heading text-xl font-bold text-foreground">{displayName}</p>
+          <p className="text-sm text-muted">{email}</p>
+          <div className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-0.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            <span className="text-[11px] font-semibold text-primary">Pro Plan</span>
+          </div>
+        </div>
+        <button
+          type="button"
+          className="rounded-xl bg-black/[0.05] px-4 py-2 text-xs font-semibold text-secondary transition hover:bg-black/[0.08]"
+        >
+          Edit Profile
+        </button>
+      </div>
+
+      {/* Account settings */}
+      <SettingsGroup title="Account">
+        <SettingRow label="Display Name" description={displayName} onClick={() => {}} />
+        <SettingRow label="Email Address" description={email} onClick={() => {}} />
+        <SettingRow label="Change Password" description="Update your login password" onClick={() => {}} />
+      </SettingsGroup>
+
+      {/* Preferences */}
+      <SettingsGroup title="Preferences">
+        <SettingRow
+          label="Daily Study Reminders"
+          description="Receive a nudge at your preferred study time"
+          control={<Toggle checked={true} />}
+        />
+        <SettingRow
+          label="Streak Protection"
+          description="Get notified before your streak is at risk"
+          control={<Toggle checked={true} />}
+        />
+        <SettingRow
+          label="Show Mastery Progress"
+          description="Display mastery % on flashcard decks"
+          control={<Toggle checked={false} />}
+        />
+        <SettingRow
+          label="Exam Countdown Alerts"
+          description="Reminders 3 days before an upcoming exam"
+          control={<Toggle checked={true} />}
+        />
+      </SettingsGroup>
+
+      {/* Subscription */}
+      <SettingsGroup title="Subscription">
+        <div className="px-5 py-4">
+          <div className="flex items-center justify-between">
+            <div className="space-y-0.5">
+              <p className="text-sm font-semibold text-foreground">Orki Pro</p>
+              <p className="text-xs text-muted">Renews June 1, 2026 · $9.99/mo</p>
+            </div>
+            <span className="rounded-full bg-success/10 px-2.5 py-1 text-[11px] font-semibold text-success">
+              Active
+            </span>
+          </div>
+        </div>
+        <SettingRow label="Manage Subscription" onClick={() => {}} />
+        <SettingRow label="Billing History" onClick={() => {}} />
+      </SettingsGroup>
+
+      {/* Danger zone */}
+      <SettingsGroup title="Account Actions">
+        <SettingRow
+          label="Sign Out"
+          description="You will be returned to the login screen"
+          onClick={handleLogout}
+          destructive
+        />
+        <SettingRow
+          label="Delete Account"
+          description="Permanently remove all data — cannot be undone"
+          onClick={() => {}}
+          destructive
+        />
+      </SettingsGroup>
+
+      {/* Mascot footer */}
+      <div className="flex flex-col items-center gap-2 pb-4 opacity-50">
+        <Image
+          src="/mascott/OrkiLogoFront.webp"
+          alt="Orki"
+          width={40}
+          height={40}
+          className="opacity-60"
+        />
+        <p className="text-[11px] text-muted">Orki · Version 0.1.0</p>
+      </div>
+    </div>
+  );
+}
+

@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Inter, Quicksand } from "next/font/google";
 import "./globals.css";
 
+import { AuthProvider } from "@/providers/auth-provider";
+import { NotificationProvider } from "@/providers/notification-provider";
+import { OnboardingProvider } from "@/providers/onboarding-provider";
+
 const quicksand = Quicksand({
   variable: "--font-quicksand",
   subsets: ["latin"],
@@ -34,7 +38,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${quicksand.variable} ${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <AuthProvider>
+          <NotificationProvider>
+            <OnboardingProvider>{children}</OnboardingProvider>
+          </NotificationProvider>
+        </AuthProvider>
+      </body>
     </html>
   );
 }

@@ -1,14 +1,14 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext } from "react";
 
 import { useAuthContext } from "@/providers/auth-provider";
-import { isOnboardingComplete } from "@/shared/firebase/onboarding";
 
 interface OnboardingContextValue {
-  /** null = not yet determined (loading or unauthenticated) */
+  /** null = auth is still loading or user is unauthenticated */
   onboardingComplete: boolean | null;
   loading: boolean;
+  /** Optimistically marks onboarding complete in local auth state. */
   markComplete: () => void;
 }
 
@@ -23,31 +23,26 @@ export function useOnboardingContext(): OnboardingContextValue {
 }
 
 export function OnboardingProvider({ children }: { children: React.ReactNode }) {
-  const { user, loading: authLoading } = useAuthContext();
-  const [onboardingComplete, setOnboardingComplete] = useState<boolean | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { user, loading: authLoading, setUser } = useAuthContext();
 
-  useEffect(() => {
-    if (authLoading) return;
+  const onboardingComplete = authLoading
+    ? null
+    : user
+      ? user.onboarding_completed
+      : null;
 
-    if (!user) {
-      setOnboardingComplete(null);
-      setLoading(false);
-      return;
+  const markComplete = useCallback(() => {
+    if (user) {
+      setUser({ ...user, onboarding_completed: true });
     }
-
-    setLoading(true);
-    isOnboardingComplete(user.uid)
-      .then((complete) => setOnboardingComplete(complete))
-      .catch(() => setOnboardingComplete(false))
-      .finally(() => setLoading(false));
-  }, [user, authLoading]);
-
-  const markComplete = useCallback(() => setOnboardingComplete(true), []);
+  }, [user, setUser]);
 
   return (
-    <OnboardingContext.Provider value={{ onboardingComplete, loading, markComplete }}>
+    <OnboardingContext.Provider
+      value={{ onboardingComplete, loading: authLoading, markComplete }}
+    >
       {children}
     </OnboardingContext.Provider>
   );
 }
+

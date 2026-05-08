@@ -1,7 +1,7 @@
 import { env } from "@/shared/config/env";
 import type { ApiErrorResponse } from "@/shared/types/api";
 
-type RequestInitWithBody = RequestInit & {
+type RequestInitWithBody = Omit<RequestInit, "body"> & {
   body?: unknown;
 };
 
@@ -17,11 +17,26 @@ export class ApiError extends Error {
   }
 }
 
+/**
+ * Read the Django CSRF token from the `csrftoken` cookie.
+ * Returns an empty string in SSR contexts where `document` is unavailable.
+ */
+function getCsrfToken(): string {
+  if (typeof document === "undefined") return "";
+  const match = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/);
+  return match ? match[1] : "";
+}
+
 export async function http<T>(path: string, init: RequestInitWithBody = {}): Promise<T> {
+  const method = (init.method ?? "GET").toUpperCase();
+  const isMutation = ["POST", "PUT", "PATCH", "DELETE"].includes(method);
+
   const response = await fetch(`${env.NEXT_PUBLIC_API_URL}${path}`, {
     ...init,
+    credentials: "include",        // Send session cookie on every request
     headers: {
       "Content-Type": "application/json",
+      ...(isMutation ? { "X-CSRFToken": getCsrfToken() } : {}),
       ...(init.headers ?? {}),
     },
     body: init.body ? JSON.stringify(init.body) : undefined,
@@ -39,5 +54,9 @@ export async function http<T>(path: string, init: RequestInitWithBody = {}): Pro
     throw new ApiError(payload?.detail ?? "Request failed.", response.status, payload);
   }
 
+  // 204 No Content — return undefined cast to T
+  if (response.status === 204) return undefined as T;
+
   return (await response.json()) as T;
 }
+

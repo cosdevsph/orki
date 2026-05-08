@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { useAuth } from "@/hooks/useAuth";
 import { useNotification } from "@/providers/notification-provider";
+import { loginWithBackend } from "@/shared/api/auth";
 import { routes } from "@/shared/config/routes";
 import { signInWithEmail, signInWithGoogle } from "@/shared/firebase/auth";
 
@@ -32,6 +34,7 @@ function GoogleIcon() {
 
 export function SignInForm() {
   const router = useRouter();
+  const { setUser } = useAuth();
   const { notify } = useNotification();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,12 +42,20 @@ export function SignInForm() {
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  /** Exchange a Firebase credential for a backend server session. */
+  async function exchangeToken(getIdToken: () => Promise<string>) {
+    const idToken = await getIdToken();
+    const { user } = await loginWithBackend(idToken);
+    setUser(user);
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError(null);
     try {
-      await signInWithEmail(email, password);
+      const credential = await signInWithEmail(email, password);
+      await exchangeToken(() => credential.user.getIdToken());
       notify("You are logged in", "success");
       router.replace(routes.onboarding);
     } catch (err) {
@@ -60,7 +71,8 @@ export function SignInForm() {
     setIsGoogleLoading(true);
     setError(null);
     try {
-      await signInWithGoogle();
+      const credential = await signInWithGoogle();
+      await exchangeToken(() => credential.user.getIdToken());
       notify("You are logged in", "success");
       router.replace(routes.onboarding);
     } catch (err) {

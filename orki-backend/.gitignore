@@ -9,6 +9,8 @@ __pycache__/
 venv/
 .env/
 .env.*
+.env.local
+.env.production
 
 # ==============================
 # Django
@@ -18,9 +20,18 @@ db.sqlite3
 media/
 staticfiles/
 
-# Migrations (optional: keep if working in team)
-# apps/*/migrations/*
-# !apps/*/migrations/__init__.py
+# ==============================
+# Firebase / Secrets (CRITICAL)
+# ==============================
+# Firebase Admin SDK Service Accounts — all naming patterns
+serviceAccountKey.json
+*serviceAccount*.json
+firebase-service-account.json
+*firebase-adminsdk*.json
+*-firebase-adminsdk-*.json
+
+# Firebase service directory (safety net)
+services/firebase/*.json
 
 # ==============================
 # Environment Variables
@@ -28,12 +39,6 @@ staticfiles/
 .env
 .env.local
 .env.production
-
-# ==============================
-# Firebase Secrets
-# ==============================
-serviceAccountKey.json
-services/firebase/*.json
 
 # ==============================
 # IDE / OS

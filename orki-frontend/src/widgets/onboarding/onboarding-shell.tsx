@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
 import { useOnboarding } from "@/hooks/useOnboarding";
 import { useNotification } from "@/providers/notification-provider";
-import { saveOnboardingProfile } from "@/shared/firebase/onboarding";
+import { saveOnboarding } from "@/shared/api/auth";
 import { routes } from "@/shared/config/routes";
 import type { ExamType, PersonalInfo } from "@/entities/onboarding/types";
 import { PersonalInfoCard } from "@/widgets/onboarding/personal-info-card";
@@ -64,7 +64,12 @@ export function OnboardingShell() {
     if (!user || !personalInfo) return;
     setIsSaving(true);
     try {
-      await saveOnboardingProfile(user.uid, { ...personalInfo, examType });
+      await saveOnboarding({
+        first_name: personalInfo.firstName,
+        last_name: personalInfo.lastName,
+        age: personalInfo.age,
+        exam_type: examType,
+      });
       markComplete();
       notify("Welcome to Orki — your study journey begins now.", "success");
       router.replace(routes.dashboard);

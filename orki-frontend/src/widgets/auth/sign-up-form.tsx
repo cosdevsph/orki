@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { useAuth } from "@/hooks/useAuth";
 import { useNotification } from "@/providers/notification-provider";
+import { loginWithBackend } from "@/shared/api/auth";
 import { routes } from "@/shared/config/routes";
 import { signInWithGoogle, signUpWithEmail } from "@/shared/firebase/auth";
 
@@ -32,6 +34,7 @@ function GoogleIcon() {
 
 export function SignUpForm() {
   const router = useRouter();
+  const { setUser } = useAuth();
   const { notify } = useNotification();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -40,6 +43,13 @@ export function SignUpForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  /** Exchange a Firebase credential for a backend server session. */
+  async function exchangeToken(getIdToken: () => Promise<string>) {
+    const idToken = await getIdToken();
+    const { user } = await loginWithBackend(idToken);
+    setUser(user);
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,7 +64,8 @@ export function SignUpForm() {
     setIsLoading(true);
     setError(null);
     try {
-      await signUpWithEmail(name, email, password);
+      const credential = await signUpWithEmail(name, email, password);
+      await exchangeToken(() => credential.user.getIdToken());
       notify("You are logged in", "success");
       router.replace(routes.onboarding);
     } catch (err) {
@@ -68,7 +79,8 @@ export function SignUpForm() {
     setIsGoogleLoading(true);
     setError(null);
     try {
-      await signInWithGoogle();
+      const credential = await signInWithGoogle();
+      await exchangeToken(() => credential.user.getIdToken());
       notify("You are logged in", "success");
       router.replace(routes.onboarding);
     } catch (err) {

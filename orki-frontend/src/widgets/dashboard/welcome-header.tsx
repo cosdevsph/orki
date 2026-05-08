@@ -21,7 +21,7 @@ function getTodayLabel(): string {
 
 export function WelcomeHeader() {
   const { user } = useAuth();
-  const firstName = user?.displayName?.split(" ")[0] ?? "there";
+  const firstName = (user?.display_name || user?.first_name) ?? "there";
 
   return (
     <div className="flex items-center justify-between">

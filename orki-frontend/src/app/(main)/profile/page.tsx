@@ -6,7 +6,8 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
 import { useNotification } from "@/providers/notification-provider";
 import { useTheme, type Theme } from "@/providers/theme-provider";
-import { logout } from "@/shared/firebase/auth";
+import { logoutFromBackend } from "@/shared/api/auth";
+import { signOutFirebase } from "@/shared/firebase/auth";
 import { routes } from "@/shared/config/routes";
 
 // ─── Settings group ───────────────────────────────────────────────────────────
@@ -218,22 +219,24 @@ function AppearanceSection() {
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ProfilePage() {
-  const { user } = useAuth();
+  const { user, setUser } = useAuth();
   const router = useRouter();
   const { notify } = useNotification();
 
-  const displayName = user?.displayName ?? "Orki User";
+  const displayName = user?.display_name || `${user?.first_name ?? ""} ${user?.last_name ?? ""}`.trim() || "Orki User";
   const email = user?.email ?? "—";
   const initials = displayName
     .split(" ")
-    .map((n) => n[0])
+    .map((n: string) => n[0])
     .slice(0, 2)
     .join("")
     .toUpperCase();
 
   const handleLogout = async () => {
     try {
-      await logout();
+      await logoutFromBackend();
+      await signOutFirebase().catch(() => {});  // Best-effort Firebase sign-out
+      setUser(null);
       notify("You've been logged out.", "success");
       router.replace(routes.login);
     } catch {
@@ -251,9 +254,9 @@ export default function ProfilePage() {
 
       {/* Profile card */}
       <div className="glass rounded-2xl p-6 flex items-center gap-5">
-        {user?.photoURL ? (
+        {false ? ( // photoURL is managed by backend profile; placeholder for future
           <Image
-            src={user.photoURL}
+            src=""
             alt={displayName}
             width={72}
             height={72}

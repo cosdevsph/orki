@@ -74,9 +74,14 @@ function NotificationToast({
     <div
       role="status"
       aria-live="polite"
-      className={`flex items-center gap-3 rounded-2xl bg-white/90 px-5 py-4 shadow-2xl shadow-slate-900/12 ring-1 ring-black/6 backdrop-blur-xl transition-all duration-300 ease-out ${
+      className={`flex items-center gap-3 rounded-2xl px-5 py-4 shadow-2xl shadow-slate-900/12 ring-1 backdrop-blur-xl transition-all duration-300 ease-out ${
         visible ? "translate-y-0 opacity-100 scale-100" : "-translate-y-2 opacity-0 scale-95"
       }`}
+      style={{
+        background: "var(--toast-bg)",
+        borderColor: "var(--toast-border)",
+        border: "1px solid var(--toast-border)",
+      }}
     >
       {/* Icon */}
       {item.type === "success" && (
@@ -122,7 +127,7 @@ function NotificationToast({
       <button
         type="button"
         onClick={handleManualDismiss}
-        className="ml-1 rounded-lg p-1 text-muted/50 transition-colors duration-150 hover:bg-slate-100 hover:text-muted"
+        className="ml-1 rounded-lg p-1 text-muted/50 transition-colors duration-150 hover:bg-overlay-hover-mid hover:text-muted"
         aria-label="Dismiss notification"
       >
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">

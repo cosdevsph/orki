@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 import { SignInForm } from "./sign-in-form";
 import { SignUpForm } from "./sign-up-form";
+import { routes } from "@/shared/config/routes";
 
 type Tab = "signin" | "signup";
 
@@ -22,6 +24,23 @@ export function AuthShell({ initialTab = "signin" }: AuthShellProps) {
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-10">
       {/* ── Page background ── */}
       <div className="absolute inset-0 bg-white" />
+
+      {/* ── Back to landing link ── */}
+      <Link
+        href={routes.home}
+        className="absolute left-6 top-6 z-20 flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-medium text-muted transition-colors duration-150 hover:bg-slate-100 hover:text-foreground"
+      >
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path
+            d="M9 11L5 7l4-4"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        Back
+      </Link>
 
       {/* ── Main card ── */}
       <div className="relative z-10 flex w-full max-w-5xl overflow-hidden rounded-3xl shadow-2xl shadow-slate-900/12 ring-1 ring-black/5">

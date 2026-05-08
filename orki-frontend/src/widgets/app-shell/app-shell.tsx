@@ -8,7 +8,7 @@ type AppShellProps = {
 
 export function AppShell({ children }: AppShellProps) {
   return (
-    <div className="ambient-bg min-h-screen text-foreground">
+    <div className="ambient-bg min-h-screen text-foreground transition-colors duration-300">
       <main className="mx-auto w-full max-w-6xl px-6 pt-10 pb-32">
         {children}
       </main>

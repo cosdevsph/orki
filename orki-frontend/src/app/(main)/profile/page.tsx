@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 import { useAuth } from "@/hooks/useAuth";
 import { useNotification } from "@/providers/notification-provider";
+import { useTheme, type Theme } from "@/providers/theme-provider";
 import { logout } from "@/shared/firebase/auth";
 import { routes } from "@/shared/config/routes";
 
@@ -22,8 +23,8 @@ function SettingRow({ label, description, control, onClick, destructive }: Setti
   return (
     <div
       className={[
-        "flex items-center justify-between px-5 py-3.5 transition-colors",
-        onClick ? "cursor-pointer hover:bg-black/[0.025]" : "",
+        "flex items-center justify-between px-5 py-3.5 transition-colors duration-200",
+        onClick ? "cursor-pointer hover:bg-overlay-hover" : "",
       ].join(" ")}
       onClick={onClick}
       role={onClick ? "button" : undefined}
@@ -59,7 +60,7 @@ function SettingsGroup({
       {title && (
         <h3 className="px-1 text-xs font-semibold uppercase tracking-widest text-muted">{title}</h3>
       )}
-      <div className="glass overflow-hidden rounded-2xl divide-y divide-black/[0.04]">
+      <div className="glass overflow-hidden rounded-2xl divide-y divide-divider">
         {children}
       </div>
     </div>
@@ -78,6 +79,138 @@ function Toggle({ checked }: { checked: boolean }) {
         className="absolute top-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform duration-200"
         style={{ transform: checked ? "translateX(20px)" : "translateX(2px)" }}
       />
+    </div>
+  );
+}
+
+// ─── Appearance ────────────────────────────────────────────────────────────────
+
+const THEME_OPTIONS: {
+  value: Theme;
+  label: string;
+  description: string;
+  preview: { bg: string; surface: string; accent: string; text: string };
+}[] = [
+  {
+    value: "light",
+    label: "Light",
+    description: "Clean & bright",
+    preview: { bg: "#ffffff", surface: "rgba(255,255,255,0.75)", accent: "#2fa2e2", text: "#001a3b" },
+  },
+  {
+    value: "dark",
+    label: "Dark",
+    description: "Easy on the eyes",
+    preview: { bg: "#131313", surface: "rgba(255,255,255,0.07)", accent: "#38bdf8", text: "#e2e8f0" },
+  },
+  {
+    value: "pink",
+    label: "Pink",
+    description: "Soft blush tone",
+    preview: { bg: "#F8E8EE", surface: "rgba(255,255,255,0.65)", accent: "#c4758a", text: "#2d1020" },
+  },
+];
+
+function ThemeCard({
+  option,
+  isActive,
+  onClick,
+}: {
+  option: (typeof THEME_OPTIONS)[number];
+  isActive: boolean;
+  onClick: () => void;
+}) {
+  const { bg, surface, accent, text } = option.preview;
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={isActive}
+      className={[
+        "group relative flex flex-col gap-3 rounded-2xl border-2 p-4 transition-all duration-200 text-left w-full",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
+        isActive
+          ? "border-primary shadow-md shadow-primary/10"
+          : "border-border hover:border-primary/40 hover:bg-overlay-hover",
+      ].join(" ")}
+    >
+      {/* Mini theme preview */}
+      <div
+        className="relative h-20 w-full overflow-hidden rounded-xl"
+        style={{ background: bg }}
+      >
+        {/* Mock card */}
+        <div
+          className="absolute left-3 top-3 right-3 h-8 rounded-lg"
+          style={{ background: surface, border: `1px solid ${accent}22` }}
+        />
+        {/* Mock accent bar */}
+        <div
+          className="absolute bottom-3 left-3 h-1.5 w-10 rounded-full"
+          style={{ background: accent }}
+        />
+        {/* Mock text line */}
+        <div
+          className="absolute bottom-3 left-16 h-1.5 w-8 rounded-full opacity-30"
+          style={{ background: text }}
+        />
+      </div>
+
+      {/* Label */}
+      <div className="flex items-center justify-between">
+        <div>
+          <p className="text-sm font-semibold text-foreground">{option.label}</p>
+          <p className="text-xs text-muted">{option.description}</p>
+        </div>
+        {/* Active check */}
+        <div
+          className={[
+            "flex h-5 w-5 items-center justify-center rounded-full border-2 transition-all duration-200",
+            isActive
+              ? "border-primary bg-primary"
+              : "border-border bg-transparent",
+          ].join(" ")}
+        >
+          {isActive && (
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path
+                d="M2 5l2.5 2.5L8 3"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
+        </div>
+      </div>
+    </button>
+  );
+}
+
+function AppearanceSection() {
+  const { theme, setTheme } = useTheme();
+
+  return (
+    <div className="space-y-2">
+      <h3 className="px-1 text-xs font-semibold uppercase tracking-widest text-muted">Appearance</h3>
+      <div className="glass overflow-hidden rounded-2xl p-5 space-y-4">
+        <div>
+          <p className="text-sm font-medium text-foreground">Theme</p>
+          <p className="text-xs text-muted mt-0.5">Choose how Orki looks to you</p>
+        </div>
+        <div className="grid grid-cols-3 gap-3">
+          {THEME_OPTIONS.map((opt) => (
+            <ThemeCard
+              key={opt.value}
+              option={opt}
+              isActive={theme === opt.value}
+              onClick={() => setTheme(opt.value)}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -127,7 +260,7 @@ export default function ProfilePage() {
             className="rounded-2xl object-cover shadow-md"
           />
         ) : (
-          <div className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-primary/15 shadow-inner">
+          <div className="flex h-18 w-18 items-center justify-center rounded-2xl bg-primary/15 shadow-inner">
             <span className="font-heading text-2xl font-bold text-primary">{initials}</span>
           </div>
         )}
@@ -141,11 +274,14 @@ export default function ProfilePage() {
         </div>
         <button
           type="button"
-          className="rounded-xl bg-black/[0.05] px-4 py-2 text-xs font-semibold text-secondary transition hover:bg-black/[0.08]"
+          className="rounded-xl bg-overlay-hover-mid px-4 py-2 text-xs font-semibold text-secondary transition hover:bg-overlay-hover-strong"
         >
           Edit Profile
         </button>
       </div>
+
+      {/* Account settings */}
+      <AppearanceSection />
 
       {/* Account settings */}
       <SettingsGroup title="Account">

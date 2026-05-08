@@ -1,42 +1,168 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #001a3b;
-  --secondary: #334155;
-  --primary: #2fa2e2;
-  --success: #10b981;
-  --muted: #475569;
-  --border: #e2e8f0;
+/* ─────────────────────────────────────────────────────────────────────────────
+   LIGHT THEME (default)
+───────────────────────────────────────────────────────────────────────────── */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* Core palette */
+  --background:  #ffffff;
+  --foreground:  #001a3b;
+  --secondary:   #334155;
+  --primary:     #2fa2e2;
+  --success:     #10b981;
+  --muted:       #475569;
+  --border:      #e2e8f0;
+
+  /* Surface / card */
+  --surface:     rgba(255, 255, 255, 0.68);
+  --surface-mid: rgba(255, 255, 255, 0.82);
+
+  /* Hover overlays */
+  --overlay-hover:        rgba(0, 0, 0, 0.025);
+  --overlay-hover-mid:    rgba(0, 0, 0, 0.05);
+  --overlay-hover-strong: rgba(0, 0, 0, 0.08);
+
+  /* Divider */
+  --divider: rgba(0, 0, 0, 0.04);
+
+  /* Toast */
+  --toast-bg:     rgba(255, 255, 255, 0.9);
+  --toast-border: rgba(0, 0, 0, 0.06);
+
+  /* Glass */
+  --glass-bg:            rgba(255, 255, 255, 0.68);
+  --glass-border:        rgba(255, 255, 255, 0.85);
+  --glass-shadow-a:      rgba(0, 0, 0, 0.055);
+  --glass-shadow-b:      rgba(0, 0, 0, 0.035);
+  --glass-strong-bg:     rgba(255, 255, 255, 0.82);
+  --glass-strong-border: rgba(255, 255, 255, 0.92);
+  --glass-dock-bg:       rgba(255, 255, 255, 0.78);
+  --glass-dock-border:   rgba(255, 255, 255, 0.88);
+  --glass-dock-inset:    rgba(255, 255, 255, 0.9);
+
+  /* Ambient gradient base */
+  --ambient-base: #ffffff;
+  --ambient-a:    rgba(47, 162, 226, 0.10);
+  --ambient-b:    rgba(16, 185, 129, 0.07);
+  --ambient-c:    rgba(47, 162, 226, 0.08);
 }
 
+/* ─────────────────────────────────────────────────────────────────────────────
+   DARK THEME
+───────────────────────────────────────────────────────────────────────────── */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background:  #131313;
+  --foreground:  #e2e8f0;
+  --secondary:   #94a3b8;
+  --primary:     #38bdf8;
+  --success:     #34d399;
+  --muted:       #64748b;
+  --border:      #2a2a2a;
+
+  --surface:     rgba(255, 255, 255, 0.05);
+  --surface-mid: rgba(255, 255, 255, 0.09);
+
+  --overlay-hover:        rgba(255, 255, 255, 0.04);
+  --overlay-hover-mid:    rgba(255, 255, 255, 0.07);
+  --overlay-hover-strong: rgba(255, 255, 255, 0.11);
+
+  --divider: rgba(255, 255, 255, 0.06);
+
+  --toast-bg:     rgba(28, 28, 28, 0.95);
+  --toast-border: rgba(255, 255, 255, 0.08);
+
+  --glass-bg:            rgba(255, 255, 255, 0.055);
+  --glass-border:        rgba(255, 255, 255, 0.09);
+  --glass-shadow-a:      rgba(0, 0, 0, 0.35);
+  --glass-shadow-b:      rgba(0, 0, 0, 0.25);
+  --glass-strong-bg:     rgba(255, 255, 255, 0.08);
+  --glass-strong-border: rgba(255, 255, 255, 0.12);
+  --glass-dock-bg:       rgba(22, 22, 22, 0.88);
+  --glass-dock-border:   rgba(255, 255, 255, 0.09);
+  --glass-dock-inset:    rgba(255, 255, 255, 0.06);
+
+  --ambient-base: #131313;
+  --ambient-a:    rgba(56, 189, 248, 0.07);
+  --ambient-b:    rgba(52, 211, 153, 0.05);
+  --ambient-c:    rgba(56, 189, 248, 0.05);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PINK THEME  — soft professional blush
+───────────────────────────────────────────────────────────────────────────── */
+[data-theme="pink"] {
+  color-scheme: light;
+
+  --background:  #F8E8EE;
+  --foreground:  #2d1020;
+  --secondary:   #7a3a5a;
+  --primary:     #c4758a;
+  --success:     #10b981;
+  --muted:       #9e6a7e;
+  --border:      #e8c5d4;
+
+  --surface:     rgba(255, 255, 255, 0.62);
+  --surface-mid: rgba(255, 255, 255, 0.80);
+
+  --overlay-hover:        rgba(196, 117, 138, 0.06);
+  --overlay-hover-mid:    rgba(196, 117, 138, 0.11);
+  --overlay-hover-strong: rgba(196, 117, 138, 0.16);
+
+  --divider: rgba(196, 117, 138, 0.10);
+
+  --toast-bg:     rgba(255, 248, 251, 0.95);
+  --toast-border: rgba(196, 117, 138, 0.15);
+
+  --glass-bg:            rgba(255, 255, 255, 0.60);
+  --glass-border:        rgba(255, 255, 255, 0.80);
+  --glass-shadow-a:      rgba(196, 117, 138, 0.08);
+  --glass-shadow-b:      rgba(196, 117, 138, 0.04);
+  --glass-strong-bg:     rgba(255, 255, 255, 0.76);
+  --glass-strong-border: rgba(255, 255, 255, 0.90);
+  --glass-dock-bg:       rgba(255, 246, 249, 0.84);
+  --glass-dock-border:   rgba(255, 255, 255, 0.82);
+  --glass-dock-inset:    rgba(255, 255, 255, 0.88);
+
+  --ambient-base: #F8E8EE;
+  --ambient-a:    rgba(196, 117, 138, 0.12);
+  --ambient-b:    rgba(232, 183, 200, 0.08);
+  --ambient-c:    rgba(196, 117, 138, 0.09);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TAILWIND TOKEN MAPPINGS  (Tailwind v4 @theme inline)
+───────────────────────────────────────────────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-secondary: var(--secondary);
-  --color-primary: var(--primary);
-  --color-success: var(--success);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-quicksand);
+  --color-background:          var(--background);
+  --color-foreground:          var(--foreground);
+  --color-secondary:           var(--secondary);
+  --color-primary:             var(--primary);
+  --color-success:             var(--success);
+  --color-muted:               var(--muted);
+  --color-border:              var(--border);
+  --color-surface:             var(--surface);
+  --color-surface-mid:         var(--surface-mid);
+  --color-overlay-hover:       var(--overlay-hover);
+  --color-overlay-hover-mid:   var(--overlay-hover-mid);
+  --color-overlay-hover-strong: var(--overlay-hover-strong);
+  --color-divider:             var(--divider);
+  --font-sans:                 var(--font-inter);
+  --font-heading:              var(--font-quicksand);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #020617;
-    --foreground: #001a3b;
-    --primary: #38bdf8;
-    --success: #10b981;
-    --muted: #94a3b8;
-    --border: #1e293b;
-  }
-}
-
+/* ─────────────────────────────────────────────────────────────────────────────
+   BASE
+───────────────────────────────────────────────────────────────────────────── */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1,
@@ -108,38 +234,42 @@ h6 {
 /* ─── Ambient App Background ─────────────────────────────────────────────── */
 .ambient-bg {
   background:
-    radial-gradient(ellipse 80% 40% at 20% -8%, rgba(47, 162, 226, 0.1) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 35% at 82% 8%, rgba(16, 185, 129, 0.07) 0%, transparent 55%),
-    radial-gradient(ellipse 90% 50% at 50% 108%, rgba(47, 162, 226, 0.08) 0%, transparent 55%),
-    #ffffff;
+    radial-gradient(ellipse 80% 40% at 20% -8%, var(--ambient-a) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 35% at 82% 8%,  var(--ambient-b) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 50% at 50% 108%, var(--ambient-c) 0%, transparent 55%),
+    var(--ambient-base);
+  transition: background-color 0.3s ease;
 }
 
 /* ─── Glassmorphism Utilities ─────────────────────────────────────────────── */
 .glass {
-  background: rgba(255, 255, 255, 0.68);
+  background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.055), 0 1px 4px rgba(0, 0, 0, 0.035);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 24px var(--glass-shadow-a), 0 1px 4px var(--glass-shadow-b);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-strong {
-  background: rgba(255, 255, 255, 0.82);
+  background: var(--glass-strong-bg);
   backdrop-filter: blur(36px);
   -webkit-backdrop-filter: blur(36px);
-  border: 1px solid rgba(255, 255, 255, 0.92);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--glass-strong-border);
+  box-shadow: 0 8px 40px var(--glass-shadow-a), 0 2px 8px var(--glass-shadow-b);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .glass-dock {
-  background: rgba(255, 255, 255, 0.78);
+  background: var(--glass-dock-bg);
   backdrop-filter: blur(40px) saturate(1.8);
   -webkit-backdrop-filter: blur(40px) saturate(1.8);
-  border: 1px solid rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--glass-dock-border);
   box-shadow:
-    0 24px 64px rgba(0, 0, 0, 0.1),
-    0 4px 16px rgba(0, 0, 0, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    0 24px 64px var(--glass-shadow-a),
+    0 4px 16px var(--glass-shadow-b),
+    inset 0 1px 0 var(--glass-dock-inset);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* ─── Page Entry Animation ────────────────────────────────────────────────── */

@@ -5,6 +5,7 @@ import "./globals.css";
 import { AuthProvider } from "@/providers/auth-provider";
 import { NotificationProvider } from "@/providers/notification-provider";
 import { OnboardingProvider } from "@/providers/onboarding-provider";
+import { ThemeProvider, ThemeScript } from "@/providers/theme-provider";
 
 const quicksand = Quicksand({
   variable: "--font-quicksand",
@@ -37,13 +38,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${quicksand.variable} ${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${quicksand.variable} ${inter.variable} h-full antialiased`} suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
       <body className="min-h-full flex flex-col">
-        <AuthProvider>
-          <NotificationProvider>
-            <OnboardingProvider>{children}</OnboardingProvider>
-          </NotificationProvider>
-        </AuthProvider>
+        <ThemeProvider>
+          <AuthProvider>
+            <NotificationProvider>
+              <OnboardingProvider>{children}</OnboardingProvider>
+            </NotificationProvider>
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

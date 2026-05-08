@@ -91,7 +91,7 @@ export function BottomDock() {
                 "transition-all duration-200 ease-out select-none",
                 isActive
                   ? "bg-primary/10 text-primary"
-                  : "text-muted hover:bg-black/[0.04] hover:text-foreground",
+                  : "text-muted hover:bg-overlay-hover-mid hover:text-foreground",
               ].join(" ")}
             >
               {/* Active indicator dot */}
@@ -102,7 +102,7 @@ export function BottomDock() {
               {Icon && (
                 <Icon
                   className={[
-                    "h-[22px] w-[22px] transition-transform duration-200",
+                    "h-5.5 w-5.5 transition-transform duration-200",
                     "group-hover:scale-110",
                     isActive ? "scale-110" : "",
                   ].join(" ")}

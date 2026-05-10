@@ -165,6 +165,7 @@ class OnboardingView(APIView):
         profile.last_name = data["last_name"]
         profile.age = data["age"]
         profile.exam_type = data["exam_type"]
+        profile.exam_date = data.get("exam_date")
         profile.onboarding_completed = True
         profile.save(
             update_fields=[
@@ -172,6 +173,7 @@ class OnboardingView(APIView):
                 "last_name",
                 "age",
                 "exam_type",
+                "exam_date",
                 "onboarding_completed",
                 "updated_at",
             ]

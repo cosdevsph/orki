@@ -10,5 +10,6 @@ export type SessionUser = {
   last_name: string;
   age: number | null;
   exam_type: string;
+  exam_date: string | null;
   onboarding_completed: boolean;
 };

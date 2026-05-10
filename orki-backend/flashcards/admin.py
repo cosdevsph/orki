@@ -11,6 +11,6 @@ class DeckAdmin(admin.ModelAdmin):
 
 @admin.register(Flashcard)
 class FlashcardAdmin(admin.ModelAdmin):
-    list_display = ("front", "deck", "is_due", "next_review")
-    list_filter = ("is_due",)
+    list_display = ("front", "deck", "next_review", "interval", "ease_factor")
+    list_filter = ("deck",)
     search_fields = ("front", "back")

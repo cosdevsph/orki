@@ -60,7 +60,7 @@ export function OnboardingShell() {
 
   const handleBack = () => transitionTo(1);
 
-  const handleExamSelect = async (examType: ExamType) => {
+  const handleExamSelect = async (examType: ExamType, examDate: string | null) => {
     if (!user || !personalInfo) return;
     setIsSaving(true);
     try {
@@ -69,6 +69,7 @@ export function OnboardingShell() {
         last_name: personalInfo.lastName,
         age: personalInfo.age,
         exam_type: examType,
+        exam_date: examDate,
       });
       markComplete();
       notify("Welcome to Orki — your study journey begins now.", "success");

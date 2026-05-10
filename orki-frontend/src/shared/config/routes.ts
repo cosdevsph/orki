@@ -6,6 +6,8 @@ export const routes = {
   dashboard: "/dashboard",
   analytics: "/analytics",
   exams: "/exams",
+  examTake: (id: number) => `/exams/${id}/take` as const,
+  examResults: (attemptId: number) => `/exams/results/${attemptId}` as const,
   flashcards: "/flashcards",
   profile: "/profile",
 } as const;

@@ -39,6 +39,7 @@ export function saveOnboarding(data: {
   last_name: string;
   age: number;
   exam_type: string;
+  exam_date?: string | null;
 }): Promise<{ detail: string; user: SessionUser }> {
   return http("users/onboarding/", {
     method: "POST",

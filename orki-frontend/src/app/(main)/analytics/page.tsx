@@ -44,60 +44,108 @@ const MAX_SCORE = Math.max(...OVERVIEW.trend.map((p) => p.score));
 export default function AnalyticsPage() {
   return (
     <div className="animate-page-in space-y-8">
-      {/* Header */}
-      <div className="space-y-1">
-        <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground">Analytics</h1>
-        <p className="text-base text-muted">Your study progress, mastery levels, and performance trends.</p>
+      {/* Header with Study Streak at top-right */}
+      <div className="flex items-start justify-between">
+        <div className="space-y-1">
+          <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground">Analytics</h1>
+          <p className="text-base text-muted">Your study progress, mastery levels, and performance trends.</p>
+        </div>
+        {/* Study Streak Badge — top right per requirement #8 */}
+        <div className="flex items-center gap-2 rounded-full bg-amber-50 px-4 py-2.5 shadow-sm">
+          <svg width="16" height="16" viewBox="0 0 22 22" fill="none">
+            <path d="M11 2c0 4-4 5.5-4 9a4 4 0 0 0 8 0c0-3.5-4-5-4-9Z" fill="#F59E0B" />
+          </svg>
+          <div className="flex flex-col">
+            <span className="text-sm font-bold text-amber-700">12 days</span>
+            <span className="text-[9px] text-amber-600 leading-none">Study Streak</span>
+          </div>
+        </div>
       </div>
 
       {/* Top metrics row */}
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-4 gap-5">
         {/* Average score ring */}
-        <div className="glass rounded-2xl flex flex-col items-center gap-3 p-6">
+        <div className="glass rounded-2xl flex flex-col items-center justify-center gap-3 p-5">
           <ProgressRing
             value={OVERVIEW.averageScore}
-            size={130}
-            strokeWidth={11}
+            size={110}
+            strokeWidth={10}
             color="#2FA2E2"
             label={`${OVERVIEW.averageScore}%`}
             sublabel="Avg Score"
           />
-          <div className="text-center">
+          <div className="text-center mt-1">
             <p className="text-sm font-semibold text-foreground">Average Score</p>
-            <p className="text-xs text-muted">Across all exams this month</p>
+            <p className="text-xs text-muted">Across all exams</p>
           </div>
         </div>
 
         {/* Mastery ring */}
-        <div className="glass rounded-2xl flex flex-col items-center gap-3 p-6">
+        <div className="glass rounded-2xl flex flex-col items-center justify-center gap-3 p-5">
           <ProgressRing
             value={OVERVIEW.masteryLevel === "low" ? 30 : OVERVIEW.masteryLevel === "medium" ? 60 : 90}
-            size={130}
-            strokeWidth={11}
+            size={110}
+            strokeWidth={10}
             color="#10B981"
             label={OVERVIEW.masteryLevel === "low" ? "30%" : OVERVIEW.masteryLevel === "medium" ? "60%" : "90%"}
             sublabel="Mastery"
           />
-          <div className="text-center">
+          <div className="text-center mt-1">
             <p className="text-sm font-semibold text-foreground">{MASTERY_LABELS[OVERVIEW.masteryLevel]}</p>
-            <p className="text-xs text-muted">Overall knowledge level</p>
+            <p className="text-xs text-muted">Knowledge level</p>
           </div>
         </div>
 
         {/* Study ring */}
-        <div className="glass rounded-2xl flex flex-col items-center gap-3 p-6">
+        <div className="glass rounded-2xl flex flex-col items-center justify-center gap-3 p-5">
           <ProgressRing
             value={72}
-            size={130}
-            strokeWidth={11}
+            size={110}
+            strokeWidth={10}
             color="#8B5CF6"
             label="72%"
             sublabel="Goal"
           />
-          <div className="text-center">
+          <div className="text-center mt-1">
             <p className="text-sm font-semibold text-foreground">Weekly Goal</p>
-            <p className="text-xs text-muted">12 of 16.7 hrs completed</p>
+            <p className="text-xs text-muted">12 of 16.7 hrs</p>
           </div>
+        </div>
+
+        {/* Streak calendar */}
+        <div className="glass rounded-2xl p-5 flex flex-col justify-between">
+          <div className="flex items-center justify-between">
+            <h2 className="font-heading text-sm font-semibold text-foreground">Study Streak</h2>
+            <div className="flex items-center gap-1 rounded-full bg-amber-50 px-2 py-0.5">
+              <svg width="10" height="10" viewBox="0 0 22 22" fill="none">
+                <path d="M11 2c0 4-4 5.5-4 9a4 4 0 0 0 8 0c0-3.5-4-5-4-9Z" fill="#F59E0B" />
+              </svg>
+              <span className="text-[10px] font-bold text-amber-600">12 days</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-7 gap-1 mt-2">
+            {["M", "T", "W", "T", "F", "S", "S"].map((d, i) => (
+              <span key={`${d}-${i}`} className="text-center text-[9px] font-semibold text-muted">
+                {d}
+              </span>
+            ))}
+            {STREAK_CALENDAR.slice(-28).map((day, i) => (
+              <div
+                key={i}
+                className="aspect-square rounded-[3px]"
+                style={{
+                  backgroundColor: day.active
+                    ? `rgba(47,162,226,${0.2 + day.intensity * 0.7})`
+                    : "rgba(0,0,0,0.05)",
+                }}
+              />
+            ))}
+          </div>
+
+          <p className="text-[10px] text-muted text-center mt-2">
+            Keep studying daily!
+          </p>
         </div>
       </div>
 
@@ -146,69 +194,28 @@ export default function AnalyticsPage() {
         </div>
       </div>
 
-      {/* Subject mastery + streak */}
-      <div className="grid grid-cols-5 gap-5">
-        {/* Subject mastery */}
-        <div className="col-span-3 glass rounded-2xl p-6 space-y-4">
-          <h2 className="font-heading text-lg font-semibold text-foreground">Subject Mastery</h2>
-          <div className="space-y-3">
-            {SUBJECTS.map((sub) => (
-              <div key={sub.name} className="space-y-1.5">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-foreground">{sub.name}</span>
-                  <span className="text-sm font-semibold" style={{ color: sub.color }}>
-                    {sub.score}%
-                  </span>
-                </div>
-                <div className="h-2 overflow-hidden rounded-full bg-black/[0.06]">
-                  <div
-                    className="h-full rounded-full transition-all duration-700"
-                    style={{ width: `${sub.score}%`, backgroundColor: sub.color }}
-                  />
-                </div>
+      {/* Subject mastery */}
+      <div className="glass rounded-2xl p-6 space-y-4">
+        <h2 className="font-heading text-lg font-semibold text-foreground">Subject Mastery</h2>
+        <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+          {SUBJECTS.map((sub) => (
+            <div key={sub.name} className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium text-foreground">{sub.name}</span>
+                <span className="text-sm font-semibold" style={{ color: sub.color }}>
+                  {sub.score}%
+                </span>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Streak calendar */}
-        <div className="col-span-2 glass rounded-2xl p-6 space-y-4">
-          <div className="flex items-center justify-between">
-            <h2 className="font-heading text-lg font-semibold text-foreground">Study Streak</h2>
-            <div className="flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1">
-              <svg width="12" height="12" viewBox="0 0 22 22" fill="none">
-                <path d="M11 2c0 4-4 5.5-4 9a4 4 0 0 0 8 0c0-3.5-4-5-4-9Z" fill="#F59E0B" />
-              </svg>
-              <span className="text-xs font-bold text-amber-600">12 days</span>
+              <div className="h-2 overflow-hidden rounded-full bg-black/[0.06]">
+                <div
+                  className="h-full rounded-full transition-all duration-700"
+                  style={{ width: `${sub.score}%`, backgroundColor: sub.color }}
+                />
+              </div>
             </div>
-          </div>
-
-          {/* Calendar grid */}
-          <div className="grid grid-cols-7 gap-1.5">
-            {["M", "T", "W", "T", "F", "S", "S"].map((d, i) => (
-              <span key={`${d}-${i}`} className="text-center text-[9px] font-semibold text-muted">
-                {d}
-              </span>
-            ))}
-            {STREAK_CALENDAR.map((day, i) => (
-              <div
-                key={i}
-                className="aspect-square rounded-md"
-                style={{
-                  backgroundColor: day.active
-                    ? `rgba(47,162,226,${0.2 + day.intensity * 0.7})`
-                    : "rgba(0,0,0,0.05)",
-                }}
-              />
-            ))}
-          </div>
-
-          <p className="text-xs text-muted text-center">
-            Keep studying daily to grow your streak!
-          </p>
+          ))}
         </div>
       </div>
     </div>
   );
 }
-

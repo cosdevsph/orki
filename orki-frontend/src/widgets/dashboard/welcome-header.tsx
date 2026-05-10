@@ -11,27 +11,18 @@ function getGreeting(): string {
   return "Good evening";
 }
 
-function getTodayLabel(): string {
-  return new Date().toLocaleDateString("en-US", {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-  });
-}
-
 export function WelcomeHeader() {
   const { user } = useAuth();
-  const firstName = (user?.display_name || user?.first_name) ?? "there";
+  const firstName = user?.first_name || user?.display_name || "there";
 
   return (
     <div className="flex items-center justify-between">
       <div className="space-y-1">
-        <p className="text-sm font-medium text-muted">{getTodayLabel()}</p>
         <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground">
-          {getGreeting()}, {firstName}
+          Welcome back, {firstName}!
         </h1>
         <p className="text-base text-secondary">
-          You have a great study session ahead of you today.
+          Your focus session awaits. You are on a 5-day streak.
         </p>
       </div>
 

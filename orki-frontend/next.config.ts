@@ -13,6 +13,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Fix Cross-Origin-Opener-Policy issue with Firebase popup auth
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Cross-Origin-Opener-Policy",
+            value: "same-origin-allow-popups",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

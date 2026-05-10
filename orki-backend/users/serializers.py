@@ -14,6 +14,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
             "last_name",
             "age",
             "exam_type",
+            "exam_date",
             "onboarding_completed",
         ]
         read_only_fields = ["id", "email"]
@@ -36,3 +37,4 @@ class OnboardingSerializer(serializers.Serializer):
     last_name = serializers.CharField(max_length=100)
     age = serializers.IntegerField(min_value=1, max_value=120)
     exam_type = serializers.ChoiceField(choices=["LEPT", "CSE", "PmLE", "CLE"])
+    exam_date = serializers.DateField(required=False, allow_null=True)

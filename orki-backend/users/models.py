@@ -22,6 +22,7 @@ class UserProfile(models.Model):
     last_name = models.CharField(max_length=100, blank=True)
     age = models.PositiveSmallIntegerField(null=True, blank=True)
     exam_type = models.CharField(max_length=20, choices=EXAM_CHOICES, blank=True)
+    exam_date = models.DateField(null=True, blank=True, help_text="Target date for the actual exam")
     onboarding_completed = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

@@ -15,5 +15,6 @@ export interface PersonalInfo {
 
 export interface OnboardingProfile extends PersonalInfo {
   examType: ExamType;
+  examDate: string | null;
   onboardingCompleted: boolean;
 }

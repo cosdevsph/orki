@@ -27,10 +27,10 @@ const DECKS: Deck[] = [
     lastStudied: "2 hours ago",
     color: "#2FA2E2",
     cards: [
-      { id: "a1", front: "What is the rotator cuff composed of?", back: "Supraspinatus, Infraspinatus, Teres Minor, Subscapularis (SITS)", deck: "Anatomy", isDue: true },
-      { id: "a2", front: "Which nerve innervates the deltoid muscle?", back: "Axillary nerve (C5, C6)", deck: "Anatomy", isDue: true },
-      { id: "a3", front: "What is the carpal tunnel formed by?", back: "The flexor retinaculum and the carpal bones", deck: "Anatomy", isDue: false },
-      { id: "a4", front: "Which muscle is the prime mover for shoulder abduction?", back: "Deltoid (first 15° by supraspinatus)", deck: "Anatomy", isDue: true },
+      { id: "a1", front: "What is the rotator cuff composed of?", back: "Supraspinatus, Infraspinatus, Teres Minor, Subscapularis (SITS)", deck: "Anatomy", is_due: true, interval: 0, ease_factor: 2.5, repetitions: 0, next_review: "" },
+      { id: "a2", front: "Which nerve innervates the deltoid muscle?", back: "Axillary nerve (C5, C6)", deck: "Anatomy", is_due: true, interval: 0, ease_factor: 2.5, repetitions: 0, next_review: "" },
+      { id: "a3", front: "What is the carpal tunnel formed by?", back: "The flexor retinaculum and the carpal bones", deck: "Anatomy", is_due: false, interval: 6, ease_factor: 2.5, repetitions: 2, next_review: "" },
+      { id: "a4", front: "Which muscle is the prime mover for shoulder abduction?", back: "Deltoid (first 15° by supraspinatus)", deck: "Anatomy", is_due: true, interval: 0, ease_factor: 2.5, repetitions: 0, next_review: "" },
     ],
   },
   {
@@ -41,9 +41,9 @@ const DECKS: Deck[] = [
     lastStudied: "Yesterday",
     color: "#10B981",
     cards: [
-      { id: "p1", front: "What is the Frank-Starling mechanism?", back: "Increased preload → increased stretch → increased force of contraction", deck: "Physiology", isDue: true },
-      { id: "p2", front: "Define cardiac output", back: "Heart rate × Stroke volume (CO = HR × SV)", deck: "Physiology", isDue: true },
-      { id: "p3", front: "What is the normal resting heart rate?", back: "60–100 beats per minute", deck: "Physiology", isDue: false },
+      { id: "p1", front: "What is the Frank-Starling mechanism?", back: "Increased preload → increased stretch → increased force of contraction", deck: "Physiology", is_due: true, interval: 0, ease_factor: 2.5, repetitions: 0, next_review: "" },
+      { id: "p2", front: "Define cardiac output", back: "Heart rate × Stroke volume (CO = HR × SV)", deck: "Physiology", is_due: true, interval: 0, ease_factor: 2.5, repetitions: 0, next_review: "" },
+      { id: "p3", front: "What is the normal resting heart rate?", back: "60–100 beats per minute", deck: "Physiology", is_due: false, interval: 10, ease_factor: 2.65, repetitions: 3, next_review: "" },
     ],
   },
   {
@@ -54,8 +54,8 @@ const DECKS: Deck[] = [
     lastStudied: "3 days ago",
     color: "#8B5CF6",
     cards: [
-      { id: "b1", front: "What is Km?", back: "The substrate concentration at which reaction velocity is half of Vmax (Michaelis constant)", deck: "Biochemistry", isDue: true },
-      { id: "b2", front: "What is competitive inhibition?", back: "Inhibitor competes with substrate for active site; increases apparent Km, unchanged Vmax", deck: "Biochemistry", isDue: true },
+      { id: "b1", front: "What is Km?", back: "The substrate concentration at which reaction velocity is half of Vmax (Michaelis constant)", deck: "Biochemistry", is_due: true, interval: 0, ease_factor: 2.5, repetitions: 0, next_review: "" },
+      { id: "b2", front: "What is competitive inhibition?", back: "Inhibitor competes with substrate for active site; increases apparent Km, unchanged Vmax", deck: "Biochemistry", is_due: true, interval: 0, ease_factor: 2.5, repetitions: 0, next_review: "" },
     ],
   },
   {
@@ -66,8 +66,8 @@ const DECKS: Deck[] = [
     lastStudied: "Today",
     color: "#F59E0B",
     cards: [
-      { id: "ph1", front: "Mechanism of action of penicillin", back: "Inhibits transpeptidase (PBP), preventing cross-linking of peptidoglycan cell wall", deck: "Pharmacology", isDue: true },
-      { id: "ph2", front: "What is the first-line treatment for MRSA?", back: "Vancomycin (for serious infections)", deck: "Pharmacology", isDue: true },
+      { id: "ph1", front: "Mechanism of action of penicillin", back: "Inhibits transpeptidase (PBP), preventing cross-linking of peptidoglycan cell wall", deck: "Pharmacology", is_due: true, interval: 0, ease_factor: 2.5, repetitions: 0, next_review: "" },
+      { id: "ph2", front: "What is the first-line treatment for MRSA?", back: "Vancomycin (for serious infections)", deck: "Pharmacology", is_due: true, interval: 0, ease_factor: 2.5, repetitions: 0, next_review: "" },
     ],
   },
   {
@@ -78,8 +78,8 @@ const DECKS: Deck[] = [
     lastStudied: "Yesterday",
     color: "#EF4444",
     cards: [
-      { id: "pt1", front: "What are the cardinal signs of inflammation?", back: "Rubor (redness), Calor (heat), Tumor (swelling), Dolor (pain), Functio laesa (loss of function)", deck: "Pathology", isDue: true },
-      { id: "pt2", front: "What is the hallmark of acute inflammation?", back: "Neutrophil infiltration", deck: "Pathology", isDue: false },
+      { id: "pt1", front: "What are the cardinal signs of inflammation?", back: "Rubor (redness), Calor (heat), Tumor (swelling), Dolor (pain), Functio laesa (loss of function)", deck: "Pathology", is_due: true, interval: 0, ease_factor: 2.5, repetitions: 0, next_review: "" },
+      { id: "pt2", front: "What is the hallmark of acute inflammation?", back: "Neutrophil infiltration", deck: "Pathology", is_due: false, interval: 6, ease_factor: 2.5, repetitions: 2, next_review: "" },
     ],
   },
   {
@@ -90,8 +90,8 @@ const DECKS: Deck[] = [
     lastStudied: "4 days ago",
     color: "#06B6D4",
     cards: [
-      { id: "m1", front: "What is the replication cycle of HIV?", back: "Attachment → Fusion → Reverse transcription → Integration → Transcription → Assembly → Budding", deck: "Microbiology", isDue: true },
-      { id: "m2", front: "Gram-positive vs Gram-negative cell wall", back: "G+: thick peptidoglycan, no outer membrane. G-: thin peptidoglycan, outer membrane with LPS", deck: "Microbiology", isDue: true },
+      { id: "m1", front: "What is the replication cycle of HIV?", back: "Attachment → Fusion → Reverse transcription → Integration → Transcription → Assembly → Budding", deck: "Microbiology", is_due: true, interval: 0, ease_factor: 2.5, repetitions: 0, next_review: "" },
+      { id: "m2", front: "Gram-positive vs Gram-negative cell wall", back: "G+: thick peptidoglycan, no outer membrane. G-: thin peptidoglycan, outer membrane with LPS", deck: "Microbiology", is_due: true, interval: 0, ease_factor: 2.5, repetitions: 0, next_review: "" },
     ],
   },
 ];

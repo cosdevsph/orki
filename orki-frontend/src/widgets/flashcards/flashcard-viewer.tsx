@@ -2,17 +2,26 @@
 
 import { useState } from "react";
 
-import type { Flashcard } from "@/entities/flashcards/types";
+import type { Flashcard, SrsQuality } from "@/entities/flashcards/types";
 
 type FlashcardViewerProps = {
   cards: Flashcard[];
   deckName: string;
   onClose: () => void;
+  onReview?: (cardId: string, quality: SrsQuality) => void;
 };
 
-export function FlashcardViewer({ cards, deckName, onClose }: FlashcardViewerProps) {
+const SRS_RATINGS: { label: string; quality: SrsQuality; color: string; bg: string; interval: string }[] = [
+  { label: "Again", quality: 0, color: "#EF4444", bg: "rgba(239,68,68,0.1)", interval: "< 1 min" },
+  { label: "Hard", quality: 1, color: "#F59E0B", bg: "rgba(245,158,11,0.1)", interval: "~1 day" },
+  { label: "Good", quality: 2, color: "#2FA2E2", bg: "rgba(47,162,226,0.1)", interval: "~6 days" },
+  { label: "Easy", quality: 3, color: "#10B981", bg: "rgba(16,185,129,0.1)", interval: "~10 days" },
+];
+
+export function FlashcardViewer({ cards, deckName, onClose, onReview }: FlashcardViewerProps) {
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
+  const [reviewedCount, setReviewedCount] = useState(0);
 
   const card = cards[index];
   const total = cards.length;
@@ -20,6 +29,15 @@ export function FlashcardViewer({ cards, deckName, onClose }: FlashcardViewerPro
 
   function handleFlip() {
     setFlipped((f) => !f);
+  }
+
+  function handleRate(quality: SrsQuality) {
+    // Call SRS review API
+    if (onReview) {
+      onReview(card.id, quality);
+    }
+    setReviewedCount((c) => c + 1);
+    goNext();
   }
 
   function goNext() {
@@ -36,6 +54,31 @@ export function FlashcardViewer({ cards, deckName, onClose }: FlashcardViewerPro
     }
   }
 
+  // Session complete
+  if (index === total - 1 && reviewedCount === total) {
+    return (
+      <div className="flex flex-col items-center gap-6 py-12 text-center">
+        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-success/10">
+          <svg width="32" height="32" viewBox="0 0 22 22" fill="none" className="text-success">
+            <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </div>
+        <div className="space-y-2">
+          <h2 className="font-heading text-2xl font-bold text-foreground">Session Complete!</h2>
+          <p className="text-sm text-muted">You reviewed all {total} cards in {deckName}.</p>
+          <p className="text-xs text-muted">Cards will reappear based on your performance using spaced repetition.</p>
+        </div>
+        <button
+          type="button"
+          onClick={onClose}
+          className="rounded-xl bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary/90"
+        >
+          Back to Decks
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center gap-8">
       {/* Header */}
@@ -43,7 +86,7 @@ export function FlashcardViewer({ cards, deckName, onClose }: FlashcardViewerPro
         <div className="space-y-0.5">
           <h2 className="font-heading text-lg font-bold text-foreground">{deckName}</h2>
           <p className="text-xs text-muted">
-            Card {index + 1} of {total}
+            Card {index + 1} of {total} • {reviewedCount} reviewed
           </p>
         </div>
         <button
@@ -137,26 +180,31 @@ export function FlashcardViewer({ cards, deckName, onClose }: FlashcardViewerPro
         </button>
       </div>
 
-      {/* Rating row */}
+      {/* SRS Rating row — Active Recall grading */}
       {flipped && (
-        <div className="flex items-center gap-3">
-          <span className="text-xs text-muted">How well did you know this?</span>
-          {[
-            { label: "Again", color: "#EF4444", bg: "rgba(239,68,68,0.1)" },
-            { label: "Hard", color: "#F59E0B", bg: "rgba(245,158,11,0.1)" },
-            { label: "Good", color: "#2FA2E2", bg: "rgba(47,162,226,0.1)" },
-            { label: "Easy", color: "#10B981", bg: "rgba(16,185,129,0.1)" },
-          ].map((r) => (
-            <button
-              key={r.label}
-              type="button"
-              onClick={goNext}
-              className="rounded-xl px-4 py-1.5 text-xs font-semibold transition-all duration-150 hover:scale-105"
-              style={{ backgroundColor: r.bg, color: r.color }}
-            >
-              {r.label}
-            </button>
-          ))}
+        <div className="flex flex-col items-center gap-3">
+          <span className="text-xs text-muted font-medium">How well did you know this?</span>
+          <div className="flex items-center gap-3">
+            {SRS_RATINGS.map((r) => (
+              <button
+                key={r.label}
+                type="button"
+                onClick={() => handleRate(r.quality)}
+                className="flex flex-col items-center gap-1 rounded-xl px-5 py-2.5 transition-all duration-150 hover:scale-105"
+                style={{ backgroundColor: r.bg }}
+              >
+                <span className="text-sm font-bold" style={{ color: r.color }}>
+                  {r.label}
+                </span>
+                <span className="text-[9px]" style={{ color: r.color, opacity: 0.7 }}>
+                  {r.interval}
+                </span>
+              </button>
+            ))}
+          </div>
+          <p className="text-[10px] text-muted/60 mt-1">
+            Spaced repetition: difficult cards appear more often, easy cards are pushed further out.
+          </p>
         </div>
       )}
     </div>

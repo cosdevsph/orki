@@ -35,32 +35,14 @@ function ExamIcon({ type }: { type: ExamType }) {
   switch (type) {
     case "LEPT":
       return (
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="w-5 h-5"
-          aria-hidden="true"
-        >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
           <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
           <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
         </svg>
       );
     case "CSE":
       return (
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="w-5 h-5"
-          aria-hidden="true"
-        >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
           <path d="M3 21h18" />
           <path d="M5 21V7l7-4 7 4v14" />
           <path d="M9 21v-5h6v5" />
@@ -71,16 +53,7 @@ function ExamIcon({ type }: { type: ExamType }) {
       );
     case "PmLE":
       return (
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="w-5 h-5"
-          aria-hidden="true"
-        >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
           <circle cx="12" cy="7" r="4" />
           <path d="M5.5 20a7 7 0 0 1 13 0" />
           <line x1="12" y1="7" x2="12" y2="11" />
@@ -89,16 +62,7 @@ function ExamIcon({ type }: { type: ExamType }) {
       );
     case "CLE":
       return (
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="w-5 h-5"
-          aria-hidden="true"
-        >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5" aria-hidden="true">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
           <path d="M9 12l2 2 4-4" />
         </svg>
@@ -107,13 +71,14 @@ function ExamIcon({ type }: { type: ExamType }) {
 }
 
 interface ExamSelectionCardProps {
-  onSelect: (examType: ExamType) => void;
+  onSelect: (examType: ExamType, examDate: string | null) => void;
   isLoading: boolean;
   onBack: () => void;
 }
 
 export function ExamSelectionCard({ onSelect, isLoading, onBack }: ExamSelectionCardProps) {
   const [selected, setSelected] = useState<ExamType | null>(null);
+  const [examDate, setExamDate] = useState<string>("");
 
   return (
     <div className="flex flex-col gap-6">
@@ -168,16 +133,7 @@ export function ExamSelectionCard({ onSelect, isLoading, onBack }: ExamSelection
               {/* Selected checkmark badge */}
               {isSelected && (
                 <span className="absolute top-2.5 right-2.5 flex items-center justify-center w-4.5 h-4.5 rounded-full bg-primary">
-                  <svg
-                    className="w-2.5 h-2.5 text-white"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
+                  <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="M20 6L9 17l-5-5" />
                   </svg>
                 </span>
@@ -185,6 +141,24 @@ export function ExamSelectionCard({ onSelect, isLoading, onBack }: ExamSelection
             </button>
           );
         })}
+      </div>
+
+      {/* Exam Date Picker — appears after selecting an exam */}
+      <div className={`transition-all duration-300 ${selected ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none h-0 overflow-hidden"}`}>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="exam-date" className="text-sm font-semibold text-foreground">
+            When are you taking the {selected || ""} exam?
+          </label>
+          <p className="text-xs text-muted">This helps us create a study schedule tailored to your timeline</p>
+          <input
+            id="exam-date"
+            type="date"
+            value={examDate}
+            onChange={(e) => setExamDate(e.target.value)}
+            min={new Date().toISOString().split("T")[0]}
+            className="w-full rounded-xl border border-border/70 bg-white/80 px-4 py-3 text-sm text-foreground outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20"
+          />
+        </div>
       </div>
 
       {/* Footer actions */}
@@ -196,16 +170,7 @@ export function ExamSelectionCard({ onSelect, isLoading, onBack }: ExamSelection
           disabled={isLoading}
           className="flex items-center gap-1.5 rounded-2xl border border-border/70 bg-white px-5 py-3.5 text-sm font-medium text-secondary transition-all duration-200 hover:border-slate-300 hover:bg-slate-50 disabled:opacity-50"
         >
-          <svg
-            className="w-3.5 h-3.5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
+          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
           Back
@@ -219,7 +184,7 @@ export function ExamSelectionCard({ onSelect, isLoading, onBack }: ExamSelection
         >
           <button
             type="button"
-            onClick={() => selected && onSelect(selected)}
+            onClick={() => selected && onSelect(selected, examDate || null)}
             disabled={!selected || isLoading}
             className="w-full flex items-center justify-center gap-2 rounded-2xl bg-primary px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/35 disabled:opacity-60 disabled:hover:translate-y-0"
           >
@@ -231,16 +196,7 @@ export function ExamSelectionCard({ onSelect, isLoading, onBack }: ExamSelection
             ) : (
               <>
                 Begin Your Journey
-                <svg
-                  className="w-4 h-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </>

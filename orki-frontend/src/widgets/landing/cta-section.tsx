@@ -28,7 +28,7 @@ export function CtaSection() {
             <div className="flex flex-col gap-5">
               <h2 className="font-heading text-6xl font-bold leading-tight text-white">
                 Your board exam{" "}
-                <span className="bg-linear-to-r from-[#7DD3FC] to-[#2FA2E2] bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-[var(--heading-to)] to-[var(--heading-from)] bg-clip-text text-transparent">
                   success starts here.
                 </span>
               </h2>

@@ -38,7 +38,7 @@ export function DeckCard({ name, cardCount, dueCount, lastStudied, color, onStud
           <span className="text-[11px] font-medium text-muted">Mastery</span>
           <span className="text-[11px] font-semibold" style={{ color }}>{masteryPct}%</span>
         </div>
-        <div className="h-1.5 overflow-hidden rounded-full bg-black/[0.06]">
+        <div className="h-1.5 overflow-hidden rounded-full bg-track">
           <div
             className="h-full rounded-full transition-all duration-700"
             style={{ width: `${masteryPct}%`, backgroundColor: color }}

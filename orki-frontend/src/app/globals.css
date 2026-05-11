@@ -43,6 +43,30 @@
   --glass-dock-border:   rgba(255, 255, 255, 0.88);
   --glass-dock-inset:    rgba(255, 255, 255, 0.9);
 
+  /* Input */
+  --input-bg:      rgba(248, 250, 252, 0.6);
+  --input-border:  var(--border);
+
+  /* Card (solid, non-glass) */
+  --card-bg:       #ffffff;
+  --section-alt:   #f8fafc;
+  --nav-bg:        rgba(255, 255, 255, 0.85);
+
+  /* Track (progress bars, rings) */
+  --track:         rgba(0, 0, 0, 0.06);
+
+  /* Toggle */
+  --toggle-off:    rgba(0, 0, 0, 0.15);
+  --toggle-knob:   #ffffff;
+
+  /* Badge (amber/streak) */
+  --badge-amber-bg:   rgba(255, 237, 213, 0.8);
+  --badge-amber-text: #92400e;
+
+  /* Heading gradient */
+  --heading-from:  var(--primary);
+  --heading-to:    #1a7fba;
+
   /* Ambient gradient base */
   --ambient-base: #ffffff;
   --ambient-a:    rgba(47, 162, 226, 0.10);
@@ -86,6 +110,24 @@
   --glass-dock-border:   rgba(255, 255, 255, 0.09);
   --glass-dock-inset:    rgba(255, 255, 255, 0.06);
 
+  --input-bg:      rgba(255, 255, 255, 0.06);
+  --input-border:  var(--border);
+
+  --card-bg:       #1c1c1c;
+  --section-alt:   #181818;
+  --nav-bg:        rgba(19, 19, 19, 0.88);
+
+  --track:         rgba(255, 255, 255, 0.08);
+
+  --toggle-off:    rgba(255, 255, 255, 0.15);
+  --toggle-knob:   #e2e8f0;
+
+  --badge-amber-bg:   rgba(245, 158, 11, 0.15);
+  --badge-amber-text: #fbbf24;
+
+  --heading-from:  var(--primary);
+  --heading-to:    #7dd3fc;
+
   --ambient-base: #131313;
   --ambient-a:    rgba(56, 189, 248, 0.07);
   --ambient-b:    rgba(52, 211, 153, 0.05);
@@ -128,6 +170,24 @@
   --glass-dock-border:   rgba(255, 255, 255, 0.82);
   --glass-dock-inset:    rgba(255, 255, 255, 0.88);
 
+  --input-bg:      rgba(255, 255, 255, 0.55);
+  --input-border:  var(--border);
+
+  --card-bg:       rgba(255, 255, 255, 0.72);
+  --section-alt:   #f3dce4;
+  --nav-bg:        rgba(248, 232, 238, 0.88);
+
+  --track:         rgba(196, 117, 138, 0.12);
+
+  --toggle-off:    rgba(196, 117, 138, 0.2);
+  --toggle-knob:   #ffffff;
+
+  --badge-amber-bg:   rgba(245, 158, 11, 0.12);
+  --badge-amber-text: #92400e;
+
+  --heading-from:  var(--primary);
+  --heading-to:    #a85d72;
+
   --ambient-base: #F8E8EE;
   --ambient-a:    rgba(196, 117, 138, 0.12);
   --ambient-b:    rgba(232, 183, 200, 0.08);
@@ -151,6 +211,16 @@
   --color-overlay-hover-mid:   var(--overlay-hover-mid);
   --color-overlay-hover-strong: var(--overlay-hover-strong);
   --color-divider:             var(--divider);
+  --color-input-bg:            var(--input-bg);
+  --color-input-border:        var(--input-border);
+  --color-card-bg:             var(--card-bg);
+  --color-section-alt:         var(--section-alt);
+  --color-nav-bg:              var(--nav-bg);
+  --color-track:               var(--track);
+  --color-toggle-off:          var(--toggle-off);
+  --color-toggle-knob:         var(--toggle-knob);
+  --color-badge-amber-bg:      var(--badge-amber-bg);
+  --color-badge-amber-text:    var(--badge-amber-text);
   --font-sans:                 var(--font-inter);
   --font-heading:              var(--font-quicksand);
 }

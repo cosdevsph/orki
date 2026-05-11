@@ -1,0 +1,157 @@
+{
+  "exam_type": "CSE",
+  "subject": "General Information",
+  "version": "1.0.0",
+  "questions": [
+    {
+      "id": "CSE-GEN-001",
+      "topic": "Philippine Government",
+      "difficulty": "Easy",
+      "question": "What is the official title of the head of the Civil Service Commission?",
+      "choices": {
+        "A": "Director General",
+        "B": "Secretary",
+        "C": "Chairperson",
+        "D": "Commissioner"
+      },
+      "correct_answer": "C",
+      "explanation": "The Civil Service Commission (CSC) is headed by a Chairperson and two Commissioners. The Chairperson serves as the chief executive officer of the CSC.",
+      "tags": ["civil service", "government agencies", "CSC"]
+    },
+    {
+      "id": "CSE-GEN-002",
+      "topic": "Philippine Laws",
+      "difficulty": "Medium",
+      "question": "Republic Act 6713, known as the Code of Conduct and Ethical Standards for Public Officials and Employees, mandates that all public officials file a Statement of Assets, Liabilities, and Net Worth (SALN):",
+      "choices": {
+        "A": "Every 5 years",
+        "B": "Upon assumption to office only",
+        "C": "Annually",
+        "D": "Every 3 years"
+      },
+      "correct_answer": "C",
+      "explanation": "Under RA 6713, public officials and employees are required to file their SALN annually, within 30 days after assumption of office and within 30 days after expiration of term or separation from service.",
+      "tags": ["RA 6713", "SALN", "government ethics"]
+    },
+    {
+      "id": "CSE-GEN-003",
+      "topic": "Current Events",
+      "difficulty": "Medium",
+      "question": "The ASEAN (Association of Southeast Asian Nations) was established in:",
+      "choices": {
+        "A": "1945",
+        "B": "1967",
+        "C": "1975",
+        "D": "1980"
+      },
+      "correct_answer": "B",
+      "explanation": "ASEAN was established on August 8, 1967, through the Bangkok Declaration signed by the five founding members: Indonesia, Malaysia, Philippines, Singapore, and Thailand.",
+      "tags": ["ASEAN", "international relations", "history"]
+    },
+    {
+      "id": "CSE-GEN-004",
+      "topic": "Philippine Government",
+      "difficulty": "Easy",
+      "question": "Who is the appointing authority for career positions in the Philippine government?",
+      "choices": {
+        "A": "The President of the Philippines",
+        "B": "The Civil Service Commission",
+        "C": "The Department Secretary",
+        "D": "The appointing officer designated by law"
+      },
+      "correct_answer": "D",
+      "explanation": "Under civil service law, appointments to career positions are made by the proper appointing authority as designated by law, which varies depending on the position and agency.",
+      "tags": ["civil service", "government appointments", "career positions"]
+    },
+    {
+      "id": "CSE-GEN-005",
+      "topic": "Philippine Laws",
+      "difficulty": "Hard",
+      "question": "Under the Anti-Red Tape Act (RA 11032), what is the maximum number of working days to act on simple transactions?",
+      "choices": {
+        "A": "3 working days",
+        "B": "5 working days",
+        "C": "7 working days",
+        "D": "10 working days"
+      },
+      "correct_answer": "A",
+      "explanation": "Under RA 11032 (Ease of Doing Business Act), government agencies must act on simple transactions within 3 working days, complex transactions within 7 working days, and highly technical transactions within 20 working days.",
+      "tags": ["RA 11032", "anti-red tape", "government efficiency"]
+    },
+    {
+      "id": "CSE-GEN-006",
+      "topic": "General Knowledge",
+      "difficulty": "Easy",
+      "question": "The Philippine national flower is the:",
+      "choices": {
+        "A": "Rose",
+        "B": "Orchid",
+        "C": "Sampaguita",
+        "D": "Sunflower"
+      },
+      "correct_answer": "C",
+      "explanation": "The Sampaguita (Jasminum sambac) is the national flower of the Philippines. It was declared the national flower on February 1, 1934, through Proclamation No. 652.",
+      "tags": ["general knowledge", "Philippine national symbols", "culture"]
+    },
+    {
+      "id": "CSE-GEN-007",
+      "topic": "Philippine Laws",
+      "difficulty": "Medium",
+      "question": "Which law institutionalized the Government Internship Program for fresh graduates?",
+      "choices": {
+        "A": "RA 7041",
+        "B": "RA 6713",
+        "C": "RA 9485",
+        "D": "RA 6040"
+      },
+      "correct_answer": "A",
+      "explanation": "Republic Act 7041, also known as the Government Internship Law, provides for a government internship program to provide practical training to deserving college graduates who want to enter government service.",
+      "tags": ["RA 7041", "government internship", "civil service laws"]
+    },
+    {
+      "id": "CSE-GEN-008",
+      "topic": "Philippine Government",
+      "difficulty": "Hard",
+      "question": "The merit and fitness principle in the Philippine civil service means that government positions must be filled based on:",
+      "choices": {
+        "A": "Political affiliation and connections",
+        "B": "Seniority and length of service only",
+        "C": "Qualifications, competence, and performance",
+        "D": "Regional representation and quota system"
+      },
+      "correct_answer": "C",
+      "explanation": "The merit and fitness principle, enshrined in the Philippine Constitution and Civil Service Law, mandates that appointments in the civil service shall be made only according to merit and fitness to be determined, as far as practicable, by competitive examination.",
+      "tags": ["civil service", "merit and fitness", "government appointments"]
+    },
+    {
+      "id": "CSE-GEN-009",
+      "topic": "General Knowledge",
+      "difficulty": "Medium",
+      "question": "The Philippine Constitution was ratified in:",
+      "choices": {
+        "A": "1935",
+        "B": "1973",
+        "C": "1986",
+        "D": "1987"
+      },
+      "correct_answer": "D",
+      "explanation": "The current 1987 Philippine Constitution was ratified on February 2, 1987, through a national plebiscite, replacing the 1973 Constitution which was in effect during the Marcos era.",
+      "tags": ["Philippine Constitution", "1987", "history"]
+    },
+    {
+      "id": "CSE-GEN-010",
+      "topic": "Philippine Laws",
+      "difficulty": "Medium",
+      "question": "Under RA 6713, public officials are prohibited from engaging in private business during office hours. This prohibition is known as:",
+      "choices": {
+        "A": "Conflict of interest rule",
+        "B": "Anti-graft provision",
+        "C": "Prohibition on outside employment",
+        "D": "Professional conduct standard"
+      },
+      "correct_answer": "A",
+      "explanation": "The conflict of interest rule under RA 6713 prohibits public officials from having financial or other personal interests that may conflict with the discharge of their duties. Engaging in private business during official hours is one manifestation of conflict of interest.",
+      "tags": ["RA 6713", "conflict of interest", "government ethics"]
+    }
+  ]
+}

@@ -7,7 +7,7 @@ import { routes } from "@/shared/config/routes";
 function GlassCard({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <div
-      className={`absolute backdrop-blur-xl bg-white/72 border border-white/60 shadow-xl rounded-2xl px-4 py-3.5 ${className}`}
+      className={`absolute glass rounded-2xl px-4 py-3.5 ${className}`}
     >
       {children}
     </div>
@@ -19,7 +19,7 @@ const avatarInitials = ["M", "C", "A", "J"];
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-white min-h-screen flex items-center">
+    <section className="relative overflow-hidden bg-background min-h-screen flex items-center transition-colors duration-300">
       {/* Background gradient blobs */}
       <div className="absolute -top-32 -right-48 w-180 h-180 rounded-full bg-primary/6 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 -left-48 w-140 h-140 rounded-full bg-primary/5 blur-3xl pointer-events-none" />
@@ -36,9 +36,9 @@ export function HeroSection() {
 
           {/* Headline */}
           <div className="flex flex-col gap-5">
-            <h1 className="font-heading text-7xl font-bold leading-[1.04] tracking-tight text-[#001a3b]">
+            <h1 className="font-heading text-7xl font-bold leading-[1.04] tracking-tight text-foreground">
               Study Smarter,{" "}
-              <span className="bg-linear-to-r from-primary to-[#1A7FBA] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[var(--heading-from)] to-[var(--heading-to)] bg-clip-text text-transparent">
                 Not Harder.
               </span>
             </h1>
@@ -67,7 +67,7 @@ export function HeroSection() {
             </Link>
             <a
               href="#features"
-              className="inline-flex items-center gap-2 rounded-2xl border border-border bg-white px-8 py-4 font-medium text-foreground hover:bg-slate-50 hover:border-slate-300 transition-all duration-200"
+              className="inline-flex items-center gap-2 rounded-2xl border border-border bg-card-bg px-8 py-4 font-medium text-foreground hover:bg-overlay-hover-mid hover:border-muted/30 transition-all duration-200"
             >
               Explore Features
             </a>
@@ -79,7 +79,7 @@ export function HeroSection() {
               {avatarInitials.map((initial, i) => (
                 <div
                   key={i}
-                  className="w-9 h-9 rounded-full border-2 border-white flex items-center justify-center text-xs font-bold text-white"
+                  className="w-9 h-9 rounded-full border-2 border-background flex items-center justify-center text-xs font-bold text-white"
                   style={{ background: avatarColors[i] }}
                 >
                   {initial}

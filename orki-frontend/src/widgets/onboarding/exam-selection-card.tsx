@@ -104,7 +104,7 @@ export function ExamSelectionCard({ onSelect, isLoading, onBack }: ExamSelection
               className={`relative flex items-start gap-3 rounded-2xl border p-4 text-left transition-all duration-200 cursor-pointer ${
                 isSelected
                   ? "border-primary bg-primary/5 shadow-lg shadow-primary/15 -translate-y-0.5"
-                  : "border-border/60 bg-white/60 hover:border-primary/40 hover:bg-white hover:shadow-md hover:-translate-y-0.5"
+                  : "border-border/60 bg-surface hover:border-primary/40 hover:bg-card-bg hover:shadow-md hover:-translate-y-0.5"
               }`}
             >
               {/* Icon bubble */}
@@ -156,7 +156,7 @@ export function ExamSelectionCard({ onSelect, isLoading, onBack }: ExamSelection
             value={examDate}
             onChange={(e) => setExamDate(e.target.value)}
             min={new Date().toISOString().split("T")[0]}
-            className="w-full rounded-xl border border-border/70 bg-white/80 px-4 py-3 text-sm text-foreground outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20"
+            className="w-full rounded-xl border border-input-border bg-input-bg px-4 py-3 text-sm text-foreground outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20"
           />
         </div>
       </div>
@@ -168,7 +168,7 @@ export function ExamSelectionCard({ onSelect, isLoading, onBack }: ExamSelection
           type="button"
           onClick={onBack}
           disabled={isLoading}
-          className="flex items-center gap-1.5 rounded-2xl border border-border/70 bg-white px-5 py-3.5 text-sm font-medium text-secondary transition-all duration-200 hover:border-slate-300 hover:bg-slate-50 disabled:opacity-50"
+          className="flex items-center gap-1.5 rounded-2xl border border-border bg-card-bg px-5 py-3.5 text-sm font-medium text-secondary transition-all duration-200 hover:border-muted/30 hover:bg-overlay-hover-mid disabled:opacity-50"
         >
           <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M19 12H5M12 19l-7-7 7-7" />

@@ -140,7 +140,7 @@ export default function ExamResultsPage() {
             type="button"
             onClick={handleConvertToFlashcards}
             disabled={convertingToFlashcards || flashcardsCreated}
-            className="flex items-center justify-center gap-2 rounded-xl border border-border/70 bg-white px-5 py-2.5 text-sm font-semibold text-foreground transition-all hover:bg-surface disabled:opacity-60"
+            className="flex items-center justify-center gap-2 rounded-xl border border-border/70 bg-card-bg px-5 py-2.5 text-sm font-semibold text-foreground transition-all hover:bg-surface disabled:opacity-60"
           >
             {convertingToFlashcards ? (
               <>
@@ -230,7 +230,7 @@ export default function ExamResultsPage() {
                     const isCorrect = letter === q.correct_answer;
                     const isUserAnswer = letter === q.user_answer;
                     
-                    let styles = "border-border/30 bg-white/60";
+                    let styles = "border-border/30 bg-surface";
                     if (isCorrect) styles = "border-green-300 bg-green-50";
                     if (isUserAnswer && !isCorrect) styles = "border-red-300 bg-red-50";
                     

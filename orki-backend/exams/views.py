@@ -67,29 +67,47 @@ class ExamDetailView(APIView):
 
 # ─── Mock Exam Catalog ────────────────────────────────────────────────────────
 
+# Maps a user's exam_type to the relevant MockExam category codes.
+# Users only see exams relevant to their chosen examination path.
+EXAM_TYPE_CATEGORY_MAP = {
+    "LEPT": ["LET_GENED", "LET_PROFEDU"],
+    "CSE": ["CSE_PROF", "CSE_SUBPROF"],
+    "PmLE": ["PMLE_MAIN"],
+    "CLE": ["CLE_MAIN"],
+}
+
+
 class MockExamCatalogView(APIView):
     """
     GET /api/v1/exams/catalog/
-    Returns the list of available mock exams with optional category filter.
+    Returns the list of available mock exams filtered by the user's exam type
+    (unless an explicit ?category= override is provided).
     """
 
     permission_classes = [IsSessionAuthenticated]
 
     def get(self, request):
         exams = MockExam.objects.filter(is_active=True)
-        
+
         category = request.query_params.get("category")
         if category:
+            # Explicit category override from the client
             exams = exams.filter(category=category)
-        
+        else:
+            # Auto-filter by the user's registered exam type
+            user_exam_type = request.user_profile.exam_type
+            allowed_cats = EXAM_TYPE_CATEGORY_MAP.get(user_exam_type)
+            if allowed_cats:
+                exams = exams.filter(category__in=allowed_cats)
+
         difficulty = request.query_params.get("difficulty")
         if difficulty:
             exams = exams.filter(difficulty=difficulty)
-        
+
         subject = request.query_params.get("subject")
         if subject:
             exams = exams.filter(subject__icontains=subject)
-        
+
         serializer = MockExamListSerializer(
             exams, many=True,
             context={"user_profile": request.user_profile},
@@ -226,7 +244,15 @@ class ExamAttemptSubmitView(APIView):
         attempt.time_spent_seconds = time_spent
         attempt.completed_at = timezone.now()
         attempt.save()
-        
+
+        # Update analytics records asynchronously-safe (in-process for now)
+        try:
+            from services.analytics.update_mastery import update_analytics_from_attempt  # noqa: PLC0415
+            update_analytics_from_attempt(attempt)
+        except Exception:
+            import logging  # noqa: PLC0415
+            logging.getLogger(__name__).exception("Analytics update failed for attempt %s", attempt.pk)
+
         return Response(ExamAttemptResultSerializer(attempt).data)
 
 

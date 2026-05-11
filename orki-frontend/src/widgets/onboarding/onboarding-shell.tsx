@@ -23,7 +23,7 @@ function LoadingScreen() {
 
 export function OnboardingShell() {
   const router = useRouter();
-  const { user, loading: authLoading } = useAuth();
+  const { user, loading: authLoading, setUser } = useAuth();
   const { onboardingComplete, loading: onboardingLoading, markComplete } = useOnboarding();
   const { notify } = useNotification();
 
@@ -64,13 +64,15 @@ export function OnboardingShell() {
     if (!user || !personalInfo) return;
     setIsSaving(true);
     try {
-      await saveOnboarding({
+      const result = await saveOnboarding({
         first_name: personalInfo.firstName,
         last_name: personalInfo.lastName,
         age: personalInfo.age,
         exam_type: examType,
         exam_date: examDate,
       });
+      // Sync full user (including exam_type + professional_title) into auth state
+      setUser(result.user);
       markComplete();
       notify("Welcome to Orki — your study journey begins now.", "success");
       router.replace(routes.dashboard);
@@ -114,7 +116,7 @@ export function OnboardingShell() {
             />
             <div
               className={`h-1.5 rounded-full transition-all duration-500 ${
-                step === 2 ? "w-7 bg-primary" : "w-3 bg-slate-200"
+                step === 2 ? "w-7 bg-primary" : "w-3 bg-border"
               }`}
             />
           </div>

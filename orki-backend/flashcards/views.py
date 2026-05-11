@@ -17,19 +17,25 @@ from .serializers import (
 class FlashcardListView(APIView):
     """
     GET /api/v1/flashcards/  — Return all flashcards for the user.
+    Supports ?due=true and ?deck_id=<id> filters.
     """
 
     permission_classes = [IsSessionAuthenticated]
 
     def get(self, request):
         due_only = request.query_params.get("due", "").lower() == "true"
+        deck_id = request.query_params.get("deck_id")
+
         flashcards = Flashcard.objects.filter(
             deck__user=request.user_profile
         ).select_related("deck")
-        
+
+        if deck_id:
+            flashcards = flashcards.filter(deck_id=deck_id)
+
         if due_only:
             flashcards = flashcards.filter(next_review__lte=timezone.now())
-        
+
         return Response(FlashcardSerializer(flashcards, many=True).data)
 
 
@@ -129,3 +135,65 @@ class BulkCreateFlashcardsView(APIView):
             "deck_id": deck.id,
             "count": len(created),
         }, status=201)
+
+
+class SubjectDecksView(APIView):
+    """
+    GET /api/v1/flashcards/subject-decks/
+    Returns dataset-driven subject decks for the user's exam type.
+    Auto-seeds each deck with flashcards from the corresponding dataset JSON
+    on first access (idempotent).
+    """
+
+    permission_classes = [IsSessionAuthenticated]
+
+    def get(self, request):
+        from services.datasets.loader import (  # noqa: PLC0415
+            get_flashcard_pairs_for_subject,
+            get_subjects_for_exam_type,
+        )
+
+        profile = request.user_profile
+        exam_type = profile.exam_type
+        if not exam_type:
+            return Response([])
+
+        subjects = get_subjects_for_exam_type(exam_type)
+        result = []
+
+        for subject in subjects:
+            deck_name = f"[{exam_type}] {subject}"
+            deck, _ = Deck.objects.get_or_create(
+                user=profile,
+                name=deck_name,
+                defaults={"description": f"{subject} flashcards for {exam_type}"},
+            )
+
+            # Auto-seed from dataset if deck is empty
+            if deck.flashcards.count() == 0:
+                pairs = get_flashcard_pairs_for_subject(exam_type, subject)
+                if pairs:
+                    Flashcard.objects.bulk_create([
+                        Flashcard(deck=deck, front=p["front"], back=p["back"])
+                        for p in pairs
+                    ])
+
+            card_count = deck.flashcards.count()
+            due_count = deck.flashcards.filter(next_review__lte=timezone.now()).count()
+            last_reviewed = (
+                deck.flashcards
+                .filter(last_reviewed__isnull=False)
+                .order_by("-last_reviewed")
+                .values_list("last_reviewed", flat=True)
+                .first()
+            )
+
+            result.append({
+                "id": deck.id,
+                "name": subject,
+                "cardCount": card_count,
+                "dueCount": due_count,
+                "lastStudied": last_reviewed.isoformat() if last_reviewed else None,
+            })
+
+        return Response(result)

@@ -9,7 +9,7 @@ type FeatureCardProps = {
 
 function FeatureCard({ icon, iconBg, title, description }: FeatureCardProps) {
   return (
-    <div className="group flex flex-col gap-5 rounded-3xl border border-border/60 bg-white p-8 shadow-sm hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20 transition-all duration-300">
+    <div className="group flex flex-col gap-5 rounded-3xl border border-border/60 bg-card-bg p-8 shadow-sm hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20 transition-all duration-300">
       <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${iconBg}`}>
         {icon}
       </div>
@@ -199,7 +199,7 @@ const bottomRowFeatures: FeatureCardProps[] = [
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="bg-white py-28">
+    <section id="features" className="bg-background py-28 transition-colors duration-300">
       <div className="mx-auto w-full max-w-6xl px-6">
         {/* Section header */}
         <div className="flex flex-col items-center gap-4 text-center mb-16">

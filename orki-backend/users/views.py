@@ -121,8 +121,11 @@ class ProfileView(APIView):
         return Response(UserProfileSerializer(request.user_profile).data)
 
     def patch(self, request):
+        # exam_type and onboarding_completed are permanently set during onboarding
+        immutable_fields = {"exam_type", "onboarding_completed"}
+        mutable_data = {k: v for k, v in request.data.items() if k not in immutable_fields}
         serializer = UserProfileSerializer(
-            request.user_profile, data=request.data, partial=True
+            request.user_profile, data=mutable_data, partial=True
         )
         serializer.is_valid(raise_exception=True)
         serializer.save()
@@ -145,6 +148,12 @@ class OnboardingView(APIView):
         )
 
     def post(self, request):
+        if request.user_profile.onboarding_completed:
+            return Response(
+                {"detail": "Onboarding already completed. Exam type cannot be changed."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
         # ── Temporary session diagnostics (remove before production) ──
         import logging
         logger = logging.getLogger(__name__)

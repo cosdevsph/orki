@@ -1,0 +1,157 @@
+{
+  "exam_type": "PmLE",
+  "subject": "Abnormal Psychology",
+  "version": "1.0.0",
+  "questions": [
+    {
+      "id": "PMLE-AB-001",
+      "topic": "Classification of Disorders",
+      "difficulty": "Medium",
+      "question": "According to the DSM-5, the defining feature of Major Depressive Disorder (MDD) is:",
+      "choices": {
+        "A": "Persistent elevated or expansive mood lasting at least one week",
+        "B": "Depressed mood or loss of interest/pleasure for at least two weeks",
+        "C": "Recurrent panic attacks with autonomic arousal",
+        "D": "Chronic low-grade depression lasting at least two years"
+      },
+      "correct_answer": "B",
+      "explanation": "DSM-5 requires the presence of five or more symptoms during the same two-week period, with at least one being either depressed mood or loss of interest/pleasure (anhedonia).",
+      "tags": ["DSM-5", "major depressive disorder", "mood disorders"]
+    },
+    {
+      "id": "PMLE-AB-002",
+      "topic": "Anxiety Disorders",
+      "difficulty": "Medium",
+      "question": "A person who experiences intense fear specifically in situations where escape might be difficult or embarrassing, and therefore avoids crowded places, public transportation, and open spaces, is most likely experiencing:",
+      "choices": {
+        "A": "Generalized Anxiety Disorder",
+        "B": "Specific Phobia",
+        "C": "Social Anxiety Disorder",
+        "D": "Agoraphobia"
+      },
+      "correct_answer": "D",
+      "explanation": "Agoraphobia involves marked fear or anxiety about two or more of the following: using public transportation, being in open spaces, being in enclosed spaces, standing in line or being in a crowd, or being outside the home alone.",
+      "tags": ["anxiety disorders", "agoraphobia", "DSM-5"]
+    },
+    {
+      "id": "PMLE-AB-003",
+      "topic": "Psychosis",
+      "difficulty": "Hard",
+      "question": "Thought insertion, thought broadcasting, and thought withdrawal are Schneider's first-rank symptoms most characteristic of:",
+      "choices": {
+        "A": "Bipolar I Disorder",
+        "B": "Schizophrenia",
+        "C": "Delusional Disorder",
+        "D": "Schizoaffective Disorder"
+      },
+      "correct_answer": "B",
+      "explanation": "Kurt Schneider proposed a set of 'first-rank symptoms' (passivity phenomena, thought disorders like insertion/broadcasting/withdrawal, and auditory hallucinations) that he considered pathognomonic for schizophrenia, though they are now understood as highly suggestive rather than definitive.",
+      "tags": ["schizophrenia", "Schneider's symptoms", "psychosis"]
+    },
+    {
+      "id": "PMLE-AB-004",
+      "topic": "Personality Disorders",
+      "difficulty": "Hard",
+      "question": "Which personality disorder is characterized by a pervasive pattern of grandiosity, need for admiration, and lack of empathy?",
+      "choices": {
+        "A": "Borderline Personality Disorder",
+        "B": "Histrionic Personality Disorder",
+        "C": "Narcissistic Personality Disorder",
+        "D": "Antisocial Personality Disorder"
+      },
+      "correct_answer": "C",
+      "explanation": "Narcissistic Personality Disorder (NPD) is defined by a pervasive pattern of grandiosity (in fantasy or behavior), need for admiration, and lack of empathy, beginning in early adulthood and present in a variety of contexts.",
+      "tags": ["personality disorders", "narcissistic personality", "cluster B"]
+    },
+    {
+      "id": "PMLE-AB-005",
+      "topic": "Assessment",
+      "difficulty": "Medium",
+      "question": "The Multi-Axial Diagnostic System previously used in DSM-IV included which of the following on Axis II?",
+      "choices": {
+        "A": "Clinical disorders and other conditions",
+        "B": "Personality disorders and intellectual disabilities",
+        "C": "General medical conditions",
+        "D": "Psychosocial and environmental problems"
+      },
+      "correct_answer": "B",
+      "explanation": "In DSM-IV's multi-axial system: Axis I = clinical disorders; Axis II = personality disorders and intellectual disabilities; Axis III = general medical conditions; Axis IV = psychosocial problems; Axis V = Global Assessment of Functioning.",
+      "tags": ["DSM-IV", "multi-axial diagnosis", "assessment"]
+    },
+    {
+      "id": "PMLE-AB-006",
+      "topic": "Trauma-Related Disorders",
+      "difficulty": "Medium",
+      "question": "PTSD requires that symptoms persist for more than:",
+      "choices": {
+        "A": "1 week",
+        "B": "2 weeks",
+        "C": "1 month",
+        "D": "3 months"
+      },
+      "correct_answer": "C",
+      "explanation": "DSM-5 requires that PTSD symptoms (intrusion, avoidance, negative alterations in cognition/mood, and alterations in arousal/reactivity) persist for more than 1 month following the traumatic event to meet diagnostic criteria.",
+      "tags": ["PTSD", "trauma disorders", "DSM-5 criteria"]
+    },
+    {
+      "id": "PMLE-AB-007",
+      "topic": "Neurodevelopmental Disorders",
+      "difficulty": "Easy",
+      "question": "The hallmark symptoms of Attention-Deficit/Hyperactivity Disorder (ADHD) include:",
+      "choices": {
+        "A": "Inattention, hyperactivity, and impulsivity",
+        "B": "Social communication deficits and restricted behavior",
+        "C": "Tics, compulsions, and obsessions",
+        "D": "Mood swings and grandiosity"
+      },
+      "correct_answer": "A",
+      "explanation": "ADHD is characterized by a persistent pattern of inattention and/or hyperactivity-impulsivity that interferes with functioning and development. It must be present in two or more settings (e.g., home and school) and symptoms must be present before age 12.",
+      "tags": ["ADHD", "neurodevelopmental disorders", "DSM-5"]
+    },
+    {
+      "id": "PMLE-AB-008",
+      "topic": "Etiology and Models",
+      "difficulty": "Hard",
+      "question": "The diathesis-stress model of abnormal behavior proposes that:",
+      "choices": {
+        "A": "Mental disorders are caused purely by biological vulnerabilities",
+        "B": "Disorders arise when environmental stress activates a pre-existing vulnerability",
+        "C": "Psychological disorders are learned behaviors reinforced by the environment",
+        "D": "All mental disorders have a genetic basis"
+      },
+      "correct_answer": "B",
+      "explanation": "The diathesis-stress model posits that psychopathology results from an interaction between a pre-existing vulnerability (diathesis — biological, psychological, or social) and stressful environmental events. Neither the diathesis nor the stress alone is sufficient to cause the disorder.",
+      "tags": ["diathesis-stress model", "etiology", "vulnerability-stress"]
+    },
+    {
+      "id": "PMLE-AB-009",
+      "topic": "Eating Disorders",
+      "difficulty": "Medium",
+      "question": "Which eating disorder is characterized by recurrent episodes of binge eating followed by compensatory behaviors such as purging, fasting, or excessive exercise?",
+      "choices": {
+        "A": "Anorexia Nervosa",
+        "B": "Bulimia Nervosa",
+        "C": "Binge Eating Disorder",
+        "D": "Avoidant/Restrictive Food Intake Disorder"
+      },
+      "correct_answer": "B",
+      "explanation": "Bulimia Nervosa is defined by recurrent episodes of binge eating (eating large amounts rapidly, with loss of control) followed by compensatory behaviors (self-induced vomiting, laxatives, fasting, or excessive exercise) to prevent weight gain.",
+      "tags": ["eating disorders", "bulimia nervosa", "DSM-5"]
+    },
+    {
+      "id": "PMLE-AB-010",
+      "topic": "Somatoform/Somatic Disorders",
+      "difficulty": "Hard",
+      "question": "A patient presents with one or more somatic symptoms that are distressing or disruptive to daily life, along with disproportionate thoughts, feelings, and behaviors related to the symptoms. The DSM-5 diagnosis is:",
+      "choices": {
+        "A": "Illness Anxiety Disorder",
+        "B": "Conversion Disorder",
+        "C": "Somatic Symptom Disorder",
+        "D": "Factitious Disorder"
+      },
+      "correct_answer": "C",
+      "explanation": "Somatic Symptom Disorder (formerly Somatization Disorder) requires one or more somatic symptoms causing distress, PLUS excessive thoughts/feelings/behaviors related to the symptoms. Illness Anxiety Disorder involves high anxiety about illness without prominent somatic symptoms.",
+      "tags": ["somatic disorders", "DSM-5", "somatic symptom disorder"]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
-import type { AnalyticsOverview } from "@/entities/analytics/types";
+import type { AnalyticsOverview, DailyStreakData, SubjectMasteryItem, TopicAccuracyItem } from "@/entities/analytics/types";
 import type { DashboardSummary } from "@/entities/dashboard/types";
 import type { ExamAttempt, ExamResult, MockExam, MockExamDetail } from "@/entities/exams/types";
-import type { Flashcard } from "@/entities/flashcards/types";
+import type { Flashcard, SubjectDeck } from "@/entities/flashcards/types";
 import { http } from "@/shared/api/http";
 
 // ─── Dashboard ────────────────────────────────────────────────────────────────
@@ -14,10 +14,31 @@ export function getAnalyticsOverview() {
   return http<AnalyticsOverview>("analytics/");
 }
 
+export function getSubjectMasteries(examType?: string) {
+  const params = examType ? `?exam_type=${examType}` : "";
+  return http<SubjectMasteryItem[]>(`analytics/mastery/${params}`);
+}
+
+export function getWeakTopics(examType?: string) {
+  const params = examType ? `?exam_type=${examType}` : "";
+  return http<{ weakTopics: TopicAccuracyItem[]; count: number }>(`analytics/weak-topics/${params}`);
+}
+
+export function getDailyStreak() {
+  return http<DailyStreakData>("analytics/streak/");
+}
+
 // ─── Flashcards ───────────────────────────────────────────────────────────────
-export function getFlashcards(dueOnly?: boolean) {
-  const params = dueOnly ? "?due=true" : "";
-  return http<Flashcard[]>(`flashcards/${params}`);
+export function getFlashcards(dueOnly?: boolean, deckId?: number) {
+  const params = new URLSearchParams();
+  if (dueOnly) params.set("due", "true");
+  if (deckId) params.set("deck_id", String(deckId));
+  const query = params.toString();
+  return http<Flashcard[]>(`flashcards/${query ? `?${query}` : ""}`);
+}
+
+export function getSubjectDecks() {
+  return http<SubjectDeck[]>("flashcards/subject-decks/");
 }
 
 export function reviewFlashcard(cardId: string, quality: number) {

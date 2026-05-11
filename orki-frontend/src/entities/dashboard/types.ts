@@ -5,6 +5,7 @@ export type DashboardSummary = {
   weeklyStudyHours: number;
   overallReadiness: number;
   recentActivity: RecentActivity[];
+  subjectMasteries: import("@/entities/analytics/types").SubjectMasteryItem[];
 };
 
 export type RecentActivity = {

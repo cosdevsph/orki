@@ -4,6 +4,8 @@ from django.utils import timezone
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from analytics.models import DailyStreak, SubjectMastery
+from analytics.serializers import SubjectMasterySerializer
 from core.permissions import IsSessionAuthenticated
 from exams.models import Exam, ExamAttempt
 from flashcards.models import Flashcard
@@ -101,6 +103,20 @@ class DashboardSummaryView(APIView):
         recent_activities.sort(key=lambda x: x["timestamp"], reverse=True)
         recent_activities = recent_activities[:5]
 
+        # ── Subject Mastery ────────────────────────────────────────────────
+        subject_masteries = SubjectMastery.objects.filter(
+            user=profile,
+            exam_type=profile.exam_type or "",
+        )
+        subjects_data = SubjectMasterySerializer(subject_masteries, many=True).data
+
+        # ── Streak from model (authoritative) ─────────────────────────────
+        try:
+            streak_obj = DailyStreak.objects.get(user=profile)
+            active_streak_days = streak_obj.current_streak
+        except DailyStreak.DoesNotExist:
+            pass  # keep the calculated value from above
+
         return Response(
             {
                 "activeStreakDays": active_streak_days,
@@ -109,5 +125,6 @@ class DashboardSummaryView(APIView):
                 "weeklyStudyHours": weekly_study_hours,
                 "overallReadiness": overall_readiness,
                 "recentActivity": recent_activities,
+                "subjectMasteries": subjects_data,
             }
         )

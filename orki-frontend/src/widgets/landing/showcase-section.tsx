@@ -3,7 +3,7 @@ const chartBars = [42, 58, 50, 74, 68, 82, 94];
 
 export function ShowcaseSection() {
   return (
-    <section id="showcase" className="bg-[#F8FAFC] py-28 overflow-hidden">
+    <section id="showcase" className="bg-section-alt py-28 overflow-hidden transition-colors duration-300">
       <div className="mx-auto w-full max-w-6xl px-6 grid grid-cols-2 gap-20 items-center">
         {/* ── Left column: copy ── */}
         <div className="flex flex-col gap-8">
@@ -14,7 +14,7 @@ export function ShowcaseSection() {
           <div className="flex flex-col gap-5">
             <h2 className="font-heading text-5xl font-bold text-foreground leading-tight">
               Built for focused,{" "}
-              <span className="bg-linear-to-r from-primary to-[#1A7FBA] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[var(--heading-from)] to-[var(--heading-to)] bg-clip-text text-transparent">
                 motivated learners.
               </span>
             </h2>
@@ -44,7 +44,7 @@ export function ShowcaseSection() {
               },
             ].map(({ icon, title, body }) => (
               <div key={title} className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white border border-border flex items-center justify-center text-lg shrink-0 shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-card-bg border border-border flex items-center justify-center text-lg shrink-0 shadow-sm">
                   {icon}
                 </div>
                 <div>
@@ -59,7 +59,7 @@ export function ShowcaseSection() {
         {/* ── Right column: app mockup ── */}
         <div className="relative">
           {/* Floating analytics panel */}
-          <div className="absolute -top-5 -right-5 z-20 w-48 rounded-2xl bg-white border border-slate-200 shadow-xl p-4">
+          <div className="absolute -top-5 -right-5 z-20 w-48 rounded-2xl bg-card-bg border border-border shadow-xl p-4">
             <p className="text-xs font-semibold text-foreground mb-3">Weekly Progress</p>
             <div className="flex items-end gap-1 h-14">
               {chartBars.map((h, i) => (
@@ -78,7 +78,7 @@ export function ShowcaseSection() {
           </div>
 
           {/* Floating flashcard panel */}
-          <div className="absolute -bottom-5 -left-5 z-20 w-52 rounded-2xl bg-white border border-slate-200 shadow-xl p-5">
+          <div className="absolute -bottom-5 -left-5 z-20 w-52 rounded-2xl bg-card-bg border border-border shadow-xl p-5">
             <div className="flex items-center justify-between mb-3">
               <span className="text-[11px] font-semibold text-primary uppercase tracking-wide">
                 Flashcard
@@ -94,23 +94,23 @@ export function ShowcaseSection() {
           </div>
 
           {/* Main browser window */}
-          <div className="relative z-10 rounded-3xl border border-slate-200 bg-white shadow-2xl overflow-hidden">
+          <div className="relative z-10 rounded-3xl border border-border bg-card-bg shadow-2xl overflow-hidden">
             {/* Browser chrome */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-100 bg-slate-50/80">
+            <div className="flex items-center gap-2 px-4 py-3 border-b border-border/50 bg-surface">
               <div className="flex gap-1.5">
                 <div className="w-3 h-3 rounded-full bg-red-400" />
                 <div className="w-3 h-3 rounded-full bg-yellow-400" />
                 <div className="w-3 h-3 rounded-full bg-green-400" />
               </div>
               <div className="flex-1 flex justify-center">
-                <div className="rounded-full bg-white border border-slate-200 px-5 py-1 text-[11px] text-muted">
+                <div className="rounded-full bg-card-bg border border-border px-5 py-1 text-[11px] text-muted">
                   app.orki.study
                 </div>
               </div>
             </div>
 
             {/* App UI */}
-            <div className="p-5 bg-slate-50/60 space-y-4">
+            <div className="p-5 bg-surface space-y-4">
               {/* Mini top nav */}
               <div className="flex items-center justify-between">
                 <span className="font-heading font-bold text-primary text-sm">Orki</span>
@@ -119,7 +119,7 @@ export function ShowcaseSection() {
                     <span
                       key={tab}
                       className={`text-[11px] px-3 py-1.5 rounded-lg font-medium ${
-                        i === 0 ? "bg-primary text-white" : "bg-white border border-slate-200 text-muted"
+                        i === 0 ? "bg-primary text-white" : "bg-card-bg border border-border text-muted"
                       }`}
                     >
                       {tab}
@@ -129,7 +129,7 @@ export function ShowcaseSection() {
               </div>
 
               {/* Exam card */}
-              <div className="rounded-2xl bg-white border border-slate-100 p-5 shadow-sm">
+              <div className="rounded-2xl bg-card-bg border border-border/50 p-5 shadow-sm">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-[11px] font-medium text-muted">Question 23 of 50</span>
                   <span className="text-[11px] font-semibold text-primary">23:45 remaining</span>
@@ -145,14 +145,14 @@ export function ShowcaseSection() {
                       className={`flex items-center gap-3 rounded-xl p-3 text-xs font-medium ${
                         i === 0
                           ? "bg-primary text-white"
-                          : "bg-slate-50 text-muted border border-slate-100"
+                          : "bg-surface text-muted border border-border/50"
                       }`}
                     >
                       <div
                         className={`w-5 h-5 rounded-full border flex items-center justify-center text-[10px] font-bold shrink-0 ${
                           i === 0
                             ? "border-white/40 bg-white/20 text-white"
-                            : "border-slate-300 text-muted"
+                            : "border-border text-muted"
                         }`}
                       >
                         {["A", "B", "C", "D"][i]}
@@ -165,9 +165,9 @@ export function ShowcaseSection() {
 
               {/* Progress bar */}
               <div className="flex items-center gap-3">
-                <div className="flex-1 h-2 rounded-full bg-slate-200">
+                <div className="flex-1 h-2 rounded-full bg-track">
                   <div
-                    className="h-2 rounded-full bg-linear-to-r from-primary to-[#1A7FBA]"
+                    className="h-2 rounded-full bg-linear-to-r from-[var(--heading-from)] to-[var(--heading-to)]"
                     style={{ width: "46%" }}
                   />
                 </div>

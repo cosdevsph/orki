@@ -51,7 +51,7 @@ function StarRow({ count }: { count: number }) {
 
 export function ResultsSection() {
   return (
-    <section id="results" className="bg-white py-28">
+    <section id="results" className="bg-background py-28 transition-colors duration-300">
       <div className="mx-auto w-full max-w-6xl px-6">
         {/* Section header */}
         <div className="flex flex-col items-center gap-4 text-center mb-16">
@@ -71,7 +71,7 @@ export function ResultsSection() {
           {stats.map(({ value, label, accent }) => (
             <div
               key={label}
-              className="flex flex-col gap-2 items-center text-center rounded-3xl border border-border/60 bg-white p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="flex flex-col gap-2 items-center text-center rounded-3xl border border-border/60 bg-card-bg p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
               <span className={`font-heading text-5xl font-bold leading-none ${accent}`}>
                 {value}
@@ -86,7 +86,7 @@ export function ResultsSection() {
           {testimonials.map(({ quote, name, role, initials, color, stars }) => (
             <div
               key={name}
-              className="flex flex-col gap-5 rounded-3xl border border-border/60 bg-white p-7 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="flex flex-col gap-5 rounded-3xl border border-border/60 bg-card-bg p-7 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
               <StarRow count={stars} />
               <p className="text-[15px] text-foreground leading-relaxed flex-1">

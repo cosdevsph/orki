@@ -5,7 +5,7 @@ import { routes } from "@/shared/config/routes";
 
 export function LandingNav() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/85 border-b border-border/50">
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-nav-bg border-b border-border/50 transition-colors duration-300">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-3.5">
         {/* Logo */}
         <Link href={routes.home} className="flex items-center gap-2.5">
@@ -32,7 +32,7 @@ export function LandingNav() {
             <a
               key={href}
               href={href}
-              className="text-sm font-medium text-secondary hover:text-foreground transition-colors duration-150"
+              className="text-sm font-medium text-muted hover:text-foreground transition-colors duration-150"
             >
               {label}
             </a>

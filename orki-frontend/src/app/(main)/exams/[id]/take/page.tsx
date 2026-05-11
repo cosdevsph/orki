@@ -103,7 +103,7 @@ export default function ExamTakePage() {
   return (
     <div className="min-h-screen flex flex-col" style={{ background: "var(--background)" }}>
       {/* Header bar */}
-      <header className="sticky top-0 z-20 border-b border-border/30 bg-background/95 backdrop-blur-sm">
+      <header className="sticky top-0 z-20 border-b border-border/30 bg-nav-bg backdrop-blur-sm">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3">
           <div className="flex items-center gap-3">
             <svg width="20" height="20" viewBox="0 0 22 22" fill="none" className="text-primary">
@@ -131,7 +131,7 @@ export default function ExamTakePage() {
           <button
             type="button"
             onClick={handleSubmit}
-            className="flex items-center gap-2 rounded-xl border border-border/60 bg-white px-5 py-2 text-sm font-semibold text-foreground transition-all hover:bg-foreground hover:text-background"
+            className="flex items-center gap-2 rounded-xl border border-border/60 bg-card-bg px-5 py-2 text-sm font-semibold text-foreground transition-all hover:bg-foreground hover:text-background"
           >
             Submit Exam
             <svg width="14" height="14" viewBox="0 0 22 22" fill="none">
@@ -154,12 +154,12 @@ export default function ExamTakePage() {
         </div>
 
         {/* Progress bar */}
-        <div className="h-1.5 w-full overflow-hidden rounded-full bg-black/[0.06] mb-8">
+        <div className="h-1.5 w-full overflow-hidden rounded-full bg-track mb-8">
           <div className="h-full rounded-full bg-primary transition-all duration-500" style={{ width: `${progress}%` }} />
         </div>
 
         {/* Unified Question Card */}
-        <div className="glass-strong rounded-[2.5rem] p-8 md:p-10 mb-6 bg-white shadow-sm border border-border/60">
+        <div className="glass-strong rounded-[2.5rem] p-8 md:p-10 mb-6 bg-card-bg shadow-sm border border-border/60">
           <p className="font-heading text-[1.35rem] font-bold leading-relaxed text-foreground mb-8">
             {question.question_text}
           </p>
@@ -175,14 +175,14 @@ export default function ExamTakePage() {
                   className={`w-full flex items-start gap-4 rounded-2xl border p-5 text-left transition-all duration-200 ${
                     isSelected
                       ? "border-primary bg-primary/5 shadow-sm"
-                      : "border-border/60 bg-slate-50/50 hover:border-primary/30 hover:bg-white"
+                      : "border-border/60 bg-surface hover:border-primary/30 hover:bg-card-bg"
                   }`}
                 >
                   <span
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold transition-colors ${
                       isSelected
                         ? "bg-primary text-white"
-                        : "bg-black/[0.05] text-muted"
+                        : "bg-track text-muted"
                     }`}
                   >
                     {opt.letter}
@@ -213,7 +213,7 @@ export default function ExamTakePage() {
       </div>
 
       {/* Bottom navigation */}
-      <footer className="sticky bottom-0 border-t border-border/30 bg-background/95 backdrop-blur-sm">
+      <footer className="sticky bottom-0 border-t border-border/30 bg-nav-bg backdrop-blur-sm">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
           {/* Previous */}
           <button
@@ -235,7 +235,7 @@ export default function ExamTakePage() {
               const isAnswered = !!answers[q.id];
               const isMarked = marked.has(q.id);
 
-              let bg = "bg-black/[0.06] text-muted";
+              let bg = "bg-track text-muted";
               if (isActive) bg = "bg-primary text-white ring-2 ring-primary/30";
               else if (isMarked) bg = "bg-amber-100 text-amber-700";
               else if (isAnswered) bg = "bg-primary/20 text-primary";

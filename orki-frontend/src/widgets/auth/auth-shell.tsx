@@ -23,12 +23,12 @@ export function AuthShell({ initialTab = "signin" }: AuthShellProps) {
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-10">
       {/* ── Page background ── */}
-      <div className="absolute inset-0 bg-white" />
+      <div className="absolute inset-0 bg-background transition-colors duration-300" />
 
       {/* ── Back to landing link ── */}
       <Link
         href={routes.home}
-        className="absolute left-6 top-6 z-20 flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-medium text-muted transition-colors duration-150 hover:bg-slate-100 hover:text-foreground"
+        className="absolute left-6 top-6 z-20 flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-medium text-muted transition-colors duration-150 hover:bg-overlay-hover-mid hover:text-foreground"
       >
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
           <path
@@ -43,7 +43,7 @@ export function AuthShell({ initialTab = "signin" }: AuthShellProps) {
       </Link>
 
       {/* ── Main card ── */}
-      <div className="relative z-10 flex w-full max-w-5xl overflow-hidden rounded-3xl shadow-2xl shadow-slate-900/12 ring-1 ring-black/5">
+      <div className="relative z-10 flex w-full max-w-5xl overflow-hidden rounded-3xl shadow-2xl ring-1 ring-border/30">
 
         {/* ════════════════════════════════════
             LEFT PANEL — Branding & Mascot
@@ -151,7 +151,7 @@ export function AuthShell({ initialTab = "signin" }: AuthShellProps) {
         {/* ════════════════════════════════════
             RIGHT PANEL — Auth Form
         ════════════════════════════════════ */}
-        <div className="flex min-h-160 flex-1 flex-col bg-white">
+        <div className="flex min-h-160 flex-1 flex-col bg-card-bg transition-colors duration-300">
           {/* Form area */}
           <div className="flex flex-1 flex-col justify-center px-10 py-8">
             {/* Welcome header */}
@@ -167,10 +167,10 @@ export function AuthShell({ initialTab = "signin" }: AuthShellProps) {
             </div>
 
             {/* macOS-style segmented tab switcher */}
-            <div className="relative mb-7 flex rounded-xl bg-slate-100/80 p-1">
+            <div className="relative mb-7 flex rounded-xl bg-surface p-1">
               {/* Sliding active indicator */}
               <div
-                className="pointer-events-none absolute inset-y-1 rounded-lg bg-white shadow-sm transition-all duration-300 ease-out"
+                className="pointer-events-none absolute inset-y-1 rounded-lg bg-card-bg shadow-sm transition-all duration-300 ease-out"
                 style={{
                   width: "calc(50% - 6px)",
                   left: activeTab === "signin" ? "4px" : "calc(50% + 2px)",

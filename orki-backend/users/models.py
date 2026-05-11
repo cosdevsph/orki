@@ -10,10 +10,17 @@ class UserProfile(models.Model):
 
     EXAM_CHOICES = [
         ("LEPT", "Licensure Examination for Professional Teachers"),
-        ("CSE", "Civil Service Examination"),
-        ("PmLE", "Pharmacy Licensure Examination"),
-        ("CLE", "Chemical Engineering Licensure Examination"),
+        ("CSE", "Career Service Examination"),
+        ("PmLE", "Psychometricians Licensure Examination"),
+        ("CLE", "Criminologist Licensure Examination"),
     ]
+
+    PROFESSIONAL_TITLE_MAP = {
+        "LEPT": "LPT",
+        "CSE": "CSE Passer",
+        "PmLE": "RPM",
+        "CLE": "RCrim",
+    }
 
     firebase_uid = models.CharField(max_length=128, unique=True, db_index=True)
     email = models.EmailField(max_length=254)
@@ -29,6 +36,11 @@ class UserProfile(models.Model):
 
     class Meta:
         db_table = "user_profiles"
+
+    @property
+    def professional_title(self) -> str:
+        """Derived title based on exam type (e.g. LEPT → LPT)."""
+        return self.PROFESSIONAL_TITLE_MAP.get(self.exam_type, "")
 
     def __str__(self) -> str:
         return f"{self.display_name or self.email} ({self.firebase_uid[:8]}…)"

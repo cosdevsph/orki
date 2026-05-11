@@ -59,7 +59,7 @@ export function PersonalInfoCard({ onContinue }: PersonalInfoCardProps) {
             placeholder="Maria"
             autoComplete="given-name"
             required
-            className="w-full rounded-2xl border border-border/70 bg-slate-50/60 px-4 py-3.5 text-sm text-foreground placeholder:text-muted/40 outline-none transition-all duration-200 focus:border-primary/50 focus:bg-white focus:ring-[3px] focus:ring-primary/10"
+            className="w-full rounded-2xl border border-input-border bg-input-bg px-4 py-3.5 text-sm text-foreground placeholder:text-muted/40 outline-none transition-all duration-200 focus:border-primary/50 focus:bg-card-bg focus:ring-[3px] focus:ring-primary/10"
           />
         </div>
 
@@ -78,7 +78,7 @@ export function PersonalInfoCard({ onContinue }: PersonalInfoCardProps) {
             placeholder="Santos"
             autoComplete="family-name"
             required
-            className="w-full rounded-2xl border border-border/70 bg-slate-50/60 px-4 py-3.5 text-sm text-foreground placeholder:text-muted/40 outline-none transition-all duration-200 focus:border-primary/50 focus:bg-white focus:ring-[3px] focus:ring-primary/10"
+            className="w-full rounded-2xl border border-input-border bg-input-bg px-4 py-3.5 text-sm text-foreground placeholder:text-muted/40 outline-none transition-all duration-200 focus:border-primary/50 focus:bg-card-bg focus:ring-[3px] focus:ring-primary/10"
           />
         </div>
       </div>
@@ -102,10 +102,10 @@ export function PersonalInfoCard({ onContinue }: PersonalInfoCardProps) {
           min="1"
           max="120"
           required
-          className={`w-full rounded-2xl border bg-slate-50/60 px-4 py-3.5 text-sm text-foreground placeholder:text-muted/40 outline-none transition-all duration-200 focus:bg-white focus:ring-[3px] ${
+          className={`w-full rounded-2xl border bg-input-bg px-4 py-3.5 text-sm text-foreground placeholder:text-muted/40 outline-none transition-all duration-200 focus:bg-card-bg focus:ring-[3px] ${
             ageError
               ? "border-red-300 focus:border-red-400 focus:ring-red-100"
-              : "border-border/70 focus:border-primary/50 focus:ring-primary/10"
+              : "border-input-border focus:border-primary/50 focus:ring-primary/10"
           }`}
         />
         {ageError && (

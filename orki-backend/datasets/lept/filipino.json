@@ -1,0 +1,157 @@
+{
+  "exam_type": "LEPT",
+  "subject": "Filipino",
+  "version": "1.0.0",
+  "questions": [
+    {
+      "id": "FIL-001",
+      "topic": "Gramatika",
+      "difficulty": "Medium",
+      "question": "Alin sa mga sumusunod ang tamang paggamit ng pang-ukol?",
+      "choices": {
+        "A": "Pumunta siya sa palengke.",
+        "B": "Pumunta siya ng palengke.",
+        "C": "Pumunta siya para palengke.",
+        "D": "Pumunta siya kay palengke."
+      },
+      "correct_answer": "A",
+      "explanation": "Ang pang-ukol na 'sa' ay ginagamit para sa lugar o patutunguhan ng kilos. Ang 'ng' ay para sa layunin, 'para sa' para sa benepisyaryo, at 'kay' para sa tao.",
+      "tags": ["gramatika", "pang-ukol", "paggamit ng salita"]
+    },
+    {
+      "id": "FIL-002",
+      "topic": "Panitikan",
+      "difficulty": "Medium",
+      "question": "Sino ang itinuturing na 'Ama ng Wikang Filipino'?",
+      "choices": {
+        "A": "Jose Rizal",
+        "B": "Lope K. Santos",
+        "C": "Balagtas",
+        "D": "Andres Bonifacio"
+      },
+      "correct_answer": "B",
+      "explanation": "Si Lope K. Santos ang itinuturing na 'Ama ng Wikang Pambansa' dahil sa kanyang naging ambag sa pagpapaunlad ng gramatika ng Filipino, partikular ang kanyang akdang 'Balarila ng Wikang Pambansa' noong 1940.",
+      "tags": ["panitikan", "kasaysayan ng wika", "kilalang manunulat"]
+    },
+    {
+      "id": "FIL-003",
+      "topic": "Gramatika",
+      "difficulty": "Easy",
+      "question": "Ano ang tawag sa salitang nagbibigay-turing sa pandiwa?",
+      "choices": {
+        "A": "Pangngalan",
+        "B": "Pang-uri",
+        "C": "Pang-abay",
+        "D": "Panghalip"
+      },
+      "correct_answer": "C",
+      "explanation": "Ang pang-abay ay salitang nagbibigay-turing o nagpapaliwanag sa pandiwa, pang-uri, o kapwa pang-abay. Halimbawa: 'Mabilis siyang tumakbo' — ang 'mabilis' ay pang-abay na nagpapaliwanag ng paraan ng pagtakbo.",
+      "tags": ["gramatika", "bahagi ng pananalita", "pang-abay"]
+    },
+    {
+      "id": "FIL-004",
+      "topic": "Pagbasa at Pag-unawa",
+      "difficulty": "Medium",
+      "question": "Sa isang talata, ang pangungusap na nagbibigay ng pangunahing ideya ay tinatawag na:",
+      "choices": {
+        "A": "Pangungusap na sumusuporta",
+        "B": "Paksa ng talata",
+        "C": "Pangungusap na paksa",
+        "D": "Pangwakas na pangungusap"
+      },
+      "correct_answer": "C",
+      "explanation": "Ang pangungusap na paksa (topic sentence) ang nagtataglay ng pangunahing ideya ng isang talata. Kadalasan ito ay makikita sa simula ng talata.",
+      "tags": ["pagbasa", "istraktura ng talata", "paksa"]
+    },
+    {
+      "id": "FIL-005",
+      "topic": "Panitikan",
+      "difficulty": "Hard",
+      "question": "Alin sa mga sumusunod ang katangian ng epiko bilang isang uri ng panitikan?",
+      "choices": {
+        "A": "Maikling kwento tungkol sa pang-araw-araw na buhay",
+        "B": "Mahabang tula tungkol sa mga bayaning gawa at pakikipaglaban",
+        "C": "Akdang nagsasalaysay ng mga kwento ng mga diyos",
+        "D": "Maikling akda na may iisang tauhan"
+      },
+      "correct_answer": "B",
+      "explanation": "Ang epiko ay isang mahabang tula o salaysay na naglalarawan ng mga kahanga-hangang gawa ng isang bayani, kadalasang naglalaman ng pakikipaglaban at paglalakbay. Halimbawa: Biag ni Lam-ang, Hinilawod.",
+      "tags": ["panitikan", "uri ng panitikan", "epiko"]
+    },
+    {
+      "id": "FIL-006",
+      "topic": "Gramatika",
+      "difficulty": "Medium",
+      "question": "Anong aspeto ng pandiwa ang ipinapakita sa pangungusap: 'Kumakain na siya ng hapunan'?",
+      "choices": {
+        "A": "Kontemplatibo",
+        "B": "Imperpektibo",
+        "C": "Perpektibo",
+        "D": "Katatapos"
+      },
+      "correct_answer": "B",
+      "explanation": "Ang imperpektibong aspeto ay nagpapahiwatig ng kilos na nagsimula na ngunit hindi pa tapos. Ang salitang 'kumakain' ay nasa imperpektibong aspeto — nagsimula na ang pagkain ngunit hindi pa tapos.",
+      "tags": ["gramatika", "aspeto ng pandiwa", "imperpektibo"]
+    },
+    {
+      "id": "FIL-007",
+      "topic": "Komunikasyon",
+      "difficulty": "Easy",
+      "question": "Sa proseso ng komunikasyon, ang taong nagpapadala ng mensahe ay tinatawag na:",
+      "choices": {
+        "A": "Tatanggap",
+        "B": "Tagapagpadala",
+        "C": "Mensahe",
+        "D": "Channel"
+      },
+      "correct_answer": "B",
+      "explanation": "Sa proseso ng komunikasyon, ang tagapagpadala (sender/source) ang nagmumula at nagpapadala ng mensahe sa tatanggap (receiver) sa pamamagitan ng isang channel.",
+      "tags": ["komunikasyon", "proseso ng komunikasyon", "tagapagpadala"]
+    },
+    {
+      "id": "FIL-008",
+      "topic": "Panitikan",
+      "difficulty": "Medium",
+      "question": "Ang 'Florante at Laura' ay akda ni:",
+      "choices": {
+        "A": "Jose Rizal",
+        "B": "Lope K. Santos",
+        "C": "Francisco Baltazar (Balagtas)",
+        "D": "Emilio Jacinto"
+      },
+      "correct_answer": "C",
+      "explanation": "Ang 'Florante at Laura' ay isang awit na isinulat ni Francisco Baltazar, na kilala rin bilang Balagtas, noong ika-19 siglo. Ito ay isa sa pinakadakilang akda ng panitikang Filipino.",
+      "tags": ["panitikan", "kilalang akda", "Balagtas"]
+    },
+    {
+      "id": "FIL-009",
+      "topic": "Gramatika",
+      "difficulty": "Hard",
+      "question": "Alin ang tamang paggamit ng pokus sa pangungusap?",
+      "choices": {
+        "A": "Ang bata ay binili ng tinapay para sa nanay.",
+        "B": "Ang tinapay ay binili ng bata para sa nanay.",
+        "C": "Para sa nanay ay binili ng bata ang tinapay.",
+        "D": "Lahat ng nabanggit ay tama."
+      },
+      "correct_answer": "D",
+      "explanation": "Sa Filipino, ang pokus ay tumutukoy sa paksa ng pangungusap na kadalasang nasa harap at may panlaping ang. Ang lahat ng tatlong pagbabago ay gramatikalmente tama — nagbabago lamang ang pokus o paksa ng pansin.",
+      "tags": ["gramatika", "pokus", "kayarian ng pangungusap"]
+    },
+    {
+      "id": "FIL-010",
+      "topic": "Pagbasa at Pag-unawa",
+      "difficulty": "Hard",
+      "question": "Ano ang layunin ng kritikal na pagbabasa?",
+      "choices": {
+        "A": "Mabilis na maunawaan ang tekstong binabasa",
+        "B": "Masabisa ang lahat ng detalye ng teksto",
+        "C": "Suriin, pag-aralan, at suriin ang mga ideya sa teksto",
+        "D": "Makahanap ng mga bagong salita sa teksto"
+      },
+      "correct_answer": "C",
+      "explanation": "Ang kritikal na pagbabasa ay nakatuon sa pagsusuri, pagtatasa, at pagpapalalim ng pag-unawa sa teksto — hindi lamang pag-unawa sa literal na kahulugan kundi pati na rin ang pagsusuri sa mga argumento, bias, at implikasyon.",
+      "tags": ["pagbabasa", "kritikal na pagbabasa", "analisis"]
+    }
+  ]
+}

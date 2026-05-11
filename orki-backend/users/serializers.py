@@ -4,6 +4,8 @@ from .models import UserProfile
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
+    professional_title = serializers.SerializerMethodField(read_only=True)
+
     class Meta:
         model = UserProfile
         fields = [
@@ -16,8 +18,12 @@ class UserProfileSerializer(serializers.ModelSerializer):
             "exam_type",
             "exam_date",
             "onboarding_completed",
+            "professional_title",
         ]
         read_only_fields = ["id", "email"]
+
+    def get_professional_title(self, obj) -> str:
+        return obj.professional_title
 
 
 class LoginSerializer(serializers.Serializer):

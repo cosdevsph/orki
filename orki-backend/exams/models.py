@@ -40,6 +40,8 @@ class MockExam(models.Model):
         ("CSE_SUBPROF", "CSE Sub-Professional"),
         ("LET_GENED", "LET General Education"),
         ("LET_PROFEDU", "LET Professional Education"),
+        ("PMLE_MAIN", "Psychometricians Licensure Exam"),
+        ("CLE_MAIN", "Criminologist Licensure Exam"),
     ]
 
     DIFFICULTY_CHOICES = [

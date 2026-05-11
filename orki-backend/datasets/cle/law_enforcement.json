@@ -1,0 +1,157 @@
+{
+  "exam_type": "CLE",
+  "subject": "Law Enforcement",
+  "version": "1.0.0",
+  "questions": [
+    {
+      "id": "CLE-LE-001",
+      "topic": "Police Organization",
+      "difficulty": "Easy",
+      "question": "The Philippine National Police (PNP) was established under:",
+      "choices": {
+        "A": "Republic Act 6975",
+        "B": "Republic Act 8551",
+        "C": "Republic Act 9165",
+        "D": "Republic Act 7610"
+      },
+      "correct_answer": "A",
+      "explanation": "Republic Act 6975 (Department of the Interior and Local Government Act of 1990) created the Philippine National Police (PNP), which replaced the PC-INP (Philippine Constabulary-Integrated National Police). RA 8551 later amended it.",
+      "tags": ["PNP", "RA 6975", "police organization"]
+    },
+    {
+      "id": "CLE-LE-002",
+      "topic": "Law Enforcement Ethics",
+      "difficulty": "Medium",
+      "question": "The 'noble cause corruption' in law enforcement refers to:",
+      "choices": {
+        "A": "Officers accepting bribes for personal gain",
+        "B": "Falsifying evidence or violating rights to secure a conviction believed to be just",
+        "C": "Officers working for organized crime",
+        "D": "Using excessive force during arrests"
+      },
+      "correct_answer": "B",
+      "explanation": "Noble cause corruption occurs when officers violate the law or ethical standards (planting evidence, perjury, coerced confessions) because they believe the ends justify the means — they are convinced the suspect is guilty and must be convicted. It represents a fundamental ethical threat to law enforcement.",
+      "tags": ["police ethics", "noble cause corruption", "police misconduct"]
+    },
+    {
+      "id": "CLE-LE-003",
+      "topic": "Patrol Operations",
+      "difficulty": "Medium",
+      "question": "The primary purpose of police patrol is:",
+      "choices": {
+        "A": "Investigation of crimes after they occur",
+        "B": "Crime prevention, deterrence, and first response to incidents",
+        "C": "Intelligence gathering about criminal networks",
+        "D": "Community relations and public education"
+      },
+      "correct_answer": "B",
+      "explanation": "The primary purposes of patrol are: (1) crime prevention and deterrence through police presence, (2) first response to incidents, (3) apprehension of offenders, and (4) order maintenance. Patrol is the backbone of police operations.",
+      "tags": ["patrol", "police operations", "crime prevention"]
+    },
+    {
+      "id": "CLE-LE-004",
+      "topic": "Criminal Investigation",
+      "difficulty": "Hard",
+      "question": "The acronym 'MOM' in criminal investigation refers to investigating the suspect's:",
+      "choices": {
+        "A": "Method, Opportunity, and Motive",
+        "B": "Means, Opportunity, and Motive",
+        "C": "Motive, Opportunity, and Means",
+        "D": "Manner, Opportunity, and Motive"
+      },
+      "correct_answer": "B",
+      "explanation": "MOM stands for Means (the physical capability or instrument to commit the crime), Opportunity (the chance to commit the crime — was the suspect present?), and Motive (the reason to commit the crime). Establishing all three strengthens the case against a suspect.",
+      "tags": ["criminal investigation", "MOM", "investigative principles"]
+    },
+    {
+      "id": "CLE-LE-005",
+      "topic": "Arrest and Custody",
+      "difficulty": "Medium",
+      "question": "A warrantless arrest is lawful under the Rules of Court when:",
+      "choices": {
+        "A": "The officer believes the person is about to commit a crime",
+        "B": "The person is caught in flagrante delicto — in the act of committing the offense",
+        "C": "The person has a prior criminal record",
+        "D": "The officer receives an anonymous tip"
+      },
+      "correct_answer": "B",
+      "explanation": "Rule 113, Section 5 of the Rules of Court allows warrantless arrests when: (1) the person to be arrested is in flagrante delicto (committing/attempting/having committed an offense in the officer's presence); (2) hot pursuit (offense just committed, officer has probable cause); (3) escapee.",
+      "tags": ["warrantless arrest", "in flagrante delicto", "arrest procedures"]
+    },
+    {
+      "id": "CLE-LE-006",
+      "topic": "Police Community Relations",
+      "difficulty": "Easy",
+      "question": "Community-Oriented Policing (COP) emphasizes:",
+      "choices": {
+        "A": "Heavy enforcement and zero-tolerance policies",
+        "B": "Partnership and problem-solving between police and the community",
+        "C": "Centralized control and command hierarchy",
+        "D": "Reactive response to crimes reported by citizens"
+      },
+      "correct_answer": "B",
+      "explanation": "Community-Oriented Policing (COP) is a philosophy that promotes partnerships between police and communities to collaboratively identify and solve crime and safety problems. It emphasizes trust, accountability, and shared responsibility for public safety.",
+      "tags": ["community policing", "COP", "police-community relations"]
+    },
+    {
+      "id": "CLE-LE-007",
+      "topic": "Criminal Investigation",
+      "difficulty": "Hard",
+      "question": "The 'fruit of the poisonous tree' doctrine in criminal law means:",
+      "choices": {
+        "A": "Evidence discovered in a garden is automatically admissible",
+        "B": "Evidence derived from an illegal search or seizure is inadmissible",
+        "C": "Eyewitness testimony is more reliable than physical evidence",
+        "D": "Confessions obtained under duress are admissible"
+      },
+      "correct_answer": "B",
+      "explanation": "The exclusionary rule's 'fruit of the poisonous tree' doctrine (Silverthorne Lumber Co. v. U.S.; applied in the Philippines through Article III, Sec. 3(2), 1987 Constitution) holds that evidence derived from an illegal search, seizure, or interrogation is inadmissible — 'tainted' by the original illegality.",
+      "tags": ["exclusionary rule", "fruit of poisonous tree", "evidence admissibility"]
+    },
+    {
+      "id": "CLE-LE-008",
+      "topic": "Police Organization",
+      "difficulty": "Medium",
+      "question": "The highest rank in the Philippine National Police (PNP) is:",
+      "choices": {
+        "A": "Police General",
+        "B": "Director General",
+        "C": "Chief Superintendent",
+        "D": "Police Lieutenant General"
+      },
+      "correct_answer": "A",
+      "explanation": "Following the Rank Classification under RA 9708 (2009), the highest rank in the PNP is Police General (formerly Director General). The PNP Chief holds this rank. The rank structure ranges from Police Officer I up through Police General.",
+      "tags": ["PNP", "police ranks", "organization"]
+    },
+    {
+      "id": "CLE-LE-009",
+      "topic": "Patrol Operations",
+      "difficulty": "Medium",
+      "question": "What does SARA stand for in the context of problem-oriented policing?",
+      "choices": {
+        "A": "Search, Arrest, Report, and Apprehend",
+        "B": "Scan, Analyze, Respond, and Assess",
+        "C": "Secure, Assess, Report, and Act",
+        "D": "Survey, Analyze, Resolve, and Archive"
+      },
+      "correct_answer": "B",
+      "explanation": "SARA (Scanning, Analysis, Response, Assessment) is a problem-solving model in problem-oriented policing: Scan (identify problems), Analyze (understand causes), Respond (develop and implement solutions), and Assess (evaluate effectiveness of responses).",
+      "tags": ["problem-oriented policing", "SARA model", "patrol operations"]
+    },
+    {
+      "id": "CLE-LE-010",
+      "topic": "Law Enforcement Ethics",
+      "difficulty": "Hard",
+      "question": "Under the Philippine National Police Ethical Doctrine Manual, the core values of the PNP are collectively known as:",
+      "choices": {
+        "A": "PAGBABAGO",
+        "B": "SERBISYO",
+        "C": "KASAMA",
+        "D": "INTEGRITY"
+      },
+      "correct_answer": "C",
+      "explanation": "The PNP core values are encapsulated in KASAMA: Katapatan sa Bayan (Loyalty to Country), Aksyon (Action), Serbisyo (Service), Adlaw (Excellence), Moral na Pamumuhay (Moral Living), Angkop (Appropriateness). These guide PNP personnel in professional conduct.",
+      "tags": ["PNP ethics", "core values", "KASAMA", "police ethics"]
+    }
+  ]
+}

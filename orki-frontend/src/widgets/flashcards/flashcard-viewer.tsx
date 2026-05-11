@@ -92,14 +92,14 @@ export function FlashcardViewer({ cards, deckName, onClose, onReview }: Flashcar
         <button
           type="button"
           onClick={onClose}
-          className="rounded-xl bg-black/[0.05] px-3 py-1.5 text-xs font-medium text-muted transition hover:bg-black/[0.08] hover:text-foreground"
+          className="rounded-xl bg-overlay-hover-mid px-3 py-1.5 text-xs font-medium text-muted transition hover:bg-overlay-hover-strong hover:text-foreground"
         >
           ✕ Exit
         </button>
       </div>
 
       {/* Progress bar */}
-      <div className="h-1 w-full overflow-hidden rounded-full bg-black/[0.06]">
+      <div className="h-1 w-full overflow-hidden rounded-full bg-track">
         <div
           className="h-full rounded-full bg-primary transition-all duration-500"
           style={{ width: `${progress}%` }}
@@ -132,7 +132,7 @@ export function FlashcardViewer({ cards, deckName, onClose, onReview }: Flashcar
             className="flashcard-face flashcard-back glass-strong absolute inset-0 flex flex-col items-center justify-center rounded-3xl p-10 text-center"
             style={{
               background:
-                "linear-gradient(135deg, rgba(47,162,226,0.08) 0%, rgba(255,255,255,0.85) 60%)",
+                `linear-gradient(135deg, color-mix(in srgb, var(--primary) 8%, transparent) 0%, var(--glass-strong-bg) 60%)`,
             }}
           >
             <span className="mb-4 rounded-full bg-success/10 px-3 py-1 text-xs font-semibold text-success">
@@ -151,7 +151,7 @@ export function FlashcardViewer({ cards, deckName, onClose, onReview }: Flashcar
           type="button"
           onClick={goPrev}
           disabled={index === 0}
-          className="flex h-11 w-11 items-center justify-center rounded-2xl bg-black/[0.05] text-muted transition hover:bg-black/[0.08] hover:text-foreground disabled:opacity-30"
+          className="flex h-11 w-11 items-center justify-center rounded-2xl bg-overlay-hover-mid text-muted transition hover:bg-overlay-hover-strong hover:text-foreground disabled:opacity-30"
           aria-label="Previous card"
         >
           <svg width="16" height="16" viewBox="0 0 14 14" fill="none">
@@ -171,7 +171,7 @@ export function FlashcardViewer({ cards, deckName, onClose, onReview }: Flashcar
           type="button"
           onClick={goNext}
           disabled={index === total - 1}
-          className="flex h-11 w-11 items-center justify-center rounded-2xl bg-black/[0.05] text-muted transition hover:bg-black/[0.08] hover:text-foreground disabled:opacity-30"
+          className="flex h-11 w-11 items-center justify-center rounded-2xl bg-overlay-hover-mid text-muted transition hover:bg-overlay-hover-strong hover:text-foreground disabled:opacity-30"
           aria-label="Next card"
         >
           <svg width="16" height="16" viewBox="0 0 14 14" fill="none">

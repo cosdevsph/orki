@@ -1,0 +1,157 @@
+{
+  "exam_type": "CSE",
+  "subject": "Verbal Ability",
+  "version": "1.0.0",
+  "questions": [
+    {
+      "id": "CSE-VER-001",
+      "topic": "Vocabulary",
+      "difficulty": "Easy",
+      "question": "Choose the word most similar in meaning to 'DILIGENT':",
+      "choices": {
+        "A": "Lazy",
+        "B": "Hardworking",
+        "C": "Careless",
+        "D": "Indifferent"
+      },
+      "correct_answer": "B",
+      "explanation": "'Diligent' means having or showing care and conscientiousness in one's work or duties. The synonym is 'hardworking' or industrious.",
+      "tags": ["vocabulary", "synonyms", "word meaning"]
+    },
+    {
+      "id": "CSE-VER-002",
+      "topic": "Grammar and Correct Usage",
+      "difficulty": "Medium",
+      "question": "Choose the correctly spelled word:",
+      "choices": {
+        "A": "Accomodation",
+        "B": "Acommodation",
+        "C": "Accommodation",
+        "D": "Acomodation"
+      },
+      "correct_answer": "C",
+      "explanation": "The correct spelling is 'accommodation' — double 'c' and double 'm'. A common mnemonic: the word accommodates two c's and two m's.",
+      "tags": ["spelling", "grammar", "correct usage"]
+    },
+    {
+      "id": "CSE-VER-003",
+      "topic": "Reading Comprehension",
+      "difficulty": "Medium",
+      "question": "Reading Comprehension: 'The government's new policy aims to reduce carbon emissions by 40% over the next decade through renewable energy incentives and stricter industrial regulations.' What is the main goal of the policy?",
+      "choices": {
+        "A": "To increase industrial production",
+        "B": "To reduce carbon emissions",
+        "C": "To expand renewable energy companies",
+        "D": "To impose higher taxes on industries"
+      },
+      "correct_answer": "B",
+      "explanation": "The passage explicitly states the aim is to 'reduce carbon emissions by 40%.' The other options are means to achieve this goal, not the main goal itself.",
+      "tags": ["reading comprehension", "main idea", "government policy"]
+    },
+    {
+      "id": "CSE-VER-004",
+      "topic": "Vocabulary",
+      "difficulty": "Medium",
+      "question": "Choose the word opposite in meaning to 'VERBOSE':",
+      "choices": {
+        "A": "Talkative",
+        "B": "Concise",
+        "C": "Wordy",
+        "D": "Eloquent"
+      },
+      "correct_answer": "B",
+      "explanation": "'Verbose' means using more words than necessary. Its antonym is 'concise,' which means brief and to the point.",
+      "tags": ["vocabulary", "antonyms", "word meaning"]
+    },
+    {
+      "id": "CSE-VER-005",
+      "topic": "Grammar and Correct Usage",
+      "difficulty": "Hard",
+      "question": "Choose the sentence that uses correct subject-verb agreement:",
+      "choices": {
+        "A": "Neither the manager nor the employees was present.",
+        "B": "Neither the manager nor the employees were present.",
+        "C": "Neither the manager nor the employees is present.",
+        "D": "Neither the manager nor the employees are presence."
+      },
+      "correct_answer": "B",
+      "explanation": "When using 'neither...nor,' the verb agrees with the subject closest to it. Here, 'employees' (plural) is closest to the verb, so the plural 'were' is correct.",
+      "tags": ["grammar", "subject-verb agreement", "correlative conjunctions"]
+    },
+    {
+      "id": "CSE-VER-006",
+      "topic": "Vocabulary",
+      "difficulty": "Hard",
+      "question": "The word 'PERSPICACIOUS' most nearly means:",
+      "choices": {
+        "A": "Easily confused",
+        "B": "Having a ready insight; shrewd",
+        "C": "Producing sweat",
+        "D": "Exceptionally brave"
+      },
+      "correct_answer": "B",
+      "explanation": "'Perspicacious' means having a ready insight into things; shrewdness or perceptiveness. Not to be confused with 'perspicuous' (clearly expressed) or 'perspiring' (sweating).",
+      "tags": ["vocabulary", "advanced words", "word meaning"]
+    },
+    {
+      "id": "CSE-VER-007",
+      "topic": "Analogy",
+      "difficulty": "Medium",
+      "question": "DOCTOR : HOSPITAL :: TEACHER : ___",
+      "choices": {
+        "A": "Student",
+        "B": "Classroom",
+        "C": "Book",
+        "D": "School"
+      },
+      "correct_answer": "D",
+      "explanation": "A doctor works in a hospital; a teacher works in a school. The relationship is professional : place of work.",
+      "tags": ["analogy", "verbal reasoning", "relationships"]
+    },
+    {
+      "id": "CSE-VER-008",
+      "topic": "Grammar and Correct Usage",
+      "difficulty": "Medium",
+      "question": "Identify the sentence with incorrect pronoun usage:",
+      "choices": {
+        "A": "Between you and me, this task is difficult.",
+        "B": "It was she who called first.",
+        "C": "The award was given to he and his partner.",
+        "D": "Whoever calls first will be served."
+      },
+      "correct_answer": "C",
+      "explanation": "In option C, 'he' should be 'him' because it follows a preposition ('to'), which requires objective case pronouns. The correct sentence is: 'The award was given to him and his partner.'",
+      "tags": ["grammar", "pronouns", "pronoun case"]
+    },
+    {
+      "id": "CSE-VER-009",
+      "topic": "Reading Comprehension",
+      "difficulty": "Hard",
+      "question": "When an author's tone is described as 'sardonic,' the author is being:",
+      "choices": {
+        "A": "Sincere and earnest",
+        "B": "Grimly mocking or cynical",
+        "C": "Optimistic and cheerful",
+        "D": "Formal and academic"
+      },
+      "correct_answer": "B",
+      "explanation": "A sardonic tone is characterized by grim, harsh, or bitter derision and mockery. It often implies a cynical disregard for the feelings or situation of others.",
+      "tags": ["reading comprehension", "author's tone", "literary terms"]
+    },
+    {
+      "id": "CSE-VER-010",
+      "topic": "Vocabulary",
+      "difficulty": "Easy",
+      "question": "Choose the word that best completes the sentence: 'The new employee showed great ______ by arriving early and staying late every day.'",
+      "choices": {
+        "A": "Apathy",
+        "B": "Initiative",
+        "C": "Reluctance",
+        "D": "Negligence"
+      },
+      "correct_answer": "B",
+      "explanation": "'Initiative' means the ability to assess and initiate things independently, and the power or opportunity to act. Arriving early and staying late demonstrates self-motivated initiative.",
+      "tags": ["vocabulary", "context clues", "word usage"]
+    }
+  ]
+}

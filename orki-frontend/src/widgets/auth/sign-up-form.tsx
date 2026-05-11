@@ -106,7 +106,7 @@ export function SignUpForm() {
           placeholder="Maria Santos"
           autoComplete="name"
           required
-          className="w-full rounded-xl border border-border bg-slate-50/60 px-4 py-3.5 text-sm text-foreground placeholder:text-muted/50 outline-none transition-all duration-200 focus:border-primary/60 focus:bg-white focus:ring-3 focus:ring-primary/10"
+          className="w-full rounded-xl border border-input-border bg-input-bg px-4 py-3.5 text-sm text-foreground placeholder:text-muted/50 outline-none transition-all duration-200 focus:border-primary/60 focus:bg-card-bg focus:ring-3 focus:ring-primary/10"
         />
       </div>
 
@@ -122,7 +122,7 @@ export function SignUpForm() {
           placeholder="you@example.com"
           autoComplete="email"
           required
-          className="w-full rounded-xl border border-border bg-slate-50/60 px-4 py-3.5 text-sm text-foreground placeholder:text-muted/50 outline-none transition-all duration-200 focus:border-primary/60 focus:bg-white focus:ring-3 focus:ring-primary/10"
+          className="w-full rounded-xl border border-input-border bg-input-bg px-4 py-3.5 text-sm text-foreground placeholder:text-muted/50 outline-none transition-all duration-200 focus:border-primary/60 focus:bg-card-bg focus:ring-3 focus:ring-primary/10"
         />
       </div>
 
@@ -138,7 +138,7 @@ export function SignUpForm() {
           placeholder="Min. 8 characters"
           autoComplete="new-password"
           required
-          className="w-full rounded-xl border border-border bg-slate-50/60 px-4 py-3.5 text-sm text-foreground placeholder:text-muted/50 outline-none transition-all duration-200 focus:border-primary/60 focus:bg-white focus:ring-3 focus:ring-primary/10"
+          className="w-full rounded-xl border border-input-border bg-input-bg px-4 py-3.5 text-sm text-foreground placeholder:text-muted/50 outline-none transition-all duration-200 focus:border-primary/60 focus:bg-card-bg focus:ring-3 focus:ring-primary/10"
         />
       </div>
 
@@ -154,7 +154,7 @@ export function SignUpForm() {
           placeholder="Repeat your password"
           autoComplete="new-password"
           required
-          className="w-full rounded-xl border border-border bg-slate-50/60 px-4 py-3.5 text-sm text-foreground placeholder:text-muted/50 outline-none transition-all duration-200 focus:border-primary/60 focus:bg-white focus:ring-3 focus:ring-primary/10"
+          className="w-full rounded-xl border border-input-border bg-input-bg px-4 py-3.5 text-sm text-foreground placeholder:text-muted/50 outline-none transition-all duration-200 focus:border-primary/60 focus:bg-card-bg focus:ring-3 focus:ring-primary/10"
         />
       </div>
 
@@ -182,7 +182,7 @@ export function SignUpForm() {
         type="button"
         onClick={handleGoogleSignIn}
         disabled={isDisabled}
-        className="flex w-full items-center justify-center gap-3 rounded-xl border border-border bg-white px-4 py-3.5 text-sm font-medium text-foreground shadow-sm transition-all duration-200 hover:border-slate-300 hover:bg-slate-50 hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60"
+        className="flex w-full items-center justify-center gap-3 rounded-xl border border-border bg-card-bg px-4 py-3.5 text-sm font-medium text-foreground shadow-sm transition-all duration-200 hover:border-muted/30 hover:bg-overlay-hover-mid hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60"
       >
         <GoogleIcon />
         {isGoogleLoading ? "Connecting…" : "Continue with Google"}

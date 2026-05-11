@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import { useAuth } from "@/hooks/useAuth";
+import { useExamType } from "@/hooks/useExamType";
 import { useNotification } from "@/providers/notification-provider";
 import { useTheme, type Theme } from "@/providers/theme-provider";
 import { logoutFromBackend } from "@/shared/api/auth";
@@ -74,10 +75,10 @@ function Toggle({ checked }: { checked: boolean }) {
   return (
     <div
       className="relative h-6 w-11 rounded-full transition-colors duration-200"
-      style={{ backgroundColor: checked ? "#2FA2E2" : "rgba(0,0,0,0.15)" }}
+      style={{ backgroundColor: checked ? "var(--primary)" : "var(--toggle-off)" }}
     >
       <div
-        className="absolute top-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform duration-200"
+        className="absolute top-0.5 h-5 w-5 rounded-full bg-toggle-knob shadow-sm transition-transform duration-200"
         style={{ transform: checked ? "translateX(20px)" : "translateX(2px)" }}
       />
     </div>
@@ -222,6 +223,7 @@ export default function ProfilePage() {
   const { user, setUser } = useAuth();
   const router = useRouter();
   const { notify } = useNotification();
+  const { professionalTitle, examFullName, examType } = useExamType();
 
   const displayName = user?.display_name || `${user?.first_name ?? ""} ${user?.last_name ?? ""}`.trim() || "Orki User";
   const email = user?.email ?? "—";
@@ -282,6 +284,73 @@ export default function ProfilePage() {
           Edit Profile
         </button>
       </div>
+
+      {/* Exam Journey (view-only) */}
+      {examType && (
+        <div className="space-y-2">
+          <p className="px-1 text-xs font-bold uppercase tracking-widest text-muted">
+            Exam Journey
+          </p>
+          <div className="glass overflow-hidden rounded-2xl">
+            <div
+              className="px-5 py-4"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(47,162,226,0.07) 0%, rgba(139,92,246,0.05) 100%)",
+                borderBottom: "1px solid var(--border)",
+              }}
+            >
+              <div className="flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <p className="text-sm font-bold text-foreground">{examFullName}</p>
+                  <p className="text-xs text-muted">{examType}</p>
+                </div>
+                <span
+                  className="rounded-full px-2.5 py-1 text-[11px] font-semibold"
+                  style={{ background: "rgba(47,162,226,0.1)", color: "#2FA2E2" }}
+                >
+                  View Only
+                </span>
+              </div>
+            </div>
+            <div className="flex divide-x divide-border/50">
+              <div className="flex-1 px-5 py-4">
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-muted">Professional Title</p>
+                <p className="mt-1 font-heading text-lg font-bold text-foreground">
+                  Future{" "}
+                  <span
+                    style={{
+                      background: "linear-gradient(135deg, var(--primary) 0%, #8B5CF6 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    {professionalTitle}
+                  </span>
+                </p>
+              </div>
+              {user?.exam_date && (
+                <div className="flex-1 px-5 py-4">
+                  <p className="text-[10px] font-semibold uppercase tracking-widest text-muted">Target Exam Date</p>
+                  <p className="mt-1 text-sm font-semibold text-foreground">
+                    {new Date(user.exam_date).toLocaleDateString("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
+                  </p>
+                </div>
+              )}
+            </div>
+            <div className="px-5 py-3 border-t border-border/50">
+              <p className="text-[11px] text-muted">
+                🔒 Exam type is permanently set after onboarding and cannot be changed.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Account settings */}
       <AppearanceSection />

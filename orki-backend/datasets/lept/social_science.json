@@ -1,0 +1,157 @@
+{
+  "exam_type": "LEPT",
+  "subject": "Social Science",
+  "version": "1.0.0",
+  "questions": [
+    {
+      "id": "SOC-001",
+      "topic": "Philippine History",
+      "difficulty": "Easy",
+      "question": "Who wrote the national hero Jose Rizal's most celebrated novel 'Noli Me Tangere'?",
+      "choices": {
+        "A": "Andres Bonifacio",
+        "B": "Emilio Aguinaldo",
+        "C": "Jose Rizal",
+        "D": "Apolinario Mabini"
+      },
+      "correct_answer": "C",
+      "explanation": "Jose Rizal wrote 'Noli Me Tangere' (Touch Me Not) in 1887 while in Berlin, Germany. The novel exposed the abuses of Spanish colonial rule and the Catholic clergy in the Philippines, and became a catalyst for the Philippine Revolution.",
+      "tags": ["Philippine history", "Jose Rizal", "literature and nationalism"]
+    },
+    {
+      "id": "SOC-002",
+      "topic": "Government and Politics",
+      "difficulty": "Medium",
+      "question": "Under the 1987 Philippine Constitution, the Congress of the Philippines is:",
+      "choices": {
+        "A": "Unicameral",
+        "B": "Bicameral",
+        "C": "Tricameral",
+        "D": "Parliamentary"
+      },
+      "correct_answer": "B",
+      "explanation": "The Congress of the Philippines is bicameral, composed of the Senate (upper house) and the House of Representatives (lower house), as established by the 1987 Constitution.",
+      "tags": ["government", "Philippine Constitution", "Congress"]
+    },
+    {
+      "id": "SOC-003",
+      "topic": "Economics",
+      "difficulty": "Medium",
+      "question": "Which economic system is characterized by private ownership of the means of production and free market pricing?",
+      "choices": {
+        "A": "Socialism",
+        "B": "Communism",
+        "C": "Capitalism",
+        "D": "Mixed economy"
+      },
+      "correct_answer": "C",
+      "explanation": "Capitalism is an economic system characterized by private ownership of the means of production, free market pricing, and profit motive. Individuals and businesses make economic decisions based on supply and demand.",
+      "tags": ["economics", "economic systems", "capitalism"]
+    },
+    {
+      "id": "SOC-004",
+      "topic": "Philippine History",
+      "difficulty": "Hard",
+      "question": "The Malolos Congress of 1898 was significant because it:",
+      "choices": {
+        "A": "Declared Philippine independence from Spain",
+        "B": "Ratified the first Philippine Constitution",
+        "C": "Established the Katipunan",
+        "D": "Signed the Treaty of Paris"
+      },
+      "correct_answer": "B",
+      "explanation": "The Malolos Congress, which convened in September 1898, ratified the Malolos Constitution — the first democratic constitution written in Asia. It established the First Philippine Republic under President Emilio Aguinaldo.",
+      "tags": ["Philippine history", "Malolos Congress", "first constitution"]
+    },
+    {
+      "id": "SOC-005",
+      "topic": "Geography",
+      "difficulty": "Easy",
+      "question": "The Philippines is located in which region of Asia?",
+      "choices": {
+        "A": "East Asia",
+        "B": "South Asia",
+        "C": "Southeast Asia",
+        "D": "Central Asia"
+      },
+      "correct_answer": "C",
+      "explanation": "The Philippines is an archipelagic country located in Southeast Asia, specifically in the western Pacific Ocean. It is bordered by the South China Sea to the west and the Philippine Sea to the east.",
+      "tags": ["geography", "Philippines", "Southeast Asia"]
+    },
+    {
+      "id": "SOC-006",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "The process by which an individual learns the norms, values, and behaviors of a culture is called:",
+      "choices": {
+        "A": "Acculturation",
+        "B": "Socialization",
+        "C": "Assimilation",
+        "D": "Enculturation"
+      },
+      "correct_answer": "B",
+      "explanation": "Socialization is the lifelong process by which individuals learn the norms, values, customs, and behaviors of their culture. The primary agents of socialization include family, peers, schools, and media.",
+      "tags": ["sociology", "socialization", "culture"]
+    },
+    {
+      "id": "SOC-007",
+      "topic": "Economics",
+      "difficulty": "Hard",
+      "question": "Gross Domestic Product (GDP) measures:",
+      "choices": {
+        "A": "The total income of all citizens regardless of location",
+        "B": "The total market value of goods and services produced within a country in a year",
+        "C": "The total wealth of a nation's citizens",
+        "D": "The government's annual budget"
+      },
+      "correct_answer": "B",
+      "explanation": "GDP (Gross Domestic Product) measures the total market value of all final goods and services produced within a country's borders in a specific time period. It is the primary measure of a country's economic output.",
+      "tags": ["economics", "GDP", "macroeconomics"]
+    },
+    {
+      "id": "SOC-008",
+      "topic": "Philippine History",
+      "difficulty": "Medium",
+      "question": "The EDSA People Power Revolution of 1986 resulted in:",
+      "choices": {
+        "A": "The end of American colonial rule",
+        "B": "The declaration of martial law",
+        "C": "The removal of Ferdinand Marcos and installation of Corazon Aquino",
+        "D": "The start of the Philippine-American War"
+      },
+      "correct_answer": "C",
+      "explanation": "The EDSA People Power Revolution (February 22-25, 1986) was a peaceful civilian and military uprising that resulted in the ousting of President Ferdinand Marcos after 21 years of authoritarian rule, and the inauguration of Corazon Aquino as president.",
+      "tags": ["Philippine history", "EDSA Revolution", "People Power"]
+    },
+    {
+      "id": "SOC-009",
+      "topic": "Government and Politics",
+      "difficulty": "Medium",
+      "question": "The principle of 'separation of powers' divides government authority among:",
+      "choices": {
+        "A": "National, provincial, and local governments",
+        "B": "Executive, Legislative, and Judicial branches",
+        "C": "Political parties and independent bodies",
+        "D": "Federal and state governments"
+      },
+      "correct_answer": "B",
+      "explanation": "The separation of powers doctrine divides governmental authority among three branches: the Executive (enforces laws), the Legislative (makes laws), and the Judicial (interprets laws). This prevents any single branch from becoming too powerful.",
+      "tags": ["government", "separation of powers", "branches of government"]
+    },
+    {
+      "id": "SOC-010",
+      "topic": "Anthropology",
+      "difficulty": "Hard",
+      "question": "Cultural relativism in anthropology refers to:",
+      "choices": {
+        "A": "The belief that one's own culture is superior",
+        "B": "The practice of understanding cultures on their own terms, without outside judgment",
+        "C": "The diffusion of cultural practices across societies",
+        "D": "The evolutionary progression of cultures from simple to complex"
+      },
+      "correct_answer": "B",
+      "explanation": "Cultural relativism is the anthropological principle that a culture should be understood on its own terms, without imposing the values and standards of another culture. It is contrasted with ethnocentrism, which views one's own culture as superior.",
+      "tags": ["anthropology", "cultural relativism", "culture"]
+    }
+  ]
+}

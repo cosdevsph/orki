@@ -15,7 +15,7 @@ function ExamCountdown({ examDate }: { examDate: string }) {
   const examLabel = diff === 0 ? "Today!" : diff === 1 ? "1 day" : `${diff} days`;
 
   return (
-    <div className="flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1.5">
+    <div className="flex items-center gap-2 rounded-full bg-badge-amber-bg px-3 py-1.5">
       <svg width="14" height="14" viewBox="0 0 22 22" fill="none">
         <circle cx="11" cy="11" r="8.25" stroke="#D97706" strokeWidth="1.6" />
         <path d="M11 6.875V11l2.75 2.75" stroke="#D97706" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />

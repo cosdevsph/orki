@@ -11,3 +11,11 @@ export type Flashcard = {
 };
 
 export type SrsQuality = 0 | 1 | 2 | 3; // Again, Hard, Good, Easy
+
+export type SubjectDeck = {
+  id: number;
+  name: string;
+  cardCount: number;
+  dueCount: number;
+  lastStudied: string | null;
+};

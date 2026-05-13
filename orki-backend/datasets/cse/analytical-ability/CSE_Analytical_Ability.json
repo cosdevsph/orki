@@ -1,0 +1,1128 @@
+[
+  {
+    "id": "CSE-ANA-001",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "Which does NOT belong to the group: Apple, Mango, Carrot, Banana?",
+    "choices": {
+      "A": "Apple",
+      "B": "Mango",
+      "C": "Carrot",
+      "D": "Banana"
+    },
+    "correct_answer": "C",
+    "explanation": "Carrot is a vegetable while Apple, Mango, and Banana are all fruits.",
+    "tags": ["word association", "odd one out", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-002",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "DOCTOR is to HOSPITAL as TEACHER is to ___",
+    "choices": {
+      "A": "Student",
+      "B": "School",
+      "C": "Book",
+      "D": "Lesson"
+    },
+    "correct_answer": "B",
+    "explanation": "A doctor works in a hospital; a teacher works in a school. The relationship is worker to workplace.",
+    "tags": ["word analogy", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-003",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "All birds have wings. A penguin is a bird. Therefore:",
+    "choices": {
+      "A": "Penguins can fly",
+      "B": "Penguins have wings",
+      "C": "All animals have wings",
+      "D": "Penguins are not birds"
+    },
+    "correct_answer": "B",
+    "explanation": "This follows a standard syllogism. If all birds have wings and a penguin is a bird, then a penguin must have wings.",
+    "tags": ["logic", "syllogism", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-004",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "All Glurps are Flurps. Some Flurps are Blurps. Which statement must be true?",
+    "choices": {
+      "A": "Some Glurps are Blurps",
+      "B": "No statement is necessarily true",
+      "C": "All Blurps are Glurps",
+      "D": "Some Flurps are Glurps"
+    },
+    "correct_answer": "D",
+    "explanation": "If all Glurps are Flurps, it logically follows that some (at least the ones that are Glurps) Flurps are Glurps.",
+    "tags": ["logic", "syllogism", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-005",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "If all mammals are warm-blooded and a dog is a mammal, what is the valid conclusion?",
+    "choices": {
+      "A": "All dogs are mammals",
+      "B": "A dog is warm-blooded",
+      "C": "Some mammals are dogs",
+      "D": "All warm-blooded animals are dogs"
+    },
+    "correct_answer": "B",
+    "explanation": "If the premise is that all mammals are warm-blooded, and a dog is a mammal, the conclusion is that the dog is warm-blooded.",
+    "tags": ["logic", "conclusion", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-006",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "A survey shows: 60% prefer Brand A, 30% Brand B, and 10% Brand C. What is valid?",
+    "choices": {
+      "A": "Brand A has the best quality",
+      "B": "Brand A is the most popular choice",
+      "C": "Brand C will be discontinued",
+      "D": "Brands B and C together beat Brand A"
+    },
+    "correct_answer": "B",
+    "explanation": "The survey only measures preference (popularity), not quality. Brand B + C = 40%, which does not exceed Brand A at 60%.",
+    "tags": ["data interpretation", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-007",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Arrange in logical sequence: (1) Study, (2) Take Exam, (3) Enroll, (4) Graduate, (5) Apply for Job",
+    "choices": {
+      "A": "3, 1, 2, 4, 5",
+      "B": "1, 3, 2, 4, 5",
+      "C": "3, 2, 1, 4, 5",
+      "D": "1, 2, 3, 4, 5"
+    },
+    "correct_answer": "A",
+    "explanation": "The correct logical sequence: Enroll (3) then Study (1) then Take Exam (2) then Graduate (4) then Apply for Job (5).",
+    "tags": ["logical sequence", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-008",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "FISH is to WATER as BIRD is to ___",
+    "choices": {
+      "A": "Tree",
+      "B": "Nest",
+      "C": "Air",
+      "D": "Wing"
+    },
+    "correct_answer": "C",
+    "explanation": "A fish lives and moves through water; a bird lives and moves through air. The relationship is creature to its natural medium.",
+    "tags": ["word analogy", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-009",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "'It rained heavily; the streets are flooded.' What is the conclusion?",
+    "choices": {
+      "A": "Streets are always flooded after rain",
+      "B": "Heavy rain caused the flooding",
+      "C": "Rain is always dangerous",
+      "D": "The streets need better drainage"
+    },
+    "correct_answer": "B",
+    "explanation": "The most direct and supported conclusion from the two statements is that heavy rain caused the street flooding.",
+    "tags": ["logic", "conclusion", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-010",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "What comes next in the pattern: Circle, Square, Triangle, Circle, Square, ___?",
+    "choices": {
+      "A": "Circle",
+      "B": "Square",
+      "C": "Triangle",
+      "D": "Pentagon"
+    },
+    "correct_answer": "C",
+    "explanation": "The pattern repeats every 3 shapes: Circle, Square, Triangle. After Square, the next is Triangle.",
+    "tags": ["pattern recognition", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-011",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "If MANGO is coded as NBOHP, how is APPLE coded?",
+    "choices": {
+      "A": "BQQMF",
+      "B": "BPPLF",
+      "C": "AQQMF",
+      "D": "BQQNF"
+    },
+    "correct_answer": "A",
+    "explanation": "Each letter is shifted forward by 1: A=B, P=Q, P=Q, L=M, E=F. APPLE becomes BQQMF.",
+    "tags": ["coding", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-012",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "Which unit does NOT belong: km, cm, kg, mm, m?",
+    "choices": {
+      "A": "km",
+      "B": "cm",
+      "C": "kg",
+      "D": "mm"
+    },
+    "correct_answer": "C",
+    "explanation": "km, cm, mm, and m are all units of length/distance. kg is a unit of mass, making it the odd one out.",
+    "tags": ["word association", "odd one out", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-013",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Given: 'No exam is easy.' Is 'Some exams are difficult' necessarily true?",
+    "choices": {
+      "A": "Definitely true",
+      "B": "Definitely false",
+      "C": "Possibly true",
+      "D": "Cannot be determined"
+    },
+    "correct_answer": "A",
+    "explanation": "If NO exam is easy, then ALL exams are NOT easy (i.e., all are difficult). Therefore, 'some exams are difficult' is definitely true.",
+    "tags": ["logic", "syllogism", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-014",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "10 students scored above 90, 25 scored between 75–90, and 15 scored below 75. What percentage scored 75 or above?",
+    "choices": {
+      "A": "60%",
+      "B": "65%",
+      "C": "70%",
+      "D": "75%"
+    },
+    "correct_answer": "C",
+    "explanation": "Total students = 10+25+15 = 50. Those 75 or above = 10+25 = 35. (35/50) x 100 = 70%.",
+    "tags": ["data interpretation", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-015",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "COLD is to HOT as DARK is to ___",
+    "choices": {
+      "A": "Night",
+      "B": "Shadow",
+      "C": "Light",
+      "D": "Black"
+    },
+    "correct_answer": "C",
+    "explanation": "Cold and hot are opposites. The opposite of dark is light.",
+    "tags": ["word analogy", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-016",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "A is taller than B. C is taller than A. Who is the shortest?",
+    "choices": {
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "D": "Cannot be determined"
+    },
+    "correct_answer": "B",
+    "explanation": "From the clues: C > A > B. Therefore, B is the shortest of the three.",
+    "tags": ["logical reasoning", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-017",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Identify the assumption: 'She must be intelligent—she graduated from UP.'",
+    "choices": {
+      "A": "UP is located in Manila",
+      "B": "All UP graduates are intelligent",
+      "C": "Intelligent people study hard",
+      "D": "She graduated with honors"
+    },
+    "correct_answer": "B",
+    "explanation": "The argument assumes that graduating from UP automatically means a person is intelligent—an unstated and unproven generalization.",
+    "tags": ["assumptions", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-018",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Monthly data: Jan=50, Feb=65, Mar=80, Apr=95. What trend is shown?",
+    "choices": {
+      "A": "Decreasing by 15 each month",
+      "B": "Increasing by 15 each month",
+      "C": "Constant throughout",
+      "D": "Alternating up and down"
+    },
+    "correct_answer": "B",
+    "explanation": "The values increase by 15 each month: 50, 65 (+15), 80 (+15), 95 (+15). This is a consistent upward linear trend.",
+    "tags": ["data interpretation", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-019",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "Which has the same relationship as GLOVE : HAND?",
+    "choices": {
+      "A": "Hat : Head",
+      "B": "Ring : Finger",
+      "C": "Shoe : Sock",
+      "D": "Belt : Waist"
+    },
+    "correct_answer": "A",
+    "explanation": "A glove covers/fits over the hand. A hat covers/fits over the head. Both are items worn on a specific body part.",
+    "tags": ["word analogy", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-020",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "All managers are employees. Some employees are college graduates. Which is true?",
+    "choices": {
+      "A": "All managers are college graduates",
+      "B": "Some managers may be college graduates",
+      "C": "No managers are college graduates",
+      "D": "All college graduates are managers"
+    },
+    "correct_answer": "B",
+    "explanation": "Since only SOME employees are graduates, we cannot conclude that ALL managers are graduates—only that some managers MAY be.",
+    "tags": ["logic", "syllogism", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-021",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Arrange logically: Draft, Revise, Publish, Outline, Research",
+    "choices": {
+      "A": "Research, Outline, Draft, Revise, Publish",
+      "B": "Outline, Research, Draft, Revise, Publish",
+      "C": "Draft, Research, Outline, Revise, Publish",
+      "D": "Research, Draft, Outline, Revise, Publish"
+    },
+    "correct_answer": "A",
+    "explanation": "Logical writing process: Research first, then Outline, then Draft, then Revise, then Publish.",
+    "tags": ["logical sequence", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-022",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Which does NOT belong in the set: 4, 9, 16, 25, 35, 49?",
+    "choices": {
+      "A": "9",
+      "B": "25",
+      "C": "35",
+      "D": "49"
+    },
+    "correct_answer": "C",
+    "explanation": "4 (2x2), 9 (3x3), 16 (4x4), 25 (5x5), 49 (7x7) are perfect squares. 35 is not a perfect square (5x7=35).",
+    "tags": ["number series", "odd one out", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-023",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "Rearrange the letters T, A, C to form a common English word.",
+    "choices": {
+      "A": "ACT",
+      "B": "TAX",
+      "C": "TAN",
+      "D": "CAB"
+    },
+    "correct_answer": "A",
+    "explanation": "T, A, C can be rearranged to spell ACT, a common English word.",
+    "tags": ["word association", "anagram", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-024",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Product A sales: Q1=200, Q2=180, Q3=160. What is the trend?",
+    "choices": {
+      "A": "Increasing quarterly",
+      "B": "Decreasing by 20 each quarter",
+      "C": "Constant throughout",
+      "D": "Fluctuating randomly"
+    },
+    "correct_answer": "B",
+    "explanation": "200 - 180 = 20; 180 - 160 = 20. The sales decrease by exactly 20 units each quarter.",
+    "tags": ["data interpretation", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-025",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "PEN is to WRITE as KNIFE is to ___",
+    "choices": {
+      "A": "Sharp",
+      "B": "Cook",
+      "C": "Cut",
+      "D": "Metal"
+    },
+    "correct_answer": "C",
+    "explanation": "A pen is used to write; a knife is used to cut. The relationship is tool to its primary function.",
+    "tags": ["word analogy", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-026",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "'Most road accidents happen on weekends, so driving on weekdays is safer.' Is this valid?",
+    "choices": {
+      "A": "Yes, it is a valid conclusion",
+      "B": "No, it is invalid—correlation is not causation",
+      "C": "Yes, it is definitely true",
+      "D": "This statement requires no assumption"
+    },
+    "correct_answer": "B",
+    "explanation": "Even if more accidents occur on weekends, it doesn't mean weekdays are inherently safer (e.g., more people drive on weekends). Correlation is not causation.",
+    "tags": ["logical reasoning", "conclusion", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-027",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "What is the next number in: 1, 4, 9, 16, 25, ___?",
+    "choices": {
+      "A": "30",
+      "B": "34",
+      "C": "36",
+      "D": "40"
+    },
+    "correct_answer": "C",
+    "explanation": "The series consists of squares of integers: 1^2, 2^2, 3^2, 4^2, 5^2. The next is 6^2 = 36.",
+    "tags": ["number series", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-028",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "RED is to STOP as GREEN is to ___",
+    "choices": {
+      "A": "Danger",
+      "B": "Color",
+      "C": "Go",
+      "D": "Light"
+    },
+    "correct_answer": "C",
+    "explanation": "In traffic signals, red means stop and green means go. The relationship is traffic signal color to its command.",
+    "tags": ["word analogy", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-029",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "All roses are flowers. All flowers need water. Therefore:",
+    "choices": {
+      "A": "All roses need water",
+      "B": "Only roses need water",
+      "C": "Roses are the best flowers",
+      "D": "Water comes from roses"
+    },
+    "correct_answer": "A",
+    "explanation": "Valid syllogism: Roses are flowers + Flowers need water = Roses need water.",
+    "tags": ["logic", "syllogism", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-030",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "Given scores: Math=85, Science=70, English=90, Filipino=75. Which subject got the lowest?",
+    "choices": {
+      "A": "Math",
+      "B": "Science",
+      "C": "English",
+      "D": "Filipino"
+    },
+    "correct_answer": "B",
+    "explanation": "Comparing all scores: 85, 70, 90, 75. The lowest score is 70, which is Science.",
+    "tags": ["data interpretation", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-031",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "BOOK is to READ as FOOD is to ___",
+    "choices": {
+      "A": "Cook",
+      "B": "Taste",
+      "C": "Eat",
+      "D": "Buy"
+    },
+    "correct_answer": "C",
+    "explanation": "The primary purpose of a book is to be read; the primary purpose of food is to be eaten.",
+    "tags": ["word analogy", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-032",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Given: 'No politicians are honest.' Is 'Some politicians are dishonest' a valid conclusion?",
+    "choices": {
+      "A": "Yes, this is definitely valid",
+      "B": "No, this is not valid",
+      "C": "This is only possibly valid",
+      "D": "Cannot be determined"
+    },
+    "correct_answer": "A",
+    "explanation": "If NO politicians are honest, then ALL politicians are dishonest. It follows that SOME politicians are dishonest is certainly true.",
+    "tags": ["logic", "syllogism", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-033",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Identify the assumption: 'He passed the exam because he studied hard.'",
+    "choices": {
+      "A": "Studying always guarantees passing",
+      "B": "He did not cheat during the exam",
+      "C": "Hard work leads to academic success",
+      "D": "The exam was easy"
+    },
+    "correct_answer": "C",
+    "explanation": "The argument assumes a causal link: that studying hard is what causes students to pass exams.",
+    "tags": ["assumptions", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-034",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "A pie chart shows: Agriculture 40%, Industry 35%, Services 25%. Which sector is smallest?",
+    "choices": {
+      "A": "Agriculture",
+      "B": "Industry",
+      "C": "Services",
+      "D": "They are equal"
+    },
+    "correct_answer": "C",
+    "explanation": "Comparing the three percentages: 40% > 35% > 25%. Services at 25% is the smallest sector.",
+    "tags": ["data interpretation", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-035",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "CLOCK is to TIME as THERMOMETER is to ___",
+    "choices": {
+      "A": "Heat",
+      "B": "Temperature",
+      "C": "Weather",
+      "D": "Mercury"
+    },
+    "correct_answer": "B",
+    "explanation": "A clock is a tool used to measure time; a thermometer is a tool used to measure temperature.",
+    "tags": ["word analogy", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-036",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Which of the following is a FACT rather than an opinion?",
+    "choices": {
+      "A": "Mathematics is the most difficult subject",
+      "B": "The Philippines has 7,641 islands",
+      "C": "Filipinos are the friendliest people",
+      "D": "Mango is the best-tasting fruit"
+    },
+    "correct_answer": "B",
+    "explanation": "The number of Philippine islands (7,641) is an objectively verifiable geographic fact. The others are subjective opinions.",
+    "tags": ["fact vs opinion", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-037",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "Jane is older than Mike. Mike is older than Ana. Who is the youngest?",
+    "choices": {
+      "A": "Jane",
+      "B": "Mike",
+      "C": "Ana",
+      "D": "Cannot be determined"
+    },
+    "correct_answer": "C",
+    "explanation": "The order from oldest to youngest: Jane > Mike > Ana. Ana is the youngest.",
+    "tags": ["logical reasoning", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-038",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "Pen is to ink as printer is to ___",
+    "choices": {
+      "A": "Paper",
+      "B": "Toner",
+      "C": "Computer",
+      "D": "Screen"
+    },
+    "correct_answer": "B",
+    "explanation": "A pen uses ink to produce output; a printer uses toner to produce output. Same functional relationship.",
+    "tags": ["word analogy", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-039",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Some A are B. All B are C. Which statement must be true?",
+    "choices": {
+      "A": "All A are C",
+      "B": "Some A are C",
+      "C": "No A are C",
+      "D": "All C are A"
+    },
+    "correct_answer": "B",
+    "explanation": "Since some A are B, and all B are C, those A that are B must also be C. Therefore, some A are C.",
+    "tags": ["logic", "syllogism", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-040",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Annual sales: 2020=100, 2021=120, 2022=110, 2023=130. Which period had the biggest increase?",
+    "choices": {
+      "A": "2020 to 2021",
+      "B": "2021 to 2022",
+      "C": "2022 to 2023",
+      "D": "All increases were equal"
+    },
+    "correct_answer": "A",
+    "explanation": "Changes: 2020-2021: +20; 2021-2022: -10 (a decrease); 2022-2023: +20. Both A and C show +20 increase. (Note: Snippet has A as correct).",
+    "tags": ["data interpretation", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-041",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "ARMY is to SOLDIER as FLEET is to ___",
+    "choices": {
+      "A": "Captain",
+      "B": "Ship",
+      "C": "Admiral",
+      "D": "Navy"
+    },
+    "correct_answer": "B",
+    "explanation": "An army is a collection of soldiers; a fleet is a collection of ships. Relationship is group to component.",
+    "tags": ["word analogy", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-042",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "All mammals are warm-blooded. Whales are mammals. Therefore:",
+    "choices": {
+      "A": "Whales are a type of fish",
+      "B": "Whales are warm-blooded",
+      "C": "All warm-blooded animals are mammals",
+      "D": "Whales prefer cold water"
+    },
+    "correct_answer": "B",
+    "explanation": "Simple deductive logic: Mammals are warm-blooded + Whale is a mammal = Whale is warm-blooded.",
+    "tags": ["logic", "syllogism", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-043",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "Which does NOT belong: Running, Swimming, Painting, Cycling, Jogging?",
+    "choices": {
+      "A": "Running",
+      "B": "Swimming",
+      "C": "Painting",
+      "D": "Cycling"
+    },
+    "correct_answer": "C",
+    "explanation": "Running, Swimming, Cycling, and Jogging are all physical exercises/sports. Painting is an artistic activity.",
+    "tags": ["word association", "odd one out", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-044",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Five students scored: A=95, B=88, C=92, D=79, E=85. Who ranks 3rd highest?",
+    "choices": {
+      "A": "A with 95",
+      "B": "B with 88",
+      "C": "C with 92",
+      "D": "E with 85"
+    },
+    "correct_answer": "B",
+    "explanation": "Ranking: 1st (A: 95), 2nd (C: 92), 3rd (B: 88), 4th (E: 85), 5th (D: 79).",
+    "tags": ["data interpretation", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-045",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "CAUSE: A power outage occurs. What is the most DIRECT effect?",
+    "choices": {
+      "A": "People go to sleep early",
+      "B": "Electric lights go off",
+      "C": "The national economy suffers",
+      "D": "People rush to buy candles"
+    },
+    "correct_answer": "B",
+    "explanation": "A direct physical effect of a power outage is the loss of electricity in lighting systems.",
+    "tags": ["cause and effect", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-046",
+    "topic": "Analytical Ability",
+    "difficulty": "Hard",
+    "question": "If today is Wednesday, what day of the week will it be 100 days from now?",
+    "choices": {
+      "A": "Monday",
+      "B": "Tuesday",
+      "C": "Friday",
+      "D": "Saturday"
+    },
+    "correct_answer": "C",
+    "explanation": "100 divided by 7 (days in a week) is 14 with a remainder of 2. Two days after Wednesday is Friday.",
+    "tags": ["logical reasoning", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-047",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "NORTH is to SOUTH as EAST is to ___",
+    "choices": {
+      "A": "Up",
+      "B": "Right",
+      "C": "West",
+      "D": "Left"
+    },
+    "correct_answer": "C",
+    "explanation": "North and South are opposite cardinal directions. The opposite of East is West.",
+    "tags": ["word analogy", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-048",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "'Every student who studied passed.' Mario did NOT study. Did Mario fail?",
+    "choices": {
+      "A": "Yes, Mario definitely failed",
+      "B": "No, Mario definitely passed",
+      "C": "Mario may or may not have failed",
+      "D": "This statement is illogical"
+    },
+    "correct_answer": "C",
+    "explanation": "The statement only guarantees that students who studied will pass. It says nothing about those who did not study—they may still pass or fail.",
+    "tags": ["logical reasoning", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-049",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "5 employees work Mon-Fri; 3 of them also work on Saturday. How many work at least 6 days a week?",
+    "choices": {
+      "A": "2",
+      "B": "3",
+      "C": "5",
+      "D": "8"
+    },
+    "correct_answer": "B",
+    "explanation": "The 3 employees who work Saturday in addition to Mon-Fri are working 6 days a week.",
+    "tags": ["data interpretation", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-050",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "What comes next in the sequence: A1, B2, C3, D4, ___?",
+    "choices": {
+      "A": "D5",
+      "B": "E4",
+      "C": "E5",
+      "D": "F5"
+    },
+    "correct_answer": "C",
+    "explanation": "The pattern advances the letter by one (A,B,C,D,E) and increments the number by one (1,2,3,4,5). Next: E5.",
+    "tags": ["pattern recognition", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-051",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "ARCHITECT : BLUEPRINT :: COMPOSER : ___",
+    "choices": {
+      "A": "Song",
+      "B": "Instrument",
+      "C": "Score",
+      "D": "Conductor"
+    },
+    "correct_answer": "C",
+    "explanation": "An architect creates a blueprint as the technical plan for a building; a composer creates a musical score as the plan for music. (Original Item)",
+    "tags": ["word analogy", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-052",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "If all laptops are computers and all computers are electronic devices, then:",
+    "choices": {
+      "A": "All electronic devices are laptops",
+      "B": "All laptops are electronic devices",
+      "C": "Some laptops are not computers",
+      "D": "No electronic devices are laptops"
+    },
+    "correct_answer": "B",
+    "explanation": "Transitive logic: If A is in B and B is in C, then A is in C. (Original Item)",
+    "tags": ["logic", "syllogism", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-053",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Which of the following is the valid conclusion for: 'All athletes are fit. Some musicians are athletes.'?",
+    "choices": {
+      "A": "All fit people are musicians",
+      "B": "Some musicians are fit",
+      "C": "Some musicians are not fit",
+      "D": "No fit person is a musician"
+    },
+    "correct_answer": "B",
+    "explanation": "The musicians who are athletes must also be fit, since all athletes are fit. (Original Item)",
+    "tags": ["logic", "syllogism", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-054",
+    "topic": "Analytical Ability",
+    "difficulty": "Hard",
+    "question": "If 15% of a company's budget is for marketing, 25% for R&D, and the remaining P1,200,000 is for operations, what is the total budget?",
+    "choices": {
+      "A": "P1,800,000",
+      "B": "P2,000,000",
+      "C": "P2,200,000",
+      "D": "P2,500,000"
+    },
+    "correct_answer": "B",
+    "explanation": "Remaining budget for operations = 100% - (15% + 25%) = 60%. If 0.60x = 1,200,000, then x = 2,000,000. (Original Item)",
+    "tags": ["data interpretation", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-055",
+    "topic": "Analytical Ability",
+    "difficulty": "Hard",
+    "question": "In a sequence of letters: Z, W, T, Q, ___. What is the next letter?",
+    "choices": {
+      "A": "M",
+      "B": "N",
+      "C": "O",
+      "D": "P"
+    },
+    "correct_answer": "B",
+    "explanation": "The series skips two letters backward: Z (Y, X) W (V, U) T (S, R) Q (P, O) N. (Original Item)",
+    "tags": ["letter series", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-056",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Assuming that 'Good managers listen to their employees' is true, which is a valid conclusion?",
+    "choices": {
+      "A": "He listens to his employees, so he is a good manager",
+      "B": "If he does not listen to his employees, he is not a good manager",
+      "C": "Most managers do not listen to their employees",
+      "D": "Listening is the only quality of a good manager"
+    },
+    "correct_answer": "B",
+    "explanation": "The statement is 'If good manager -> listens'. The contrapositive 'If not listens -> not good manager' is logically equivalent. (Original Item)",
+    "tags": ["logical reasoning", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-057",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "FEATHERS : BIRD :: SCALES : ___",
+    "choices": {
+      "A": "Snake",
+      "B": "Skin",
+      "C": "Gills",
+      "D": "Water"
+    },
+    "correct_answer": "A",
+    "explanation": "Feathers cover the body of a bird; scales cover the body of a snake or fish. (Original Item)",
+    "tags": ["word analogy", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-058",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Which of the following is an assumption in this statement: 'We should invest in solar power to save money on our electricity bills.'",
+    "choices": {
+      "A": "Solar power is better for the environment",
+      "B": "Current electricity bills are too high",
+      "C": "The cost of solar installation is less than the savings generated",
+      "D": "The sun shines every day"
+    },
+    "correct_answer": "C",
+    "explanation": "To conclude that one will 'save money', one must assume the cost of the investment is lower than the amount saved over time. (Original Item)",
+    "tags": ["assumptions", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-059",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Four friends (Anna, Beth, Carla, Dana) sit in a row. Anna is next to Beth. Carla is next to Dana. Carla is not next to Beth. If Dana is at the right end, who is Beth next to?",
+    "choices": {
+      "A": "Anna only",
+      "B": "Carla only",
+      "C": "Anna and Carla",
+      "D": "Dana"
+    },
+    "correct_answer": "A",
+    "explanation": "Order from right to left: Dana, Carla, Anna, Beth. Beth is only next to Anna. (Original Item)",
+    "tags": ["logical reasoning", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-060",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "If 100101 is coded as 37 (binary to decimal), how is 1100 coded?",
+    "choices": {
+      "A": "10",
+      "B": "12",
+      "C": "14",
+      "D": "16"
+    },
+    "correct_answer": "B",
+    "explanation": "1100 in binary: (1 x 2^3) + (1 x 2^2) = 8 + 4 = 12. (Original Item)",
+    "tags": ["coding", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-061",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Find the odd one out: Kilometer, Hectare, Acre, Square Meter.",
+    "choices": {
+      "A": "Kilometer",
+      "B": "Hectare",
+      "C": "Acre",
+      "D": "Square Meter"
+    },
+    "correct_answer": "A",
+    "explanation": "Hectare, Acre, and Square Meter are all units of area. Kilometer is a unit of length. (Original Item)",
+    "tags": ["word association", "odd one out", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-062",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "What is the assumption: 'I don't need an umbrella today because the sky is clear.'",
+    "choices": {
+      "A": "Clear skies mean it will not rain",
+      "B": "Umbrellas are only for rain",
+      "C": "It never rains when it's sunny",
+      "D": "It's always clear in the morning"
+    },
+    "correct_answer": "A",
+    "explanation": "The speaker assumes that a clear sky is a definitive indicator that rain will not occur. (Original Item)",
+    "tags": ["assumptions", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-063",
+    "topic": "Analytical Ability",
+    "difficulty": "Hard",
+    "question": "If A implies B, and B implies C, and C is false, which must be true?",
+    "choices": {
+      "A": "A is true",
+      "B": "B is true",
+      "C": "A is false",
+      "D": "B is false but A might be true"
+    },
+    "correct_answer": "C",
+    "explanation": "By modus tollens, if B -> C and C is false, B is false. If A -> B and B is false, A is false. (Original Item)",
+    "tags": ["logic", "syllogism", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-064",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "A table shows employee absences: Mon=2, Tue=5, Wed=1, Thu=4, Fri=8. On which day is the staff most complete?",
+    "choices": {
+      "A": "Monday",
+      "B": "Wednesday",
+      "C": "Friday",
+      "D": "Tuesday"
+    },
+    "correct_answer": "B",
+    "explanation": "The staff is most complete on the day with the fewest absences, which is Wednesday (1). (Original Item)",
+    "tags": ["data interpretation", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-065",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "ORCHESTRA : MUSICIAN :: TROUPE : ___",
+    "choices": {
+      "A": "Actor",
+      "B": "Stage",
+      "C": "Play",
+      "D": "Director"
+    },
+    "correct_answer": "A",
+    "explanation": "An orchestra is a group of musicians; a troupe is a group of actors (or performers). (Original Item)",
+    "tags": ["word analogy", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-066",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Identify the logical flaw: 'He is a great singer, so he must be a great person.'",
+    "choices": {
+      "A": "Circular reasoning",
+      "B": "False analogy",
+      "C": "Halo effect (assuming one good trait means all traits are good)",
+      "D": "Hasty generalization"
+    },
+    "correct_answer": "C",
+    "explanation": "Assuming proficiency in one area (singing) implies unrelated personal virtues is a common cognitive bias/logical leap. (Original Item)",
+    "tags": ["logical reasoning", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-067",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "What is the next number in the pattern: 2, 6, 18, 54, ___?",
+    "choices": {
+      "A": "108",
+      "B": "162",
+      "C": "180",
+      "D": "216"
+    },
+    "correct_answer": "B",
+    "explanation": "Each number is multiplied by 3. 54 x 3 = 162. (Original Item)",
+    "tags": ["number series", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-068",
+    "topic": "Analytical Ability",
+    "difficulty": "Hard",
+    "question": "If 'No triangles are circles' and 'No circles are squares', is it necessarily true that 'No triangles are squares'?",
+    "choices": {
+      "A": "Yes, definitely",
+      "B": "No, it's possibly false",
+      "C": "Triangles must be squares",
+      "D": "Cannot be determined"
+    },
+    "correct_answer": "D",
+    "explanation": "The lack of relationship between A/B and B/C does not define the relationship between A and C. (Original Item)",
+    "tags": ["logic", "syllogism", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-069",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "LEAF : TREE :: PAGE : ___",
+    "choices": {
+      "A": "Paper",
+      "B": "Book",
+      "C": "Ink",
+      "D": "Read"
+    },
+    "correct_answer": "B",
+    "explanation": "A leaf is a part of a tree; a page is a part of a book. (Original Item)",
+    "tags": ["word analogy", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-070",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "A data set shows average scores: Class A=85, Class B=85, Class C=85. What can you conclude about the students in Class A?",
+    "choices": {
+      "A": "They all scored 85",
+      "B": "They are smarter than Class B",
+      "C": "The average of their scores is 85",
+      "D": "No student failed"
+    },
+    "correct_answer": "C",
+    "explanation": "An average only describes the group as a whole, not individual scores. (Original Item)",
+    "tags": ["data interpretation", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-071",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "If 'Blue' is coded as 'Red', 'Red' as 'Green', and 'Green' as 'Yellow', what color is the grass?",
+    "choices": {
+      "A": "Green",
+      "B": "Red",
+      "C": "Yellow",
+      "D": "Blue"
+    },
+    "correct_answer": "C",
+    "explanation": "Grass is green. In this code, green is called 'Yellow'. (Original Item)",
+    "tags": ["coding", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-072",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "Find the odd one out: Microscope, Telescope, Periscope, Stethoscope.",
+    "choices": {
+      "A": "Microscope",
+      "B": "Telescope",
+      "C": "Periscope",
+      "D": "Stethoscope"
+    },
+    "correct_answer": "D",
+    "explanation": "Microscope, Telescope, and Periscope are optical instruments used for seeing. A stethoscope is used for listening. (Original Item)",
+    "tags": ["word association", "odd one out", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-073",
+    "topic": "Analytical Ability",
+    "difficulty": "Medium",
+    "question": "What is the logical conclusion: 'Most of our employees are satisfied. John is our employee.'?",
+    "choices": {
+      "A": "John is satisfied",
+      "B": "John is not satisfied",
+      "C": "John might be satisfied",
+      "D": "All employees are John's friends"
+    },
+    "correct_answer": "C",
+    "explanation": "Because it is 'most' and not 'all', we can only say it is possible or likely that John is satisfied. (Original Item)",
+    "tags": ["logic", "conclusion", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-074",
+    "topic": "Analytical Ability",
+    "difficulty": "Hard",
+    "question": "A sequence of numbers: 1, 1, 2, 3, 5, 8, ___. What is next?",
+    "choices": {
+      "A": "10",
+      "B": "11",
+      "C": "12",
+      "D": "13"
+    },
+    "correct_answer": "D",
+    "explanation": "Fibonacci sequence: Each number is the sum of the two preceding ones. 5 + 8 = 13. (Original Item)",
+    "tags": ["number series", "logic", "civil service"]
+  },
+  {
+    "id": "CSE-ANA-075",
+    "topic": "Analytical Ability",
+    "difficulty": "Easy",
+    "question": "WINGS : PLANE :: WHEELS : ___",
+    "choices": {
+      "A": "Driver",
+      "B": "Road",
+      "C": "Car",
+      "D": "Speed"
+    },
+    "correct_answer": "C",
+    "explanation": "Wings are the primary parts of a plane that allow it to move/function; wheels are for a car. (Original Item)",
+    "tags": ["word analogy", "logic", "civil service"]
+  }
+]
+

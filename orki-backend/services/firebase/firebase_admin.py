@@ -13,6 +13,11 @@ def get_firebase_app() -> firebase_admin.App:
         return _app
 
     cred_path = getattr(settings, "FIREBASE_CREDENTIALS_PATH", None)
+    project_id = getattr(settings, "FIREBASE_PROJECT_ID", None)
+
+    # Resolve relative credential paths against BASE_DIR
+    if cred_path and not os.path.isabs(cred_path):
+        cred_path = os.path.join(settings.BASE_DIR, cred_path)
 
     if cred_path and os.path.exists(cred_path):
         cred = credentials.Certificate(cred_path)
@@ -20,5 +25,6 @@ def get_firebase_app() -> firebase_admin.App:
         # Fallback: Application Default Credentials (Cloud environments / CI)
         cred = credentials.ApplicationDefault()
 
-    _app = firebase_admin.initialize_app(cred)
+    options = {"projectId": project_id} if project_id else {}
+    _app = firebase_admin.initialize_app(cred, options)
     return _app

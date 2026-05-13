@@ -1,0 +1,1763 @@
+{
+  "exam_type": "LEPT",
+  "subject": "Social Science",
+  "version": "1.0.0",
+  "questions": [
+    {
+      "id": "SOC-001",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "Which of the following is the ultimate purpose of Human Right Education?",
+      "choices": {
+        "A": "to identify threats of human rights",
+        "B": "to generate awareness of one's basic rights",
+        "C": "to check on abuses in the exercise of human rights",
+        "D": "to understand and change conditions which give rise to human rights violation"
+      },
+      "correct_answer": "B",
+      "explanation": "The foundational and ultimate purpose of human rights education is to empower individuals by making them aware of their inherent basic rights.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-002",
+      "topic": "History",
+      "difficulty": "Medium",
+      "question": "What is considered the earliest form of writing in the Philippines?",
+      "choices": {
+        "A": "Abakada",
+        "B": "Roman alphabet",
+        "C": "Alibata",
+        "D": "Balitaw"
+      },
+      "correct_answer": "C",
+      "explanation": "Alibata, also known as Baybayin, is an ancient script that was widely used in the Philippines before the Spanish colonization, making it the earliest known form of writing.",
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "SOC-003",
+      "topic": "Economics",
+      "difficulty": "Medium",
+      "question": "The bank was swarmed with depositors. The bank ____",
+      "choices": {
+        "A": "declared an open house",
+        "B": "declared dividends",
+        "C": "declared a holiday",
+        "D": "declared bankruptcy"
+      },
+      "correct_answer": "D",
+      "explanation": "A bank being 'swarmed with depositors' typically describes a bank run, where customers withdraw their money due to fears of the bank's insolvency, often leading to bankruptcy.",
+      "tags": [
+        "economics"
+      ]
+    },
+    {
+      "id": "SOC-004",
+      "topic": "History",
+      "difficulty": "Medium",
+      "question": "The Rizal Day celebration reminds us about heroes worth ____",
+      "choices": {
+        "A": "appreciating",
+        "B": "emulating",
+        "C": "reading about",
+        "D": "studying"
+      },
+      "correct_answer": "B",
+      "explanation": "Rizal Day serves to honor national heroes and inspire citizens to emulate their virtues, patriotism, and sacrifices for the country.",
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "SOC-005",
+      "topic": "History",
+      "difficulty": "Medium",
+      "question": "What is the exact date of Rizal's birth?",
+      "choices": {
+        "A": "June 19, 1862",
+        "B": "June 19, 1858",
+        "C": "June 19, 1861",
+        "D": "June 19, 1860"
+      },
+      "correct_answer": "C",
+      "explanation": "Jose Rizal, the national hero of the Philippines, was born on June 19, 1861, in Calamba, Laguna.",
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "SOC-006",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "How can the Comprehensive Agrarian Reform Program bring about social equity and economic prosperity in the country? I. By distributing the agricultural lands to landless farmers free of charge II. By transferring the ownership of land to farmers for a value III. By helping the affected landowners to use their land compensation in viable business activities IV. By providing support services to farmer- beneficiaries",
+      "choices": {
+        "A": "II, III, and IV",
+        "B": "I, II, and IV",
+        "C": "I, II, and III",
+        "D": "I, III, and IV"
+      },
+      "correct_answer": "A",
+      "explanation": "The CARP aims for social equity and economic prosperity by transferring land ownership (often for a value), assisting landowners, and providing support services to farmer-beneficiaries. Land is not always distributed free of charge.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-007",
+      "topic": "Economics",
+      "difficulty": "Medium",
+      "question": "You are a member of a cooperative which operates taxis, tricycles, and buses. Of which type of a cooperative are you a member?",
+      "choices": {
+        "A": "service cooperative",
+        "B": "multipurpose cooperative",
+        "C": "marketing cooperative",
+        "D": "producers cooperative"
+      },
+      "correct_answer": "A",
+      "explanation": "A service cooperative provides services, such as transportation (taxis, tricycles, buses), to its members and the community.",
+      "tags": [
+        "economics"
+      ]
+    },
+    {
+      "id": "SOC-008",
+      "topic": "Economics",
+      "difficulty": "Medium",
+      "question": "Which among the following is an example of a transfer payment?",
+      "choices": {
+        "A": "profit",
+        "B": "rent",
+        "C": "unemployment benefits",
+        "D": "government purchases"
+      },
+      "correct_answer": "C",
+      "explanation": "Transfer payments are payments made by the government to individuals or groups without any goods or services being received in return, such as unemployment benefits or social security.",
+      "tags": [
+        "economics",
+        "politics",
+        "law"
+      ]
+    },
+    {
+      "id": "SOC-009",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "The following EXCEPT one are experience that help students build a global orientation. A. Teach about the United Nations and its specialized agencies B. Explore some of the reasons for the differences in ways of living C. Conduct training with schools from other countries D. Promote the development of stereotypes and ethnic bias",
+      "choices": {
+        "A": "Teach about the United Nations and its specialized agencies",
+        "B": "Explore some of the reasons for the differences in ways of living",
+        "C": "Conduct training with schools from other countries",
+        "D": "Promote the development of stereotypes and ethnic bias"
+      },
+      "correct_answer": "D",
+      "explanation": "Global orientation aims to foster understanding and respect for diversity. Promoting stereotypes and ethnic bias is contrary to building a global orientation, as it hinders understanding and acceptance of different cultures.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-010",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "What law was passed by Philippine Congress in 1995 which affirms the total integration of persons with disabilities into the mainstream of society? A. R.A. 7277 B. R.A. 7784 C. R.A. 7722 D. R.A. 7776",
+      "choices": {
+        "A": "R.A. 7277",
+        "B": "R.A. 7784",
+        "C": "R.A. 7722",
+        "D": "R.A. 7776"
+      },
+      "correct_answer": "A",
+      "explanation": "Republic Act No. 7277, also known as the Magna Carta for Disabled Persons, was enacted in 1992 (not 1995) to provide for the rehabilitation, self-development, and self-reliance of disabled persons and their integration into the mainstream of society.",
+      "tags": [
+        "sociology",
+        "politics",
+        "law"
+      ]
+    },
+    {
+      "id": "SOC-011",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "A losing senatorial candidate may file a protest against the winner. What body will assume jurisdiction over the case? A. Supreme Court B. Electoral Tribunal C. COMELEC D. Regional Trial Court",
+      "choices": {
+        "A": "Supreme Court",
+        "B": "Electoral Tribunal",
+        "C": "COMELEC",
+        "D": "Regional Trial Court"
+      },
+      "correct_answer": "B",
+      "explanation": "Electoral Tribunals (Senate Electoral Tribunal and House of Representatives Electoral Tribunal) have the sole jurisdiction over all contests relating to the election, returns, and qualifications of their respective members.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-012",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "The Philippines belong to the type of biome called ____. A. dicidous forest B. taiga C. tropical rainforest D. grassland",
+      "choices": {
+        "A": "dicidous forest",
+        "B": "taiga",
+        "C": "tropical rainforest",
+        "D": "grassland"
+      },
+      "correct_answer": "C",
+      "explanation": "The Philippines, characterized by its warm climate and abundant rainfall throughout the year, is predominantly covered by a tropical rainforest biome.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-013",
+      "topic": "Economics",
+      "difficulty": "Medium",
+      "question": "Nobel Prize winners are chosen from different levels. Where was Pres. Quirino considered?",
+      "choices": {
+        "A": "politics",
+        "B": "literature",
+        "C": "human rights",
+        "D": "economics"
+      },
+      "correct_answer": "D",
+      "explanation": "Elpidio Quirino, as a former Philippine president, implemented economic policies aimed at post-war reconstruction and development, making his work relevant to the field of economics.",
+      "tags": [
+        "politics",
+        "economics",
+        "history",
+        "law"
+      ]
+    },
+    {
+      "id": "SOC-014",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "When a person shows the ability to understand and appreciate the similarities and differences in the customs, values, and beliefs of one's culture, that person is said to ____.",
+      "choices": {
+        "A": "possess multicultural literacy",
+        "B": "possess sociocultural awareness",
+        "C": "possess global awareness",
+        "D": "possess social literacy"
+      },
+      "correct_answer": "A",
+      "explanation": "Multicultural literacy is the ability to understand, appreciate, and interact effectively with people from diverse cultural backgrounds, recognizing both similarities and differences.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-015",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "When a teacher is charged with administrative case committed in the lawful discharge of professional duties, what right may the teacher invoke for their defense?",
+      "choices": {
+        "A": "right to receive compensation in the duration of the case",
+        "B": "right to be given the due process of law",
+        "C": "right to be defended by the organization of teachers to which they are a member",
+        "D": "right to be provided with free legal service by the appropriate office"
+      },
+      "correct_answer": "D",
+      "explanation": "Teachers facing administrative charges related to their professional duties are often entitled to free legal services from the appropriate office, ensuring they have proper representation and defense.",
+      "tags": [
+        "politics",
+        "law"
+      ]
+    },
+    {
+      "id": "SOC-016",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "Any individual has the right to question why he is being arrested, and to summon his accusers to court so that due process may be performed. This right is embodied in which of the following?",
+      "choices": {
+        "A": "reclusion perpetua",
+        "B": "res ipsa loquitur",
+        "C": "prison mayor",
+        "D": "habeas corpus"
+      },
+      "correct_answer": "D",
+      "explanation": "Habeas corpus is a legal principle that ensures an individual cannot be imprisoned unlawfully and has the right to be brought before a court to determine the legality of their detention.",
+      "tags": [
+        "politics",
+        "law"
+      ]
+    },
+    {
+      "id": "SOC-017",
+      "topic": "Economics",
+      "difficulty": "Medium",
+      "question": "To stimulate the nation's economy and to increase employment, former President Diosdado Macapagal ____.",
+      "choices": {
+        "A": "abolished government repressive controls",
+        "B": "borrowed money from the World Bank",
+        "C": "standardized the salaries of government employees",
+        "D": "gave incentives to home cottage industries"
+      },
+      "correct_answer": "A",
+      "explanation": "President Diosdado Macapagal implemented the Decontrol Program, which aimed to abolish government repressive controls to stimulate the economy and increase employment.",
+      "tags": [
+        "economics",
+        "politics",
+        "law"
+      ]
+    },
+    {
+      "id": "SOC-018",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "One of the objectives of Philippine Education as provided in the 1987 Constitutions is to promote respect for human rights. To gave flesh to this constitutional mandate, President Aquino issued an order requiring human rights to be integrated in the school curricula. Which of the following specifies the said directives?",
+      "choices": {
+        "A": "DECS Order No. 61",
+        "B": "Executive Order No. 27",
+        "C": "Presidential Decree No. 603",
+        "D": "Administrative Order No. 2"
+      },
+      "correct_answer": "B",
+      "explanation": "Executive Order No. 27, issued by President Corazon Aquino, mandated the integration of human rights education into the school curricula in the Philippines.",
+      "tags": [
+        "politics",
+        "law"
+      ]
+    },
+    {
+      "id": "SOC-019",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "Which of the following documents embodies the general principles of human rights which set forth the minimum standard of living for all people pf the world?",
+      "choices": {
+        "A": "International Covenant on Civil, Political Rights",
+        "B": "International Covenant on socio-Economic, Cultural rights",
+        "C": "Universal Declaration of Human Rights",
+        "D": "United Nations Declaration on Rights to Development"
+      },
+      "correct_answer": "D",
+      "explanation": "The United Nations Declaration on the Right to Development specifically focuses on the right to development, which encompasses economic, social, cultural, civil, and political rights, aiming to ensure a standard of living conducive to well-being for all people.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-020",
+      "topic": "Economics",
+      "difficulty": "Medium",
+      "question": "What type of cooperative provides assistance to general public such as transportation, health and housing?",
+      "choices": {
+        "A": "consumer",
+        "B": "producer",
+        "C": "credit",
+        "D": "service"
+      },
+      "correct_answer": "D",
+      "explanation": "A service cooperative provides various services to its members and the general public, which can include transportation, health, housing, or utilities.",
+      "tags": [
+        "economics"
+      ]
+    },
+    {
+      "id": "SOC-021",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "What form of government is characterized by the separation of powers?",
+      "choices": {
+        "A": "Parliamentary",
+        "B": "Presidential",
+        "C": "Aristocracy",
+        "D": "Monarchical"
+      },
+      "correct_answer": "B",
+      "explanation": "A presidential form of government is characterized by a clear separation of powers among the executive, legislative, and judicial branches, with distinct functions and checks and balances.",
+      "tags": [
+        "politics",
+        "law"
+      ]
+    },
+    {
+      "id": "SOC-022",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "Someone wrote: \"Environment relates to the profound relationship between matter, nature, and society, and in such a context, ICTS bring new ways of living in a more interconnected society, all of which reduces our dependency on matter and affects our relationship with nature.\" What does this convey?",
+      "choices": {
+        "A": "Environment and ICT are poles apart.",
+        "B": "ICT impacts on environment.",
+        "C": "Environment affects ICT.",
+        "D": "ICT brings us away from an interconnected society."
+      },
+      "correct_answer": "B",
+      "explanation": "The statement explicitly describes how ICTs 'reduce our dependency on matter and affects our relationship with nature,' directly indicating that Information and Communication Technologies (ICT) have an impact on the environment.",
+      "tags": [
+        "environmental science",
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-023",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "Imprisoned for 27 years, Nelson Mandela realized his dream of a free and non-racial South Africa by forgiving his oppressors and negotiating in good faith for the peaceful transition to democracy. Nelson Mandela demonstrated his trait of ____",
+      "choices": {
+        "A": "Friendliness",
+        "B": "Determination",
+        "C": "forgiving",
+        "D": "loyalty"
+      },
+      "correct_answer": "A",
+      "explanation": "Nelson Mandela's actions of forgiving his oppressors and negotiating in good faith for a peaceful transition demonstrate a trait of friendliness and a willingness to reconcile for the greater good, fostering unity.",
+      "tags": [
+        "law",
+        "history",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-024",
+      "topic": "History",
+      "difficulty": "Medium",
+      "question": "Who was the first editor of La Solidaridad ?",
+      "choices": {
+        "A": "Juan Luna",
+        "B": "Graciano Lopez Jaena",
+        "C": "Jose Rizal",
+        "D": "Marcelo H. Del Pilar"
+      },
+      "correct_answer": "B",
+      "explanation": "Graciano Lopez Jaena was the first editor of La Solidaridad, the official organ of the Propaganda Movement, which advocated for reforms in the Philippines during the Spanish colonial era.",
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "SOC-025",
+      "topic": "Economics",
+      "difficulty": "Medium",
+      "question": "Tax imposed on all employed and practicing professionals",
+      "choices": {
+        "A": "Income tax",
+        "B": "Community tax",
+        "C": "Real estate tax",
+        "D": "Inheritance tax"
+      },
+      "correct_answer": "A",
+      "explanation": "Income tax is a tax levied on the income of individuals and corporations, including earnings from employment and professional practice, based on their earnings.",
+      "tags": [
+        "economics"
+      ]
+    },
+    {
+      "id": "SOC-026",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "Who is known as the \"Father of the Local Government Code\"?",
+      "choices": {
+        "A": "Joey Lina",
+        "B": "Jovito Salonga",
+        "C": "Joseph Estrada",
+        "D": "Aquilino Pimentel"
+      },
+      "correct_answer": "D",
+      "explanation": "Senator Aquilino Pimentel Jr. is widely recognized as the 'Father of the Local Government Code' (Republic Act No. 7160) for his principal authorship and advocacy of this landmark legislation.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-027",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "Maternity leaves are extended to women. What legal provision extends this?",
+      "choices": {
+        "A": "Article XIV Education",
+        "B": "Article XIII Sec 14 women",
+        "C": "Article XIII Role and Rights of People's Organization",
+        "D": "Article XII Bill of Rights"
+      },
+      "correct_answer": "B",
+      "explanation": "Article XIII of the Philippine Constitution pertains to Social Justice and Human Rights. Section 14 specifically addresses the protection of working women, including maternity benefits, which are further elaborated in specific laws like the Expanded Maternity Leave Law.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-028",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "What is one of the man-made wonders of the Philippines?",
+      "choices": {
+        "A": "Rice terraces",
+        "B": "Mount Makiling",
+        "C": "Manila Bay",
+        "D": "Taal Volcano"
+      },
+      "correct_answer": "A",
+      "explanation": "The Banaue Rice Terraces are an ancient agricultural marvel in the Philippines, often referred to as the 'Eighth Wonder of the World,' created by the Ifugao people over 2,000 years ago.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-029",
+      "topic": "History",
+      "difficulty": "Medium",
+      "question": "Who was the Spanish mestizo priest who first led the native secular clergy in the Secularization Movement in 1861?",
+      "choices": {
+        "A": "Father Jacinto Zamora",
+        "B": "Father Pedro Pelaez",
+        "C": "Father Gregorio Aglipay",
+        "D": "Father Jose Burgos"
+      },
+      "correct_answer": "B",
+      "explanation": "Father Pedro Pelaez was a prominent Spanish mestizo priest who championed the rights of the native secular clergy and led the Secularization Movement in the Philippines before the Cavite Mutiny.",
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "SOC-030",
+      "topic": "History",
+      "difficulty": "Medium",
+      "question": "Which of the following was the first to happen?",
+      "choices": {
+        "A": "Aguinaldo declared Philippine Independence.",
+        "B": "Guerilla warfare against the US was initiated.",
+        "C": "The Philippines was ceded to the US by the Treaty of Paris.",
+        "D": "Aguinaldo was captured."
+      },
+      "correct_answer": "A",
+      "explanation": "Emilio Aguinaldo declared Philippine Independence on June 12, 1898. The Treaty of Paris, which ceded the Philippines to the US, was signed on December 10, 1898, after the declaration of independence.",
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "SOC-031",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "With the Batasang Pambansa performing legislative and executive powers in the Marcos regime, which form of government was implemented?",
+      "choices": {
+        "A": "Monarchial",
+        "B": "Presidential",
+        "C": "Parliamentary",
+        "D": "Dictatorial"
+      },
+      "correct_answer": "D",
+      "explanation": "During the Marcos regime, especially under martial law, the government operated with concentrated power, often bypassing democratic processes, which is characteristic of a dictatorial form of government.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-032",
+      "topic": "History",
+      "difficulty": "Medium",
+      "question": "Who was the last Spanish Governor-General of the Philippines?",
+      "choices": {
+        "A": "Ramon Blanco",
+        "B": "Basilio Agustin",
+        "C": "Diego de los Rios",
+        "D": "Fermin Jaudenes"
+      },
+      "correct_answer": "C",
+      "explanation": "Diego de los Rios was the last Spanish Governor-General of the Philippines, serving briefly after the Spanish-American War and before the complete American takeover.",
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "SOC-033",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "____ of the pledges of the President of the Philippines is to defend its:",
+      "choices": {
+        "A": "Constitution",
+        "B": "Citizens",
+        "C": "Land",
+        "D": "Islands"
+      },
+      "correct_answer": "A",
+      "explanation": "The President of the Philippines takes an oath to preserve and defend the Constitution, which is the supreme law of the land and the foundation of the government.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-034",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "The President ____ the bill on Children's Right last Monday.",
+      "choices": {
+        "A": "vetoes",
+        "B": "vetos",
+        "C": "vetoed",
+        "D": "vetoid"
+      },
+      "correct_answer": "C",
+      "explanation": "The phrase \"last Monday\" indicates a completed action in the past, requiring the simple past tense of the verb. The past tense of \"veto\" is \"vetoed.\"",
+      "tags": [
+        "grammar",
+        "politics",
+        "law"
+      ]
+    },
+    {
+      "id": "SOC-035",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "Jewish: kosher : : halal",
+      "choices": {
+        "A": "Muslim",
+        "B": "Buddhist",
+        "C": "Christian",
+        "D": "Pagans"
+      },
+      "correct_answer": "A",
+      "explanation": "This is an analogy based on religious dietary laws. \"Kosher\" refers to food prepared according to Jewish law, and \"halal\" refers to food prepared according to Islamic law, making \"Muslim\" the corresponding group.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-036",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "It is characterized by shared experiences and mutual responsibilities.",
+      "choices": {
+        "A": "Gesellschaft",
+        "B": "Gemeinchaft",
+        "C": "Enculturation",
+        "D": "Acculturation"
+      },
+      "correct_answer": "B",
+      "explanation": "Gemeinschaft (community) describes a social group characterized by strong personal ties, shared experiences, and mutual responsibilities, often found in traditional societies.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-037",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "It features the exchange of goods, money and services.",
+      "choices": {
+        "A": "Gesellschaft",
+        "B": "Gemeinchaft",
+        "C": "Enculturation",
+        "D": "Acculturation"
+      },
+      "correct_answer": "A",
+      "explanation": "Gesellschaft (society) describes a social group characterized by impersonal, contractual, and goal-oriented relationships, where economic exchange is a primary feature.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-038",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "Violation of human rights is a violation of the ____ of persons.",
+      "choices": {
+        "A": "dignity",
+        "B": "intelligence",
+        "C": "emotions",
+        "D": "freedom"
+      },
+      "correct_answer": "A",
+      "explanation": "Human rights are fundamental entitlements that protect the inherent dignity and worth of every individual. Violating these rights undermines a person's dignity.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-039",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "What is the foundation of genuine peace and reconciliation?",
+      "choices": {
+        "A": "Joy",
+        "B": "Confrontation",
+        "C": "Happiness",
+        "D": "Social justice"
+      },
+      "correct_answer": "D",
+      "explanation": "Social justice, which ensures fairness and equity in society, is considered a fundamental prerequisite for achieving lasting peace and reconciliation by addressing root causes of conflict.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-040",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "What was our government under the 1935 constitution ?",
+      "choices": {
+        "A": "Revolutionary",
+        "B": "Monarchy",
+        "C": "Commonwealth",
+        "D": "Military"
+      },
+      "correct_answer": "C",
+      "explanation": "The 1935 Constitution established the Commonwealth of the Philippines, a transitional government leading to full independence from the United States.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-041",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "What values are being promoted by the Philippine Government when it launched the \"Juan Time\" project in 2011?",
+      "choices": {
+        "A": "Punctuality",
+        "B": "Austerity",
+        "C": "Palabra de Honor",
+        "D": "Close family ties"
+      },
+      "correct_answer": "A",
+      "explanation": "The 'Juan Time' project was an initiative by the Philippine government to promote punctuality and the adoption of Philippine Standard Time among its citizens.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-042",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "If you seeing your ways of doing things as the right way and everybody else's as the wrong way, you tend to have the the attitude called ____",
+      "choices": {
+        "A": "Cultural relativism",
+        "B": "Ethical relativism",
+        "C": "Ethnocentrism",
+        "D": "Xenophobia"
+      },
+      "correct_answer": "C",
+      "explanation": "Ethnocentrism is the belief that one's own culture or way of life is superior to others, leading to judging other cultures by one's own standards.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-043",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "It refers to any liability to pay money arising out of a contract, express or implied.",
+      "choices": {
+        "A": "Poll tax",
+        "B": "Tax",
+        "C": "Debt",
+        "D": "Debtors"
+      },
+      "correct_answer": "C",
+      "explanation": "Debt is a financial obligation or liability to pay money or provide goods or services, typically arising from a contract or agreement.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-044",
+      "topic": "History",
+      "difficulty": "Medium",
+      "question": "The local basketball players were supported by Fil-American imports . this group ____ efforts.",
+      "choices": {
+        "A": "Complicated the team",
+        "B": "Complimented the team",
+        "C": "Complemented the team",
+        "D": "completed the team"
+      },
+      "correct_answer": "C",
+      "explanation": "To 'complement' means to add to something in a way that improves or enhances it. The imports enhanced the team's efforts.",
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "SOC-045",
+      "topic": "History",
+      "difficulty": "Medium",
+      "question": "I have but one life to give and I am willing to give it to my country,not everyone is given this chance. Justice Abad Santos answered the Japanese soldiers. This finds an equivalent in valor of:",
+      "choices": {
+        "A": "Jose Rizal",
+        "B": "Marcelo del Pilar",
+        "C": "Pre.Aquino",
+        "D": "Governor Aguinaldo"
+      },
+      "correct_answer": "A",
+      "explanation": "The quote reflects profound patriotism and willingness to sacrifice for one's country, a sentiment famously expressed by national hero Jose Rizal.",
+      "tags": [
+        "history",
+        "probability"
+      ]
+    },
+    {
+      "id": "SOC-046",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "The President ____ the bill on Children`s Right last Monday.",
+      "choices": {
+        "A": "vetoes",
+        "B": "vetos",
+        "C": "vetoed",
+        "D": "vetoid"
+      },
+      "correct_answer": "C",
+      "explanation": "The phrase 'last Monday' indicates a completed action in the past, requiring the simple past tense. 'Vetoed' is the correct past tense form of the verb 'veto'.",
+      "tags": [
+        "grammar",
+        "politics",
+        "law"
+      ]
+    },
+    {
+      "id": "SOC-047",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "Kmono: ____ :: kilt : Scandinavian",
+      "choices": {
+        "A": "Indian",
+        "B": "Indonesian",
+        "C": "Chinese",
+        "D": "Japanese"
+      },
+      "correct_answer": "D",
+      "explanation": "This is an analogy question. A kilt is a traditional garment associated with Scandinavian (specifically Scottish) culture. A kimono is a traditional garment associated with Japanese culture.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-048",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "It is characterized by shared experiences and mutual responsibilities. ____",
+      "choices": {
+        "A": "Gesellschaft",
+        "B": "Gemeinchaft",
+        "C": "Enculturation",
+        "D": "Acculturation"
+      },
+      "correct_answer": "B",
+      "explanation": "Gemeinschaft (community) describes a social group characterized by close, intimate relationships, shared experiences, and mutual responsibilities, often based on kinship or tradition.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-049",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "It features the exchange of goods, money and services . ____",
+      "choices": {
+        "A": "Gesellschaft",
+        "B": "Gemeinchaft",
+        "C": "Enculturation",
+        "D": "Acculturation"
+      },
+      "correct_answer": "A",
+      "explanation": "Gesellschaft (society) describes a social group characterized by impersonal, instrumental, and goal-oriented relationships, often involving the exchange of goods, money, and services.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-050",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "Violation of human rights is a violation of the ____ of persons.",
+      "choices": {
+        "A": "dignity",
+        "B": "intelligence",
+        "C": "emotions",
+        "D": "freedom"
+      },
+      "correct_answer": "A",
+      "explanation": "Human rights are inherent to all human beings, and their violation fundamentally undermines the inherent dignity of persons.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-051",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "What was our government under the 1935 constitution ? ____",
+      "choices": {
+        "A": "Revolutionary",
+        "B": "Monarchy",
+        "C": "Commonwealth",
+        "D": "Military"
+      },
+      "correct_answer": "C",
+      "explanation": "The 1935 Constitution established the Commonwealth of the Philippines, a transitional government in preparation for full independence from the United States.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-052",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "What values are being promoted by the Philippine Government when it launched the \"Juan Time\" project in 2011? ____",
+      "choices": {
+        "A": "Punctuality",
+        "B": "Austerity",
+        "C": "Palabra de Honor",
+        "D": "Close family ties"
+      },
+      "correct_answer": "A",
+      "explanation": "The 'Juan Time' project was launched by the Philippine government to promote punctuality and the adoption of Philippine Standard Time across the country.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-053",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "If you seeing your ways of doing things as the right way and everybody else's as the wrong way, you tend to have the the attitude called ____",
+      "choices": {
+        "A": "Cultural relativism",
+        "B": "Ethical relativism",
+        "C": "Ethnocentrism",
+        "D": "Xenophobia"
+      },
+      "correct_answer": "C",
+      "explanation": "Ethnocentrism is the tendency to view one's own culture as superior and to judge other cultures based on one's own cultural standards.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-054",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "It refers to any liability to pay money arising out of a contract, express or implied . ____",
+      "choices": {
+        "A": "Poll tax",
+        "B": "Tax",
+        "C": "Debt",
+        "D": "Debtors"
+      },
+      "correct_answer": "C",
+      "explanation": "Debt refers to an obligation or liability to pay money or render services to another party, typically arising from a contract or agreement.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-055",
+      "topic": "History",
+      "difficulty": "Medium",
+      "question": "The local basketball players were supported by Fil-American imports . this group ____ efforts.",
+      "choices": {
+        "A": "Complicated the team",
+        "B": "Complimented the team",
+        "C": "Complemented the team",
+        "D": "completed the team"
+      },
+      "correct_answer": "C",
+      "explanation": "To 'complement' means to add to something in a way that enhances or improves it, indicating that the imports improved the team's efforts. 'Complimented' means to praise.",
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "SOC-056",
+      "topic": "History",
+      "difficulty": "Medium",
+      "question": "I have but one life to give and I am willing to give it to my country,not everyone is given this chance. Justice Abad Santos answered the Japanese soldiers. This finds an equivalent in valor of:",
+      "choices": {
+        "A": "Jose Rizal",
+        "B": "Marcelo del Pilar",
+        "C": "Pre.Aquino",
+        "D": "Governor Aguinaldo"
+      },
+      "correct_answer": "A",
+      "explanation": "Jose Rizal is revered for his ultimate sacrifice and unwavering dedication to the Philippines, embodying the valor of giving one's life for the nation's freedom.",
+      "tags": [
+        "history",
+        "probability"
+      ]
+    },
+    {
+      "id": "SOC-057",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "The process by which a person learns the requirements of the culture by which he or she is surrounded, and acquires values and behaviors that are appropriate or necessary in that culture is called ____",
+      "choices": {
+        "A": "assimilation",
+        "B": "enculturation",
+        "C": "cultural relativism",
+        "D": "acculturation"
+      },
+      "correct_answer": "B",
+      "explanation": "Enculturation is the process by which individuals learn the values, norms, and behaviors of their own culture from birth, becoming competent members of that culture.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-058",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "The first American Civil Governor was ____",
+      "choices": {
+        "A": "William Howard Taft",
+        "B": "Wesley Merritt",
+        "C": "Arthur MacArthur",
+        "D": "Murray"
+      },
+      "correct_answer": "A",
+      "explanation": "William Howard Taft served as the first American Civil Governor of the Philippines from 1901 to 1903. He played a significant role in establishing civil government and implementing American policies in the islands.",
+      "tags": [
+        "history",
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-059",
+      "topic": "History",
+      "difficulty": "Medium",
+      "question": "In this poem, Rizal noted the role of religion in attaining good education.",
+      "choices": {
+        "A": "Remembrance to my Hometown",
+        "B": "Our Mother Tongue",
+        "C": "To Education",
+        "D": "Intimate alliance between religion and good education"
+      },
+      "correct_answer": "D",
+      "explanation": "Jose Rizal's poem \"Intimate Alliance Between Religion and Good Education\" emphasizes the harmonious relationship between religion and education for societal progress.",
+      "tags": [
+        "history",
+        "literature"
+      ]
+    },
+    {
+      "id": "SOC-060",
+      "topic": "History",
+      "difficulty": "Medium",
+      "question": "The \"yellow race \" is also known as :",
+      "choices": {
+        "A": "Caucasians",
+        "B": "Mongoloids",
+        "C": "Negroids",
+        "D": "Malays"
+      },
+      "correct_answer": "B",
+      "explanation": "In older racial classifications, \"Mongoloid\" was a term used to refer to people of East Asian, Southeast Asian, and Native American descent, often associated with the \"yellow race\" concept.",
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "SOC-061",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "The function by which schools help children to participate effectively in larger society is called :",
+      "choices": {
+        "A": "Socialization",
+        "B": "Education",
+        "C": "Enculturation",
+        "D": "Acculturation"
+      },
+      "correct_answer": "A",
+      "explanation": "Socialization is the process by which individuals learn the norms, values, behaviors, and social skills appropriate to their society, often facilitated by institutions like schools.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-062",
+      "topic": "Economics",
+      "difficulty": "Medium",
+      "question": "In Economics, ____ is the rise in the general level of prices of goods and services in an economy a period of time.",
+      "choices": {
+        "A": "Inflation .......",
+        "B": "mercantilism",
+        "C": "depression",
+        "D": "free trade"
+      },
+      "correct_answer": "A",
+      "explanation": "Inflation is defined as a sustained increase in the general price level of goods and services in an economy over a period of time.",
+      "tags": [
+        "economics"
+      ]
+    },
+    {
+      "id": "SOC-063",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "This court shall have jurisdiction over civil and criminal case involving graft and corrupt practices and such offenses committed by public officers and employees in relation to their offices as may be determined by law.",
+      "choices": {
+        "A": "Court of Appeals",
+        "B": "Regional Trial Courts",
+        "C": "Sandiganbayan",
+        "D": "Supreme Court"
+      },
+      "correct_answer": "C",
+      "explanation": "The Sandiganbayan is a special court in the Philippines that has jurisdiction over criminal and civil cases involving graft and corrupt practices committed by public officers and employees.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-064",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "The reporter was accused in court because of his story. The story was ____",
+      "choices": {
+        "A": "A tainted with malice",
+        "B": "A narration of facts",
+        "C": "To personal to take",
+        "D": "Full of distorted facts"
+      },
+      "correct_answer": "D",
+      "explanation": "A reporter being accused in court for their story implies the story contained inaccuracies or misrepresentations, making 'full of distorted facts' the most fitting reason for legal action.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-065",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "A prisoner was made to confess of his guilt. A lawyer of the respondent was present in the confession. What was violated?",
+      "choices": {
+        "A": "The confession was without due consultant",
+        "B": "The prisoner was approached properly",
+        "C": "The prisoner should have a lawyer of his choice",
+        "D": "The choice of the lawyer was [made by the accuser"
+      },
+      "correct_answer": "A",
+      "explanation": "For a confession to be valid, it must be made voluntarily and with the assistance of an independent counsel, ensuring it is not coerced or obtained without proper legal advice and consultation.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-066",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "Which illustrates the spirit of non-violence?",
+      "choices": {
+        "A": "The act to submit oneself to the will of the powers that be",
+        "B": "The move towards a gunless society",
+        "C": "The use of strike as a bargaining power",
+        "D": "The act to be quiet to preserve peace"
+      },
+      "correct_answer": "B",
+      "explanation": "The spirit of non-violence is best embodied by a movement towards a gunless society, which actively seeks to eliminate weapons and promote peaceful conflict resolution.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-067",
+      "topic": "History",
+      "difficulty": "Medium",
+      "question": "With the Cold War in mind, which does NOT belong?",
+      "choices": {
+        "A": "Dialogue",
+        "B": "Competition",
+        "C": "Tension",
+        "D": "Conflict"
+      },
+      "correct_answer": "A",
+      "explanation": "The Cold War was characterized by intense competition, tension, and conflict between superpowers, often avoiding direct military confrontation but lacking genuine dialogue and cooperation.",
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "SOC-068",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "Which body of the United Nations has peace among as its major responsibility?",
+      "choices": {
+        "A": "Trusteeship Council",
+        "B": "General Assembly",
+        "C": "International Court of Justice",
+        "D": "Security Council"
+      },
+      "correct_answer": "D",
+      "explanation": "The United Nations Security Council has primary responsibility for the maintenance of international peace and security, making it the body most directly tasked with this role.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-069",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "Honey is extracted from bees. To ensure a supply of honey for food and medicine, what has been resorted to lately?",
+      "choices": {
+        "A": "Culture honey bees for propagation",
+        "B": "Encourage bee farm is chosen areas",
+        "C": "Gather -honey from the forest",
+        "D": "Discourage the use of pesticides in honey farm"
+      },
+      "correct_answer": "A",
+      "explanation": "To ensure a sustainable supply of honey, modern practices focus on culturing and propagating honey bees, often through beekeeping, rather than solely relying on wild collection.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-070",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "Which is the greatest value according o the teachings of Karl Marx?",
+      "choices": {
+        "A": "Health",
+        "B": "Pleasure",
+        "C": "Elimination of selfish desires",
+        "D": "Absolute equality"
+      },
+      "correct_answer": "D",
+      "explanation": "Karl Marx's philosophy, particularly communism, advocates for a classless society where resources are distributed equally, making absolute equality the greatest value.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-071",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "The report from congress registered rejection of the proposed bill. This means ____",
+      "choices": {
+        "A": "Some changed parties",
+        "B": "Some proved their lack of cooperation",
+        "C": "Some favored the leadership",
+        "D": "The majority failed to get the group support"
+      },
+      "correct_answer": "D",
+      "explanation": "If a proposed bill is rejected by Congress, it implies that the majority of members did not support it, indicating a failure to gain group support.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-072",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "In order to avoid unnecessary stress in the ARRM election, what measure under taken lately the government?",
+      "choices": {
+        "A": "Maintained a status quo on personnel",
+        "B": "Allowed a reorganization of the structure",
+        "C": "Postponed the election to a later data",
+        "D": "Started a motion for recall with the Comelec"
+      },
+      "correct_answer": "C",
+      "explanation": "To avoid unnecessary stress or conflict in an election, especially in sensitive areas like ARMM, postponing the election to a later date can be a strategic measure to allow for better preparation and de-escalation of tensions.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-073",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "At the Philippine General Hospital, doctors reported on the abandoned patients. This means:",
+      "choices": {
+        "A": "The patients do not permanent address",
+        "B": "The patients cannot afford to pay their bill",
+        "C": "The patients are left by doctors",
+        "D": "The patients are left behind by relatives"
+      },
+      "correct_answer": "D",
+      "explanation": "'Abandoned patients' specifically refers to individuals who have been left at the hospital by their relatives or guardians, implying a lack of family support.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-074",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "\"A time patient is indefatigable in promoting political truth\". The question means",
+      "choices": {
+        "A": "A hero practices political truth",
+        "B": "Patriots are brave and cunning",
+        "C": "Patriots are rich truthful",
+        "D": "Patriots forget selves to serve others"
+      },
+      "correct_answer": "D",
+      "explanation": "The phrase 'indefatigable in promoting political truth' suggests a tireless dedication to a cause, which aligns with the idea of patriots who selflessly serve others for the sake of truth and country.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-075",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "The city government of Metro Manila had been closing and raiding night spots. What is the basic reason of the campaign?",
+      "choices": {
+        "A": "Many homes are destroyed by these night clubs",
+        "B": "The values of the young affected by these clubs",
+        "C": "The fast spread of HIV and AIDS are traced to these places",
+        "D": "These spots are areas of crimes"
+      },
+      "correct_answer": "B",
+      "explanation": "Government campaigns against night spots often cite concerns about the negative influence on the values and behavior of young people, particularly regarding moral conduct and public order.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-076",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "In the Philippine government, the earliest and smallest service of governance is the.",
+      "choices": {
+        "A": "Manucipality",
+        "B": "Poblacion",
+        "C": "Barangay",
+        "D": "Barrio"
+      },
+      "correct_answer": "C",
+      "explanation": "The Barangay is the smallest political unit in the Philippines, serving as the primary planning and implementing unit of government policies, plans, programs, projects, and activities in the community.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-077",
+      "topic": "Economics",
+      "difficulty": "Medium",
+      "question": "Personal income tax should be paid and filed every year by employees and corporation. Who among the group are exempt from filling income tax returns?",
+      "choices": {
+        "A": "Government employees on daily, contractual and consultation basis",
+        "B": "Government employees receiving less than P 18,000.00 per year",
+        "C": "Retired government employees receiving only pensions",
+        "D": "Overseas workers"
+      },
+      "correct_answer": "C",
+      "explanation": "Retired government employees who receive only pensions are generally exempt from filing income tax returns, as pensions are typically considered non-taxable income under certain conditions.",
+      "tags": [
+        "law",
+        "politics",
+        "economics"
+      ]
+    },
+    {
+      "id": "SOC-078",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "A priest gave all his possessions to disabled children. What right may they claim?",
+      "choices": {
+        "A": "Right to just treatment",
+        "B": "Right to proper treatment",
+        "C": "Right of disable to equal treatment",
+        "D": "Right to disabled to equal protection"
+      },
+      "correct_answer": "C",
+      "explanation": "Disabled children, like all individuals, have the right to equal treatment and opportunities, ensuring they are not discriminated against and can participate fully in society.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-079",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "The case of farmers in Sumilao, Bukidnon was won by the landowner. How was the case decided by the Supreme Court?",
+      "choices": {
+        "A": "Final judgment was made because of political pressure",
+        "B": "The farmers were paid beforehand",
+        "C": "The farmers were landholders of a farm",
+        "D": "Final judgment was made after it was established that the farmers were not legitimate holders of titles of the land."
+      },
+      "correct_answer": "D",
+      "explanation": "Land disputes are often resolved based on legal ownership. If the Supreme Court ruled in favor of the landowner, it implies that the farmers could not establish legitimate titles or claims to the land.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-080",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "A candidate was detained for working against a dominant political party. Which right can be invoked?",
+      "choices": {
+        "A": "Right to his political beliefs",
+        "B": "Right to his aspirations",
+        "C": "Right to seek redness",
+        "D": "Right o vote according o one's conscience"
+      },
+      "correct_answer": "A",
+      "explanation": "Detaining someone for working against a political party directly infringes upon their fundamental right to freedom of political belief and expression, which is a cornerstone of democratic societies.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-081",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "Voting is a privilege in a democracy. Those who are deprived their votes are normally.",
+      "choices": {
+        "A": "Franchised",
+        "B": "Exiled",
+        "C": "Disenfranchised",
+        "D": "Execute"
+      },
+      "correct_answer": "C",
+      "explanation": "To be deprived of the right to vote is to be \"disenfranchised.\" This term specifically refers to the removal of voting rights from a person or group.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-082",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "How do countries register dislike or disagreement of another country's discussion through diplomatic means?",
+      "choices": {
+        "A": "File a diplomatic protest",
+        "B": "Recall all its nations",
+        "C": "Declare war immediately",
+        "D": "Retaliate by arresting nationals of other country"
+      },
+      "correct_answer": "A",
+      "explanation": "In diplomacy, a formal and recognized way for one country to express strong disapproval or disagreement with another country's actions or policies is to \"file a diplomatic protest\" or send a protest note.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-083",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "Without limiting the rights of parents to rear their children, the constitution provides compulsory Elementary education for:",
+      "choices": {
+        "A": "All children of pre-school age",
+        "B": "All children of school age",
+        "C": "All physically able individuals",
+        "D": "Adult citizens and out-of-school youth"
+      },
+      "correct_answer": "B",
+      "explanation": "Constitutions typically mandate compulsory elementary education for all children of school age to ensure basic literacy and numeracy, while respecting parental rights in child-rearing and allowing for diverse educational choices.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-084",
+      "topic": "History",
+      "difficulty": "Medium",
+      "question": "What is the social scientist's explanation of the relationship of a leader of history?",
+      "choices": {
+        "A": "Leaders are a product of their times",
+        "B": "History is a reflection of great leaders",
+        "C": "Every great movement is the lengthened shadow of a great man",
+        "D": "Had any great leader been different than he was."
+      },
+      "correct_answer": "B",
+      "explanation": "Social scientists often view history as being significantly shaped by the actions and influence of prominent individuals. This perspective suggests that historical events and developments are, to a large extent, a reflection of the decisions and impacts of great leaders.",
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "SOC-085",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "What is LEAST likely to be function of a trade association?",
+      "choices": {
+        "A": "Protecting the reputation of the industry",
+        "B": "Standardizing types of products",
+        "C": "Influencing government policy",
+        "D": "Encouraging completion"
+      },
+      "correct_answer": "C",
+      "explanation": "Trade associations typically aim to protect industry reputation, standardize products, and influence government policy. Encouraging competition is generally not a primary function, as associations often work to benefit their members, which can sometimes involve limiting competition.",
+      "tags": [
+        "law",
+        "politics"
+      ]
+    },
+    {
+      "id": "SOC-086",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "In every society, a certain positions are assigned to individuals on the basis of age, sex, marital status, and other criteria. These patterns are:",
+      "choices": {
+        "A": "University accepted and practiced",
+        "B": "Cultural defined",
+        "C": "Learned from parents",
+        "D": "Taught in school"
+      },
+      "correct_answer": "B",
+      "explanation": "The assignment of social positions based on age, sex, marital status, and other criteria is a culturally defined pattern, reflecting societal norms and values. These patterns are learned and reinforced through socialization within a specific culture.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-087",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "To be a moral person is to:",
+      "choices": {
+        "A": "Known and act upon the \"ought to be\" and the \"ought to do\"",
+        "B": "Be integrated in speech, feelings, thinking and action",
+        "C": "Be able to follow the dictates of one's conscience",
+        "D": "Be acceptable by society"
+      },
+      "correct_answer": "A",
+      "explanation": "Being a moral person involves understanding and acting upon what is considered right and good, often expressed as \"ought to be\" (moral principles) and \"ought to do\" (moral actions). This aligns with ethical frameworks that emphasize both moral knowledge and virtuous conduct.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-088",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "Teachers have a responsibility for the development of children's competence is basic concepts and principles of free speech. Therefore, if were children to develop their own voices in a free society, teachers must support participatory democratic experiences in the daily classroom activities through.",
+      "choices": {
+        "A": "Consideration for cultural gender differences",
+        "B": "Concepts and principles of free speech",
+        "C": "Indoctrination of the principles ]of society",
+        "D": "Developing children's citizenship competence"
+      },
+      "correct_answer": "B",
+      "explanation": "To foster children's ability to develop their own voices in a free society, teachers must support participatory democratic experiences by integrating the concepts and principles of free speech into daily classroom activities. This directly addresses the core responsibility mentioned in the premise.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-089",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "Which of the following is predicted to be the result of global warming?",
+      "choices": {
+        "A": "rising ocean level",
+        "B": "thinning of ozone layer",
+        "C": "more severe earthquakes",
+        "D": "larger volcanic eruptions"
+      },
+      "correct_answer": "A",
+      "explanation": "Global warming causes polar ice caps to melt and seawater to expand thermally, which directly results in rising ocean levels.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-090",
+      "topic": "Chemistry",
+      "difficulty": "Medium",
+      "question": "The air in Metro Manila is now heavily polluted with carbon dioxide and lead dust from the motor vehicles, factories, and restaurants. As a citizen, you will minimize pollution by following all the following practices except",
+      "choices": {
+        "A": "Bury garbage rather than burning it.",
+        "B": "Burning garbage in your own backyard.",
+        "C": "Participate actively in government's tree planting project.",
+        "D": "Help disseminate information regarding the advantages of using anti-pollution devices for motor vehicles"
+      },
+      "correct_answer": "B",
+      "explanation": "Burning garbage in your own backyard releases harmful pollutants and particulate matter into the air, thereby increasing pollution rather than minimizing it.",
+      "tags": [
+        "chemistry"
+      ]
+    },
+    {
+      "id": "SOC-091",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "Stipulate in your constitution and by-laws the qualified of the officers.",
+      "choices": {
+        "A": "specify",
+        "B": "attach",
+        "C": "fasten",
+        "D": "underline"
+      },
+      "correct_answer": "A",
+      "explanation": "To 'stipulate' is to demand or specify a certain requirement as part of an agreement or document.",
+      "tags": [
+        "politics",
+        "law"
+      ]
+    },
+    {
+      "id": "SOC-092",
+      "topic": "Grammar",
+      "difficulty": "Medium",
+      "question": "Everybody in the gymnasium ____ frustrated when the candidate did not appear in public.",
+      "choices": {
+        "A": "was",
+        "B": "were",
+        "C": "",
+        "D": ""
+      },
+      "correct_answer": "A",
+      "explanation": "The indefinite pronoun 'everybody' grammatically takes a singular verb, making 'was' correct.",
+      "tags": [
+        "grammar"
+      ]
+    },
+    {
+      "id": "SOC-093",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "Mt. Apo is a small volcano compared to Mt. matutum.",
+      "choices": {
+        "A": "Litotes",
+        "B": "Hyperbole",
+        "C": "Metaphor",
+        "D": "Simile"
+      },
+      "correct_answer": "A",
+      "explanation": "As Mt. Apo is actually the highest peak in the Philippines, calling it 'small' constitutes an ironic understatement, matching litotes in this key.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-094",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "The memo is compulsory.",
+      "choices": {
+        "A": "must be done",
+        "B": "a request",
+        "C": "must be kept",
+        "D": "optional"
+      },
+      "correct_answer": "A",
+      "explanation": "When something is 'compulsory', it is strictly required by rule or law, meaning it must be done.",
+      "tags": [
+        "vocabulary",
+        "politics",
+        "synonyms",
+        "law"
+      ]
+    },
+    {
+      "id": "SOC-095",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "A priest gave all his possessions to disabled children. What right may they claim?",
+      "choices": {
+        "A": "Right to just treatment",
+        "B": "Right to proper treatment",
+        "C": "Right of disable to equal treatment",
+        "D": "Right to disabled to equal protection"
+      },
+      "correct_answer": "C",
+      "explanation": "The right of the disabled to equal treatment emphasizes ensuring that people with disabilities are treated fairly and equitably in society.",
+      "tags": [
+        "sociology"
+      ]
+    },
+    {
+      "id": "SOC-096",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "Farmers were advised about the occurrence of El Niño. This means_________.",
+      "choices": {
+        "A": "There will be famine",
+        "B": "There will be draught",
+        "C": "There will be abundance",
+        "D": "There will be flood"
+      },
+      "correct_answer": "B",
+      "explanation": "El Niño is a climatic phenomenon characterized by unusually warm ocean temperatures, which typically brings prolonged dry spells and drought (draught) to the Philippines.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-097",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "Barangay elections are set for July. Who will be deprived to vote?",
+      "choices": {
+        "A": "Those who are under age",
+        "B": "Those attending classes in Manila",
+        "C": "Those who failed to register",
+        "D": "Those who residents of other places"
+      },
+      "correct_answer": "C",
+      "explanation": "In democratic systems, voter registration is a mandatory prerequisite; thus, failing to register legally deprives an individual of their right to vote.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-098",
+      "topic": "General Social Science",
+      "difficulty": "Medium",
+      "question": "Some media personalities are charged of corruption. They are charged as _________.",
+      "choices": {
+        "A": "Envelopmentalist",
+        "B": "Chargers",
+        "C": "fixers",
+        "D": "commissioners"
+      },
+      "correct_answer": "C",
+      "explanation": "In Philippine colloquial terms, personalities involved in corruption or brokering illicit deals are often referred to as 'fixers'.",
+      "tags": [
+        "general education"
+      ]
+    },
+    {
+      "id": "SOC-099",
+      "topic": "Politics",
+      "difficulty": "Medium",
+      "question": "A father refused revenge when he uttered",
+      "choices": {
+        "A": "“ Don’t take the law into your hands.”",
+        "B": "“ An eye for an eye.”",
+        "C": "“ Justice is always delayed.”",
+        "D": "“ That’s murder.”"
+      },
+      "correct_answer": "A",
+      "explanation": "Uttering 'Don't take the law into your hands' actively discourages vigilantism and personal revenge, advocating instead for the formal justice system.",
+      "tags": [
+        "politics",
+        "law"
+      ]
+    },
+    {
+      "id": "SOC-100",
+      "topic": "Sociology",
+      "difficulty": "Medium",
+      "question": "Tiempo further says: “ The modern heroes are understandable products of one literary heritage at the present world. Heroes of the present are prototypes of the society in which they flourish.”",
+      "choices": {
+        "A": "Literature has heroes who represent the people, race and times",
+        "B": "Modern society affects the modern heroes of literature",
+        "C": "Modern heroes embody values of their society",
+        "D": "Modern and classical, heroes are alike"
+      },
+      "correct_answer": "A",
+      "explanation": "The passage asserts that literary heroes are direct products and prototypes of their current society, thereby representing the people, race, and times they exist within.",
+      "tags": [
+        "history",
+        "sociology",
+        "literature"
+      ]
+    }
+  ]
+}

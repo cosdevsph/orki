@@ -1,0 +1,1427 @@
+[
+  {
+    "id": "CSE-VER-001",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Which word is most similar in meaning to BENEVOLENT?",
+    "choices": {
+      "A": "Cruel",
+      "B": "Generous",
+      "C": "Indifferent",
+      "D": "Greedy"
+    },
+    "correct_answer": "B",
+    "explanation": "Benevolent means well-meaning and kindly generous toward others.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-002",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "EPHEMERAL most nearly means:",
+    "choices": {
+      "A": "Eternal",
+      "B": "Transitory",
+      "C": "Solid",
+      "D": "Powerful"
+    },
+    "correct_answer": "B",
+    "explanation": "Ephemeral means lasting a very short time; fleeting or transitory.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-003",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "What is the antonym (opposite) of VERBOSE?",
+    "choices": {
+      "A": "Wordy",
+      "B": "Lengthy",
+      "C": "Concise",
+      "D": "Rambling"
+    },
+    "correct_answer": "C",
+    "explanation": "Verbose means using more words than necessary. Its opposite is concise—expressing much in few words.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-004",
+    "topic": "Verbal Ability",
+    "difficulty": "Easy",
+    "question": "Which sentence is grammatically correct?",
+    "choices": {
+      "A": "She don't know the answer.",
+      "B": "He has went to the store.",
+      "C": "They are going to the market.",
+      "D": "We was happy yesterday."
+    },
+    "correct_answer": "C",
+    "explanation": "Option C follows standard subject-verb agreement (plural 'They' with 'are'). Option A should be 'doesn't', B should be 'has gone', and D should be 'were'.",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-005",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "ABATE most nearly means:",
+    "choices": {
+      "A": "Increase",
+      "B": "Subside",
+      "C": "Accelerate",
+      "D": "Strengthen"
+    },
+    "correct_answer": "B",
+    "explanation": "Abate means to become less intense or widespread; to subside or reduce.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-006",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Which word is most similar in meaning to AMIABLE?",
+    "choices": {
+      "A": "Hostile",
+      "B": "Friendly",
+      "C": "Arrogant",
+      "D": "Reserved"
+    },
+    "correct_answer": "B",
+    "explanation": "Amiable means having or displaying a friendly and pleasant manner.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-007",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "CANDID most nearly means:",
+    "choices": {
+      "A": "Secretive",
+      "B": "Frank",
+      "C": "Deceptive",
+      "D": "Reserved"
+    },
+    "correct_answer": "B",
+    "explanation": "Candid means truthful and straightforward; frank.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-008",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "IMPEDE most nearly means:",
+    "choices": {
+      "A": "Assist",
+      "B": "Hinder",
+      "C": "Accelerate",
+      "D": "Encourage"
+    },
+    "correct_answer": "B",
+    "explanation": "Impede means to obstruct or hinder the progress of something or someone.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-009",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "What is the antonym of FRUGAL?",
+    "choices": {
+      "A": "Thrifty",
+      "B": "Economical",
+      "C": "Extravagant",
+      "D": "Careful"
+    },
+    "correct_answer": "C",
+    "explanation": "Frugal means careful with money and resources. Its antonym is extravagant—spending excessively.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-010",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "PRUDENT most nearly means:",
+    "choices": {
+      "A": "Reckless",
+      "B": "Wise",
+      "C": "Careless",
+      "D": "Impulsive"
+    },
+    "correct_answer": "B",
+    "explanation": "Prudent means acting with or showing care and thought for the future; wise and careful.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-011",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Which word is spelled INCORRECTLY?",
+    "choices": {
+      "A": "Necessary",
+      "B": "Occurrence",
+      "C": "Priviledge",
+      "D": "Recommend"
+    },
+    "correct_answer": "C",
+    "explanation": "The correct spelling is 'Privilege'—there is no 'd' before the 'g'.",
+    "tags": [
+      "verbal",
+      "spelling",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-012",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "AMBIGUOUS most nearly means:",
+    "choices": {
+      "A": "Clear and precise",
+      "B": "Open to multiple interpretations",
+      "C": "Definite and certain",
+      "D": "Completely obvious"
+    },
+    "correct_answer": "B",
+    "explanation": "Ambiguous means open to more than one interpretation; not having one obvious meaning.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-013",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "ZEALOUS most nearly means:",
+    "choices": {
+      "A": "Indifferent",
+      "B": "Enthusiastic and fervent",
+      "C": "Apathetic",
+      "D": "Calm and collected"
+    },
+    "correct_answer": "B",
+    "explanation": "Zealous means having or showing great energy or enthusiasm in pursuit of a cause or objective.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-014",
+    "topic": "Verbal Ability",
+    "difficulty": "Easy",
+    "question": "Which sentence has CORRECT punctuation?",
+    "choices": {
+      "A": "Its a beautiful day.",
+      "B": "It's a beautiful day.",
+      "C": "Its' a beautiful day.",
+      "D": "It's' a beautiful day."
+    },
+    "correct_answer": "B",
+    "explanation": "'It's' is the correct contraction of 'it is.' The apostrophe replaces the 'i' in 'is.'",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-015",
+    "topic": "Verbal Ability",
+    "difficulty": "Hard",
+    "question": "LOQUACIOUS most nearly means:",
+    "choices": {
+      "A": "Quiet and reserved",
+      "B": "Talkative and verbose",
+      "C": "Reserved and shy",
+      "D": "Brief and to the point"
+    },
+    "correct_answer": "B",
+    "explanation": "Loquacious means tending to talk a great deal; garrulous or verbose.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-016",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "TENACIOUS most nearly means:",
+    "choices": {
+      "A": "Weak and yielding",
+      "B": "Easily giving up",
+      "C": "Fragile",
+      "D": "Persistent and determined"
+    },
+    "correct_answer": "D",
+    "explanation": "Tenacious means keeping a firm hold; very determined; not giving up easily.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-017",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Which sentence has CORRECT subject-verb agreement?",
+    "choices": {
+      "A": "The group of students are noisy.",
+      "B": "The committee have decided.",
+      "C": "A number of books was missing.",
+      "D": "The team is playing well."
+    },
+    "correct_answer": "D",
+    "explanation": "'The team is playing well' correctly uses singular 'is' with the collective noun 'team.'",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-018",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "OVERT most nearly means:",
+    "choices": {
+      "A": "Hidden from view",
+      "B": "Done openly and not secretly",
+      "C": "Secret and covert",
+      "D": "Carefully concealed"
+    },
+    "correct_answer": "B",
+    "explanation": "Overt means done openly and not secretly. It is the antonym of covert.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-019",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "NOVEL (as an adjective) most nearly means:",
+    "choices": {
+      "A": "Old and traditional",
+      "B": "Familiar and common",
+      "C": "New and original",
+      "D": "Ordinary and typical"
+    },
+    "correct_answer": "C",
+    "explanation": "As an adjective, novel means new and original; not previously known.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-020",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "What is the antonym of METICULOUS?",
+    "choices": {
+      "A": "Careful",
+      "B": "Thorough",
+      "C": "Careless",
+      "D": "Precise"
+    },
+    "correct_answer": "C",
+    "explanation": "Meticulous means showing great attention to detail. Its antonym is careless.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-021",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Choose the BEST word: 'The scientist made a ___ discovery that changed the field of medicine.'",
+    "choices": {
+      "A": "redundant",
+      "B": "trivial",
+      "C": "groundbreaking",
+      "D": "obscure"
+    },
+    "correct_answer": "C",
+    "explanation": "A discovery that 'changed the field of medicine' is best described as groundbreaking.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-022",
+    "topic": "Verbal Ability",
+    "difficulty": "Easy",
+    "question": "DILIGENT most nearly means:",
+    "choices": {
+      "A": "Lazy and unmotivated",
+      "B": "Hardworking and careful",
+      "C": "Careless and hasty",
+      "D": "Slow and inattentive"
+    },
+    "correct_answer": "B",
+    "explanation": "Diligent means having or showing care and conscientiousness in one's work; hardworking.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-023",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "'Maria studied every night for a month before her board examination.' The best inference is:",
+    "choices": {
+      "A": "Maria will definitely pass the board exam",
+      "B": "Maria takes her examination seriously",
+      "C": "Maria has no social life",
+      "D": "Maria is naturally a genius"
+    },
+    "correct_answer": "B",
+    "explanation": "The only inference directly supported is that Maria takes her exam seriously based on her effort.",
+    "tags": [
+      "verbal",
+      "reading comprehension",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-024",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Which sentence uses the PASSIVE VOICE?",
+    "choices": {
+      "A": "The teacher explained the lesson clearly.",
+      "B": "The lesson was explained clearly by the teacher.",
+      "C": "The teacher is explaining the lesson now.",
+      "D": "The teacher will explain the lesson tomorrow."
+    },
+    "correct_answer": "B",
+    "explanation": "In passive voice, the subject ('the lesson') receives the action ('was explained').",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-025",
+    "topic": "Verbal Ability",
+    "difficulty": "Hard",
+    "question": "Which sentence is CORRECT?",
+    "choices": {
+      "A": "Between you and I, this is wrong.",
+      "B": "Between you and me, this is wrong.",
+      "C": "Between you and myself, this is wrong.",
+      "D": "Between you and mine, this is wrong."
+    },
+    "correct_answer": "B",
+    "explanation": "'Between' is a preposition requiring the objective case pronoun 'me', not 'I'.",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-026",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "ELOQUENT most nearly means:",
+    "choices": {
+      "A": "Silent and uncommunicative",
+      "B": "Fluent and persuasive in speech",
+      "C": "Confused and unclear",
+      "D": "Brief and terse"
+    },
+    "correct_answer": "B",
+    "explanation": "Eloquent means fluent, persuasive, and impressive in speech or writing.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-027",
+    "topic": "Verbal Ability",
+    "difficulty": "Easy",
+    "question": "Choose the BEST title for this paragraph: 'Exercise improves mood by releasing endorphins. It reduces stress hormones. It also enhances brain function and memory.'",
+    "choices": {
+      "A": "Why People Avoid Exercise",
+      "B": "The Many Benefits of Regular Exercise",
+      "C": "How to Exercise Properly",
+      "D": "Exercise and Weight Management"
+    },
+    "correct_answer": "B",
+    "explanation": "A topic sentence or title should cover all points mentioned (mood, stress, brain function).",
+    "tags": [
+      "verbal",
+      "reading comprehension",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-028",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "PRAGMATIC most nearly means:",
+    "choices": {
+      "A": "Idealistic and visionary",
+      "B": "Practical and realistic",
+      "C": "Dreamy and impractical",
+      "D": "Theoretical and abstract"
+    },
+    "correct_answer": "B",
+    "explanation": "Pragmatic means dealing with things sensibly and realistically, based on practical considerations.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-029",
+    "topic": "Verbal Ability",
+    "difficulty": "Hard",
+    "question": "Which sentence contains a DANGLING MODIFIER?",
+    "choices": {
+      "A": "Running fast, he caught the last bus.",
+      "B": "Running fast, the bus was finally caught.",
+      "C": "He ran fast to catch the bus.",
+      "D": "To catch the bus, he ran as fast as he could."
+    },
+    "correct_answer": "B",
+    "explanation": "'Running fast' incorrectly modifies 'the bus' instead of the person doing the running.",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-030",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "REDUNDANT most nearly means:",
+    "choices": {
+      "A": "Absolutely necessary",
+      "B": "Unique and original",
+      "C": "Unnecessarily repetitive",
+      "D": "Concise and brief"
+    },
+    "correct_answer": "C",
+    "explanation": "Redundant means not or no longer needed or useful; superfluous or unnecessarily repetitive.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-031",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Choose the correct verb form: 'Neither the students nor the teacher ___ ready.'",
+    "choices": {
+      "A": "are",
+      "B": "is",
+      "C": "were",
+      "D": "have been"
+    },
+    "correct_answer": "B",
+    "explanation": "With 'neither...nor,' the verb agrees with the noun closest to it ('teacher').",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-032",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "INCOHERENT most nearly means:",
+    "choices": {
+      "A": "Logical and organized",
+      "B": "Clear and understandable",
+      "C": "Disjointed and hard to understand",
+      "D": "Well-structured"
+    },
+    "correct_answer": "C",
+    "explanation": "Incoherent means expressed in a way that is impossible to understand; disjointed or confused.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-033",
+    "topic": "Verbal Ability",
+    "difficulty": "Easy",
+    "question": "Fill in the blank: 'The annual report was ___ by the audit committee before submission.'",
+    "choices": {
+      "A": "reviewed",
+      "B": "reviewing",
+      "C": "reviews",
+      "D": "review"
+    },
+    "correct_answer": "A",
+    "explanation": "The sentence requires a past participle after 'was' to form the passive voice.",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-034",
+    "topic": "Verbal Ability",
+    "difficulty": "Easy",
+    "question": "'Despite heavy traffic, Ana arrived at the meeting on time because she left early.' What helped Ana arrive on time?",
+    "choices": {
+      "A": "The heavy traffic on the road",
+      "B": "The fact that she left home early",
+      "C": "Her exceptionally fast driving",
+      "D": "Good luck and fortunate timing"
+    },
+    "correct_answer": "B",
+    "explanation": "The passage explicitly states she arrived on time 'because she left early.'",
+    "tags": [
+      "verbal",
+      "reading comprehension",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-035",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "AMBIVALENT most nearly means:",
+    "choices": {
+      "A": "Completely decisive",
+      "B": "Absolutely certain",
+      "C": "Having mixed or contradictory feelings",
+      "D": "Highly enthusiastic"
+    },
+    "correct_answer": "C",
+    "explanation": "Ambivalent means having mixed feelings or contradictory ideas about something.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-036",
+    "topic": "Verbal Ability",
+    "difficulty": "Hard",
+    "question": "Which sentence is in the FUTURE PERFECT tense?",
+    "choices": {
+      "A": "She will study the lesson tomorrow.",
+      "B": "She is studying the lesson right now.",
+      "C": "She will have finished studying by noon.",
+      "D": "She studied the lesson yesterday."
+    },
+    "correct_answer": "C",
+    "explanation": "'Will have finished' is the future perfect tense—it indicates an action that will be completed before a specific future time.",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-037",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "LUCID most nearly means:",
+    "choices": {
+      "A": "Confusing and unclear",
+      "B": "Dark and shadowy",
+      "C": "Expressed clearly and easily understood",
+      "D": "Highly complex"
+    },
+    "correct_answer": "C",
+    "explanation": "Lucid means expressed clearly; easy to understand.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-038",
+    "topic": "Verbal Ability",
+    "difficulty": "Hard",
+    "question": "Which word does NOT belong with the others: Simile, Metaphor, Hyperbole, Syntax, Personification?",
+    "choices": {
+      "A": "Simile",
+      "B": "Metaphor",
+      "C": "Hyperbole",
+      "D": "Syntax"
+    },
+    "correct_answer": "D",
+    "explanation": "Syntax refers to grammatical structure; the others are figures of speech.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-039",
+    "topic": "Verbal Ability",
+    "difficulty": "Easy",
+    "question": "Which word is spelled CORRECTLY?",
+    "choices": {
+      "A": "Goverment",
+      "B": "Government",
+      "C": "Governement",
+      "D": "Goverement"
+    },
+    "correct_answer": "B",
+    "explanation": "The correct spelling is 'Government'—it includes an 'n' before the 'm'.",
+    "tags": [
+      "verbal",
+      "spelling",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-040",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "PLAUSIBLE most nearly means:",
+    "choices": {
+      "A": "Impossible to believe",
+      "B": "Clearly unreasonable",
+      "C": "Seeming reasonable and probable",
+      "D": "Completely confusing"
+    },
+    "correct_answer": "C",
+    "explanation": "Plausible means seemingly reasonable or probable.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-041",
+    "topic": "Verbal Ability",
+    "difficulty": "Hard",
+    "question": "Which is the BEST rewrite of: 'The reason is because he was late'?",
+    "choices": {
+      "A": "The reason is that he was late.",
+      "B": "The reason is due to being late.",
+      "C": "The reason was because of lateness.",
+      "D": "No change is needed."
+    },
+    "correct_answer": "A",
+    "explanation": "'The reason is because' is redundant; 'The reason is that' is the grammatically correct form.",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-042",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "BENIGN most nearly means:",
+    "choices": {
+      "A": "Harmful and dangerous",
+      "B": "Gentle, kind, and not harmful",
+      "C": "Aggressively violent",
+      "D": "Extremely dangerous"
+    },
+    "correct_answer": "B",
+    "explanation": "Benign means gentle and kindly; not harmful in effect.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-043",
+    "topic": "Verbal Ability",
+    "difficulty": "Easy",
+    "question": "'All employees are required to wear their ID badges at all times. Failure to comply may result in denied entry.' What is the purpose of this notice?",
+    "choices": {
+      "A": "To provide information about ID badge design",
+      "B": "To enforce a workplace security policy",
+      "C": "To punish employees for past violations",
+      "D": "To advertise ID badge products"
+    },
+    "correct_answer": "B",
+    "explanation": "The notice sets a requirement for workplace access, which is a security policy.",
+    "tags": [
+      "verbal",
+      "reading comprehension",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-044",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "EMULATE most nearly means:",
+    "choices": {
+      "A": "To deliberately avoid",
+      "B": "To destroy or damage",
+      "C": "To imitate or try to match",
+      "D": "To completely ignore"
+    },
+    "correct_answer": "C",
+    "explanation": "Emulate means to match or surpass a person or achievement, typically by imitation.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-045",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Which sentence would make the BEST opening sentence for a paragraph about a typhoon?",
+    "choices": {
+      "A": "The effects were absolutely devastating.",
+      "B": "Typhoon Carding struck the province with full force.",
+      "C": "Many houses were completely destroyed.",
+      "D": "Residents fled to evacuation centers."
+    },
+    "correct_answer": "B",
+    "explanation": "A good opening sentence introduces the main topic (the typhoon) clearly.",
+    "tags": [
+      "verbal",
+      "reading comprehension",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-046",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "OBSTINATE most nearly means:",
+    "choices": {
+      "A": "Flexible and open-minded",
+      "B": "Cooperative and agreeable",
+      "C": "Stubbornly refusing to change",
+      "D": "Timid and easily persuaded"
+    },
+    "correct_answer": "C",
+    "explanation": "Obstinate means stubbornly refusing to change one's opinion or chosen course of action.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-047",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Choose the correct pronoun: 'The student ___ won the contest was publicly awarded.'",
+    "choices": {
+      "A": "which",
+      "B": "whom",
+      "C": "who",
+      "D": "whose"
+    },
+    "correct_answer": "C",
+    "explanation": "'Who' is the correct relative pronoun for people when it functions as the subject.",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-048",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "PROFOUND most nearly means:",
+    "choices": {
+      "A": "Shallow and superficial",
+      "B": "Very deep, intense, or insightful",
+      "C": "Simple and straightforward",
+      "D": "Brief and passing"
+    },
+    "correct_answer": "B",
+    "explanation": "Profound means very great or intense; showing deep insight or knowledge.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-049",
+    "topic": "Verbal Ability",
+    "difficulty": "Easy",
+    "question": "Which is an example of a EUPHEMISM?",
+    "choices": {
+      "A": "He was killed in battle.",
+      "B": "He passed away last night.",
+      "C": "He was murdered.",
+      "D": "He died a violent death."
+    },
+    "correct_answer": "B",
+    "explanation": "'Passed away' is a mild or indirect word used to substitute for 'died'.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-050",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "SCRUTINIZE most nearly means:",
+    "choices": {
+      "A": "To completely ignore",
+      "B": "To glance at briefly",
+      "C": "To examine very carefully and critically",
+      "D": "To misread deliberately"
+    },
+    "correct_answer": "C",
+    "explanation": "Scrutinize means to examine or inspect closely and thoroughly.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-051",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Which word is an antonym for ENIGMATIC?",
+    "choices": {
+      "A": "Mysterious",
+      "B": "Puzzling",
+      "C": "Obvious",
+      "D": "Obscure"
+    },
+    "correct_answer": "C",
+    "explanation": "Enigmatic means difficult to interpret or understand; mysterious. Obvious is the opposite.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-052",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Identify the error: 'The manager along with his assistants are reviewing the proposal.'",
+    "choices": {
+      "A": "The manager",
+      "B": "along with",
+      "C": "are reviewing",
+      "D": "the proposal"
+    },
+    "correct_answer": "C",
+    "explanation": "When the subject is 'manager', phrases like 'along with' do not make the subject plural. It should be 'is reviewing'.",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-053",
+    "topic": "Verbal Ability",
+    "difficulty": "Hard",
+    "question": "What is the meaning of the idiom 'To burn the midnight oil'?",
+    "choices": {
+      "A": "To save energy",
+      "B": "To work late into the night",
+      "C": "To waste resources",
+      "D": "To start a fire"
+    },
+    "correct_answer": "B",
+    "explanation": "To burn the midnight oil means to stay up late working or studying.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-054",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Choose the word that best completes the sentence: 'The lawyer's arguments were so ___ that the jury reached a verdict in minutes.'",
+    "choices": {
+      "A": "vague",
+      "B": "cogent",
+      "C": "ambiguous",
+      "D": "tenuous"
+    },
+    "correct_answer": "B",
+    "explanation": "Cogent means clear, logical, and convincing.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-055",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Which of the following sentences uses a 'transitive verb'?",
+    "choices": {
+      "A": "He laughed loudly.",
+      "B": "The sun sets in the west.",
+      "C": "She bought a new book.",
+      "D": "They arrived late."
+    },
+    "correct_answer": "C",
+    "explanation": "A transitive verb ('bought') requires an object ('book') to complete its meaning.",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-056",
+    "topic": "Verbal Ability",
+    "difficulty": "Hard",
+    "question": "What is the synonym for MELLIFLUOUS?",
+    "choices": {
+      "A": "Harsh",
+      "B": "Musical",
+      "C": "Loud",
+      "D": "Sticky"
+    },
+    "correct_answer": "B",
+    "explanation": "Mellifluous means sweet or musical; pleasant to hear.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-057",
+    "topic": "Verbal Ability",
+    "difficulty": "Easy",
+    "question": "Rearrange the letters 'P, L, E, A, P' to form a common fruit.",
+    "choices": {
+      "A": "PLEAP",
+      "B": "APPLE",
+      "C": "PEALP",
+      "D": "ALEPP"
+    },
+    "correct_answer": "B",
+    "explanation": "The letters correctly spell APPLE.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-058",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Which word most nearly means its opposite? 'DEARTH'",
+    "choices": {
+      "A": "Scarcity",
+      "B": "Abundance",
+      "C": "Shortage",
+      "D": "Poverty"
+    },
+    "correct_answer": "B",
+    "explanation": "Dearth means a scarcity or lack of something. Abundance is the antonym.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-059",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Which sentence is in the PRESENT PERFECT tense?",
+    "choices": {
+      "A": "I will have seen that movie.",
+      "B": "I have seen that movie already.",
+      "C": "I saw that movie yesterday.",
+      "D": "I see that movie now."
+    },
+    "correct_answer": "B",
+    "explanation": "'Have seen' is the present perfect tense (auxiliary 'have' + past participle).",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-060",
+    "topic": "Verbal Ability",
+    "difficulty": "Hard",
+    "question": "What does the Latin root 'BELLUM' mean in English words like 'belligerent' or 'antebellum'?",
+    "choices": {
+      "A": "Beautiful",
+      "B": "War",
+      "C": "Ring",
+      "D": "Voice"
+    },
+    "correct_answer": "B",
+    "explanation": "The Latin root 'bellum' means war.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-061",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Identify the antonym of GARRULOUS.",
+    "choices": {
+      "A": "Talkative",
+      "B": "Taciturn",
+      "C": "Voluble",
+      "D": "Verbose"
+    },
+    "correct_answer": "B",
+    "explanation": "Garrulous means excessively talkative. Taciturn means reserved or uncommunicative in speech.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-062",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Choose the best word for the blank: 'The manager decided to ___ the new rules immediately.'",
+    "choices": {
+      "A": "implement",
+      "B": "impliment",
+      "C": "implament",
+      "D": "emplement"
+    },
+    "correct_answer": "A",
+    "explanation": "'Implement' is the correct spelling for 'to put into effect'.",
+    "tags": [
+      "verbal",
+      "spelling",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-063",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Choose the correct word: 'Neither of the two candidates ___ suitable for the job.'",
+    "choices": {
+      "A": "are",
+      "B": "were",
+      "C": "is",
+      "D": "have been"
+    },
+    "correct_answer": "C",
+    "explanation": "'Neither' as a subject is singular and takes a singular verb.",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-064",
+    "topic": "Verbal Ability",
+    "difficulty": "Hard",
+    "question": "The primary objective of a 'summary' is to:",
+    "choices": {
+      "A": "Express personal opinion on a text",
+      "B": "Repeat the text word-for-word",
+      "C": "Provide a brief overview of the main points",
+      "D": "Critique the author's writing style"
+    },
+    "correct_answer": "C",
+    "explanation": "A summary captures the main essence and key points concisely.",
+    "tags": [
+      "verbal",
+      "reading comprehension",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-065",
+    "topic": "Verbal Ability",
+    "difficulty": "Hard",
+    "question": "What is the meaning of the word SALUBRIOUS?",
+    "choices": {
+      "A": "Unpleasant",
+      "B": "Salty",
+      "C": "Health-giving",
+      "D": "Sad"
+    },
+    "correct_answer": "C",
+    "explanation": "Salubrious means health-giving or healthy.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-066",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Identify the incorrect spelling:",
+    "choices": {
+      "A": "Commitment",
+      "B": "Questionnaire",
+      "C": "Harassment",
+      "D": "Acccommodation"
+    },
+    "correct_answer": "D",
+    "explanation": "Accommodation is spelled with two 'c's and two 'm's.",
+    "tags": [
+      "verbal",
+      "spelling",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-067",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Choose the word that best completes the sentence: 'The team's success was ___ to their hard work.'",
+    "choices": {
+      "A": "ascribed",
+      "B": "described",
+      "C": "prescribed",
+      "D": "inscribed"
+    },
+    "correct_answer": "A",
+    "explanation": "Ascribed means to attribute something to a cause.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-068",
+    "topic": "Verbal Ability",
+    "difficulty": "Easy",
+    "question": "Which of these is a synonym for CURTAIL?",
+    "choices": {
+      "A": "Lengthen",
+      "B": "Extend",
+      "C": "Shorten",
+      "D": "Prolong"
+    },
+    "correct_answer": "C",
+    "explanation": "Curtail means to reduce in extent or quantity; to shorten.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-069",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Which sentence has a 'misplaced modifier'?",
+    "choices": {
+      "A": "She only eats vegetables.",
+      "B": "I saw a man with a telescope looking at the stars.",
+      "C": "Running home, the sky turned dark.",
+      "D": "They found a gold ring in the sand."
+    },
+    "correct_answer": "B",
+    "explanation": "In B, it's unclear if the man or the viewer has the telescope. However, C is a dangling modifier. B is a classic misplaced modifier example.",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-070",
+    "topic": "Verbal Ability",
+    "difficulty": "Hard",
+    "question": "What is the word for a person who believes that nothing can be known of the existence or nature of God?",
+    "choices": {
+      "A": "Atheist",
+      "B": "Agnostic",
+      "C": "Theist",
+      "D": "Deist"
+    },
+    "correct_answer": "B",
+    "explanation": "An agnostic believes that nothing is known or can be known of the existence or nature of God.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-071",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Fill in the blank: 'He would have come if he ___ about the event.'",
+    "choices": {
+      "A": "knows",
+      "B": "knew",
+      "C": "had known",
+      "D": "was knowing"
+    },
+    "correct_answer": "C",
+    "explanation": "This is a third conditional sentence (past unreal), which requires 'if' + past perfect.",
+    "tags": [
+      "verbal",
+      "grammar",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-072",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Which word most nearly means its opposite? 'EPHEMERAL'",
+    "choices": {
+      "A": "Fleeting",
+      "B": "Perpetual",
+      "C": "Short-lived",
+      "D": "Brief"
+    },
+    "correct_answer": "B",
+    "explanation": "Ephemeral means short-lived. Perpetual means never ending.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-073",
+    "topic": "Verbal Ability",
+    "difficulty": "Easy",
+    "question": "Choose the best word for the blank: 'Please ___ your shoes before entering.'",
+    "choices": {
+      "A": "take out",
+      "B": "take off",
+      "C": "take on",
+      "D": "take up"
+    },
+    "correct_answer": "B",
+    "explanation": "'Take off' is the correct phrasal verb for removing clothing or shoes.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-074",
+    "topic": "Verbal Ability",
+    "difficulty": "Medium",
+    "question": "Identify the incorrect spelling:",
+    "choices": {
+      "A": "Maintenance",
+      "B": "Calendar",
+      "C": "Separate",
+      "D": "Indispensible"
+    },
+    "correct_answer": "D",
+    "explanation": "Indispensable ends with '-able', not '-ible'.",
+    "tags": [
+      "verbal",
+      "spelling",
+      "civil service"
+    ]
+  },
+  {
+    "id": "CSE-VER-075",
+    "topic": "Verbal Ability",
+    "difficulty": "Hard",
+    "question": "Which of these is a synonym for PERSPICACIOUS?",
+    "choices": {
+      "A": "Dull",
+      "B": "Observant",
+      "C": "Ignorant",
+      "D": "Hazy"
+    },
+    "correct_answer": "B",
+    "explanation": "Perspicacious means having a ready insight into and understanding of things; observant or shrewd.",
+    "tags": [
+      "verbal",
+      "vocabulary",
+      "civil service"
+    ]
+  }
+]

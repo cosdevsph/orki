@@ -1,0 +1,1127 @@
+[
+  {
+    "id": "CSE-NUM-001",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is 245 + 378?",
+    "choices": {
+      "A": "613",
+      "B": "623",
+      "C": "633",
+      "D": "643"
+    },
+    "correct_answer": "B",
+    "explanation": "245 + 378 = 623. Adding ones: 5+8=13, write 3 carry 1. Tens: 4+7+1=12, write 2 carry 1. Hundreds: 2+3+1=6.",
+    "tags": ["math", "basic operations", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-002",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is 1,002 minus 468?",
+    "choices": {
+      "A": "524",
+      "B": "534",
+      "C": "544",
+      "D": "554"
+    },
+    "correct_answer": "B",
+    "explanation": "1,002 - 468 = 534. Borrow across the zeros carefully: 1,002 becomes 9 hundreds 9 tens 12 ones.",
+    "tags": ["math", "basic operations", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-003",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is 36 multiplied by 25?",
+    "choices": {
+      "A": "800",
+      "B": "850",
+      "C": "900",
+      "D": "950"
+    },
+    "correct_answer": "C",
+    "explanation": "36 x 25 = 36 x 100 / 4 = 3,600 / 4 = 900. Alternatively, 36 x 25 = (30+6) x 25 = 750 + 150 = 900.",
+    "tags": ["math", "multiplication", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-004",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is 756 divided by 12?",
+    "choices": {
+      "A": "53",
+      "B": "63",
+      "C": "73",
+      "D": "83"
+    },
+    "correct_answer": "B",
+    "explanation": "756 / 12 = 63. Using long division: 75 / 12 = 6 (remainder 3), then 36 / 12 = 3.",
+    "tags": ["math", "division", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-005",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "What is 15% of 480?",
+    "choices": {
+      "A": "62",
+      "B": "72",
+      "C": "82",
+      "D": "92"
+    },
+    "correct_answer": "B",
+    "explanation": "15% of 480 = 0.15 x 480. 10% is 48, 5% is 24. 48 + 24 = 72.",
+    "tags": ["math", "percentages", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-006",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is the Least Common Multiple (LCM) of 8 and 12?",
+    "choices": {
+      "A": "16",
+      "B": "20",
+      "C": "24",
+      "D": "32"
+    },
+    "correct_answer": "C",
+    "explanation": "Multiples of 8: 8, 16, 24. Multiples of 12: 12, 24. The smallest common multiple is 24.",
+    "tags": ["math", "lcm", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-007",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is the Greatest Common Factor (GCF) of 36 and 48?",
+    "choices": {
+      "A": "6",
+      "B": "9",
+      "C": "12",
+      "D": "18"
+    },
+    "correct_answer": "C",
+    "explanation": "Factors of 36: 1,2,3,4,6,9,12,18,36. Factors of 48: 1,2,3,4,6,8,12,16,24,48. GCF = 12.",
+    "tags": ["math", "gcf", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-008",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "Express 3/8 as a decimal.",
+    "choices": {
+      "A": "0.275",
+      "B": "0.325",
+      "C": "0.375",
+      "D": "0.425"
+    },
+    "correct_answer": "C",
+    "explanation": "3 / 8 = 0.375. Divide: 3.000 / 8 = 0.375.",
+    "tags": ["math", "fractions", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-009",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is 2/5 + 3/10?",
+    "choices": {
+      "A": "5/15",
+      "B": "7/10",
+      "C": "5/10",
+      "D": "1/2"
+    },
+    "correct_answer": "B",
+    "explanation": "Convert 2/5 to tenths: 2/5 = 4/10. Then 4/10 + 3/10 = 7/10.",
+    "tags": ["math", "fractions", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-010",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "A worker earns P680 per day. How much does he earn in 26 working days?",
+    "choices": {
+      "A": "P16,680",
+      "B": "P17,080",
+      "C": "P17,680",
+      "D": "P18,080"
+    },
+    "correct_answer": "C",
+    "explanation": "P680 x 26 = P17,680. Compute: 680 x 20 = 13,600 and 680 x 6 = 4,080; total = 17,680.",
+    "tags": ["math", "word problems", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-011",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "A store offers a 25% discount on a P1,600 item. How much will you pay?",
+    "choices": {
+      "A": "P1,100",
+      "B": "P1,200",
+      "C": "P1,300",
+      "D": "P1,400"
+    },
+    "correct_answer": "B",
+    "explanation": "Discount = 25% x P1,600 = P400. Selling price = P1,600 - P400 = P1,200.",
+    "tags": ["math", "percentages", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-012",
+    "topic": "Numerical Ability",
+    "difficulty": "Hard",
+    "question": "If 8 men can build a wall in 15 days, how many days will 12 men take?",
+    "choices": {
+      "A": "8",
+      "B": "10",
+      "C": "12",
+      "D": "15"
+    },
+    "correct_answer": "B",
+    "explanation": "This is inverse proportion: (8 x 15) / 12 = 120 / 12 = 10 days.",
+    "tags": ["math", "ratio and proportion", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-013",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "A car travels 240 km in 4 hours. What is its average speed?",
+    "choices": {
+      "A": "50 km/h",
+      "B": "55 km/h",
+      "C": "60 km/h",
+      "D": "65 km/h"
+    },
+    "correct_answer": "C",
+    "explanation": "Speed = Distance / Time = 240 / 4 = 60 km/h.",
+    "tags": ["math", "distance and rate", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-014",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "What is the simple interest on P8,000 at 5% per annum for 3 years?",
+    "choices": {
+      "A": "P1,000",
+      "B": "P1,200",
+      "C": "P1,600",
+      "D": "P2,000"
+    },
+    "correct_answer": "B",
+    "explanation": "SI = Principal x Rate x Time = 8,000 x 0.05 x 3 = P1,200.",
+    "tags": ["math", "interest", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-015",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is the area of a rectangle 14 m long and 9 m wide?",
+    "choices": {
+      "A": "116 sq m",
+      "B": "120 sq m",
+      "C": "124 sq m",
+      "D": "126 sq m"
+    },
+    "correct_answer": "D",
+    "explanation": "Area = length x width = 14 x 9 = 126 sq m.",
+    "tags": ["math", "geometry", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-016",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "A triangle has a base of 10 cm and a height of 8 cm. What is its area?",
+    "choices": {
+      "A": "30 sq cm",
+      "B": "40 sq cm",
+      "C": "50 sq cm",
+      "D": "80 sq cm"
+    },
+    "correct_answer": "B",
+    "explanation": "Area of triangle = 1/2 x base x height = 1/2 x 10 x 8 = 40 sq cm.",
+    "tags": ["math", "geometry", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-017",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is the perimeter of a square with a side of 13 cm?",
+    "choices": {
+      "A": "39 cm",
+      "B": "48 cm",
+      "C": "52 cm",
+      "D": "56 cm"
+    },
+    "correct_answer": "C",
+    "explanation": "Perimeter of square = 4 x side = 4 x 13 = 52 cm.",
+    "tags": ["math", "geometry", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-018",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "What is the circumference of a circle with a radius of 10 cm? (Use pi = 3.14)",
+    "choices": {
+      "A": "31.4 cm",
+      "B": "62.8 cm",
+      "C": "94.2 cm",
+      "D": "314 cm"
+    },
+    "correct_answer": "B",
+    "explanation": "Circumference = 2 x pi x r = 2 x 3.14 x 10 = 62.8 cm.",
+    "tags": ["math", "geometry", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-019",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "If 40% of a number is 100, what is the number?",
+    "choices": {
+      "A": "200",
+      "B": "225",
+      "C": "250",
+      "D": "275"
+    },
+    "correct_answer": "C",
+    "explanation": "Number = 100 / 0.40 = 250. Check: 40% x 250 = 100. Correct.",
+    "tags": ["math", "percentages", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-020",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is 7 squared plus 5 squared?",
+    "choices": {
+      "A": "74",
+      "B": "64",
+      "C": "54",
+      "D": "44"
+    },
+    "correct_answer": "A",
+    "explanation": "7 squared = 49; 5 squared = 25; 49 + 25 = 74.",
+    "tags": ["math", "exponents", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-021",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is the square root of 225?",
+    "choices": {
+      "A": "13",
+      "B": "14",
+      "C": "15",
+      "D": "16"
+    },
+    "correct_answer": "C",
+    "explanation": "15 x 15 = 225. Therefore, the square root of 225 is 15.",
+    "tags": ["math", "roots", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-022",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "A bus leaves at 6:45 AM and arrives at 10:15 AM. How long is the trip?",
+    "choices": {
+      "A": "3 hours",
+      "B": "3 hours 30 minutes",
+      "C": "3 hours 45 minutes",
+      "D": "4 hours"
+    },
+    "correct_answer": "B",
+    "explanation": "From 6:45 to 10:15: 6:45 to 7:00 = 15 min; 7:00 to 10:00 = 3 hrs; 10:00 to 10:15 = 15 min. Total = 3 hrs 30 min.",
+    "tags": ["math", "time problems", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-023",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is the ratio of 30 to 45 in simplest form?",
+    "choices": {
+      "A": "3:4",
+      "B": "2:3",
+      "C": "1:2",
+      "D": "4:6"
+    },
+    "correct_answer": "B",
+    "explanation": "GCF of 30 and 45 = 15. 30/15 : 45/15 = 2:3.",
+    "tags": ["math", "ratio and proportion", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-024",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "A dozen oranges cost P144. How much do 5 oranges cost?",
+    "choices": {
+      "A": "P50",
+      "B": "P55",
+      "C": "P60",
+      "D": "P65"
+    },
+    "correct_answer": "C",
+    "explanation": "Price per orange = P144 / 12 = P12. Cost of 5 = P12 x 5 = P60.",
+    "tags": ["math", "word problems", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-025",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is the next number in the series: 3, 6, 12, 24, ___?",
+    "choices": {
+      "A": "36",
+      "B": "42",
+      "C": "48",
+      "D": "56"
+    },
+    "correct_answer": "C",
+    "explanation": "Each term is doubled: 3 x 2 = 6, 6 x 2 = 12, 12 x 2 = 24, 24 x 2 = 48.",
+    "tags": ["math", "number series", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-026",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "If x + 9 = 21, what is x?",
+    "choices": {
+      "A": "10",
+      "B": "11",
+      "C": "12",
+      "D": "13"
+    },
+    "correct_answer": "C",
+    "explanation": "x = 21 - 9 = 12.",
+    "tags": ["math", "algebra", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-027",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "If 3y - 5 = 19, what is y?",
+    "choices": {
+      "A": "6",
+      "B": "7",
+      "C": "8",
+      "D": "9"
+    },
+    "correct_answer": "C",
+    "explanation": "3y = 19 + 5 = 24; y = 24 / 3 = 8.",
+    "tags": ["math", "algebra", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-028",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is 20% of 350?",
+    "choices": {
+      "A": "60",
+      "B": "65",
+      "C": "70",
+      "D": "75"
+    },
+    "correct_answer": "C",
+    "explanation": "20% x 350 = 0.20 x 350 = 70.",
+    "tags": ["math", "percentages", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-029",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "If 50 kg of rice costs P2,250, what is the cost per kilogram?",
+    "choices": {
+      "A": "P42",
+      "B": "P44",
+      "C": "P45",
+      "D": "P48"
+    },
+    "correct_answer": "C",
+    "explanation": "Cost per kg = P2,250 / 50 = P45.",
+    "tags": ["math", "word problems", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-030",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "Two numbers have a sum of 84 and a difference of 18. What is the larger number?",
+    "choices": {
+      "A": "48",
+      "B": "51",
+      "C": "53",
+      "D": "57"
+    },
+    "correct_answer": "B",
+    "explanation": "Let x and y be the numbers. x + y = 84 and x - y = 18. Adding: 2x = 102, so x = 51.",
+    "tags": ["math", "algebra", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-031",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "The perimeter of a rectangle is 60 m and its length is 18 m. What is its width?",
+    "choices": {
+      "A": "9 m",
+      "B": "10 m",
+      "C": "11 m",
+      "D": "12 m"
+    },
+    "correct_answer": "D",
+    "explanation": "Perimeter = 2(l + w). 60 = 2(18 + w); 30 = 18 + w; w = 12 m.",
+    "tags": ["math", "geometry", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-032",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is 3/4 of 120?",
+    "choices": {
+      "A": "80",
+      "B": "85",
+      "C": "90",
+      "D": "95"
+    },
+    "correct_answer": "C",
+    "explanation": "3/4 x 120 = 90.",
+    "tags": ["math", "fractions", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-033",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "A man saves 65% of his P18,000 monthly salary. How much does he save?",
+    "choices": {
+      "A": "P10,700",
+      "B": "P11,700",
+      "C": "P12,700",
+      "D": "P13,700"
+    },
+    "correct_answer": "B",
+    "explanation": "Savings = P18,000 x 0.65 = P11,700.",
+    "tags": ["math", "percentages", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-034",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "What is the volume of a box 5 cm long, 4 cm wide, and 3 cm high?",
+    "choices": {
+      "A": "40 cu cm",
+      "B": "50 cu cm",
+      "C": "60 cu cm",
+      "D": "70 cu cm"
+    },
+    "correct_answer": "C",
+    "explanation": "Volume = length x width x height = 5 x 4 x 3 = 60 cu cm.",
+    "tags": ["math", "geometry", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-035",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "What is the average of 72, 85, 90, 68, and 75?",
+    "choices": {
+      "A": "76",
+      "B": "78",
+      "C": "80",
+      "D": "82"
+    },
+    "correct_answer": "B",
+    "explanation": "Sum = 72+85+90+68+75 = 390. Average = 390 / 5 = 78.",
+    "tags": ["math", "statistics", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-036",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "A price increased from P500 to P650. What is the percent increase?",
+    "choices": {
+      "A": "25%",
+      "B": "28%",
+      "C": "30%",
+      "D": "32%"
+    },
+    "correct_answer": "C",
+    "explanation": "Increase = P150. Percent increase = (150/500) x 100 = 30%.",
+    "tags": ["math", "percentages", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-037",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "A train travels at 90 km/h for 2.5 hours. How far does it travel?",
+    "choices": {
+      "A": "200 km",
+      "B": "215 km",
+      "C": "225 km",
+      "D": "240 km"
+    },
+    "correct_answer": "C",
+    "explanation": "Distance = Speed x Time = 90 x 2.5 = 225 km.",
+    "tags": ["math", "distance and rate", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-038",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "What is 0.4 multiplied by 0.5 multiplied by 0.2?",
+    "choices": {
+      "A": "0.004",
+      "B": "0.04",
+      "C": "0.4",
+      "D": "4"
+    },
+    "correct_answer": "B",
+    "explanation": "0.4 x 0.5 = 0.2; 0.2 x 0.2 = 0.04.",
+    "tags": ["math", "decimals", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-039",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "Which is the largest fraction: 3/5, 5/8, 7/10, or 2/3?",
+    "choices": {
+      "A": "3/5",
+      "B": "5/8",
+      "C": "7/10",
+      "D": "2/3"
+    },
+    "correct_answer": "C",
+    "explanation": "Convert to decimals: 3/5=0.600, 5/8=0.625, 7/10=0.700, 2/3=0.667. Largest is 7/10.",
+    "tags": ["math", "fractions", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-040",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "A tank holds 800 liters. If it is 3/8 full, how many liters does it contain?",
+    "choices": {
+      "A": "250 L",
+      "B": "275 L",
+      "C": "300 L",
+      "D": "325 L"
+    },
+    "correct_answer": "C",
+    "explanation": "800 x 3/8 = 2400/8 = 300 liters.",
+    "tags": ["math", "fractions", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-041",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "What is 125% of 80?",
+    "choices": {
+      "A": "90",
+      "B": "95",
+      "C": "100",
+      "D": "105"
+    },
+    "correct_answer": "C",
+    "explanation": "125% x 80 = 1.25 x 80 = 100.",
+    "tags": ["math", "percentages", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-042",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "A dozen eggs cost P96. How much do 9 eggs cost?",
+    "choices": {
+      "A": "P68",
+      "B": "P72",
+      "C": "P76",
+      "D": "P80"
+    },
+    "correct_answer": "B",
+    "explanation": "Price per egg = P96 / 12 = P8. Cost of 9 eggs = P8 x 9 = P72.",
+    "tags": ["math", "word problems", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-043",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "A number decreased by 18 is equal to 47. What is the number?",
+    "choices": {
+      "A": "61",
+      "B": "63",
+      "C": "65",
+      "D": "67"
+    },
+    "correct_answer": "C",
+    "explanation": "n - 18 = 47; n = 47 + 18 = 65.",
+    "tags": ["math", "algebra", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-044",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "What is the product of the first 5 positive integers?",
+    "choices": {
+      "A": "100",
+      "B": "110",
+      "C": "120",
+      "D": "130"
+    },
+    "correct_answer": "C",
+    "explanation": "1 x 2 x 3 x 4 x 5 = 120 (also called 5 factorial, written 5!).",
+    "tags": ["math", "basic operations", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-045",
+    "topic": "Numerical Ability",
+    "difficulty": "Hard",
+    "question": "After a 30% discount, an item costs P840. What was the original price?",
+    "choices": {
+      "A": "P1,100",
+      "B": "P1,200",
+      "C": "P1,300",
+      "D": "P1,400"
+    },
+    "correct_answer": "B",
+    "explanation": "Original price = P840 / (1 - 0.30) = P840 / 0.70 = P1,200.",
+    "tags": ["math", "percentages", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-046",
+    "topic": "Numerical Ability",
+    "difficulty": "Hard",
+    "question": "What is the missing term in the series: 2, 5, 10, 17, 26, ___?",
+    "choices": {
+      "A": "35",
+      "B": "37",
+      "C": "39",
+      "D": "41"
+    },
+    "correct_answer": "B",
+    "explanation": "Differences: 3, 5, 7, 9, 11 (increasing odd numbers). Next term: 26 + 11 = 37.",
+    "tags": ["math", "number series", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-047",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "In a class of 40 students, 75% passed. How many students passed?",
+    "choices": {
+      "A": "28",
+      "B": "30",
+      "C": "32",
+      "D": "34"
+    },
+    "correct_answer": "B",
+    "explanation": "Number who passed = 75% x 40 = 0.75 x 40 = 30 students.",
+    "tags": ["math", "percentages", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-048",
+    "topic": "Numerical Ability",
+    "difficulty": "Hard",
+    "question": "What is 4 cubed divided by 2 to the 4th power?",
+    "choices": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "5"
+    },
+    "correct_answer": "C",
+    "explanation": "4 cubed = 64; 2 to the 4th power = 16; 64 / 16 = 4.",
+    "tags": ["math", "exponents", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-049",
+    "topic": "Numerical Ability",
+    "difficulty": "Hard",
+    "question": "Two pipes can fill a tank in 6 hours and 12 hours respectively. How long if both are open?",
+    "choices": {
+      "A": "3 hours",
+      "B": "4 hours",
+      "C": "5 hours",
+      "D": "6 hours"
+    },
+    "correct_answer": "B",
+    "explanation": "Combined rate = 1/6 + 1/12 = 2/12 + 1/12 = 3/12 = 1/4 tank per hour. Time = 4 hours.",
+    "tags": ["math", "word problems", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-050",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "What is the median of the set: 14, 9, 21, 7, 18?",
+    "choices": {
+      "A": "9",
+      "B": "14",
+      "C": "18",
+      "D": "21"
+    },
+    "correct_answer": "B",
+    "explanation": "Arrange in order: 7, 9, 14, 18, 21. The middle value (3rd of 5) is 14.",
+    "tags": ["math", "statistics", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-051",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "If 5 notebooks cost P175, how much will 12 notebooks cost?",
+    "choices": {
+      "A": "P350",
+      "B": "P420",
+      "C": "P450",
+      "D": "P480"
+    },
+    "correct_answer": "B",
+    "explanation": "Price per notebook = 175 / 5 = 35. Total cost = 35 x 12 = P420.",
+    "tags": ["math", "word problems", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-052",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "Find the value of x in the equation: 2(x - 4) = 3x + 2.",
+    "choices": {
+      "A": "-10",
+      "B": "-8",
+      "C": "6",
+      "D": "10"
+    },
+    "correct_answer": "A",
+    "explanation": "Expand: 2x - 8 = 3x + 2. Subtract 2x from both sides: -8 = x + 2. Subtract 2: x = -10.",
+    "tags": ["math", "algebra", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-053",
+    "topic": "Numerical Ability",
+    "difficulty": "Hard",
+    "question": "A cylindrical tank has a radius of 7m and a height of 10m. What is its volume? (Use pi = 22/7)",
+    "choices": {
+      "A": "770 cu m",
+      "B": "1,440 cu m",
+      "C": "1,540 cu m",
+      "D": "2,200 cu m"
+    },
+    "correct_answer": "C",
+    "explanation": "Volume = pi * r^2 * h = (22/7) * 7 * 7 * 10 = 22 * 7 * 10 = 1,540 cu m.",
+    "tags": ["math", "geometry", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-054",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "In a bag, there are 5 red balls, 8 blue balls, and 7 green balls. What is the probability of picking a blue ball?",
+    "choices": {
+      "A": "1/4",
+      "B": "2/5",
+      "C": "3/5",
+      "D": "8/20"
+    },
+    "correct_answer": "B",
+    "explanation": "Total balls = 5 + 8 + 7 = 20. Probability = 8/20 = 2/5.",
+    "tags": ["math", "probability", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-055",
+    "topic": "Numerical Ability",
+    "difficulty": "Hard",
+    "question": "The sum of three consecutive even integers is 72. What is the largest integer?",
+    "choices": {
+      "A": "22",
+      "B": "24",
+      "C": "26",
+      "D": "28"
+    },
+    "correct_answer": "C",
+    "explanation": "Let integers be x, x+2, x+4. Sum: 3x + 6 = 72; 3x = 66; x = 22. Largest = 22 + 4 = 26.",
+    "tags": ["math", "algebra", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-056",
+    "topic": "Numerical Ability",
+    "difficulty": "Hard",
+    "question": "A father is 4 times as old as his son. In 20 years, he will be twice as old as his son. How old is the father now?",
+    "choices": {
+      "A": "30",
+      "B": "35",
+      "C": "40",
+      "D": "45"
+    },
+    "correct_answer": "C",
+    "explanation": "F = 4s. In 20 years: F+20 = 2(s+20). Substitute F: 4s+20 = 2s+40; 2s = 20; s = 10. Father is 4(10) = 40.",
+    "tags": ["math", "age problems", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-057",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "If a train travels at 120 km/h, how many meters does it travel in one minute?",
+    "choices": {
+      "A": "1,000 m",
+      "B": "1,500 m",
+      "C": "2,000 m",
+      "D": "2,500 m"
+    },
+    "correct_answer": "C",
+    "explanation": "120 km/h = 120,000 meters in 60 minutes. Per minute = 120,000 / 60 = 2,000 meters.",
+    "tags": ["math", "distance and rate", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-058",
+    "topic": "Numerical Ability",
+    "difficulty": "Hard",
+    "question": "A solution of 40 liters is 25% acid. How many liters of pure acid must be added to make it 40% acid?",
+    "choices": {
+      "A": "5 L",
+      "B": "10 L",
+      "C": "15 L",
+      "D": "20 L"
+    },
+    "correct_answer": "B",
+    "explanation": "Initial acid = 10L. Let x be added acid: (10+x) / (40+x) = 0.40. 10 + x = 16 + 0.4x; 0.6x = 6; x = 10.",
+    "tags": ["math", "mixture problems", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-059",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "What is the area of a trapezoid with bases 12cm and 18cm, and a height of 10cm?",
+    "choices": {
+      "A": "150 sq cm",
+      "B": "160 sq cm",
+      "C": "180 sq cm",
+      "D": "300 sq cm"
+    },
+    "correct_answer": "A",
+    "explanation": "Area = 1/2 * (b1 + b2) * h = 1/2 * (12 + 18) * 10 = 1/2 * 30 * 10 = 150 sq cm.",
+    "tags": ["math", "geometry", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-060",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "Solve for x: 3^x = 81.",
+    "choices": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "5"
+    },
+    "correct_answer": "C",
+    "explanation": "3^1=3, 3^2=9, 3^3=27, 3^4=81. Thus, x = 4.",
+    "tags": ["math", "algebra", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-061",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "A shirt is sold for P630 after a 40% markup on cost. What was the original cost?",
+    "choices": {
+      "A": "P400",
+      "B": "P450",
+      "C": "P500",
+      "D": "P550"
+    },
+    "correct_answer": "B",
+    "explanation": "Cost * 1.40 = 630; Cost = 630 / 1.40 = 450.",
+    "tags": ["math", "percentages", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-062",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "The ratio of boys to girls in a class is 3:5. If there are 40 students total, how many are girls?",
+    "choices": {
+      "A": "15",
+      "B": "20",
+      "C": "25",
+      "D": "30"
+    },
+    "correct_answer": "C",
+    "explanation": "Total parts = 3+5 = 8. One part = 40/8 = 5. Girls = 5 parts x 5 = 25.",
+    "tags": ["math", "ratio and proportion", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-063",
+    "topic": "Numerical Ability",
+    "difficulty": "Hard",
+    "question": "A rectangle's length is doubled and its width is tripled. By what factor does the area increase?",
+    "choices": {
+      "A": "2",
+      "B": "3",
+      "C": "5",
+      "D": "6"
+    },
+    "correct_answer": "D",
+    "explanation": "New Area = (2L) * (3W) = 6 * (LW). The area increases by a factor of 6.",
+    "tags": ["math", "geometry", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-064",
+    "topic": "Numerical Ability",
+    "difficulty": "Hard",
+    "question": "If x=2 and y=-3, what is the value of 2x^2 - 3xy + y^2?",
+    "choices": {
+      "A": "25",
+      "B": "30",
+      "C": "35",
+      "D": "40"
+    },
+    "correct_answer": "C",
+    "explanation": "2(2)^2 - 3(2)(-3) + (-3)^2 = 2(4) - (-18) + 9 = 8 + 18 + 9 = 35.",
+    "tags": ["math", "algebra", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-065",
+    "topic": "Numerical Ability",
+    "difficulty": "Hard",
+    "question": "A worker's salary was increased by 20%, then later decreased by 20%. What was the net percentage change from the original salary?",
+    "choices": {
+      "A": "0% change",
+      "B": "2% decrease",
+      "C": "4% decrease",
+      "D": "4% increase"
+    },
+    "correct_answer": "C",
+    "explanation": "Assume P100. Increase 20% = P120. Decrease 20% of 120 = P24. Final = 120 - 24 = P96. Net change is a 4% decrease.",
+    "tags": ["math", "percentages", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-066",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "How many degrees is the sum of the internal angles of a pentagon?",
+    "choices": {
+      "A": "360",
+      "B": "450",
+      "C": "540",
+      "D": "720"
+    },
+    "correct_answer": "C",
+    "explanation": "Sum = (n - 2) * 180. For a pentagon (n=5): (5 - 2) * 180 = 3 * 180 = 540 degrees.",
+    "tags": ["math", "geometry", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-067",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "If 4 workers can finish a job in 6 hours, how many workers are needed to finish the same job in 3 hours?",
+    "choices": {
+      "A": "2",
+      "B": "6",
+      "C": "8",
+      "D": "12"
+    },
+    "correct_answer": "C",
+    "explanation": "Work is constant. 4 workers * 6 hours = 24 worker-hours. To finish in 3 hours: 24 / 3 = 8 workers.",
+    "tags": ["math", "ratio and proportion", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-068",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "What is 2/3 of 3/4 of 60?",
+    "choices": {
+      "A": "20",
+      "B": "30",
+      "C": "40",
+      "D": "45"
+    },
+    "correct_answer": "B",
+    "explanation": "(2/3) * (3/4) * 60 = (2/4) * 60 = 1/2 * 60 = 30.",
+    "tags": ["math", "fractions", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-069",
+    "topic": "Numerical Ability",
+    "difficulty": "Hard",
+    "question": "A car depreciates by 10% each year. If it costs P800,000 now, how much will it be worth after 2 years?",
+    "choices": {
+      "A": "P640,000",
+      "B": "P648,000",
+      "C": "P720,000",
+      "D": "P728,000"
+    },
+    "correct_answer": "B",
+    "explanation": "Year 1: 800,000 - 80,000 = 720,000. Year 2: 720,000 - 72,000 = 648,000.",
+    "tags": ["math", "percentages", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-070",
+    "topic": "Numerical Ability",
+    "difficulty": "Hard",
+    "question": "The average of 4 numbers is 85. If a 5th number is added, the new average becomes 88. What is the 5th number?",
+    "choices": {
+      "A": "90",
+      "B": "95",
+      "C": "100",
+      "D": "105"
+    },
+    "correct_answer": "C",
+    "explanation": "Total of 4: 4 * 85 = 340. Total of 5: 5 * 88 = 440. 5th number = 440 - 340 = 100.",
+    "tags": ["math", "statistics", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-071",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "Find the perimeter of a right triangle with legs 5 cm and 12 cm.",
+    "choices": {
+      "A": "17 cm",
+      "B": "25 cm",
+      "C": "30 cm",
+      "D": "34 cm"
+    },
+    "correct_answer": "C",
+    "explanation": "Hypotenuse = sqrt(5^2 + 12^2) = sqrt(25 + 144) = 13. Perimeter = 5 + 12 + 13 = 30 cm.",
+    "tags": ["math", "geometry", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-072",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "0.005 expressed as a percentage is:",
+    "choices": {
+      "A": "0.05%",
+      "B": "0.5%",
+      "C": "5%",
+      "D": "50%"
+    },
+    "correct_answer": "B",
+    "explanation": "To convert decimal to percent, multiply by 100: 0.005 * 100 = 0.5%.",
+    "tags": ["math", "percentages", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-073",
+    "topic": "Numerical Ability",
+    "difficulty": "Hard",
+    "question": "If x/y = 4/5, what is the value of (5x + 2y) / (5x - 2y)?",
+    "choices": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "correct_answer": "C",
+    "explanation": "Let x=4k, y=5k. (5(4k) + 2(5k)) / (5(4k) - 2(5k)) = (20k + 10k) / (20k - 10k) = 30k / 10k = 3.",
+    "tags": ["math", "algebra", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-074",
+    "topic": "Numerical Ability",
+    "difficulty": "Medium",
+    "question": "A wall clock strikes once at 1 o'clock, twice at 2 o'clock, and so on. How many strikes does it make in a 12-hour period?",
+    "choices": {
+      "A": "12",
+      "B": "66",
+      "C": "78",
+      "D": "84"
+    },
+    "correct_answer": "C",
+    "explanation": "Sum of integers from 1 to 12 = [n(n+1)] / 2 = (12 * 13) / 2 = 78.",
+    "tags": ["math", "arithmetic series", "civil service"]
+  },
+  {
+    "id": "CSE-NUM-075",
+    "topic": "Numerical Ability",
+    "difficulty": "Easy",
+    "question": "If x is an odd integer, which of the following MUST be an even integer?",
+    "choices": {
+      "A": "2x",
+      "B": "x + 2",
+      "C": "x^2",
+      "D": "3x"
+    },
+    "correct_answer": "A",
+    "explanation": "Any integer multiplied by 2 results in an even number. If x=3, 2x=6 (even), x+2=5 (odd), x^2=9 (odd), 3x=9 (odd).",
+    "tags": ["math", "number properties", "civil service"]
+  }
+]

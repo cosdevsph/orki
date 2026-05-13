@@ -1,0 +1,1127 @@
+[
+  {
+    "id": "CSE-GEN-001",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "When was the 1987 Philippine Constitution ratified?",
+    "choices": {
+      "A": "February 2, 1986",
+      "B": "February 2, 1987",
+      "C": "June 12, 1987",
+      "D": "July 4, 1987"
+    },
+    "correct_answer": "B",
+    "explanation": "The 1987 Philippine Constitution was ratified by a nationwide plebiscite on February 2, 1987.",
+    "tags": ["constitution", "philippine history", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-002",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "Which Article of the 1987 Philippine Constitution contains the Bill of Rights?",
+    "choices": {
+      "A": "Article II",
+      "B": "Article III",
+      "C": "Article IV",
+      "D": "Article V"
+    },
+    "correct_answer": "B",
+    "explanation": "Article III of the 1987 Constitution is dedicated to the Bill of Rights.",
+    "tags": ["constitution", "bill of rights", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-003",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "How many branches does the Philippine government have?",
+    "choices": {
+      "A": "Two",
+      "B": "Three",
+      "C": "Four",
+      "D": "Five"
+    },
+    "correct_answer": "B",
+    "explanation": "The Philippine government has three branches: Executive, Legislative, and Judicial.",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-004",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Under Republic Act 6713, how often must public officials file their Statement of Assets, Liabilities, and Net Worth (SALN)?",
+    "choices": {
+      "A": "Every five years",
+      "B": "Upon retirement only",
+      "C": "Annually (every year)",
+      "D": "Upon initial appointment only"
+    },
+    "correct_answer": "C",
+    "explanation": "RA 6713 requires public officials and employees to file their SALN annually.",
+    "tags": ["ra 6713", "ethics", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-005",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "Republic Act 6713 is known as the:",
+    "choices": {
+      "A": "Civil Service Act of the Philippines",
+      "B": "Code of Conduct and Ethical Standards for Public Officials and Employees",
+      "C": "Local Government Code of the Philippines",
+      "D": "Anti-Graft and Corrupt Practices Act"
+    },
+    "correct_answer": "B",
+    "explanation": "Republic Act 6713 is the formal title of the Code of Conduct and Ethical Standards for Public Officials and Employees.",
+    "tags": ["ra 6713", "ethics", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-006",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Under RA 6713, 'conflict of interest' occurs when:",
+    "choices": {
+      "A": "A public official has a side job",
+      "B": "Personal interests interfere with professional duties",
+      "C": "An official disagrees with their supervisor",
+      "D": "An official belongs to a political party"
+    },
+    "correct_answer": "B",
+    "explanation": "Conflict of interest arises when a public official's private interest might affect their faithful performance of official duties.",
+    "tags": ["ra 6713", "ethics", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-007",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Which of the following is a primary duty of public officials according to RA 6713?",
+    "choices": {
+      "A": "Submitting to their political party",
+      "B": "Act promptly on letters and requests from the public",
+      "C": "Enforcing all laws personally",
+      "D": "Collecting donations for their agency"
+    },
+    "correct_answer": "B",
+    "explanation": "One of the specific duties listed in RA 6713 is to act promptly on letters and requests from the public.",
+    "tags": ["ra 6713", "ethics", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-008",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "The Philippine Clean Air Act is:",
+    "choices": {
+      "A": "Republic Act 8749",
+      "B": "Republic Act 9003",
+      "C": "Republic Act 9275",
+      "D": "Republic Act 7586"
+    },
+    "correct_answer": "A",
+    "explanation": "Republic Act 8749 is the Clean Air Act of 1999.",
+    "tags": ["environmental management", "laws", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-009",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "The Philippine Clean Water Act is:",
+    "choices": {
+      "A": "Republic Act 8749",
+      "B": "Republic Act 9003",
+      "C": "Republic Act 9275",
+      "D": "Republic Act 7160"
+    },
+    "correct_answer": "C",
+    "explanation": "Republic Act 9275 is the Clean Water Act of 2004.",
+    "tags": ["environmental management", "laws", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-010",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Republic Act 6713 PROHIBITS public officials from:",
+    "choices": {
+      "A": "Owning a private business",
+      "B": "Accepting gifts of minimal value",
+      "C": "Using government property for personal benefit",
+      "D": "Attending community outreach events"
+    },
+    "correct_answer": "C",
+    "explanation": "RA 6713 prohibits the use of official information or government property for private or personal purposes.",
+    "tags": ["ra 6713", "ethics", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-011",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "The right to information on matters of public concern is guaranteed under:",
+    "choices": {
+      "A": "Article I",
+      "B": "Article II",
+      "C": "Article III",
+      "D": "Article IV"
+    },
+    "correct_answer": "C",
+    "explanation": "Section 7, Article III guarantees the right of people to information on matters of public concern.",
+    "tags": ["constitution", "bill of rights", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-012",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "Philippine Agenda 21 is a national framework for:",
+    "choices": {
+      "A": "Electoral and political reform",
+      "B": "Sustainable development",
+      "C": "Military modernization and defense",
+      "D": "Comprehensive tax reform"
+    },
+    "correct_answer": "B",
+    "explanation": "Philippine Agenda 21 is the country's blueprint for sustainable development.",
+    "tags": ["environmental management", "policy", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-013",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Article III, Section 1 of the 1987 Constitution states that no person shall be deprived of life, liberty, or property without:",
+    "choices": {
+      "A": "Prior public notice",
+      "B": "Due process of law",
+      "C": "A court-issued warrant",
+      "D": "Congressional approval"
+    },
+    "correct_answer": "B",
+    "explanation": "This section explicitly mandates 'due process of law' before deprivation of life, liberty, or property.",
+    "tags": ["constitution", "bill of rights", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-014",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Under RA 6713, public officials and employees are required to act with:",
+    "choices": {
+      "A": "Speed and efficiency as primary concerns",
+      "B": "Professionalism, integrity, and loyalty to public interest",
+      "C": "Strict obedience to political superiors",
+      "D": "Personal judgment over legal letters"
+    },
+    "correct_answer": "B",
+    "explanation": "RA 6713 mandates professionalism and integrity among other standards.",
+    "tags": ["ra 6713", "ethics", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-015",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "The United Nations Convention on the Rights of the Child was adopted in:",
+    "choices": {
+      "A": "1948",
+      "B": "1979",
+      "C": "1989",
+      "D": "2000"
+    },
+    "correct_answer": "C",
+    "explanation": "The Convention on the Rights of the Child was adopted by the UN in 1989.",
+    "tags": ["human rights", "international law", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-016",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Sustainable development is defined as:",
+    "choices": {
+      "A": "Maximum exploitation of all natural resources",
+      "B": "Meeting the needs of the present without compromising future generations",
+      "C": "Industrial development regardless of environmental costs",
+      "D": "Complete preservation of nature with no human use"
+    },
+    "correct_answer": "B",
+    "explanation": "This is the classic Brundtland definition of sustainable development adopted in Agenda 21.",
+    "tags": ["environmental management", "policy", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-017",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "How many senators does the Philippine Senate have?",
+    "choices": {
+      "A": "12",
+      "B": "18",
+      "C": "24",
+      "D": "30"
+    },
+    "correct_answer": "C",
+    "explanation": "The Philippine Senate is composed of 24 senators elected at-large.",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-018",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "What is the term of office of Philippine senators?",
+    "choices": {
+      "A": "4 years",
+      "B": "5 years",
+      "C": "6 years",
+      "D": "7 years"
+    },
+    "correct_answer": "C",
+    "explanation": "Philippine senators serve a term of six years.",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-019",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "Which agency is the primary authority for environmental policy and management in the Philippines?",
+    "choices": {
+      "A": "DENR",
+      "B": "DOH",
+      "C": "DILG",
+      "D": "NEDA"
+    },
+    "correct_answer": "A",
+    "explanation": "The Department of Environment and Natural Resources (DENR) is the lead agency for the environment.",
+    "tags": ["environmental management", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-020",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Republic Act 6713 applies to which government personnel?",
+    "choices": {
+      "A": "Only elected government officials",
+      "B": "All elective and appointive officials and employees",
+      "C": "Cabinet secretaries only",
+      "D": "Military and police personnel only"
+    },
+    "correct_answer": "B",
+    "explanation": "RA 6713 applies to ALL officials and employees in the government, whether elective or appointive.",
+    "tags": ["ra 6713", "ethics", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-021",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "Freedom of speech, expression, and the press is protected under:",
+    "choices": {
+      "A": "Article III, Section 1",
+      "B": "Article III, Section 2",
+      "C": "Article III, Section 4",
+      "D": "Article II, Section 1"
+    },
+    "correct_answer": "C",
+    "explanation": "Section 4, Article III (Bill of Rights) specifically protects freedom of speech and the press.",
+    "tags": ["constitution", "bill of rights", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-022",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "In environmental management, the precautionary principle means:",
+    "choices": {
+      "A": "Take action only when harm has been conclusively proven",
+      "B": "Take preventive action even when scientific evidence is uncertain",
+      "C": "Wait for international consensus before acting",
+      "D": "Always prioritize economic interests over environment"
+    },
+    "correct_answer": "B",
+    "explanation": "The precautionary principle dictates that if an action has a suspected risk of harm, the burden of proof that it is not harmful falls on those taking the action.",
+    "tags": ["environmental management", "policy", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-023",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "The right against unreasonable searches and seizures is protected under:",
+    "choices": {
+      "A": "Article III, Section 1",
+      "B": "Article III, Section 2",
+      "C": "Article III, Section 4",
+      "D": "Article II, Section 1"
+    },
+    "correct_answer": "B",
+    "explanation": "Section 2, Article III protects against unreasonable searches and seizures.",
+    "tags": ["constitution", "bill of rights", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-024",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "The United Nations Sustainable Development Goals (SDGs) were adopted in:",
+    "choices": {
+      "A": "1992",
+      "B": "2000",
+      "C": "2015",
+      "D": "2020"
+    },
+    "correct_answer": "C",
+    "explanation": "The 17 SDGs were adopted by all UN Member States in 2015 as part of the 2030 Agenda for Sustainable Development.",
+    "tags": ["human rights", "environmental management", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-025",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "The legal principle 'Nulla poena sine lege' means:",
+    "choices": {
+      "A": "No penalty without the commission of a crime",
+      "B": "No crime can exist without a law that defines it",
+      "C": "All crimes must be punishable by imprisonment",
+      "D": "Courts have sole discretion in punishment"
+    },
+    "correct_answer": "B",
+    "explanation": "This Latin maxim translates to 'no punishment without law,' meaning conduct is only a crime if a law says so.",
+    "tags": ["peace and human rights", "law", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-026",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "The right to education is found in which Article of the Philippine Constitution?",
+    "choices": {
+      "A": "Article XIII",
+      "B": "Article XIV",
+      "C": "Article XV",
+      "D": "Article XVI"
+    },
+    "correct_answer": "B",
+    "explanation": "Article XIV focuses on Education, Science and Technology, Arts, Culture and Sports.",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-027",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Under RA 6713, the Civil Service Commission (CSC) has the authority to:",
+    "choices": {
+      "A": "Conduct criminal prosecution",
+      "B": "Recommend legislation",
+      "C": "Promulgate rules on ethical conduct and investigate violations",
+      "D": "Approve the national budget"
+    },
+    "correct_answer": "C",
+    "explanation": "The CSC is the central personnel agency of the government and oversees ethical standards.",
+    "tags": ["ra 6713", "ethics", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-028",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "'Non-refoulement' is a principle in human rights law that means:",
+    "choices": {
+      "A": "The absolute right to seek political asylum",
+      "B": "No one shall be returned to a country where they face serious harm",
+      "C": "Criminals shall always be extradited",
+      "D": "Freedom of movement across borders"
+    },
+    "correct_answer": "B",
+    "explanation": "Non-refoulement is a fundamental principle of international law which forbids a country from returning asylum seekers to a country where they would be in danger.",
+    "tags": ["human rights", "international law", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-029",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "The accountability of public officers in the 1987 Constitution is addressed in:",
+    "choices": {
+      "A": "Article I",
+      "B": "Article XI",
+      "C": "Article XIII",
+      "D": "Article XV"
+    },
+    "correct_answer": "B",
+    "explanation": "Article XI is titled 'Accountability of Public Officers'.",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-030",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "The 3Rs in solid waste management stand for:",
+    "choices": {
+      "A": "Reduce, Reuse, Recycle",
+      "B": "Remove, Replace, Recover",
+      "C": "Reject, Renew, Restore",
+      "D": "Regulate, Reform, Rehabilitate"
+    },
+    "correct_answer": "A",
+    "explanation": "The core of the Ecological Solid Waste Management Act is Reduce, Reuse, and Recycle.",
+    "tags": ["environmental management", "ra 9003", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-031",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "The primary function of the Office of the Ombudsman is to:",
+    "choices": {
+      "A": "Conduct national elections",
+      "B": "Audit the accounts of the government",
+      "C": "Investigate and prosecute public officials for graft and corruption",
+      "D": "Draft legislation"
+    },
+    "correct_answer": "C",
+    "explanation": "The Ombudsman is the 'Tanodbayan' or the protector of the people against graft and corruption.",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-032",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "Children's rights in the Philippines are primarily protected by:",
+    "choices": {
+      "A": "Republic Act 7610",
+      "B": "Republic Act 9003",
+      "C": "Republic Act 8749",
+      "D": "Republic Act 6713"
+    },
+    "correct_answer": "A",
+    "explanation": "RA 7610 is the Special Protection of Children Against Abuse, Exploitation and Discrimination Act.",
+    "tags": ["human rights", "laws", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-033",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Under the 1987 Constitution, the President's term of office is:",
+    "choices": {
+      "A": "4 years, re-electable once",
+      "B": "5 years, with no re-election",
+      "C": "6 years, with no re-election",
+      "D": "6 years, re-electable once"
+    },
+    "correct_answer": "C",
+    "explanation": "The President serves a 6-year term and is not eligible for any re-election.",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-034",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "International Humanitarian Law (IHL) governs:",
+    "choices": {
+      "A": "Trade agreements",
+      "B": "The conduct of armed conflict and protection of victims",
+      "C": "National immigration policies",
+      "D": "Environmental protection treaties"
+    },
+    "correct_answer": "B",
+    "explanation": "IHL, also known as the law of war, aims to limit the effects of armed conflict.",
+    "tags": ["peace and human rights", "international law", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-035",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Republic Act 9003 is also known as the:",
+    "choices": {
+      "A": "Clean Air Act",
+      "B": "Clean Water Act",
+      "C": "Ecological Solid Waste Management Act",
+      "D": "Toxic Substances Act"
+    },
+    "correct_answer": "C",
+    "explanation": "RA 9003 provides the legal framework for the country’s systematic and ecological waste management program.",
+    "tags": ["environmental management", "laws", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-036",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "Which Article of the Constitution focuses on Social Justice and Human Rights?",
+    "choices": {
+      "A": "Article XII",
+      "B": "Article XIII",
+      "C": "Article XIV",
+      "D": "Article XV"
+    },
+    "correct_answer": "B",
+    "explanation": "Article XIII contains provisions for Social Justice and Human Rights.",
+    "tags": ["constitution", "human rights", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-037",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "According to the Constitution, sovereignty resides in the:",
+    "choices": {
+      "A": "President",
+      "B": "Congress",
+      "C": "People",
+      "D": "Supreme Court"
+    },
+    "correct_answer": "C",
+    "explanation": "Section 1, Article II states: 'The Philippines is a democratic and republican State. Sovereignty resides in the people and all government authority emanates from them.'",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-038",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Which of the following is NOT one of the 'Three Great Inherent Powers of the State'?",
+    "choices": {
+      "A": "Police Power",
+      "B": "Power of Eminent Domain",
+      "C": "Power of Taxation",
+      "D": "Power of Impeachment"
+    },
+    "correct_answer": "D",
+    "explanation": "The three inherent powers are Police Power, Eminent Domain, and Taxation. [SME]",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-039",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "The right to form unions is found in the:",
+    "choices": {
+      "A": "Bill of Rights",
+      "B": "Article II",
+      "C": "Article IV",
+      "D": "Article VI"
+    },
+    "correct_answer": "A",
+    "explanation": "Section 8, Article III (Bill of Rights) guarantees the right of the people to form unions and associations. [SME]",
+    "tags": ["constitution", "bill of rights", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-040",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "The national language of the Philippines according to the Constitution is:",
+    "choices": {
+      "A": "English",
+      "B": "Tagalog",
+      "C": "Filipino",
+      "D": "Spanish"
+    },
+    "correct_answer": "C",
+    "explanation": "Article XIV, Section 6 states that the national language of the Philippines is Filipino. [SME]",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-041",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "What is the maximum amount of a gift a public official can accept under RA 6713 guidelines for it to be considered 'nominal'?",
+    "choices": {
+      "A": "P100",
+      "B": "P500",
+      "C": "P1,000",
+      "D": "P5,000"
+    },
+    "correct_answer": "B",
+    "explanation": "CSC guidelines and the reviewer note typically specify a threshold of P500 for nominal gifts.",
+    "tags": ["ra 6713", "ethics", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-042",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "The privilege of the writ of habeas corpus may be suspended by the President in cases of:",
+    "choices": {
+      "A": "Calamity",
+      "B": "Invasion or rebellion",
+      "C": "Corruption",
+      "D": "Economic crisis"
+    },
+    "correct_answer": "B",
+    "explanation": "The Constitution allows suspension only in cases of invasion or rebellion, when the public safety requires it. [SME]",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-043",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "The 'Clean Air Act' aims to achieve and maintain healthy air for all Filipinos. Its RA number is:",
+    "choices": {
+      "A": "RA 9003",
+      "B": "RA 8749",
+      "C": "RA 9275",
+      "D": "RA 6713"
+    },
+    "correct_answer": "B",
+    "explanation": "Republic Act 8749 is the Clean Air Act.",
+    "tags": ["environmental management", "laws", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-044",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "Who has the power to declare the existence of a state of war?",
+    "choices": {
+      "A": "The President",
+      "B": "The Supreme Court",
+      "C": "The Congress",
+      "D": "The People"
+    },
+    "correct_answer": "C",
+    "explanation": "Under the Constitution, the Congress, by a two-thirds vote of both Houses in joint session, has the sole power to declare a state of war. [SME]",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-045",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "The power of eminent domain allows the government to take private property for public use provided there is:",
+    "choices": {
+      "A": "Owner's consent",
+      "B": "Just compensation",
+      "C": "A police escort",
+      "D": "None of the above"
+    },
+    "correct_answer": "B",
+    "explanation": "The Constitution requires 'just compensation' for the taking of private property for public use. [SME]",
+    "tags": ["constitution", "law", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-046",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Which RA number is assigned to the 'Climate Change Act of 2009'?",
+    "choices": {
+      "A": "RA 8749",
+      "B": "RA 9003",
+      "C": "RA 9729",
+      "D": "RA 9275"
+    },
+    "correct_answer": "C",
+    "explanation": "Republic Act 9729 is the Climate Change Act.",
+    "tags": ["environmental management", "laws", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-047",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "The official name of the 'Anti-Graft and Corrupt Practices Act' is:",
+    "choices": {
+      "A": "RA 6713",
+      "B": "RA 3019",
+      "C": "RA 7160",
+      "D": "RA 9184"
+    },
+    "correct_answer": "B",
+    "explanation": "RA 3019 is the Anti-Graft law, while RA 6713 is the Code of Conduct. [SME]",
+    "tags": ["ethics", "laws", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-048",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "What does the UDHR stand for in the context of human rights?",
+    "choices": {
+      "A": "United Defense of Human Rights",
+      "B": "Universal Declaration of Human Rights",
+      "C": "Union of Democratic and Human Rights",
+      "D": "Universal Decree on Human Rights"
+    },
+    "correct_answer": "B",
+    "explanation": "UDHR is the Universal Declaration of Human Rights, adopted in 1948.",
+    "tags": ["human rights", "international law", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-049",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "The term of office for a member of the House of Representatives is:",
+    "choices": {
+      "A": "3 years",
+      "B": "4 years",
+      "C": "6 years",
+      "D": "Unlimited"
+    },
+    "correct_answer": "A",
+    "explanation": "Members of the House of Representatives serve for a term of three years. [SME]",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-050",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Which of the following is NOT an inherent characteristic of human rights?",
+    "choices": {
+      "A": "Universality",
+      "B": "Inalienability",
+      "C": "Divisibility",
+      "D": "Indivisibility"
+    },
+    "correct_answer": "C",
+    "explanation": "Human rights are indivisible (you cannot choose some over others).",
+    "tags": ["peace and human rights", "theory", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-051",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Which article of the 1987 Constitution defines the National Territory?",
+    "choices": {
+      "A": "Article I",
+      "B": "Article II",
+      "C": "Article III",
+      "D": "Article IV"
+    },
+    "correct_answer": "A",
+    "explanation": "Article I defines the extent of the Philippine archipelago. (Original Item)",
+    "tags": ["constitution", "national territory", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-052",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "The 'State shall protect and promote the right to health of the people' is found in:",
+    "choices": {
+      "A": "Article II",
+      "B": "Article III",
+      "C": "Article X",
+      "D": "Article XIV"
+    },
+    "correct_answer": "A",
+    "explanation": "This state policy is found in Article II (Declaration of Principles and State Policies). (Original Item)",
+    "tags": ["constitution", "state policies", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-053",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "What is the legal voting age in the Philippines?",
+    "choices": {
+      "A": "15",
+      "B": "18",
+      "C": "21",
+      "D": "25"
+    },
+    "correct_answer": "B",
+    "explanation": "Suffrage may be exercised by all citizens of the Philippines not otherwise disqualified by law, who are at least 18 years of age. (Original Item)",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-054",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Which government agency is responsible for conducting the Civil Service Exam?",
+    "choices": {
+      "A": "COMELEC",
+      "B": "CSC",
+      "C": "COA",
+      "D": "Ombudsman"
+    },
+    "correct_answer": "B",
+    "explanation": "The Civil Service Commission (CSC) administers exams for government eligibility. (Original Item)",
+    "tags": ["government", "civil service", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-055",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "Under RA 6713, a public official is prohibited from accepting a loan from a person with whom they have:",
+    "choices": {
+      "A": "A personal friendship",
+      "B": "Official business dealings",
+      "C": "A shared political party",
+      "D": "None of the above"
+    },
+    "correct_answer": "B",
+    "explanation": "Public officials shall not accept any gift, fee, or loan from any person in connection with any operation being regulated by, or any transaction which may be affected by the functions of their office. (Original Item)",
+    "tags": ["ra 6713", "ethics", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-056",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Which of the following is an example of an 'ex post facto' law, which is prohibited by the Constitution?",
+    "choices": {
+      "A": "A law that increases future taxes",
+      "B": "A law that criminalizes an act that was legal when it was committed",
+      "C": "A law that changes voting procedures",
+      "D": "A law that creates a new government department"
+    },
+    "correct_answer": "B",
+    "explanation": "An ex post facto law makes an act punishable as a crime which was not punishable at the time it was committed. (Original Item)",
+    "tags": ["constitution", "bill of rights", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-057",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "The right to a speedy, impartial, and public trial is a right of the:",
+    "choices": {
+      "A": "Judge",
+      "B": "Accused",
+      "C": "Victim",
+      "D": "Police"
+    },
+    "correct_answer": "B",
+    "explanation": "This is a fundamental right of the accused under Article III, Section 14. (Original Item)",
+    "tags": ["constitution", "bill of rights", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-058",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "The 'Writ of Amparo' is a remedy available to any person whose right to ___ is violated or threatened.",
+    "choices": {
+      "A": "Property",
+      "B": "Life, liberty and security",
+      "C": "Information",
+      "D": "Vote"
+    },
+    "correct_answer": "B",
+    "explanation": "The Writ of Amparo protects life, liberty, and security, especially in cases of enforced disappearances. (Original Item)",
+    "tags": ["peace and human rights", "law", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-059",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Which law regulates the management of 'hazardous and nuclear wastes' in the Philippines?",
+    "choices": {
+      "A": "RA 9003",
+      "B": "RA 6969",
+      "C": "RA 8749",
+      "D": "RA 9275"
+    },
+    "correct_answer": "B",
+    "explanation": "Republic Act 6969 is the Toxic Substances and Hazardous and Nuclear Wastes Control Act of 1990. (Original Item)",
+    "tags": ["environmental management", "laws", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-060",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "A 'public office is a public trust' is a principle stated in which Article?",
+    "choices": {
+      "A": "Article II",
+      "B": "Article XI",
+      "C": "Article XII",
+      "D": "Article XIII"
+    },
+    "correct_answer": "B",
+    "explanation": "Article XI, Section 1 begins with the declaration that 'Public office is a public trust.' (Original Item)",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-061",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "The 'Commission on Human Rights' is an example of a/an:",
+    "choices": {
+      "A": "Constitutional Commission",
+      "B": "Independent Constitutional Office",
+      "C": "Executive Department",
+      "D": "Legislative Committee"
+    },
+    "correct_answer": "B",
+    "explanation": "While often confused with the three Constitutional Commissions (CSC, COMELEC, COA), the CHR is an independent office created by the Constitution. (Original Item)",
+    "tags": ["constitution", "human rights", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-062",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "According to RA 6713, public officials must avoid 'conspicuous consumption'. This means avoiding:",
+    "choices": {
+      "A": "Eating in public",
+      "B": "Spending for basic needs",
+      "C": "Excessive and ostentatious display of wealth",
+      "D": "Traveling for work"
+    },
+    "correct_answer": "C",
+    "explanation": "Public officials and their families shall lead modest lives appropriate to their positions and income. (Original Item)",
+    "tags": ["ra 6713", "ethics", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-063",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "The power of 'Judicial Review' belongs to the:",
+    "choices": {
+      "A": "President",
+      "B": "Congress",
+      "C": "Supreme Court",
+      "D": "Ombudsman"
+    },
+    "correct_answer": "C",
+    "explanation": "Judicial review is the power of the courts to test the validity of executive and legislative acts in light of the Constitution. (Original Item)",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-064",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "The Philippines has a 'Presidential' form of government. This means:",
+    "choices": {
+      "A": "The President is chosen by the legislature",
+      "B": "There is a strict separation of powers between branches",
+      "C": "The President is only a figurehead",
+      "D": "The government is ruled by a single party"
+    },
+    "correct_answer": "B",
+    "explanation": "In a presidential system, the executive is separate from the legislature. (Original Item)",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-065",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "What is the primary objective of the 'Comprehensive Agrarian Reform Program' (CARP)?",
+    "choices": {
+      "A": "To increase food imports",
+      "B": "To redistribute agricultural lands to landless farmers",
+      "C": "To industrialize rural areas",
+      "D": "To build more dams for irrigation"
+    },
+    "correct_answer": "B",
+    "explanation": "CARP aims to provide social justice by redistributing land to those who till it. (Original Item)",
+    "tags": ["constitution", "social justice", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-066",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "The Bill of Rights protects citizens from the abuses of:",
+    "choices": {
+      "A": "Other private citizens",
+      "B": "Foreign invaders only",
+      "C": "The State and its agents",
+      "D": "Private businesses"
+    },
+    "correct_answer": "C",
+    "explanation": "The Bill of Rights is a list of fundamental rights and freedoms that a government cannot infringe upon. (Original Item)",
+    "tags": ["constitution", "bill of rights", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-067",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "Under RA 6713, a public official who resigns is still prohibited from practicing their profession in relation to cases they handled for how long?",
+    "choices": {
+      "A": "6 months",
+      "B": "1 year",
+      "C": "2 years",
+      "D": "Permanently"
+    },
+    "correct_answer": "B",
+    "explanation": "RA 6713 includes a one-year prohibition on former officials regarding certain professional activities related to their former office. (Original Item)",
+    "tags": ["ra 6713", "ethics", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-068",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "The principle of 'Double Jeopardy' means:",
+    "choices": {
+      "A": "A person can be tried twice for the same offense",
+      "B": "A person cannot be tried for two different crimes at once",
+      "C": "No person shall be twice put in jeopardy of punishment for the same offense",
+      "D": "A person can be fined and imprisoned for one crime"
+    },
+    "correct_answer": "C",
+    "explanation": "This is a protection under Article III, Section 21 of the Constitution. (Original Item)",
+    "tags": ["constitution", "bill of rights", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-069",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "What is 'E-Waste' according to environmental management guidelines?",
+    "choices": {
+      "A": "Paper waste from computers",
+      "B": "Discarded electronic or electrical devices",
+      "C": "Waste that is sent via email",
+      "D": "Emergency medical waste"
+    },
+    "correct_answer": "B",
+    "explanation": "E-waste includes broken or obsolete electronic items like phones and computers. (Original Item)",
+    "tags": ["environmental management", "waste", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-070",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "The right to 'Due Process' has two aspects: Procedural and ___.",
+    "choices": {
+      "A": "Judicial",
+      "B": "Substantive",
+      "C": "Executive",
+      "D": "Legislative"
+    },
+    "correct_answer": "B",
+    "explanation": "Due process requires both fair procedures and fair/reasonable laws (substance). (Original Item)",
+    "tags": ["constitution", "law", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-071",
+    "topic": "General Information",
+    "difficulty": "Easy",
+    "question": "The phrase 'The state shall protect and advance the right of the people to a balanced and healthful ecology' is from:",
+    "choices": {
+      "A": "Article I",
+      "B": "Article II",
+      "C": "Article III",
+      "D": "Article IV"
+    },
+    "correct_answer": "B",
+    "explanation": "This is found in Section 16, Article II (State Policies). (Original Item)",
+    "tags": ["constitution", "environmental management", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-072",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "How many days does a public official have to respond to a letter/request under RA 6713?",
+    "choices": {
+      "A": "5 working days",
+      "B": "10 working days",
+      "C": "15 working days",
+      "D": "30 working days"
+    },
+    "correct_answer": "C",
+    "explanation": "RA 6713 mandates a response within fifteen (15) working days from receipt thereof. (Original Item)",
+    "tags": ["ra 6713", "ethics", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-073",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "A 'Bicameral' legislature means the Congress is composed of:",
+    "choices": {
+      "A": "One House only",
+      "B": "Two Houses (Senate and House of Representatives)",
+      "C": "A President and a Prime Minister",
+      "D": "The Cabinet and the Congress"
+    },
+    "correct_answer": "B",
+    "explanation": "Bicameralism means having two separate legislative chambers. (Original Item)",
+    "tags": ["constitution", "government", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-074",
+    "topic": "General Information",
+    "difficulty": "Medium",
+    "question": "The right to travel may only be impaired in the interest of national security, public safety, or public health, as may be provided by:",
+    "choices": {
+      "A": "The President",
+      "B": "A Law",
+      "C": "The Police",
+      "D": "The Military"
+    },
+    "correct_answer": "B",
+    "explanation": "Article III, Section 6 specifies that only a law can provide for such impairment. (Original Item)",
+    "tags": ["constitution", "bill of rights", "civil service"]
+  },
+  {
+    "id": "CSE-GEN-075",
+    "topic": "General Information",
+    "difficulty": "Hard",
+    "question": "What is the primary goal of the 'Clean Water Act' (RA 9275)?",
+    "choices": {
+      "A": "To build more swimming pools",
+      "B": "To prevent water pollution from land-based sources",
+      "C": "To irrigate all farms for free",
+      "D": "To increase the price of bottled water"
+    },
+    "correct_answer": "B",
+    "explanation": "RA 9275 aims to protect the country's water bodies from pollution from all sources. (Original Item)",
+    "tags": ["environmental management", "laws", "civil service"]
+  }
+]

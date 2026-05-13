@@ -1,0 +1,1127 @@
+[
+  {
+    "id": "RPM-PAP-001",
+    "topic": "PAP Code of Ethics - General Principles",
+    "difficulty": "Easy",
+    "question": "According to the PAP Code of Ethics, which General Principle specifically emphasizes that all human beings are worthy of equal moral consideration regardless of perceived or real differences in social status, ethnic origin, or gender?",
+    "choices": {
+      "A": "Competent Caring for the Well-Being of Persons and Peoples",
+      "B": "Integrity",
+      "C": "Respect for the Dignity of Persons and Peoples",
+      "D": "Professional and Scientific Responsibilities to Society"
+    },
+    "correct_answer": "C",
+    "explanation": "Principle I: Respect for the Dignity of Persons and Peoples recognizes the inherent worth of all human beings, meaning all are worthy of equal moral consideration regardless of their characteristics or background.",
+    "tags": ["ethics", "general-principles"]
+  },
+  {
+    "id": "RPM-PAP-002",
+    "topic": "PAP Code of Ethics - General Principles",
+    "difficulty": "Medium",
+    "question": "Which General Principle involves actively working to maximize benefits, minimize potential harm, and offset or correct harmful effects that have occurred as a result of a psychologist's activities?",
+    "choices": {
+      "A": "Competent Caring for the Well-Being of Persons and Peoples",
+      "B": "Integrity",
+      "C": "Respect for the Dignity of Persons and Peoples",
+      "D": "Professional and Scientific Responsibilities to Society"
+    },
+    "correct_answer": "A",
+    "explanation": "Principle II: Competent Caring for the Well-Being of Persons and Peoples involves working for the benefit of persons, maximizing benefits, minimizing harm, and correcting harmful effects.",
+    "tags": ["ethics", "general-principles"]
+  },
+  {
+    "id": "RPM-PAP-003",
+    "topic": "PAP Code of Ethics - General Principles",
+    "difficulty": "Medium",
+    "question": "Under the principle of Integrity, what must a psychology practitioner do when a conflict of interest cannot be avoided?",
+    "choices": {
+      "A": "Keep the conflict strictly confidential to protect the client.",
+      "B": "Declare the conflict of interest openly.",
+      "C": "Immediately terminate the psychological service.",
+      "D": "Transfer the client to a different organization."
+    },
+    "correct_answer": "B",
+    "explanation": "Under Principle III: Integrity, related values include avoiding conflicts of interests and declaring them when they cannot be avoided or are inappropriate to avoid.",
+    "tags": ["ethics", "integrity"]
+  },
+  {
+    "id": "RPM-PAP-004",
+    "topic": "PAP Code of Ethics - General Principles",
+    "difficulty": "Easy",
+    "question": "Contributing to the body of knowledge about human behavior and conducting affairs in ways that promote the well-being of society falls under which General Principle?",
+    "choices": {
+      "A": "Competent Caring for the Well-Being of Persons and Peoples",
+      "B": "Respect for the Dignity of Persons and Peoples",
+      "C": "Integrity",
+      "D": "Professional and Scientific Responsibilities to Society"
+    },
+    "correct_answer": "D",
+    "explanation": "Principle IV: Professional and Scientific Responsibilities to Society includes responsibilities to contribute to knowledge about human behavior and promote the well-being of society.",
+    "tags": ["ethics", "social-responsibility"]
+  },
+  {
+    "id": "RPM-PAP-005",
+    "topic": "Resolving Ethical Issues",
+    "difficulty": "Hard",
+    "question": "If the PAP Code of Ethics conflicts with organizational demands, and the conflict cannot be resolved after declaring commitment to the Code, what is the proper order of precedence?",
+    "choices": {
+      "A": "Ethics > Law > Organization",
+      "B": "Law > Ethics > Organization",
+      "C": "Organization > Law > Ethics",
+      "D": "Law > Organization > Ethics"
+    },
+    "correct_answer": "B",
+    "explanation": "According to the guidelines on conflicts between Ethics, Law, and Organizational demands, the order of precedence is LAW > ETHICS > ORGANIZATION. We adhere to the law if conflicts cannot be resolved.",
+    "tags": ["ethical-issues", "conflicts"]
+  },
+  {
+    "id": "RPM-PAP-006",
+    "topic": "Resolving Ethical Issues",
+    "difficulty": "Medium",
+    "question": "When a psychology practitioner suspects another practitioner of violating the Code of Ethics without substantial harm, what is the required first step?",
+    "choices": {
+      "A": "File a formal complaint with the Professional Regulation Commission (PRC).",
+      "B": "Report the violation to the ethics committee immediately.",
+      "C": "Attempt an informal resolution by bringing it to the attention of the concerned professional.",
+      "D": "Publicly disclose the violation to protect potential clients."
+    },
+    "correct_answer": "C",
+    "explanation": "The Code dictates resolving issues of another practitioner violating the Code through informal means first by bringing it to the attention of the concerned professional.",
+    "tags": ["ethical-issues", "informal-resolution"]
+  },
+  {
+    "id": "RPM-PAP-007",
+    "topic": "Resolving Ethical Issues",
+    "difficulty": "Easy",
+    "question": "Filing an ethical complaint against a colleague with reckless disregard or willful ignorance of facts that would disprove allegations is classified under the Code as:",
+    "choices": {
+      "A": "Informal Resolution",
+      "B": "Improper Complaints",
+      "C": "Unfair Discrimination",
+      "D": "Misuse of Psychologist's Work"
+    },
+    "correct_answer": "B",
+    "explanation": "Improper Complaints refer to filing ethical complaints with reckless disregard or willful ignorance of facts that would disprove allegations.",
+    "tags": ["ethical-issues", "complaints"]
+  },
+  {
+    "id": "RPM-PAP-008",
+    "topic": "Resolving Ethical Issues",
+    "difficulty": "Medium",
+    "question": "Can an organization deny promotion to an employee solely because they are the respondent of an ongoing ethical complaint?",
+    "choices": {
+      "A": "Yes, as a precautionary measure to protect the organization's reputation.",
+      "B": "Yes, until the ethics committee clears their name.",
+      "C": "No, this is considered unfair discrimination against respondents.",
+      "D": "No, unless the complaint was filed by a superior."
+    },
+    "correct_answer": "C",
+    "explanation": "The Code prohibits unfair discrimination against complainants and respondents of ethical complaints, meaning they cannot be denied opportunities solely based on the complaint (though actions based on the outcome are permitted).",
+    "tags": ["ethical-issues", "discrimination"]
+  },
+  {
+    "id": "RPM-PAP-009",
+    "topic": "Competencies",
+    "difficulty": "Medium",
+    "question": "Under the PAP Code of Ethics, a psychometrician is asked to provide a psychological service in an emergency situation where no competent professional is available. What is their ethical obligation once the emergency has ended?",
+    "choices": {
+      "A": "Continue the service until the client fully recovers.",
+      "B": "Immediately discontinue the service and ensure appropriate competent services are made available.",
+      "C": "Bill the client for the emergency services and officially take them on as a regular client.",
+      "D": "Delegate the case to a psychology student."
+    },
+    "correct_answer": "B",
+    "explanation": "In emergencies, services can be made available to prevent harm, but must be immediately discontinued as soon as the emergency has ended, and appropriate competent services must be ensured.",
+    "tags": ["competencies", "emergencies"]
+  },
+  {
+    "id": "RPM-PAP-010",
+    "topic": "Competencies",
+    "difficulty": "Hard",
+    "question": "A psychologist plans to offer a new form of therapy that they have never practiced before. According to the boundaries of competence, what must they do before providing this service?",
+    "choices": {
+      "A": "Inform the client that they are experimenting with a new method.",
+      "B": "Delegate the therapy to an experienced psychometrician.",
+      "C": "Undertake relevant education or training to obtain the required competence.",
+      "D": "Read an article about the therapy and immediately begin application."
+    },
+    "correct_answer": "C",
+    "explanation": "Practitioners must undertake relevant education or training when they plan to provide services that are new to them or are beyond their existing competence.",
+    "tags": ["competencies", "training"]
+  },
+  {
+    "id": "RPM-PAP-011",
+    "topic": "Competencies",
+    "difficulty": "Medium",
+    "question": "When delegating work to others, such as assistants or trainees, a psychologist must explicitly avoid delegating tasks to persons who:",
+    "choices": {
+      "A": "Are not yet licensed.",
+      "B": "Have multiple relationships with the clients.",
+      "C": "Have less than two years of experience.",
+      "D": "Are currently undergoing their own personal therapy."
+    },
+    "correct_answer": "B",
+    "explanation": "In delegating work to others, a practitioner must avoid delegating to persons who have multiple relationships with the clients to prevent exploitation or loss of objectivity.",
+    "tags": ["competencies", "delegation"]
+  },
+  {
+    "id": "RPM-PAP-012",
+    "topic": "Competencies",
+    "difficulty": "Easy",
+    "question": "What is considered a psychology practitioner's foremost ethical obligation regarding their own personal problems and conflicts?",
+    "choices": {
+      "A": "To keep their personal problems hidden from colleagues.",
+      "B": "To use their own psychological knowledge to self-diagnose.",
+      "C": "To take care of their own health and well-being so they can render competent service.",
+      "D": "To disclose all personal problems to their clients for transparency."
+    },
+    "correct_answer": "C",
+    "explanation": "The foremost ethical obligation regarding personal problems is to take care of one's own health and well-being so that one can continue rendering competent service to others.",
+    "tags": ["competencies", "personal-problems"]
+  },
+  {
+    "id": "RPM-PAP-013",
+    "topic": "Human Relations",
+    "difficulty": "Medium",
+    "question": "Which scenario clearly constitutes a 'multiple relationship' according to the PAP Code of Ethics?",
+    "choices": {
+      "A": "A psychologist providing therapy to a client and later realizing they share a mutual friend on social media.",
+      "B": "A psychometrician administering a test to an applicant and promising to enter into a future business partnership with the applicant's spouse.",
+      "C": "A psychologist attending the same large church congregation as their client without direct interaction.",
+      "D": "A psychometrician purchasing goods from a grocery store where their client works as a cashier."
+    },
+    "correct_answer": "B",
+    "explanation": "A multiple relationship occurs when a practitioner is in a professional role and simultaneously promises to enter into a future relationship with the client or a person closely associated/related to them.",
+    "tags": ["human-relations", "multiple-relationships"]
+  },
+  {
+    "id": "RPM-PAP-014",
+    "topic": "Human Relations",
+    "difficulty": "Medium",
+    "question": "When a psychologist agrees to provide services at the request of a third party (e.g., a court or a company), what must be clarified at the outset?",
+    "choices": {
+      "A": "The exact therapeutic techniques to be used.",
+      "B": "Identification of who is the client and the probable uses of the services.",
+      "C": "The personal background of the third-party representative.",
+      "D": "A guarantee that the third party will receive raw test data."
+    },
+    "correct_answer": "B",
+    "explanation": "When agreeing to third-party requests, practitioners attempt to clarify the nature of the relationship, which includes the expected role, identification of who is the client, and probable uses of services or info.",
+    "tags": ["human-relations", "third-party"]
+  },
+  {
+    "id": "RPM-PAP-015",
+    "topic": "Human Relations",
+    "difficulty": "Hard",
+    "question": "Under what circumstance can a psychological assessment be conducted without obtaining informed consent from the client?",
+    "choices": {
+      "A": "When the client is a minor and parents cannot be reached.",
+      "B": "When the assessment is mandated by law.",
+      "C": "When the psychologist believes the assessment is absolutely necessary for the client's growth.",
+      "D": "When the client exhibits severe resistance to the testing procedure."
+    },
+    "correct_answer": "B",
+    "explanation": "Informed consent must be obtained except when conducting activities without consent is mandated by law (or implied in routine institutional activities, or determining decisional capacity).",
+    "tags": ["human-relations", "informed-consent"]
+  },
+  {
+    "id": "RPM-PAP-016",
+    "topic": "Human Relations",
+    "difficulty": "Medium",
+    "question": "When delivering psychological services to or through organizations, practitioners must provide information beforehand to clients. Which of the following is NOT strictly required to be disclosed beforehand?",
+    "choices": {
+      "A": "The intended recipients of the service.",
+      "B": "The specific theoretical orientation of the psychologist.",
+      "C": "Limits of confidentiality.",
+      "D": "Who will have access to the information."
+    },
+    "correct_answer": "B",
+    "explanation": "When delivering services to organizations, practitioners must provide info about the nature/objectives, intended recipients, who is the client, relationship, probable uses, who has access, and limits of confidentiality. Theoretical orientation is not listed as a requirement.",
+    "tags": ["human-relations", "organizations"]
+  },
+  {
+    "id": "RPM-PAP-017",
+    "topic": "Confidentiality",
+    "difficulty": "Medium",
+    "question": "A psychologist may release confidential information to appropriate authorities without the client's consent ONLY after careful deliberation or in which specific situation?",
+    "choices": {
+      "A": "When the client refuses to pay the counseling fees.",
+      "B": "When a family member requests the information for personal reasons.",
+      "C": "When there is imminent danger to the client or others.",
+      "D": "When the psychologist wants to publish a case study."
+    },
+    "correct_answer": "C",
+    "explanation": "We may release info to appropriate authorities only after careful deliberation or when there is imminent danger.",
+    "tags": ["confidentiality", "limitations"]
+  },
+  {
+    "id": "RPM-PAP-018",
+    "topic": "Confidentiality",
+    "difficulty": "Hard",
+    "question": "According to the Code of Ethics, is it permissible to disclose confidential information without consent to obtain payment from a client who has not paid for psychological services?",
+    "choices": {
+      "A": "Yes, but the disclosure is limited to what is only needed to achieve the purpose of payment.",
+      "B": "Yes, the psychologist can release the entire clinical record to a collection agency.",
+      "C": "No, disclosing information for financial reasons is always an ethical violation.",
+      "D": "No, unless the client has given explicit written consent for debt collection."
+    },
+    "correct_answer": "A",
+    "explanation": "Information can be disclosed without consent when mandated by law for valid purposes, including 'when payments for psychological services are needed to be obtained from a client who does not pay as agreed,' limited to what is only needed to achieve the purpose.",
+    "tags": ["confidentiality", "disclosures"]
+  },
+  {
+    "id": "RPM-PAP-019",
+    "topic": "Confidentiality",
+    "difficulty": "Medium",
+    "question": "When psychological information is gathered from a school or hospital, who assumes ownership of that information?",
+    "choices": {
+      "A": "The psychologist who administered the test.",
+      "B": "The client who was assessed.",
+      "C": "The institution where it was obtained.",
+      "D": "The Professional Regulation Commission."
+    },
+    "correct_answer": "C",
+    "explanation": "Information gathered from school, hospital, office or organization becomes part of the institution where it was obtained, and release requires prior approval from management.",
+    "tags": ["confidentiality", "institutional-records"]
+  },
+  {
+    "id": "RPM-PAP-020",
+    "topic": "Confidentiality",
+    "difficulty": "Easy",
+    "question": "When consulting with colleagues about a difficult case, a psychologist must ensure that:",
+    "choices": {
+      "A": "The colleague signs a non-disclosure agreement before speaking.",
+      "B": "The client's full name is provided so the colleague can review their public records.",
+      "C": "Personal identifiers are not disclosed, and only relevant information is revealed.",
+      "D": "The client is present during the consultation."
+    },
+    "correct_answer": "C",
+    "explanation": "When consulting cases with colleagues, personal identifiers are not disclosed, and we only reveal information that is relevant to the purpose.",
+    "tags": ["confidentiality", "consultation"]
+  },
+  {
+    "id": "RPM-PAP-021",
+    "topic": "Advertisements and Public Statements",
+    "difficulty": "Medium",
+    "question": "A psychologist appears on a morning television show to discuss anxiety. They suggest a specific breathing technique to the audience. Ethically, their statement should NOT indicate:",
+    "choices": {
+      "A": "That the technique is based on appropriate psychological literature.",
+      "B": "That a professional relationship has been established with the television audience.",
+      "C": "Their professional training and experience.",
+      "D": "That their advice is consistent with the Code of Ethics."
+    },
+    "correct_answer": "B",
+    "explanation": "When providing public advice/comments, statements must not be indicative that a professional relationship has been established with the recipient.",
+    "tags": ["public-statements", "media"]
+  },
+  {
+    "id": "RPM-PAP-022",
+    "topic": "Advertisements and Public Statements",
+    "difficulty": "Easy",
+    "question": "A clinical psychologist wants to attract more clients by posting success stories. According to the Code of Ethics, from whom are they explicitly prohibited from asking for testimonials?",
+    "choices": {
+      "A": "Current and past clients",
+      "B": "Colleagues and supervisors",
+      "C": "Professional organizations",
+      "D": "Academic professors"
+    },
+    "correct_answer": "A",
+    "explanation": "Under Advertisements and Public Statements (E. Testimonials), 'We do not ask for testimonials from current and past clients.'",
+    "tags": ["public-statements", "testimonials"]
+  },
+  {
+    "id": "RPM-PAP-023",
+    "topic": "Advertisements and Public Statements",
+    "difficulty": "Easy",
+    "question": "In an advertisement for a new counseling clinic, the owners state, 'We guarantee 100% cure for depression or your money back.' Why does this violate the PAP Code of Ethics?",
+    "choices": {
+      "A": "Psychologists cannot advertise their services in public spaces.",
+      "B": "Psychologists cannot claim certainty of cure nor offer refunds to dissatisfied users.",
+      "C": "The clinic must offer free services to indigent clients first.",
+      "D": "Money back guarantees are only allowed for psychometric testing, not counseling."
+    },
+    "correct_answer": "B",
+    "explanation": "The Code explicitly states: 'Do not advertise, claim, or imply the certainty of cure... nor the certainty of success' and 'Do not advertise or offer refund of money to dissatisfied users.'",
+    "tags": ["public-statements", "advertising"]
+  },
+  {
+    "id": "RPM-PAP-024",
+    "topic": "Records and Fees",
+    "difficulty": "Medium",
+    "question": "A former client urgently requests their records for emergency psychiatric treatment at a hospital. However, the client still owes the psychologist for three past sessions. What is the ethical action?",
+    "choices": {
+      "A": "Withhold the records until the outstanding balance is paid in full.",
+      "B": "Release the records because withholding records needed for emergency treatment solely for non-payment is unethical.",
+      "C": "Send only half of the records until the payment is settled.",
+      "D": "Refuse to release the records and report the client to the collection agency."
+    },
+    "correct_answer": "B",
+    "explanation": "Under Withholding Client Records: 'We may not withhold records needed for a client’s emergency treatment, solely because payment has not been received.'",
+    "tags": ["records", "withholding"]
+  },
+  {
+    "id": "RPM-PAP-025",
+    "topic": "Records and Fees",
+    "difficulty": "Easy",
+    "question": "When entering confidential client information into databases available to other people, what technique must practitioners use to maintain confidentiality?",
+    "choices": {
+      "A": "Translate the records into a foreign language.",
+      "B": "Use codes, passwords, and other techniques to avoid inclusion of personal identifiers.",
+      "C": "Only use the client's first name and birth date.",
+      "D": "Store the database on a public server for transparency."
+    },
+    "correct_answer": "B",
+    "explanation": "When entered into databases available to other people, we use codes, passwords, and other techniques to avoid inclusion of personal identifiers.",
+    "tags": ["records", "confidentiality"]
+  },
+  {
+    "id": "RPM-PAP-026",
+    "topic": "Assessment",
+    "difficulty": "Medium",
+    "question": "A psychometrician administers an intelligence test that is 25 years old and has been replaced by three newer editions. Which ethical standard is being violated?",
+    "choices": {
+      "A": "Release of Test Data",
+      "B": "Bases for Assessment",
+      "C": "Obsolete and Outdated Test Results",
+      "D": "Test Security"
+    },
+    "correct_answer": "C",
+    "explanation": "The standard on 'Obsolete and Outdated Test Results' states that practitioners must not base conclusions, interpretations, and recommendations on outdated test results and obsolete tests.",
+    "tags": ["assessment", "obsolete-tests"]
+  },
+  {
+    "id": "RPM-PAP-027",
+    "topic": "Assessment",
+    "difficulty": "Medium",
+    "question": "If an assessment was conducted solely to determine an individual’s decisional capacity, what is the ethical stance on obtaining informed consent?",
+    "choices": {
+      "A": "Informed consent is strictly required from the individual regardless of capacity.",
+      "B": "Informed consent is an exception and may be bypassed in this specific situation.",
+      "C": "Informed consent must be obtained from the local government unit.",
+      "D": "Informed consent is required only if the individual passes the capacity test."
+    },
+    "correct_answer": "B",
+    "explanation": "We gather informed consent prior to assessment EXCEPT... when the purpose of the assessment is to determine the individual’s decisional capacity.",
+    "tags": ["assessment", "informed-consent"]
+  },
+  {
+    "id": "RPM-PAP-028",
+    "topic": "Assessment",
+    "difficulty": "Easy",
+    "question": "When explaining psychological assessment results to relatives, parents, or teachers, a practitioner is ethically bound to:",
+    "choices": {
+      "A": "Provide raw scores and scaled scores for transparency.",
+      "B": "Use highly technical jargon to maintain professional authority.",
+      "C": "Explain them through non-technical language.",
+      "D": "Withhold all negative findings to prevent distress."
+    },
+    "correct_answer": "C",
+    "explanation": "When results have to be disclosed to relatives, parents, or teachers, we explain them through non-technical language.",
+    "tags": ["assessment", "explaining-results"]
+  },
+  {
+    "id": "RPM-PAP-029",
+    "topic": "Assessment",
+    "difficulty": "Hard",
+    "question": "A school guidance counselor requests the test data of a student, specifically asking for the student's raw scores and specific responses to test stimuli. According to the PAP Code, how should the psychometrician respond?",
+    "choices": {
+      "A": "Release the raw scores immediately since it is an educational institution.",
+      "B": "Do not release raw scores, client's responses, or notes unless regulated by the court.",
+      "C": "Release the data only if the student verbally agrees.",
+      "D": "Provide the raw scores but blur out the student's name."
+    },
+    "correct_answer": "B",
+    "explanation": "Do not release test data in the forms of raw and scaled scores, client’s responses to test questions or stimuli, and notes regarding the client’s statements and behaviors during the examination unless regulated by the court.",
+    "tags": ["assessment", "test-data"]
+  },
+  {
+    "id": "RPM-PAP-030",
+    "topic": "Assessment",
+    "difficulty": "Medium",
+    "question": "When conducting a 'Teleassessment', what specific issue must test-takers be informed about prior to taking a timed assessment?",
+    "choices": {
+      "A": "The history of the test's development.",
+      "B": "The implications of poor internet connectivity on test performance.",
+      "C": "The exact scoring key of the assessment.",
+      "D": "The psychological theories backing the test items."
+    },
+    "correct_answer": "B",
+    "explanation": "Under Teleassessment, we inform test-takers of the implications of poor internet connectivity during test-taking sessions on test performance, particularly for timed assessments.",
+    "tags": ["assessment", "teleassessment"]
+  },
+  {
+    "id": "RPM-PAP-031",
+    "topic": "Assessment",
+    "difficulty": "Medium",
+    "question": "Under the PAP Code of Ethics, when is it permissible to allow unqualified persons to use psychological assessment tools and methods?",
+    "choices": {
+      "A": "During a massive hiring event in a corporate setting.",
+      "B": "When instructed by a licensed psychologist to save time.",
+      "C": "Only for training purposes with adequate supervision.",
+      "D": "They are never allowed under any circumstances."
+    },
+    "correct_answer": "C",
+    "explanation": "We do not promote the use of assessment tools and methods by unqualified persons except for training purposes with adequate supervision.",
+    "tags": ["assessment", "unqualified-persons"]
+  },
+  {
+    "id": "RPM-PAP-032",
+    "topic": "Therapy",
+    "difficulty": "Easy",
+    "question": "According to the PAP Code of Ethics, what is the general stance on psychometricians engaging in the practice of psychotherapy?",
+    "choices": {
+      "A": "They are allowed to practice therapy if they have a master's degree.",
+      "B": "They are prohibited from the practice of therapy, unless in emergency situations.",
+      "C": "They can practice therapy if supervised by a psychiatrist.",
+      "D": "They are allowed to conduct group therapy but not individual therapy."
+    },
+    "correct_answer": "B",
+    "explanation": "The Code states: 'As psychometricians, we are prohibited from the practice of therapy, unless in emergency situations.'",
+    "tags": ["therapy", "psychometrician-limitations"]
+  },
+  {
+    "id": "RPM-PAP-033",
+    "topic": "Therapy",
+    "difficulty": "Hard",
+    "question": "How long must a psychologist wait after the cessation of therapy before they can ethically engage in sexual intimacies with a former client?",
+    "choices": {
+      "A": "6 months",
+      "B": "1 year",
+      "C": "2 years",
+      "D": "5 years"
+    },
+    "correct_answer": "C",
+    "explanation": "Psychologists do not engage in sexual intimacies with former clients for at least 2 years after cessation of therapy, and even then, must prove there is no exploitation.",
+    "tags": ["therapy", "sexual-intimacies"]
+  },
+  {
+    "id": "RPM-PAP-034",
+    "topic": "Therapy",
+    "difficulty": "Medium",
+    "question": "A psychologist realizes that a client in therapy is no longer benefiting from the sessions and is actually being harmed by continued therapy. What is the ethical action?",
+    "choices": {
+      "A": "Increase the frequency of the sessions.",
+      "B": "Terminate the therapy and arrange for a referral.",
+      "C": "Continue therapy but reduce the fee.",
+      "D": "Change the therapeutic approach without telling the client."
+    },
+    "correct_answer": "B",
+    "explanation": "We terminate therapy when we are quite sure that the client no longer needs the therapy, is not likely to benefit from it, or will be harmed by continued therapy.",
+    "tags": ["therapy", "termination"]
+  },
+  {
+    "id": "RPM-PAP-035",
+    "topic": "Therapy",
+    "difficulty": "Medium",
+    "question": "When therapy is prematurely terminated by the psychologist, what must they provide before ending the relationship?",
+    "choices": {
+      "A": "A full refund of all sessions.",
+      "B": "Pretermination counseling and arranged referral.",
+      "C": "The client's complete raw test data.",
+      "D": "A written apology letter to the client's family."
+    },
+    "correct_answer": "B",
+    "explanation": "When therapy is prematurely terminated, we provide pretermination counseling and arrange for referral.",
+    "tags": ["therapy", "termination"]
+  },
+  {
+    "id": "RPM-PAP-036",
+    "topic": "Education and Training",
+    "difficulty": "Medium",
+    "question": "When individual or group therapy is a mandatory requirement in a psychology training program, students must be given the option to select therapy from:",
+    "choices": {
+      "A": "The program's own faculty members.",
+      "B": "Their direct supervisors evaluating their performance.",
+      "C": "Practitioners not affiliated with the program.",
+      "D": "Senior students in the same program."
+    },
+    "correct_answer": "C",
+    "explanation": "When therapy is mandatory, students are given the option of selecting therapy from practitioners not affiliated with the program, and evaluating faculty do not provide the therapy.",
+    "tags": ["education", "mandatory-therapy"]
+  },
+  {
+    "id": "RPM-PAP-037",
+    "topic": "Education and Training",
+    "difficulty": "Hard",
+    "question": "A psychology training program asks a student to disclose personal information regarding their history of abuse. According to the Code, is this allowed?",
+    "choices": {
+      "A": "Yes, it is always required to ensure the student is mentally fit.",
+      "B": "No, it is strictly forbidden in all circumstances.",
+      "C": "Yes, but ONLY if the program clearly identified this requirement in its admissions materials, or if the info is necessary to evaluate/assist a student whose personal problems prevent competent performance.",
+      "D": "No, unless the student verbally agrees during a casual conversation."
+    },
+    "correct_answer": "C",
+    "explanation": "We do not require students to disclose personal info (like history of abuse) EXCEPT if the program clearly identified this requirement in admissions materials, or if it is necessary to evaluate/obtain assistance for problems preventing competent performance.",
+    "tags": ["education", "student-disclosure"]
+  },
+  {
+    "id": "RPM-PAP-038",
+    "topic": "Research",
+    "difficulty": "Medium",
+    "question": "When conducting research involving participants who have difficulties in comprehension or communication, from whom must informed consent be obtained?",
+    "choices": {
+      "A": "The local barangay captain.",
+      "B": "Adult family members and approval from independent advisors.",
+      "C": "The participant themselves, regardless of comprehension.",
+      "D": "The lead researcher's supervisor."
+    },
+    "correct_answer": "B",
+    "explanation": "When with adult participants who have difficulties in comprehension or communication, we obtain consent from adult family members and approval from independent advisors.",
+    "tags": ["research", "informed-consent"]
+  },
+  {
+    "id": "RPM-PAP-039",
+    "topic": "Research",
+    "difficulty": "Easy",
+    "question": "In longitudinal research, which spans a long period of time, how should informed consent be handled?",
+    "choices": {
+      "A": "It should be obtained only once at the beginning.",
+      "B": "It should be obtained on more than one occasion.",
+      "C": "It is not required since the participants already know the researchers.",
+      "D": "It should be obtained only at the end of the study."
+    },
+    "correct_answer": "B",
+    "explanation": "In longitudinal research, we obtain informed consent on more than one occasion.",
+    "tags": ["research", "longitudinal-study"]
+  },
+  {
+    "id": "RPM-PAP-040",
+    "topic": "Research",
+    "difficulty": "Medium",
+    "question": "Under what specific condition can a researcher dispense with informed consent regarding recording voices and images?",
+    "choices": {
+      "A": "When the research consists only of naturalistic observations in public places.",
+      "B": "When the participants are friends with the researcher.",
+      "C": "When the researcher is running out of funding and needs data fast.",
+      "D": "When the recording happens inside a private clinical session."
+    },
+    "correct_answer": "A",
+    "explanation": "Informed consent for recording can be dispensed if research consists of only naturalistic observations in public places.",
+    "tags": ["research", "recording"]
+  },
+  {
+    "id": "RPM-PAP-041",
+    "topic": "Research",
+    "difficulty": "Hard",
+    "question": "When deceptive techniques are used in a study, when is the ethical deadline to explain the deception to the participants?",
+    "choices": {
+      "A": "Before the study begins to ensure complete transparency.",
+      "B": "Preferably at the end of their participation but not later than the end of data gathering.",
+      "C": "Exactly one year after the publication of the research.",
+      "D": "Deception never needs to be explained if the research was successful."
+    },
+    "correct_answer": "B",
+    "explanation": "It is our duty to explain any deception as an integral feature of design as soon as possible, preferably at the end of their participation but not later than the end of data gathering.",
+    "tags": ["research", "deception"]
+  },
+  {
+    "id": "RPM-PAP-042",
+    "topic": "Research",
+    "difficulty": "Medium",
+    "question": "If a multiple-authored journal article is substantially based on a student’s thesis, how should publication credit be allocated?",
+    "choices": {
+      "A": "The department chair must be the primary author.",
+      "B": "The supervising faculty member should be the primary author.",
+      "C": "The student must be credited with primary authorship.",
+      "D": "The authors should be listed alphabetically regardless of contribution."
+    },
+    "correct_answer": "C",
+    "explanation": "In a multiple-authored article that is partly and/or substantially based on the student’s thesis, if mainly based, we credit the student with primary authorship.",
+    "tags": ["research", "publication-credit"]
+  },
+  {
+    "id": "RPM-PAP-043",
+    "topic": "Research",
+    "difficulty": "Medium",
+    "question": "A competent professional requests your research data to reanalyze and verify your published findings. Ethically, you should not withhold your data provided that:",
+    "choices": {
+      "A": "The professional intends to use the data to disprove your theories.",
+      "B": "The professional pays you a royalty fee for the raw data.",
+      "C": "Confidentiality of participants can be protected and the data is used solely for the purpose declared.",
+      "D": "The professional agrees to list you as a co-author on their new paper."
+    },
+    "correct_answer": "C",
+    "explanation": "Data should not be withheld for verification provided that professionals obtain prior written agreement, use data solely for the declared purpose, hold responsibility for costs, and confidentiality of participants is protected.",
+    "tags": ["research", "sharing-data"]
+  },
+  {
+    "id": "RPM-PAP-044",
+    "topic": "Telepsychology",
+    "difficulty": "Easy",
+    "question": "Which of the following describes the provision of psychological services using telecommunication technologies such as videoconferencing, e-mail, and chat?",
+    "choices": {
+      "A": "Cyberpsychology",
+      "B": "Digital Diagnostics",
+      "C": "Telepsychology",
+      "D": "Virtual Somatic Therapy"
+    },
+    "correct_answer": "C",
+    "explanation": "Telepsychology is defined as the provision of psychological services using telecommunication technologies, which include telephone, mobile devices, interactive videoconferencing, e-mail, chat, and text.",
+    "tags": ["telepsychology", "definition"]
+  },
+  {
+    "id": "RPM-PAP-045",
+    "topic": "Telepsychology",
+    "difficulty": "Medium",
+    "question": "During telepsychology sessions, what is the policy regarding clients recording the online therapy session?",
+    "choices": {
+      "A": "Clients are required to record it for their personal reflection.",
+      "B": "Clients are discouraged from recording online therapy sessions for protection of their privacy.",
+      "C": "Clients can record only if they share the file with the psychologist.",
+      "D": "Clients are encouraged to record it to review homework assignments."
+    },
+    "correct_answer": "B",
+    "explanation": "Under Telepsychology guidelines (Obtain Informed Consent), practitioners must 'explain that clients are discouraged from recording online therapy sessions for protection of their privacy.'",
+    "tags": ["telepsychology", "recording"]
+  },
+  {
+    "id": "RPM-PAP-046",
+    "topic": "Telepsychology",
+    "difficulty": "Medium",
+    "question": "To ensure authentication and privacy at the start of each online counseling session, if a camera is not available, what should the psychologist do?",
+    "choices": {
+      "A": "Cancel the session immediately.",
+      "B": "Ask the client to send a voice note stating their full name.",
+      "C": "Agree on an identity verification process, such as a password, at the start of each session.",
+      "D": "Trust that the person typing or calling is the actual client."
+    },
+    "correct_answer": "C",
+    "explanation": "If there is no access to a camera, the therapist and client should agree on an identity verification process, such as a password, at the start of each online counseling session.",
+    "tags": ["telepsychology", "authentication"]
+  },
+  {
+    "id": "RPM-PAP-047",
+    "topic": "Telepsychology",
+    "difficulty": "Hard",
+    "question": "In the event of a telepsychology crisis where serious and foreseeable harm may befall the client, the psychologist should initiate contact with the emergency contact person. What is required before doing this?",
+    "choices": {
+      "A": "A court order",
+      "B": "Expressed permission established earlier with the client",
+      "C": "Approval from the local police department",
+      "D": "A psychiatric evaluation"
+    },
+    "correct_answer": "B",
+    "explanation": "Psychologists should 'with expressed permission, initiate contact with the emergency contact to establish their role in protecting the client in the event that there is serious and foreseeable harm.'",
+    "tags": ["telepsychology", "emergencies"]
+  },
+  {
+    "id": "RPM-PAP-048",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Medium",
+    "question": "According to RA 10029, which of the following is NOT a function that a licensed psychometrician is authorized to perform?",
+    "choices": {
+      "A": "Administering and scoring of objective personality tests.",
+      "B": "Interpreting results and preparing a written report for Level B tests.",
+      "C": "Administering and interpreting projective tests (Level C tests).",
+      "D": "Conducting preparatory intake interviews."
+    },
+    "correct_answer": "C",
+    "explanation": "A psychometrician is authorized to administer/score/interpret Level B tests but excluding projective tests and other higher level forms of tests (Level C).",
+    "tags": ["ra10029", "psychometrician-duties"]
+  },
+  {
+    "id": "RPM-PAP-049",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Easy",
+    "question": "What is the short title of Republic Act No. 10029?",
+    "choices": {
+      "A": "Philippine Mental Health Act of 2009",
+      "B": "Philippine Psychology Act of 2009",
+      "C": "Professional Regulation of Psychometricians Act",
+      "D": "Psychology and Psychometrics Act of 2013"
+    },
+    "correct_answer": "B",
+    "explanation": "Section 1 states the Short Title is the 'Philippine Psychology Act of 2009'.",
+    "tags": ["ra10029", "title"]
+  },
+  {
+    "id": "RPM-PAP-050",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Medium",
+    "question": "Under RA 10029, the Professional Regulatory Board of Psychology is composed of a Chairperson and how many members?",
+    "choices": {
+      "A": "One member",
+      "B": "Two members",
+      "C": "Three members",
+      "D": "Four members"
+    },
+    "correct_answer": "B",
+    "explanation": "Section 4 states the PRB of Psychology is composed of a Chairperson and two members appointed by the President.",
+    "tags": ["ra10029", "board-composition"]
+  },
+  {
+    "id": "RPM-PAP-051",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Hard",
+    "question": "To qualify as a Chairperson or Member of the Professional Regulatory Board of Psychology, an individual must have at least how many years of practice in psychology and psychometrics?",
+    "choices": {
+      "A": "5 years",
+      "B": "10 years",
+      "C": "15 years",
+      "D": "20 years"
+    },
+    "correct_answer": "B",
+    "explanation": "Section 5 qualifications state they must have at least 10 years of practice in psychology and psychometrics (and at least 5 years of teaching experience).",
+    "tags": ["ra10029", "board-qualifications"]
+  },
+  {
+    "id": "RPM-PAP-052",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Medium",
+    "question": "What is the term of office for a member of the Professional Regulatory Board of Psychology?",
+    "choices": {
+      "A": "Two years",
+      "B": "Three years",
+      "C": "Four years",
+      "D": "Five years"
+    },
+    "correct_answer": "B",
+    "explanation": "Section 6 states the term of office is three years or until their successors shall have been appointed and duly qualified.",
+    "tags": ["ra10029", "board-term"]
+  },
+  {
+    "id": "RPM-PAP-053",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Easy",
+    "question": "Which government agency has administrative supervision and control over the Professional Regulatory Board of Psychology?",
+    "choices": {
+      "A": "Commission on Higher Education (CHED)",
+      "B": "Department of Health (DOH)",
+      "C": "Professional Regulation Commission (PRC)",
+      "D": "Psychological Association of the Philippines (PAP)"
+    },
+    "correct_answer": "C",
+    "explanation": "Section 10 dictates that the Board will be under the administrative supervision and control of the PRC.",
+    "tags": ["ra10029", "supervision"]
+  },
+  {
+    "id": "RPM-PAP-054",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Easy",
+    "question": "Which of the following is NOT one of the board examination subjects for Psychometricians according to Section 15 of RA 10029?",
+    "choices": {
+      "A": "Abnormal Psychology",
+      "B": "Developmental Psychology",
+      "C": "Industrial/Organizational Psychology",
+      "D": "Psychological Counseling and Psychotherapy"
+    },
+    "correct_answer": "D",
+    "explanation": "The exam subjects for Psychometricians are Developmental Psychology, Abnormal Psychology, I/O Psychology, and Psychological Assessment. Psychological Counseling and Psychotherapy is a subject for Psychologists.",
+    "tags": ["ra10029", "exam-subjects"]
+  },
+  {
+    "id": "RPM-PAP-055",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Hard",
+    "question": "To pass the licensure examination for psychologists and psychometricians, an examinee must obtain a weighted general average of at least 75%. What is the minimum grade they must obtain in all subjects to avoid a conditional passing or failure?",
+    "choices": {
+      "A": "50%",
+      "B": "60%",
+      "C": "65%",
+      "D": "70%"
+    },
+    "correct_answer": "B",
+    "explanation": "Section 18 states passing requires a WGA of at least 75% and no grade lower than 60% for all subjects.",
+    "tags": ["ra10029", "exam-ratings"]
+  },
+  {
+    "id": "RPM-PAP-056",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Hard",
+    "question": "If an examinee obtains a weighted general average of 76% but scores 58% in one subject, what happens according to RA 10029?",
+    "choices": {
+      "A": "They fail the entire board exam and must retake all subjects.",
+      "B": "They achieve a conditional passing and may retake that specific subject within the next 2 years.",
+      "C": "They pass the board exam but are required to take a refresher course.",
+      "D": "They achieve a conditional passing and must retake the subject within 6 months."
+    },
+    "correct_answer": "B",
+    "explanation": "An examinee with a WGA of 75% or higher but below 60% in a subject gets a conditional passing and may retake the subject within the next 2 years.",
+    "tags": ["ra10029", "conditional-passing"]
+  },
+  {
+    "id": "RPM-PAP-057",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Medium",
+    "question": "Within how many calendar days after the examination should the Board report the ratings of the examinees, unless extended for just cause?",
+    "choices": {
+      "A": "5 calendar days",
+      "B": "10 calendar days",
+      "C": "15 calendar days",
+      "D": "30 calendar days"
+    },
+    "correct_answer": "B",
+    "explanation": "Section 19: Report of Ratings states that ratings should be reported within 10 calendar days after the examination.",
+    "tags": ["ra10029", "report-of-ratings"]
+  },
+  {
+    "id": "RPM-PAP-058",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Easy",
+    "question": "According to Section 13, what is the minimum educational requirement to qualify as an applicant for the Psychometrician licensure examination?",
+    "choices": {
+      "A": "Associate degree in Psychology",
+      "B": "Bachelor's degree in Psychology",
+      "C": "Master's degree in Psychology",
+      "D": "Doctoral degree in Psychology"
+    },
+    "correct_answer": "B",
+    "explanation": "Applicants for Psychometricians must hold at least a bachelor’s degree in psychology.",
+    "tags": ["ra10029", "qualifications"]
+  },
+  {
+    "id": "RPM-PAP-059",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Medium",
+    "question": "How long is the validity term of the Professional Identification Card (PRC ID) issued to registered psychologists and psychometricians?",
+    "choices": {
+      "A": "1 year",
+      "B": "2 years",
+      "C": "3 years",
+      "D": "5 years"
+    },
+    "correct_answer": "C",
+    "explanation": "Section 21 notes that the validity term of the PRC ID is 3 years, after which it is renewable with proof of CPD points.",
+    "tags": ["ra10029", "prc-id"]
+  },
+  {
+    "id": "RPM-PAP-060",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Medium",
+    "question": "What must a licensed psychometrician indicate on every document they sign, use, or issue in connection with the practice of their profession?",
+    "choices": {
+      "A": "Their university degree and Latin honors.",
+      "B": "Their registration/professional ID number, date of issuance, duration of validity, and professional tax receipt (PTR) number.",
+      "C": "The address of the Professional Regulation Commission.",
+      "D": "The full name of their supervising psychologist."
+    },
+    "correct_answer": "B",
+    "explanation": "Section 22 requires the indication of registration and professional ID number, date of issuance, duration of validity, and professional tax receipt (PTR) number.",
+    "tags": ["ra10029", "disclosure"]
+  },
+  {
+    "id": "RPM-PAP-061",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Hard",
+    "question": "Under what condition will a foreign citizen be admitted to the Philippine licensure examination for psychometricians?",
+    "choices": {
+      "A": "If they have lived in the Philippines for at least 5 years.",
+      "B": "If their home country extends strict and absolute equality or reciprocity to Filipino citizens regarding the practice of psychometrics.",
+      "C": "If they pay a special foreign examination fee to the PRC.",
+      "D": "Foreign citizens are completely banned from taking the licensure exam."
+    },
+    "correct_answer": "B",
+    "explanation": "Section 24 on Foreign Reciprocity states no foreigner shall be admitted unless they prove their country extends reciprocity/absolute equality to Filipino citizens.",
+    "tags": ["ra10029", "foreign-reciprocity"]
+  },
+  {
+    "id": "RPM-PAP-062",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Medium",
+    "question": "If a foreign psychologist is employed as an exchange professor or an internationally acknowledged specialist in the Philippines, they may be issued a Special/Temporary Permit. How long is the maximum effectivity period of this permit before renewal?",
+    "choices": {
+      "A": "6 months",
+      "B": "1 year",
+      "C": "2 years",
+      "D": "3 years"
+    },
+    "correct_answer": "B",
+    "explanation": "Section 25 states the effectivity period for a Special/Temporary Permit is not more than 1 year (subject to renewal).",
+    "tags": ["ra10029", "special-permit"]
+  },
+  {
+    "id": "RPM-PAP-063",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Hard",
+    "question": "If the Professional Regulatory Board of Psychology decides to revoke a practitioner's certificate, where can the practitioner further appeal the PRC's decision on the matter?",
+    "choices": {
+      "A": "The Office of the President",
+      "B": "The Supreme Court",
+      "C": "The Court of Appeals",
+      "D": "The Psychological Association of the Philippines"
+    },
+    "correct_answer": "C",
+    "explanation": "Section 28 details the appeal progression: PRB -> PRC -> Court of Appeals. The PRC decision may be further appealed before the Court of Appeals.",
+    "tags": ["ra10029", "appeals"]
+  },
+  {
+    "id": "RPM-PAP-064",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Medium",
+    "question": "Section 30 describes the right to Privileged Communication. What does this right protect?",
+    "choices": {
+      "A": "The right of the psychologist to speak freely against organizational rules.",
+      "B": "A psychologist/psychometrician cannot be examined on any communication disclosed in the course of giving services without the client’s consent.",
+      "C": "The right of the media to request psychological files for news stories.",
+      "D": "The ability of psychometricians to communicate test results directly to the court without supervision."
+    },
+    "correct_answer": "B",
+    "explanation": "Section 30 states a psychologist/psychometrician cannot be examined on any communication or information disclosed in the course of giving psychological services without the client’s consent.",
+    "tags": ["ra10029", "privileged-communication"]
+  },
+  {
+    "id": "RPM-PAP-065",
+    "topic": "RA 10029 - Philippine Psychology Act",
+    "difficulty": "Hard",
+    "question": "A person is found guilty of engaging in the practice of psychometrics without a valid certificate of registration. According to Section 34 of RA 10029, what is the prescribed fine for this violation?",
+    "choices": {
+      "A": "Not less than 5,000 pesos but not more than 50,000 pesos",
+      "B": "Not less than 10,000 pesos but not more than 100,000 pesos",
+      "C": "Not less than 50,000 pesos but not more than 500,000 pesos",
+      "D": "Exactly 100,000 pesos"
+    },
+    "correct_answer": "B",
+    "explanation": "Section 34 Penalties mandate a fine of not less than 10k pesos but not more than 100k pesos (and/or imprisonment of 6 months to 3 years).",
+    "tags": ["ra10029", "penalties"]
+  },
+  {
+    "id": "RPM-PAP-066",
+    "topic": "APA Code of Ethics",
+    "difficulty": "Medium",
+    "question": "Under the APA Code of Ethics, Principle A 'Beneficence and Nonmaleficence' dictates that psychologists must do what?",
+    "choices": {
+      "A": "Promote accuracy, honesty, and truthfulness in the science of psychology.",
+      "B": "Ensure all persons are entitled to access the benefits of psychology equally.",
+      "C": "Do good and do no harm, seeking to safeguard the welfare and rights of those they interact with.",
+      "D": "Clarify their professional roles and obligations to colleagues."
+    },
+    "correct_answer": "C",
+    "explanation": "Principle A: Beneficence (do good) and Nonmaleficence (do no harm) dictates that psychologists seek to safeguard the welfare and rights of those with whom they interact.",
+    "tags": ["apa-code", "principles"]
+  },
+  {
+    "id": "RPM-PAP-067",
+    "topic": "APA Code of Ethics",
+    "difficulty": "Easy",
+    "question": "The APA Code of Ethics Principle C 'Integrity' allows for deception to be ethically justifiable ONLY if:",
+    "choices": {
+      "A": "The researcher pays the participants double the normal rate.",
+      "B": "It maximizes benefits, minimizes harm, and any resulting mistrust or harm is corrected.",
+      "C": "The participants are unaware that they are in a psychological study.",
+      "D": "The study involves public observations."
+    },
+    "correct_answer": "B",
+    "explanation": "Under Principle C (Integrity), deception may be ethically justifiable to maximize benefits/minimize harm, provided they correct any resulting mistrust or harmful effects.",
+    "tags": ["apa-code", "integrity"]
+  },
+  {
+    "id": "RPM-PAP-068",
+    "topic": "APA Code of Ethics",
+    "difficulty": "Medium",
+    "question": "According to the APA Code, if an ethical violation by another professional has substantially harmed someone and is NOT appropriate for informal resolution, what is the next step?",
+    "choices": {
+      "A": "Discuss the violation with the client's family.",
+      "B": "Referral to state or national committees on professional ethics.",
+      "C": "Publish the violation in an academic journal.",
+      "D": "Handle it internally within the clinic and do nothing further."
+    },
+    "correct_answer": "B",
+    "explanation": "If an ethical violation has harmed or is likely to harm someone and is not appropriate for informal resolution, the APA code dictates referral to state or national committees on professional ethics.",
+    "tags": ["apa-code", "resolving-issues"]
+  },
+  {
+    "id": "RPM-PAP-069",
+    "topic": "APA Code of Ethics",
+    "difficulty": "Hard",
+    "question": "According to the APA Code, how does 'test data' differ from 'test materials'?",
+    "choices": {
+      "A": "Test data refers to the manuals and instruments, while test materials are the raw scores.",
+      "B": "They are synonymous terms under the APA code.",
+      "C": "Test data includes raw/scaled scores and client responses, whereas test materials are the manuals, protocols, and test questions.",
+      "D": "Test data is owned by the client, but test materials are owned by the state."
+    },
+    "correct_answer": "C",
+    "explanation": "The APA code distinguishes test data (raw/scaled scores, responses, notes) from test materials (manuals, instruments, protocols, and test questions, which do NOT include test data).",
+    "tags": ["apa-code", "assessment"]
+  },
+  {
+    "id": "RPM-PAP-070",
+    "topic": "APA Code of Ethics",
+    "difficulty": "Medium",
+    "question": "When a therapist is a trainee, who holds the legal responsibility for the treatment according to the APA Code?",
+    "choices": {
+      "A": "The trainee holds sole responsibility.",
+      "B": "The client assumes all risks.",
+      "C": "The academic institution holds sole responsibility.",
+      "D": "The supervisor holds the legal responsibility."
+    },
+    "correct_answer": "D",
+    "explanation": "When the therapist is a trainee, the legal responsibility for treatment resides with the supervisor.",
+    "tags": ["apa-code", "therapy"]
+  },
+  {
+    "id": "RPM-PAP-071",
+    "topic": "APA Code of Ethics",
+    "difficulty": "Medium",
+    "question": "Under the APA Code, barter (accepting goods/services from clients in return for psychological services) is permitted ONLY if:",
+    "choices": {
+      "A": "The client proposes the barter.",
+      "B": "It is not clinically contraindicated and the resulting arrangement is not exploitative.",
+      "C": "The goods are worth exactly the financial cost of the session.",
+      "D": "The therapist is working in a rural community."
+    },
+    "correct_answer": "B",
+    "explanation": "Barter is permitted only if it is not clinically contraindicated and the resulting arrangement is not exploitative.",
+    "tags": ["apa-code", "fees"]
+  },
+  {
+    "id": "RPM-PAP-072",
+    "topic": "APA Code of Ethics",
+    "difficulty": "Medium",
+    "question": "When a psychologist is called on to perform potentially conflicting roles, such as being a family therapist and a witness for one party in divorce proceedings, what should they do?",
+    "choices": {
+      "A": "Perform both roles simultaneously to provide a comprehensive view.",
+      "B": "Clarify, modify, or withdraw from the roles appropriately.",
+      "C": "Only testify if they are paid an expert witness fee.",
+      "D": "Testify against the party that missed therapy sessions."
+    },
+    "correct_answer": "B",
+    "explanation": "If psychologists are called to perform potentially conflicting roles, the roles must be clarified or modified, if not withdrawn from.",
+    "tags": ["apa-code", "therapy-roles"]
+  },
+  {
+    "id": "RPM-PAP-073",
+    "topic": "APA Code of Ethics",
+    "difficulty": "Medium",
+    "question": "Under the APA Code, offering professional services as an inducement for research participation is:",
+    "choices": {
+      "A": "Strictly prohibited as it coerces participants.",
+      "B": "Allowed provided that there is clarification of the nature of services, risks, obligations, and limitations.",
+      "C": "Allowed only if the service is unrelated to psychology.",
+      "D": "Prohibited unless the research is funded by the government."
+    },
+    "correct_answer": "B",
+    "explanation": "Offering professional services can be inducements for research participation provided that there is clarification of the nature of services, risks, obligations, and limitations.",
+    "tags": ["apa-code", "research"]
+  },
+  {
+    "id": "RPM-PAP-074",
+    "topic": "APA Code of Ethics",
+    "difficulty": "Easy",
+    "question": "According to the APA Code, when receiving payment from or dividing fees with another professional, the payment must be based on:",
+    "choices": {
+      "A": "The referral itself.",
+      "B": "The services provided.",
+      "C": "The seniority of the professionals.",
+      "D": "A standard 50-50 split."
+    },
+    "correct_answer": "B",
+    "explanation": "The payment to each is based on the services provided and not on the referral itself.",
+    "tags": ["apa-code", "fees-referrals"]
+  },
+  {
+    "id": "RPM-PAP-075",
+    "topic": "Telepsychology",
+    "difficulty": "Medium",
+    "question": "To deliver effective telepsychology services, personal styles are encouraged, but psychologists should use standardized protocols and scripts for which of the following?",
+    "choices": {
+      "A": "Diagnosing complex personality disorders.",
+      "B": "Deciding the therapeutic theoretical framework for the client.",
+      "C": "Responses to frequently asked questions and procedures for internet disruption.",
+      "D": "Interpreting raw data from projective tests."
+    },
+    "correct_answer": "C",
+    "explanation": "Personal styles are encouraged, but standardized protocols ensure quality services, including responses to frequently asked questions and protocols in case of disruption to internet connection.",
+    "tags": ["telepsychology", "protocols"]
+  }
+]

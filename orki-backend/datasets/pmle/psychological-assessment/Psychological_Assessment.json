@@ -1,0 +1,1127 @@
+[
+  {
+    "id": "RPM-AST-001",
+    "topic": "Psychological Testing and Assessment Defined",
+    "difficulty": "Medium",
+    "question": "According to the provided text, which of the following best describes the process of psychological assessment as opposed to psychological testing?",
+    "choices": {
+      "A": "It typically yields a test score or a series of test scores without considering individual processing.",
+      "B": "It entails a logical problem-solving approach that brings to bear many sources of data designed to shed light on a referral question.",
+      "C": "It requires only technician-like skills in terms of administering and scoring a test.",
+      "D": "It involves a tester who can be easily substituted for another tester without appreciably affecting the evaluation."
+    },
+    "correct_answer": "B",
+    "explanation": "Psychological assessment entails a logical problem-solving approach that brings to bear many sources of data designed to shed light on a referral question, whereas testing typically yields a simple test score.",
+    "tags": ["assessment-vs-testing", "foundations"]
+  },
+  {
+    "id": "RPM-AST-002",
+    "topic": "The Process of Assessment",
+    "difficulty": "Hard",
+    "question": "Which interactive approach to psychological assessment usually follows a model of (1) evaluation, (2) intervention of some sort, and (3) evaluation?",
+    "choices": {
+      "A": "Collaborative psychological assessment",
+      "B": "Therapeutic psychological assessment",
+      "C": "Dynamic assessment",
+      "D": "Retrospective assessment"
+    },
+    "correct_answer": "C",
+    "explanation": "Dynamic assessment refers to an interactive approach that usually follows a model of evaluation, intervention, and evaluation, typically employed in educational settings.",
+    "tags": ["assessment-types", "dynamic-assessment"]
+  },
+  {
+    "id": "RPM-AST-003",
+    "topic": "Types of Tests",
+    "difficulty": "Easy",
+    "question": "Which type of ability test specifically measures an individual's potential to solve problems, adapt to changing circumstances, and profit from experience?",
+    "choices": {
+      "A": "Achievement test",
+      "B": "Aptitude test",
+      "C": "Intelligence test",
+      "D": "Structured test"
+    },
+    "correct_answer": "C",
+    "explanation": "An intelligence test measures potential to solve problems, adapt to changing circumstances, and profit from experience.",
+    "tags": ["types-of-tests", "intelligence"]
+  },
+  {
+    "id": "RPM-AST-004",
+    "topic": "Scoring and Interpretation Procedures",
+    "difficulty": "Medium",
+    "question": "What is the term for a reference point, usually numerical, derived by judgment and used to divide a set of data into two or more classifications?",
+    "choices": {
+      "A": "Normative score",
+      "B": "Cut score",
+      "C": "Percentile score",
+      "D": "Stanine score"
+    },
+    "correct_answer": "B",
+    "explanation": "A cut score (or cutoff score) is a reference point derived by judgment and used to divide data into two or more classifications.",
+    "tags": ["scoring", "cut-score"]
+  },
+  {
+    "id": "RPM-AST-005",
+    "topic": "The Interview",
+    "difficulty": "Medium",
+    "question": "Which specific interview technique combines person-centered listening skills with the use of cognition-altering techniques designed to positively affect a client's willingness to change?",
+    "choices": {
+      "A": "Cognitive interview",
+      "B": "Motivational interviewing",
+      "C": "Stress interview",
+      "D": "Hypnotic interview"
+    },
+    "correct_answer": "B",
+    "explanation": "Motivational interviewing is a therapeutic dialogue combining person-centered listening skills (openness/empathy) with cognition-altering techniques designed to positively affect motivation and effect therapeutic change.",
+    "tags": ["tools", "interviewing"]
+  },
+  {
+    "id": "RPM-AST-006",
+    "topic": "Assessment of People with Disabilities",
+    "difficulty": "Easy",
+    "question": "What is the term for an evaluative or diagnostic procedure that varies from the customary way a measurement is derived due to special accommodations made to the assessee?",
+    "choices": {
+      "A": "Standardized assessment",
+      "B": "Ecological momentary assessment",
+      "C": "Alternate assessment",
+      "D": "Remote assessment"
+    },
+    "correct_answer": "C",
+    "explanation": "Alternate assessment is an evaluative procedure that varies from the usual standardized way by virtue of some special accommodation made to the assessee.",
+    "tags": ["disabilities", "alternate-assessment"]
+  },
+  {
+    "id": "RPM-AST-007",
+    "topic": "Historical Considerations",
+    "difficulty": "Medium",
+    "question": "In China, as early as 2200 BCE, state-sponsored multistage examinations were instituted primarily as a means of selecting applicants for which specific positions?",
+    "choices": {
+      "A": "Military leadership",
+      "B": "Government jobs",
+      "C": "Academic professorships",
+      "D": "Medical practice"
+    },
+    "correct_answer": "B",
+    "explanation": "Tests and testing programs first came into being in China as early as 2200 BCE to select applicants for government jobs.",
+    "tags": ["history", "china"]
+  },
+  {
+    "id": "RPM-AST-008",
+    "topic": "Historical Considerations",
+    "difficulty": "Hard",
+    "question": "Who is credited with pioneering the use of the coefficient of correlation in psychological testing and establishing the Anthropometric Laboratory in 1884?",
+    "choices": {
+      "A": "Charles Darwin",
+      "B": "Wilhelm Max Wundt",
+      "C": "James McKeen Cattell",
+      "D": "Francis Galton"
+    },
+    "correct_answer": "D",
+    "explanation": "Francis Galton established the Anthropometric Laboratory in 1884 and pioneered the use of the coefficient of correlation in psychological experimentation and testing.",
+    "tags": ["history", "galton"]
+  },
+  {
+    "id": "RPM-AST-009",
+    "topic": "The Twentieth Century",
+    "difficulty": "Medium",
+    "question": "Originally based on the Personal Data Sheet, which instrument is recognized as the first widely used self-report test of personality for civilian use?",
+    "choices": {
+      "A": "Minnesota Multiphasic Personality Inventory",
+      "B": "Woodworth Psychoneurotic Inventory",
+      "C": "Jenkins Activity Survey",
+      "D": "Rorschach Inkblot Test"
+    },
+    "correct_answer": "B",
+    "explanation": "The Woodworth Psychoneurotic Inventory, based on the Personal Data Sheet, was the first widely used self-report test of personality for civilian use.",
+    "tags": ["history", "woodworth"]
+  },
+  {
+    "id": "RPM-AST-010",
+    "topic": "Test-user qualifications",
+    "difficulty": "Easy",
+    "question": "According to the APA's three levels of tests, which level requires a substantial understanding of testing and supporting psychological fields together with supervised experience?",
+    "choices": {
+      "A": "Level A",
+      "B": "Level B",
+      "C": "Level C",
+      "D": "Level D"
+    },
+    "correct_answer": "C",
+    "explanation": "Level C tests require substantial understanding of testing and supporting psychological fields together with supervised experience in the use of these devices.",
+    "tags": ["ethics", "test-user-qualifications"]
+  },
+  {
+    "id": "RPM-AST-011",
+    "topic": "The Rights of Testtakers",
+    "difficulty": "Medium",
+    "question": "What legal concept refers specifically to information that is protected by law from disclosure in a legal proceeding, such as the doctor-patient relationship?",
+    "choices": {
+      "A": "Right to privacy",
+      "B": "Informed consent",
+      "C": "Privileged information",
+      "D": "Confidentiality"
+    },
+    "correct_answer": "C",
+    "explanation": "Privileged information is information protected by law from disclosure in a legal proceeding, extending to certain relationships like lawyer-client or doctor-patient.",
+    "tags": ["ethics", "privileged-information"]
+  },
+  {
+    "id": "RPM-AST-012",
+    "topic": "Scales of Measurement",
+    "difficulty": "Easy",
+    "question": "Which scale of measurement involves classification or categorization based on distinguishing characteristics, placing things into mutually exclusive and exhaustive categories?",
+    "choices": {
+      "A": "Nominal scale",
+      "B": "Ordinal scale",
+      "C": "Interval scale",
+      "D": "Ratio scale"
+    },
+    "correct_answer": "A",
+    "explanation": "Nominal scales are the simplest form of measurement involving classification into mutually exclusive and exhaustive categories.",
+    "tags": ["statistics", "scales"]
+  },
+  {
+    "id": "RPM-AST-013",
+    "topic": "Describing Data",
+    "difficulty": "Medium",
+    "question": "In descriptive statistics, what measure of variability is equal to the difference between the third quartile (Q3) and the first quartile (Q1)?",
+    "choices": {
+      "A": "Range",
+      "B": "Semi-interquartile range",
+      "C": "Interquartile range",
+      "D": "Average deviation"
+    },
+    "correct_answer": "C",
+    "explanation": "The Interquartile Range is a measure of variability equal to the difference between Q3 and Q1.",
+    "tags": ["statistics", "variability"]
+  },
+  {
+    "id": "RPM-AST-014",
+    "topic": "Skewness",
+    "difficulty": "Hard",
+    "question": "If a test is too easy, resulting in relatively few scores falling at the low end of the distribution, the distribution is characterized as having what type of skew?",
+    "choices": {
+      "A": "Positive skew",
+      "B": "Negative skew",
+      "C": "Platykurtic skew",
+      "D": "Mesokurtic skew"
+    },
+    "correct_answer": "B",
+    "explanation": "A negative skew occurs when relatively few scores fall at the low end of the distribution, which may indicate that the test was too easy.",
+    "tags": ["statistics", "skewness"]
+  },
+  {
+    "id": "RPM-AST-015",
+    "topic": "Standard Scores",
+    "difficulty": "Medium",
+    "question": "Devised by William McCall, a T score is a standard score that operates on a scale with what specific mean and standard deviation?",
+    "choices": {
+      "A": "Mean of 100, SD of 15",
+      "B": "Mean of 5, SD of 2",
+      "C": "Mean of 500, SD of 100",
+      "D": "Mean of 50, SD of 10"
+    },
+    "correct_answer": "D",
+    "explanation": "A T score operates on a scale with a mean set at 50 and a standard deviation set at 10.",
+    "tags": ["statistics", "standard-scores"]
+  },
+  {
+    "id": "RPM-AST-016",
+    "topic": "Standard Scores",
+    "difficulty": "Easy",
+    "question": "Which standard score takes on whole values from 1 to 9, representing a range of performance that is half of a standard deviation in width?",
+    "choices": {
+      "A": "Z score",
+      "B": "A score",
+      "C": "Stanine",
+      "D": "Deviation IQ"
+    },
+    "correct_answer": "C",
+    "explanation": "A Stanine (standard nine) takes on whole values from 1 to 9, representing a range of performance half a standard deviation in width.",
+    "tags": ["statistics", "stanine"]
+  },
+  {
+    "id": "RPM-AST-017",
+    "topic": "Assumptions about Psychological Testing",
+    "difficulty": "Medium",
+    "question": "While traits are relatively enduring, which term refers to a distinguishing characteristic that is relatively less enduring and indicates a temporary predisposition?",
+    "choices": {
+      "A": "Type",
+      "B": "State",
+      "C": "Construct",
+      "D": "Domain"
+    },
+    "correct_answer": "B",
+    "explanation": "States distinguish one person from another but are relatively less enduring than traits (e.g., temporary anger or happiness).",
+    "tags": ["assumptions", "traits-states"]
+  },
+  {
+    "id": "RPM-AST-018",
+    "topic": "Assumptions about Psychological Testing",
+    "difficulty": "Medium",
+    "question": "What refers to the component of a test score attributable to sources other than the trait or ability measured, such as test environment or testtaker variables?",
+    "choices": {
+      "A": "True variance",
+      "B": "Error variance",
+      "C": "Incremental validity",
+      "D": "Standard deviation"
+    },
+    "correct_answer": "B",
+    "explanation": "Error variance is the component of a test score attributable to sources other than the trait or ability measured.",
+    "tags": ["assumptions", "error-variance"]
+  },
+  {
+    "id": "RPM-AST-019",
+    "topic": "Types of Norms",
+    "difficulty": "Easy",
+    "question": "Which norm represents an expression of the percentage of people whose score on a test or measure falls below a particular raw score?",
+    "choices": {
+      "A": "Percentage correct",
+      "B": "Percentile",
+      "C": "Age norm",
+      "D": "National anchor norm"
+    },
+    "correct_answer": "B",
+    "explanation": "A percentile is an expression of the percentage of people whose score on a test or measure falls below a particular raw score.",
+    "tags": ["norms", "percentiles"]
+  },
+  {
+    "id": "RPM-AST-020",
+    "topic": "Fixed Reference Group Scoring Systems",
+    "difficulty": "Hard",
+    "question": "Which scoring system uses a specific historical group's distribution of scores, such as the 11,000 people who took the SAT in 1941, as the standard for future test score conversions?",
+    "choices": {
+      "A": "Criterion-referenced scoring system",
+      "B": "Norm-referenced cut score system",
+      "C": "Fixed Reference Group scoring system",
+      "D": "National Anchor Norm scoring system"
+    },
+    "correct_answer": "C",
+    "explanation": "A Fixed Reference Group is used as the basis for the calculation of test scores for future administrations, such as the SAT using the 1941 testtakers as a standard.",
+    "tags": ["norms", "fixed-reference-group"]
+  },
+  {
+    "id": "RPM-AST-021",
+    "topic": "Norm Referenced versus Criterion Referenced Evaluation",
+    "difficulty": "Medium",
+    "question": "Which method of evaluation derives meaning from test scores by evaluating an individual's score with reference to a set standard or mastery level rather than relative to other people?",
+    "choices": {
+      "A": "Norm-referenced testing",
+      "B": "Criterion-referenced testing",
+      "C": "Subgroup norming",
+      "D": "Ipsative scoring"
+    },
+    "correct_answer": "B",
+    "explanation": "Criterion-referenced testing is evaluating an individual’s score with reference to a set standard (mastery) rather than norm-referenced interpretation relative to others.",
+    "tags": ["evaluation", "criterion-referenced"]
+  },
+  {
+    "id": "RPM-AST-022",
+    "topic": "Test Reliability",
+    "difficulty": "Hard",
+    "question": "What type of error in measuring a variable is typically constant or proportionate to what is presumed to be the true value, and thus does not affect score consistency?",
+    "choices": {
+      "A": "Random error",
+      "B": "Systematic error",
+      "C": "Transient error",
+      "D": "Sampling error"
+    },
+    "correct_answer": "B",
+    "explanation": "Systematic error is typically constant or proportionate to the true value and does not change the variability of the distribution or affect score consistency.",
+    "tags": ["reliability", "systematic-error"]
+  },
+  {
+    "id": "RPM-AST-023",
+    "topic": "Reliability Estimates",
+    "difficulty": "Medium",
+    "question": "When estimating test-retest reliability, if the interval between testing is greater than six months, the resulting coefficient is often referred to as the:",
+    "choices": {
+      "A": "Coefficient of equivalence",
+      "B": "Coefficient of stability",
+      "C": "Coefficient of internal consistency",
+      "D": "Coefficient of inter-scorer reliability"
+    },
+    "correct_answer": "B",
+    "explanation": "When the interval between testing is greater than six months, the estimate of test-retest reliability is often referred to as the coefficient of stability.",
+    "tags": ["reliability", "test-retest"]
+  },
+  {
+    "id": "RPM-AST-024",
+    "topic": "Reliability Estimates",
+    "difficulty": "Hard",
+    "question": "What term specifically describes different versions of a test that are constructed to be equivalent in content and difficulty, but do not strictly meet the statistical requirements for equal means and variances?",
+    "choices": {
+      "A": "Parallel forms",
+      "B": "Alternate forms",
+      "C": "Split-halves",
+      "D": "Standardized forms"
+    },
+    "correct_answer": "B",
+    "explanation": "Alternate forms are different versions of a test designed to be equivalent in content and difficulty but do not meet the strict statistical requirements of equal means and variances required for 'parallel' forms.",
+    "tags": ["reliability", "alternate-forms"]
+  },
+  {
+    "id": "RPM-AST-025",
+    "topic": "Reliability Estimates",
+    "difficulty": "Medium",
+    "question": "Which formula allows a test developer to estimate internal consistency reliability from a correlation of two halves of a test, effectively adjusting for the test's length?",
+    "choices": {
+      "A": "Kuder-Richardson formula 20",
+      "B": "Spearman-Brown formula",
+      "C": "Coefficient Alpha",
+      "D": "Pearson r correlation"
+    },
+    "correct_answer": "B",
+    "explanation": "The Spearman-Brown formula allows a test developer or user to estimate internal consistency reliability from a correlation of two halves of a test, adjusting for the shortened test length.",
+    "tags": ["reliability", "spearman-brown"]
+  },
+  {
+    "id": "RPM-AST-026",
+    "topic": "Other Methods of Estimating Internal Consistency",
+    "difficulty": "Hard",
+    "question": "Which statistic is the method of choice for determining the inter-item consistency of dichotomous items, primarily those scored right or wrong?",
+    "choices": {
+      "A": "Coefficient alpha",
+      "B": "KR-21",
+      "C": "Spearman-Brown formula",
+      "D": "KR-20"
+    },
+    "correct_answer": "D",
+    "explanation": "KR-20 is the statistic of choice for determining the inter-item consistency of dichotomous items, primarily those scored right or wrong.",
+    "tags": ["reliability", "kr-20"]
+  },
+  {
+    "id": "RPM-AST-027",
+    "topic": "Other Methods of Estimating Internal Consistency",
+    "difficulty": "Medium",
+    "question": "Which internal consistency statistic is widely accepted and preferred for obtaining reliability estimates for tests containing polytomous or multipoint items?",
+    "choices": {
+      "A": "KR-20",
+      "B": "Split-half reliability",
+      "C": "Coefficient alpha",
+      "D": "KR-21"
+    },
+    "correct_answer": "C",
+    "explanation": "Coefficient alpha (Cronbach's alpha) is the variant of KR-20 used and preferred for tests with polytomous or multipoint items.",
+    "tags": ["reliability", "coefficient-alpha"]
+  },
+  {
+    "id": "RPM-AST-028",
+    "topic": "Sources of Variance in a Hypothetical Test",
+    "difficulty": "Medium",
+    "question": "In a test where the time limit is long enough to allow the attempt of all items but the items are so difficult that no testtaker obtains a perfect score, what type of test is this?",
+    "choices": {
+      "A": "Speed test",
+      "B": "Criterion-referenced test",
+      "C": "Power test",
+      "D": "Mastery test"
+    },
+    "correct_answer": "C",
+    "explanation": "A power test provides a time limit long enough to allow attempt of all items, but the items are so difficult that no testtaker is able to obtain a perfect score.",
+    "tags": ["reliability", "power-test"]
+  },
+  {
+    "id": "RPM-AST-029",
+    "topic": "Alternatives to the True Score Model",
+    "difficulty": "Hard",
+    "question": "Developed by Lee J. Cronbach, which theory posits that a person's test scores vary from testing to testing because of variables or 'facets' in the testing universe rather than attributing all variability simply to error?",
+    "choices": {
+      "A": "Item Response Theory",
+      "B": "Generalizability theory",
+      "C": "Domain sampling theory",
+      "D": "Classical test theory"
+    },
+    "correct_answer": "B",
+    "explanation": "Generalizability theory (Cronbach) is based on the idea that a person's test scores vary because of variables (facets) in the testing situation, not just uniform error.",
+    "tags": ["reliability", "generalizability-theory"]
+  },
+  {
+    "id": "RPM-AST-030",
+    "topic": "Alternatives to the True Score Model",
+    "difficulty": "Medium",
+    "question": "Which theoretical framework is designed to handle data based on a test item's difficulty level and its level of discrimination among people with higher or lower levels of a latent trait?",
+    "choices": {
+      "A": "Item Response Theory",
+      "B": "True Score Theory",
+      "C": "Generalizability Theory",
+      "D": "Domain Sampling Theory"
+    },
+    "correct_answer": "A",
+    "explanation": "Item Response Theory (IRT), also called latent-trait theory, handles data based on item characteristics like difficulty level and item discrimination related to a latent trait.",
+    "tags": ["reliability", "irt"]
+  },
+  {
+    "id": "RPM-AST-031",
+    "topic": "The Concept of Validity",
+    "difficulty": "Easy",
+    "question": "What term defines the judgment or estimate of how well a test measures what it purports to measure in a particular context?",
+    "choices": {
+      "A": "Reliability",
+      "B": "Utility",
+      "C": "Validity",
+      "D": "Generalizability"
+    },
+    "correct_answer": "C",
+    "explanation": "Validity is the judgment or estimate of how well a test measures what it purports to measure in a particular context.",
+    "tags": ["validity", "definition"]
+  },
+  {
+    "id": "RPM-AST-032",
+    "topic": "Face Validity",
+    "difficulty": "Easy",
+    "question": "What type of validity relates more to what a test appears to measure to the person being tested than to what the test actually measures?",
+    "choices": {
+      "A": "Content validity",
+      "B": "Predictive validity",
+      "C": "Construct validity",
+      "D": "Face validity"
+    },
+    "correct_answer": "D",
+    "explanation": "Face validity relates more to what a test appears to measure to the person being tested than to what it actually measures.",
+    "tags": ["validity", "face-validity"]
+  },
+  {
+    "id": "RPM-AST-033",
+    "topic": "Content Validity",
+    "difficulty": "Medium",
+    "question": "To ensure a test adequately samples the representative behavior it is designed to measure, a test developer uses a Table of Specifications or a test blueprint. This process primarily establishes which type of validity?",
+    "choices": {
+      "A": "Content validity",
+      "B": "Convergent validity",
+      "C": "Concurrent validity",
+      "D": "Face validity"
+    },
+    "correct_answer": "A",
+    "explanation": "A test blueprint or Table of Specifications (TOS) is a plan regarding the types of information to be covered by items, providing a basis for content validity.",
+    "tags": ["validity", "content-validity"]
+  },
+  {
+    "id": "RPM-AST-034",
+    "topic": "Criterion-Related Validity",
+    "difficulty": "Easy",
+    "question": "If test scores are obtained at about the same time that the criterion measures are obtained, what specific type of validity evidence is being provided?",
+    "choices": {
+      "A": "Predictive validity",
+      "B": "Concurrent validity",
+      "C": "Discriminant validity",
+      "D": "Construct validity"
+    },
+    "correct_answer": "B",
+    "explanation": "Concurrent validity is an index of the degree to which a test score is related to some criterion measure obtained at the same time.",
+    "tags": ["validity", "concurrent"]
+  },
+  {
+    "id": "RPM-AST-035",
+    "topic": "Criterion-Related Validity",
+    "difficulty": "Medium",
+    "question": "What tool visually provides probabilities illustrating the likelihood that a testtaker will score within some specific interval on a criterion measure based on their test score?",
+    "choices": {
+      "A": "Expectancy table",
+      "B": "Taylor-Russell table",
+      "C": "Naylor-Shine table",
+      "D": "Item-characteristic curve"
+    },
+    "correct_answer": "A",
+    "explanation": "An expectancy table provides the probabilities indicating that students achieving a given test score will behave in a certain way in some second situation (criterion measure).",
+    "tags": ["validity", "expectancy-table"]
+  },
+  {
+    "id": "RPM-AST-036",
+    "topic": "Criterion-Related Validity",
+    "difficulty": "Hard",
+    "question": "Which specific tables provide an estimate of the extent to which the inclusion of a particular test in a selection system will improve selection, relying on the test's validity, selection ratio, and base rate?",
+    "choices": {
+      "A": "Naylor-Shine tables",
+      "B": "Taylor-Russell tables",
+      "C": "Expectancy charts",
+      "D": "Factor loading tables"
+    },
+    "correct_answer": "B",
+    "explanation": "Taylor-Russell tables provide an estimate of the extent to which inclusion of a test improves selection, using three variables: validity coefficient, selection ratio, and base rate.",
+    "tags": ["validity", "taylor-russell"]
+  },
+  {
+    "id": "RPM-AST-037",
+    "topic": "Decision Theory and Test Utility",
+    "difficulty": "Medium",
+    "question": "In test utility terms, what type of miss occurs when a test predicts that a testtaker possesses a particular attribute when in fact they do not?",
+    "choices": {
+      "A": "False negative",
+      "B": "False positive",
+      "C": "Base rate error",
+      "D": "Negative skew"
+    },
+    "correct_answer": "B",
+    "explanation": "A false positive is a miss wherein the test predicted that the testtaker did possess the characteristic when in fact they did not.",
+    "tags": ["validity", "false-positive"]
+  },
+  {
+    "id": "RPM-AST-038",
+    "topic": "Construct Validity",
+    "difficulty": "Medium",
+    "question": "Which type of validity relies on hypotheses about the expected behavior of high and low scorers and is often viewed as the unifying concept for all validity evidence?",
+    "choices": {
+      "A": "Face validity",
+      "B": "Content validity",
+      "C": "Criterion-related validity",
+      "D": "Construct validity"
+    },
+    "correct_answer": "D",
+    "explanation": "Construct validity involves formulating hypotheses about high and low scorers and has been viewed as the unifying concept for all validity evidence.",
+    "tags": ["validity", "construct"]
+  },
+  {
+    "id": "RPM-AST-039",
+    "topic": "Construct Validity",
+    "difficulty": "Medium",
+    "question": "If scores on a newly developed measure of test anxiety correlate highly with scores on older, established measures of test anxiety, this demonstrates what specific type of validity evidence?",
+    "choices": {
+      "A": "Discriminant evidence",
+      "B": "Convergent evidence",
+      "C": "Incremental validity",
+      "D": "Face validity"
+    },
+    "correct_answer": "B",
+    "explanation": "Convergent evidence is demonstrated when scores on a test correlate highly in the predicted direction with scores on older, validated tests measuring the same construct.",
+    "tags": ["validity", "convergent-evidence"]
+  },
+  {
+    "id": "RPM-AST-040",
+    "topic": "Rating Error",
+    "difficulty": "Medium",
+    "question": "A rater's reluctance to give ratings at either the positive or negative extreme, resulting in ratings clustering in the middle of the continuum, is known as what type of rating error?",
+    "choices": {
+      "A": "Halo effect",
+      "B": "Leniency error",
+      "C": "Severity error",
+      "D": "Central tendency error"
+    },
+    "correct_answer": "D",
+    "explanation": "Central tendency error is a reluctance to give ratings at extremes, leading to all ratings clustering in the middle of the rating continuum.",
+    "tags": ["validity", "rating-errors"]
+  },
+  {
+    "id": "RPM-AST-041",
+    "topic": "Test Conceptualization",
+    "difficulty": "Easy",
+    "question": "What term refers to the preliminary research surrounding the creation of a prototype of a test, which may involve open-ended interviews or physiological monitoring?",
+    "choices": {
+      "A": "Pilot work",
+      "B": "Item scaling",
+      "C": "Cross-validation",
+      "D": "Test standardization"
+    },
+    "correct_answer": "A",
+    "explanation": "Pilot work (or pilot study/research) refers to the preliminary research surrounding the creation of a prototype of the test.",
+    "tags": ["test-development", "pilot-work"]
+  },
+  {
+    "id": "RPM-AST-042",
+    "topic": "Test Construction: Scaling",
+    "difficulty": "Hard",
+    "question": "Which scaling method features items that range sequentially from weaker to stronger expressions of an attitude, such that endorsement of an extreme position automatically connotes endorsement of milder statements?",
+    "choices": {
+      "A": "Likert scale",
+      "B": "Guttman scale",
+      "C": "Method of paired comparisons",
+      "D": "Summative scale"
+    },
+    "correct_answer": "B",
+    "explanation": "A feature of Guttman scales is that items range sequentially from weaker to stronger expressions, and respondents who agree with stronger statements also agree with milder statements.",
+    "tags": ["test-development", "scaling"]
+  },
+  {
+    "id": "RPM-AST-043",
+    "topic": "Writing Items",
+    "difficulty": "Easy",
+    "question": "A multiple-choice item is an example of what type of item format, which requires testtakers to choose from a set of alternative answers rather than create an answer?",
+    "choices": {
+      "A": "Constructed-response format",
+      "B": "Selected-response format",
+      "C": "Ipsative format",
+      "D": "Open-ended format"
+    },
+    "correct_answer": "B",
+    "explanation": "Selected-response formats require testtakers to select a response from a set of alternatives (e.g., multiple choice, matching).",
+    "tags": ["test-development", "item-format"]
+  },
+  {
+    "id": "RPM-AST-044",
+    "topic": "Writing items for computer administration",
+    "difficulty": "Hard",
+    "question": "What technique reduces floor and ceiling effects by tailoring the content and order of presentation of test items based on the testtaker's performance on previous items?",
+    "choices": {
+      "A": "Item branching",
+      "B": "Incremental sampling",
+      "C": "Latent-trait progression",
+      "D": "Cumulative scoring"
+    },
+    "correct_answer": "A",
+    "explanation": "Item branching is the ability of the computer to tailor the content and order of presentation of test items on the basis of responses to previous items, which is central to Computerized Adaptive Testing (CAT).",
+    "tags": ["test-development", "cat"]
+  },
+  {
+    "id": "RPM-AST-045",
+    "topic": "Scoring Items",
+    "difficulty": "Medium",
+    "question": "Which scoring model compares a testtaker's score on one scale within a test to their score on another scale within that same test, yielding intra-individual conclusions?",
+    "choices": {
+      "A": "Cumulative scoring",
+      "B": "Class scoring",
+      "C": "Ipsative scoring",
+      "D": "Category scoring"
+    },
+    "correct_answer": "C",
+    "explanation": "Ipsative scoring is comparing a testtaker's score on one scale within a test to another scale within that same test, allowing only intra-individual conclusions.",
+    "tags": ["test-development", "scoring"]
+  },
+  {
+    "id": "RPM-AST-046",
+    "topic": "Item Analysis",
+    "difficulty": "Medium",
+    "question": "In calculating the item-difficulty index (p), what does a larger 'p' value indicate about the test item?",
+    "choices": {
+      "A": "The item is too difficult.",
+      "B": "The item is easier.",
+      "C": "The item lacks internal consistency.",
+      "D": "The item heavily discriminates between extreme scorers."
+    },
+    "correct_answer": "B",
+    "explanation": "Because 'p' refers to the percent of people passing an item, the higher the 'p' (the larger the index), the easier the item.",
+    "tags": ["item-analysis", "item-difficulty"]
+  },
+  {
+    "id": "RPM-AST-047",
+    "topic": "Item-Characteristic Curves",
+    "difficulty": "Hard",
+    "question": "In an item-characteristic curve (ICC), which graphs the probability of a correct response against ability, what does a steeper slope indicate?",
+    "choices": {
+      "A": "Greater item discrimination",
+      "B": "Lower item validity",
+      "C": "Higher item difficulty for all groups",
+      "D": "Reduced test internal consistency"
+    },
+    "correct_answer": "A",
+    "explanation": "In an item-characteristic curve, the steeper the slope, the greater the item discrimination.",
+    "tags": ["item-analysis", "icc"]
+  },
+  {
+    "id": "RPM-AST-048",
+    "topic": "Test Revision",
+    "difficulty": "Medium",
+    "question": "The expected decrease in item validities that inevitably occurs when a test is revalidated on a new sample of testtakers is referred to as:",
+    "choices": {
+      "A": "Differential item functioning",
+      "B": "Scoring drift",
+      "C": "Validity shrinkage",
+      "D": "Co-validation error"
+    },
+    "correct_answer": "C",
+    "explanation": "The decrease in item validities that inevitably occurs after cross-validation of findings is referred to as validity shrinkage.",
+    "tags": ["test-revision", "validity-shrinkage"]
+  },
+  {
+    "id": "RPM-AST-049",
+    "topic": "Theories of Intelligence",
+    "difficulty": "Easy",
+    "question": "In Charles Spearman's two-factor theory of intelligence, what does the factor denoted by the italicized lowercase 'g' represent?",
+    "choices": {
+      "A": "Specific components of variance",
+      "B": "General intellectual ability factor",
+      "C": "Group factors common to some activities",
+      "D": "Genetic predispositions"
+    },
+    "correct_answer": "B",
+    "explanation": "Spearman postulated the existence of a general intellectual ability factor (denoted by an italic lowercase g) that is partially tapped by all other mental abilities.",
+    "tags": ["intelligence", "spearman"]
+  },
+  {
+    "id": "RPM-AST-050",
+    "topic": "Theories of Intelligence",
+    "difficulty": "Medium",
+    "question": "According to the Cattell-Horn theory, which type of cognitive ability includes acquired skills and knowledge that depend on formal and informal education and exposure to a particular culture?",
+    "choices": {
+      "A": "Fluid intelligence (Gf)",
+      "B": "Crystallized intelligence (Gc)",
+      "C": "General memory and learning (Y)",
+      "D": "Quantitative processing (Gq)"
+    },
+    "correct_answer": "B",
+    "explanation": "Crystallized intelligence (symbolized Gc) includes acquired skills and knowledge dependent on exposure to a culture and education.",
+    "tags": ["intelligence", "cattell-horn"]
+  },
+  {
+    "id": "RPM-AST-051",
+    "topic": "The Information-Processing View",
+    "difficulty": "Hard",
+    "question": "In the PASS model of intellectual functioning developed by Naglieri and Das, which component specifically refers to strategy development for problem solving?",
+    "choices": {
+      "A": "Planning",
+      "B": "Arousal",
+      "C": "Simultaneous processing",
+      "D": "Successive processing"
+    },
+    "correct_answer": "A",
+    "explanation": "In the PASS model, Planning refers to strategy development for problem solving.",
+    "tags": ["intelligence", "pass-model"]
+  },
+  {
+    "id": "RPM-AST-052",
+    "topic": "Traits, Types, and States",
+    "difficulty": "Easy",
+    "question": "John Holland argued that most people can be categorized into one of six personality types (e.g., Artistic, Enterprising, Investigative). Which specific self-administered test helps type people according to this system for vocational guidance?",
+    "choices": {
+      "A": "Myers-Briggs Type Indicator (MBTI)",
+      "B": "Self-Directed Search (SDS)",
+      "C": "Minnesota Multiphasic Personality Inventory (MMPI)",
+      "D": "Strong Interest Inventory (SII)"
+    },
+    "correct_answer": "B",
+    "explanation": "The Self-Directed Search (SDS) test is a self-administered aid used to type people according to Holland's system and offer vocational guidance.",
+    "tags": ["personality", "holland-typology"]
+  },
+  {
+    "id": "RPM-AST-053",
+    "topic": "Testtaker response styles",
+    "difficulty": "Medium",
+    "question": "What term describes the attempt by testtakers to manipulate others' impressions through the selective exposure of false information or the suppression of true information during a personality assessment?",
+    "choices": {
+      "A": "Self-concept differentiation",
+      "B": "Nomothetic bias",
+      "C": "Impression management",
+      "D": "Idiographic variance"
+    },
+    "correct_answer": "C",
+    "explanation": "Impression management is the attempt to manipulate others' impressions through the selective exposure of some information (potentially false) coupled with the suppression of other information.",
+    "tags": ["personality", "response-styles"]
+  },
+  {
+    "id": "RPM-AST-054",
+    "topic": "Frame of Reference",
+    "difficulty": "Medium",
+    "question": "Originally developed by Stephenson (1953), which assessment technique requires the assessee to categorize a group of statements into a perceived rank order ranging from most descriptive to least descriptive?",
+    "choices": {
+      "A": "Adjective checklist method",
+      "B": "Sentence completion format",
+      "C": "Q-sort technique",
+      "D": "Ipsative sorting method"
+    },
+    "correct_answer": "C",
+    "explanation": "The Q-sort technique is an assessment technique in which the task is to sort a group of statements, usually in perceived rank order ranging from most to least descriptive.",
+    "tags": ["personality", "q-sort"]
+  },
+  {
+    "id": "RPM-AST-055",
+    "topic": "Scoring and interpretation",
+    "difficulty": "Hard",
+    "question": "Which approach to personality assessment is characterized by efforts to learn about each individual's unique constellation of traits without attempting to characterize each person according to any universal set of traits?",
+    "choices": {
+      "A": "Nomothetic approach",
+      "B": "Idiographic approach",
+      "C": "Criterion-referenced approach",
+      "D": "Acculturation approach"
+    },
+    "correct_answer": "B",
+    "explanation": "The idiographic approach is characterized by efforts to learn about each individual’s unique constellation of personality traits without attempting to characterize them according to a particular set of traits.",
+    "tags": ["personality", "idiographic"]
+  },
+  {
+    "id": "RPM-AST-056",
+    "topic": "Projective Methods",
+    "difficulty": "Easy",
+    "question": "The idea that an individual supplies structure to unstructured stimuli in a manner consistent with their own unique pattern of conscious and unconscious needs is referred to as the:",
+    "choices": {
+      "A": "Projective hypothesis",
+      "B": "Impression management strategy",
+      "C": "Self-concept differentiation",
+      "D": "Nomothetic principle"
+    },
+    "correct_answer": "A",
+    "explanation": "The projective hypothesis posits that individuals supply structure to unstructured stimuli in a manner consistent with their own unique conscious and unconscious needs.",
+    "tags": ["personality", "projective-hypothesis"]
+  },
+  {
+    "id": "RPM-AST-057",
+    "topic": "Inkblots as Projective Stimuli",
+    "difficulty": "Medium",
+    "question": "Which specific projective test consists of 10 bilaterally symmetrical inkblots on separate cards, five of which are strictly achromatic (black-and-white)?",
+    "choices": {
+      "A": "Thematic Apperception Test",
+      "B": "Holtzman Inkblot Technique",
+      "C": "The Rorschach",
+      "D": "The Hand Test"
+    },
+    "correct_answer": "C",
+    "explanation": "The Rorschach consists of 10 bilaterally symmetrical inkblots: five achromatic, two black/white/red, and three multicolored.",
+    "tags": ["personality", "rorschach"]
+  },
+  {
+    "id": "RPM-AST-058",
+    "topic": "Pictures as Projective Stimuli",
+    "difficulty": "Easy",
+    "question": "Originally designed to elicit fantasy material in psychoanalysis, which test features 30 black-and-white picture cards depicting a variety of classical human situations?",
+    "choices": {
+      "A": "Rosenzweig Picture-Frustration Study",
+      "B": "Thematic Apperception Test (TAT)",
+      "C": "The Hand Test",
+      "D": "Word Association Test"
+    },
+    "correct_answer": "B",
+    "explanation": "The TAT (Thematic Apperception Test) uses 30 black-and-white picture cards depicting scenes designed to present the testtaker with 'certain classical human situations' to elicit fantasy material.",
+    "tags": ["personality", "tat"]
+  },
+  {
+    "id": "RPM-AST-059",
+    "topic": "Pictures as Projective Stimuli",
+    "difficulty": "Hard",
+    "question": "Which projective method evaluates testtakers' responses to nine cards with pictures of hands and one blank card, scoring responses according to 24 categories such as affection, dependence, and aggression?",
+    "choices": {
+      "A": "Draw-A-Person Test",
+      "B": "Rosenzweig Picture-Frustration Study",
+      "C": "The Hand Test",
+      "D": "House-Tree-Person Test"
+    },
+    "correct_answer": "C",
+    "explanation": "The Hand Test consists of nine cards with pictures of hands and a tenth blank card, interpreted across 24 categories like affection, dependence, and aggression.",
+    "tags": ["personality", "hand-test"]
+  },
+  {
+    "id": "RPM-AST-060",
+    "topic": "Words as Projective Stimuli",
+    "difficulty": "Easy",
+    "question": "What semistructured projective technique involves presenting a list of stimulus words to an assessee, who is instructed to respond verbally with whatever word comes immediately to mind?",
+    "choices": {
+      "A": "Sentence completion test",
+      "B": "Word association test",
+      "C": "Rotter Incomplete Sentences Blank",
+      "D": "Q-sort technique"
+    },
+    "correct_answer": "B",
+    "explanation": "A word association test involves presenting stimulus words and having the assessee respond with the first word that comes to mind.",
+    "tags": ["personality", "word-association"]
+  },
+  {
+    "id": "RPM-AST-061",
+    "topic": "Varieties of Behavioral Assessment",
+    "difficulty": "Hard",
+    "question": "In behavioral assessment, a leaderless group technique where participants' initiative, cooperation, and leadership are observed while they carry out a group task is an example of what type of measure?",
+    "choices": {
+      "A": "Self-monitoring",
+      "B": "Analogue studies",
+      "C": "Situational performance measures",
+      "D": "Role play"
+    },
+    "correct_answer": "C",
+    "explanation": "A situational performance measure allows for observation and evaluation under a standard set of circumstances, such as the leaderless group technique.",
+    "tags": ["behavioral", "situational-performance"]
+  },
+  {
+    "id": "RPM-AST-062",
+    "topic": "Clinical vs. Counseling Psychology",
+    "difficulty": "Medium",
+    "question": "While clinical psychology tends to focus on the prevention, diagnosis, and treatment of more severe forms of behavior pathology, what does counseling psychology typically focus on?",
+    "choices": {
+      "A": "Neuropsychological lesion assessments",
+      "B": "Forensic profiling and custody cases",
+      "C": "Everyday types of concerns and problems such as marriage, family, academics, and career",
+      "D": "Unconscious processes using exclusively projective methodologies"
+    },
+    "correct_answer": "C",
+    "explanation": "Counseling psychologists focus more on 'everyday' types of concerns and problems such as those related to marriage, family, academics, and career, unlike clinical psychology which focuses on severe behavior pathology.",
+    "tags": ["clinical", "counseling"]
+  },
+  {
+    "id": "RPM-AST-063",
+    "topic": "Mental Status Examination",
+    "difficulty": "Easy",
+    "question": "During a mental status examination, if an examiner assesses whether a patient knows who they are, where they are, and the current date, what is being evaluated?",
+    "choices": {
+      "A": "Sensorium",
+      "B": "Orientation",
+      "C": "Insight",
+      "D": "Thought processes"
+    },
+    "correct_answer": "B",
+    "explanation": "Orientation is assessed by straight-forward questions like knowing one's name, current location, and the date (oriented to person, place, and time).",
+    "tags": ["clinical", "mental-status-exam"]
+  },
+  {
+    "id": "RPM-AST-064",
+    "topic": "The Psychological Test Battery",
+    "difficulty": "Medium",
+    "question": "What is the specific term for a group of tests typically administered together that includes one intelligence test, at least one personality test, and a test designed to screen for neurological deficit?",
+    "choices": {
+      "A": "Personality test battery",
+      "B": "Standard battery",
+      "C": "Flexible battery",
+      "D": "Halstead-Reitan Battery"
+    },
+    "correct_answer": "B",
+    "explanation": "A standard battery refers to a group of tests including one intelligence test, at least one personality test, and a test designed to screen for neurological deficit.",
+    "tags": ["clinical", "test-battery"]
+  },
+  {
+    "id": "RPM-AST-065",
+    "topic": "Duty to Warn",
+    "difficulty": "Medium",
+    "question": "The legal obligation for mental health professionals to alert an intended victim or authorities of a client's specific threat of violence originated from which landmark case?",
+    "choices": {
+      "A": "The Georgetown Criteria",
+      "B": "Tarasoff v. the Regents of the University of California",
+      "C": "American Law Institute (ALI) Standard",
+      "D": "Cleckley Psychopathy Review"
+    },
+    "correct_answer": "B",
+    "explanation": "The duty to warn originated from the Tarasoff v. the Regents of the University of California (1974) case, requiring clinicians to alert victims of contemplated violence.",
+    "tags": ["forensic", "duty-to-warn"]
+  },
+  {
+    "id": "RPM-AST-066",
+    "topic": "Competency to stand trial",
+    "difficulty": "Hard",
+    "question": "According to the Georgetown Criteria, to be deemed competent to stand trial, a defendant must possess a factual understanding of the proceedings and have the ability to do what?",
+    "choices": {
+      "A": "Admit to criminal intent",
+      "B": "Take a psychological test without assistance",
+      "C": "Consult with his lawyer and assist in his own defense",
+      "D": "Demonstrate complete absence of mental disease"
+    },
+    "correct_answer": "C",
+    "explanation": "A defendant must have sufficient present ability to consult with his lawyer with a reasonable degree of rational and factual understanding to assist in his own defense.",
+    "tags": ["forensic", "competency"]
+  },
+  {
+    "id": "RPM-AST-067",
+    "topic": "Readiness for parole or probation",
+    "difficulty": "Hard",
+    "question": "Developed by Hare (1980), which 22-item test reflects personality characteristics such as callousness and impulsiveness, and has been found to correctly identify violent recidivists?",
+    "choices": {
+      "A": "Rogers Criminal Responsibility Assessment Scale",
+      "B": "Psychopathy Checklist (PCL)",
+      "C": "Addiction Severity Index",
+      "D": "Child Abuse Potential Inventory"
+    },
+    "correct_answer": "B",
+    "explanation": "The Psychopathy Checklist (PCL; Hare, 1980) is a 22-item test rating callousness, impulsiveness, etc., shown to correctly identify 80% of violent recidivists.",
+    "tags": ["forensic", "psychopathy-checklist"]
+  },
+  {
+    "id": "RPM-AST-068",
+    "topic": "When a Neuropsychological Evaluation Is Indicated",
+    "difficulty": "Medium",
+    "question": "In a neuropsychological evaluation, an apparent inability to accurately copy a stimulus figure when attempting to draw it is considered merely suggestive of a deficit. What is this indicator called?",
+    "choices": {
+      "A": "Hard sign",
+      "B": "Organicity",
+      "C": "Soft sign",
+      "D": "Focal lesion"
+    },
+    "correct_answer": "C",
+    "explanation": "A soft sign is an indicator merely suggestive of neurological deficit, such as an apparent inability to accurately copy a stimulus figure.",
+    "tags": ["neuropsychology", "soft-sign"]
+  },
+  {
+    "id": "RPM-AST-069",
+    "topic": "Parkinson’s disease",
+    "difficulty": "Medium",
+    "question": "Which progressive neurological illness is characterized by disorders of movement due to a loss of neurons in the substantia nigra, leading to a deficiency in the production of dopamine?",
+    "choices": {
+      "A": "Alzheimer's disease",
+      "B": "Parkinson's disease",
+      "C": "Aphasia",
+      "D": "Pseudobulbar affect"
+    },
+    "correct_answer": "B",
+    "explanation": "Parkinson’s disease (PD) involves neurons in the substantia nigra that are responsible for producing dopamine, leading to movement disorders.",
+    "tags": ["neuropsychology", "parkinsons"]
+  },
+  {
+    "id": "RPM-AST-070",
+    "topic": "Tests to Measure the Ability to Abstract",
+    "difficulty": "Hard",
+    "question": "Which test requires a testtaker to sort a pack of 64 cards containing geometric figures of different colors, assessing executive functions like working memory and cognitive flexibility in shifting sets?",
+    "choices": {
+      "A": "Tower of Hanoi",
+      "B": "Clock-Drawing Test",
+      "C": "Wisconsin Card Sorting Test-64 Card Version",
+      "D": "Color-Form Sorting Test (Weigl's Test)"
+    },
+    "correct_answer": "C",
+    "explanation": "The Wisconsin Card Sorting Test-64 Card Version requires testtakers to sort 64 cards containing geometric figures in different colors to assess frontal lobe executive functions like cognitive flexibility in shifting sets.",
+    "tags": ["neuropsychology", "wisconsin-card-sorting"]
+  },
+  {
+    "id": "RPM-AST-071",
+    "topic": "Neuropsychological Test Batteries",
+    "difficulty": "Easy",
+    "question": "The Halstead-Reitan Neuropsychological Battery (HRNB) and the Luria-Nebraska Neuropsychological Battery (LNNB) are widely known examples of what type of test assortment?",
+    "choices": {
+      "A": "Flexible battery",
+      "B": "Fixed battery",
+      "C": "Customized clinical battery",
+      "D": "Unstructured analogue battery"
+    },
+    "correct_answer": "B",
+    "explanation": "A fixed battery is a set of neuropsychological tests defined within a structure, with the HRNB and LNNB being two of the most widely known examples.",
+    "tags": ["neuropsychology", "fixed-battery"]
+  },
+  {
+    "id": "RPM-AST-072",
+    "topic": "Other Measures (Careers and Business)",
+    "difficulty": "Medium",
+    "question": "Which self-administered instrument yields information about factors such as Emotional Resilience and Personal Autonomy, useful for evaluating an individual's readiness to take a job and relocate overseas?",
+    "choices": {
+      "A": "Career Transitions Inventory (CTI)",
+      "B": "Checklist of Adaptive Living Skills (CALS)",
+      "C": "Cross-Cultural Adaptability Inventory (CCAI)",
+      "D": "Minnesota Vocational Interest Inventory"
+    },
+    "correct_answer": "C",
+    "explanation": "The Cross-Cultural Adaptability Inventory (CCAI) evaluates readiness to adapt to other cultures, measuring Emotional Resilience, Personal Autonomy, etc., making it useful for overseas relocation.",
+    "tags": ["business", "ccai"]
+  },
+  {
+    "id": "RPM-AST-073",
+    "topic": "Performance Tests",
+    "difficulty": "Medium",
+    "question": "Which performance test, frequently used to assess managerial ability and organizational skills, simulates the way an executive deals with mail, memos, and directives?",
+    "choices": {
+      "A": "Leaderless group technique",
+      "B": "Minnesota Clerical Test",
+      "C": "Wonderlic Personnel Test",
+      "D": "In-basket technique"
+    },
+    "correct_answer": "D",
+    "explanation": "The in-basket technique simulates the way a manager or an executive deals with an in-basket filled with mail, memos, announcements, and directives.",
+    "tags": ["business", "in-basket"]
+  },
+  {
+    "id": "RPM-AST-074",
+    "topic": "Burnout and its measurement",
+    "difficulty": "Easy",
+    "question": "The Maslach Burnout Inventory measures burnout across three subscales: Emotional Exhaustion, Personal Accomplishment, and what third factor?",
+    "choices": {
+      "A": "Intrinsic Motivation",
+      "B": "Depersonalization",
+      "C": "Extrinsic Motivation",
+      "D": "Role Ambiguity"
+    },
+    "correct_answer": "B",
+    "explanation": "The Maslach Burnout Inventory contains 22 items divided into three subscales: Emotional Exhaustion, Depersonalization, and Personal Accomplishment.",
+    "tags": ["business", "burnout"]
+  },
+  {
+    "id": "RPM-AST-075",
+    "topic": "Motivation Research Method",
+    "difficulty": "Easy",
+    "question": "In consumer psychology, what qualitative method consists of an interview led by a trained moderator with 6 to 12 participants who are representative of a targeted consumer population?",
+    "choices": {
+      "A": "Situational performance measure",
+      "B": "Focus group",
+      "C": "Analogue study",
+      "D": "Semantic differential"
+    },
+    "correct_answer": "B",
+    "explanation": "A focus group is a group interview (usually 6 to 12 participants) led by a trained moderator to examine the reactions of representative consumers in depth.",
+    "tags": ["consumer-psychology", "focus-group"]
+  }
+]

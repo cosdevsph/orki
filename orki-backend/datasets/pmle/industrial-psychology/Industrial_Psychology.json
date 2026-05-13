@@ -1,0 +1,1127 @@
+[
+  {
+    "id": "RPM-IND-001",
+    "topic": "Industrial-Organizational Psychology Approaches",
+    "difficulty": "Medium",
+    "question": "Which approach in I-O psychology focuses on creating an organizational structure and culture that motivates employees to perform well and provides a safe working environment?",
+    "choices": {
+      "A": "Industrial approach",
+      "B": "Organizational approach",
+      "C": "Personnel approach",
+      "D": "Ergonomics approach"
+    },
+    "correct_answer": "B",
+    "explanation": "The organizational approach focuses on creating an organizational structure and culture that motivates employees and provides a safe work environment, while the industrial approach focuses on competencies, staffing, and training.",
+    "tags": ["i-o-psychology", "approaches"]
+  },
+  {
+    "id": "RPM-IND-002",
+    "topic": "History of I-O Psychology",
+    "difficulty": "Easy",
+    "question": "Who is considered the Father of Scientific Management and sought to improve industrial efficiency?",
+    "choices": {
+      "A": "Walter Dill Scott",
+      "B": "William Bryan",
+      "C": "Frederick Taylor",
+      "D": "James Cattell"
+    },
+    "correct_answer": "C",
+    "explanation": "Frederick Taylor is an engineer considered to be the Father of Scientific Management who sought to improve industrial efficiency.",
+    "tags": ["history", "scientific-management"]
+  },
+  {
+    "id": "RPM-IND-003",
+    "topic": "History of I-O Psychology",
+    "difficulty": "Easy",
+    "question": "During World War I, which intelligence test was developed to assess military recruits who could NOT read?",
+    "choices": {
+      "A": "Army Alpha",
+      "B": "Army Beta",
+      "C": "Army General Classification Test",
+      "D": "Stanford-Binet Test"
+    },
+    "correct_answer": "B",
+    "explanation": "The Army Beta was an intelligence test developed during WWI specifically for soldiers who could not read, whereas the Army Alpha was for soldiers who could read.",
+    "tags": ["history", "wwi-testing"]
+  },
+  {
+    "id": "RPM-IND-004",
+    "topic": "Research Methods",
+    "difficulty": "Medium",
+    "question": "In which research method does the experimenter either not manipulate the independent variable or not randomly assign subjects to conditions?",
+    "choices": {
+      "A": "Experimental method",
+      "B": "Archival research",
+      "C": "Meta-analysis",
+      "D": "Quasi-experiment"
+    },
+    "correct_answer": "D",
+    "explanation": "A quasi-experiment is a research method in which the experimenter either does not manipulate the independent variable or in which subjects are not randomly assigned to conditions.",
+    "tags": ["research", "methodology"]
+  },
+  {
+    "id": "RPM-IND-005",
+    "topic": "Job Analysis",
+    "difficulty": "Easy",
+    "question": "What term describes the idea that organizations tend to promote good employees until they reach their highest level of incompetence?",
+    "choices": {
+      "A": "Personpower Planning",
+      "B": "Job Crafting",
+      "C": "The Peter Principle",
+      "D": "Job Classification"
+    },
+    "correct_answer": "C",
+    "explanation": "The Peter Principle is the idea that organizations tend to promote good employees until they reach the level at which they are no longer competent.",
+    "tags": ["job-analysis", "promotion"]
+  },
+  {
+    "id": "RPM-IND-006",
+    "topic": "Job Analysis",
+    "difficulty": "Medium",
+    "question": "A process in which employees unofficially change their job duties to better fit their interests and skills is called:",
+    "choices": {
+      "A": "Job Enrichment",
+      "B": "Job Enlargement",
+      "C": "Job Rotation",
+      "D": "Job Crafting"
+    },
+    "correct_answer": "D",
+    "explanation": "Job crafting is a process where employees unofficially change their job duties to better fit their interests and skills.",
+    "tags": ["job-analysis", "job-crafting"]
+  },
+  {
+    "id": "RPM-IND-007",
+    "topic": "Job Analysis Methods",
+    "difficulty": "Hard",
+    "question": "Which job analysis method involves convening a panel of experts to identify the objectives and standards to be met by the ideal worker?",
+    "choices": {
+      "A": "Functional Job Analysis",
+      "B": "Critical Incident Technique",
+      "C": "Ammerman Technique",
+      "D": "Threshold Traits Analysis"
+    },
+    "correct_answer": "C",
+    "explanation": "The Ammerman technique is a job analysis method in which a group of job experts identifies the objectives and standards to be met by the ideal worker.",
+    "tags": ["job-analysis", "ammerman-technique"]
+  },
+  {
+    "id": "RPM-IND-008",
+    "topic": "Job Analysis Methods",
+    "difficulty": "Hard",
+    "question": "Which of the following is a 194-item structured job analysis method developed by McCormick, Jeanneret, and Mecham that measures information input, mental processes, and work output?",
+    "choices": {
+      "A": "Position Analysis Questionnaire (PAQ)",
+      "B": "Job Elements Inventory (JEI)",
+      "C": "Job Structure Profile (JSP)",
+      "D": "Fleishman Job Analysis Survey"
+    },
+    "correct_answer": "A",
+    "explanation": "The Position Analysis Questionnaire (PAQ) contains 194 items organized into dimensions like information input and mental processes, developed by McCormick, Jeanneret, and Melcham.",
+    "tags": ["job-analysis", "paq"]
+  },
+  {
+    "id": "RPM-IND-009",
+    "topic": "Competency Modeling",
+    "difficulty": "Medium",
+    "question": "How does competency modeling primarily differ from traditional job analysis?",
+    "choices": {
+      "A": "Competency modeling identifies specific and different KSAOs that distinguish jobs within the organization.",
+      "B": "Competency modeling does not try to capture organization-level values and vision.",
+      "C": "Competency modeling examines both the tasks and the human attributes needed on the job.",
+      "D": "Competency modeling links personal qualities of employees to the overall mission of the organization."
+    },
+    "correct_answer": "D",
+    "explanation": "Competency modeling links personal qualities of employees to the overall mission of the organization and identifies universal competencies, whereas job analysis focuses on specific tasks and KSAOs.",
+    "tags": ["competency-modeling", "job-analysis"]
+  },
+  {
+    "id": "RPM-IND-010",
+    "topic": "Pay Equity",
+    "difficulty": "Easy",
+    "question": "When employees perceive that they are being rewarded fairly in relation to those who perform similar jobs in another organization, it refers to:",
+    "choices": {
+      "A": "Internal Equity",
+      "B": "External Equity",
+      "C": "Compensable Factors",
+      "D": "Profit Sharing"
+    },
+    "correct_answer": "B",
+    "explanation": "External equity occurs when employees compare their job to the external market and feel rewarded fairly compared to similar jobs in other organizations.",
+    "tags": ["compensation", "equity"]
+  },
+  {
+    "id": "RPM-IND-011",
+    "topic": "Job Evaluation Methods",
+    "difficulty": "Medium",
+    "question": "In which job evaluation method are jobs expressed in terms of key factors, where prioritized points are assigned and summed up to determine the wage rate?",
+    "choices": {
+      "A": "Ranking Method",
+      "B": "Factor Compensation Method",
+      "C": "Classification Method",
+      "D": "Point Method"
+    },
+    "correct_answer": "D",
+    "explanation": "The Point Method assesses jobs in terms of key factors in which equivalent points are assigned, prioritized, and summed to determine the wage rate.",
+    "tags": ["job-evaluation", "point-method"]
+  },
+  {
+    "id": "RPM-IND-012",
+    "topic": "Alternative Dispute Resolution",
+    "difficulty": "Medium",
+    "question": "Which method of resolving conflict involves a neutral third party choosing which side is correct, but either party is still allowed to appeal the decision?",
+    "choices": {
+      "A": "Mediation",
+      "B": "Binding Arbitration",
+      "C": "Nonbinding Arbitration",
+      "D": "Grievance System"
+    },
+    "correct_answer": "C",
+    "explanation": "Nonbinding arbitration involves a neutral third party choosing which side is correct, but either party may still appeal the decision.",
+    "tags": ["legal-issues", "dispute-resolution"]
+  },
+  {
+    "id": "RPM-IND-013",
+    "topic": "Legal Issues in Selection",
+    "difficulty": "Hard",
+    "question": "An employment requirement states that only females can be hired as wet nurses. This requirement is legally defensible because it is considered a:",
+    "choices": {
+      "A": "Quid Pro Quo",
+      "B": "Bona Fide Occupational Qualification (BFOQ)",
+      "C": "Four-Fifths Rule Exemption",
+      "D": "Systemic Requirement"
+    },
+    "correct_answer": "B",
+    "explanation": "A BFOQ (Bona Fide Occupational Qualification) exists if a job can only be performed by a person in a particular class (e.g., wet nurse), making the requirement legally justifiable.",
+    "tags": ["legal-issues", "bfoq"]
+  },
+  {
+    "id": "RPM-IND-014",
+    "topic": "Sexual Harassment",
+    "difficulty": "Easy",
+    "question": "A supervisor tells an applicant that she will only be hired if she agrees to go on a date with him. What type of sexual harassment is this?",
+    "choices": {
+      "A": "Hostile Environment",
+      "B": "Harassment via Interactional Justice",
+      "C": "Quid Pro Quo",
+      "D": "Systemic Harassment"
+    },
+    "correct_answer": "C",
+    "explanation": "Quid pro quo is a type of sexual harassment in which the granting of sexual favors is directly tied to an employment decision.",
+    "tags": ["legal-issues", "harassment"]
+  },
+  {
+    "id": "RPM-IND-015",
+    "topic": "Recruitment Methods",
+    "difficulty": "Medium",
+    "question": "Why might an organization choose to use a 'Blind Box' recruitment ad?",
+    "choices": {
+      "A": "Because the organization wants to widely publicize its new brand name",
+      "B": "Because the company wants to replace a current employee while keeping it a secret",
+      "C": "Because the HR department wants applicants to reply in person",
+      "D": "Because the organization expects a massive response and wants resumes sent via email"
+    },
+    "correct_answer": "B",
+    "explanation": "A blind box ad is used when the organization does not want its name in public, fears people will not apply, or wants to secretly replace someone currently in a position.",
+    "tags": ["recruitment", "advertisement"]
+  },
+  {
+    "id": "RPM-IND-016",
+    "topic": "Recruitment Effectiveness",
+    "difficulty": "Hard",
+    "question": "Which recruitment procedure involves intentionally lowering an applicant's expectations about the various aspects of the job?",
+    "choices": {
+      "A": "Point-of-Purchase Method",
+      "B": "Expectation-Lowering Procedure (ELP)",
+      "C": "Realistic Job Preview (RJP)",
+      "D": "Applicant Diversity Procedure"
+    },
+    "correct_answer": "B",
+    "explanation": "The Expectation-Lowering Procedure (ELP) is a specific form of RJP that intentionally lowers an applicant's expectations about various aspects of the job.",
+    "tags": ["recruitment", "elp"]
+  },
+  {
+    "id": "RPM-IND-017",
+    "topic": "Employment Interviews",
+    "difficulty": "Medium",
+    "question": "Which interview style brings the applicant back a week later to interview with the vice president after initially interviewing with the HR manager?",
+    "choices": {
+      "A": "Serial Interview",
+      "B": "Serial-Panel-Group Interview",
+      "C": "Return Interview",
+      "D": "Panel Interview"
+    },
+    "correct_answer": "C",
+    "explanation": "A return interview involves an applicant being interviewed initially, then brought back at a later time (e.g., a week later) to interview with someone else.",
+    "tags": ["interviews", "types"]
+  },
+  {
+    "id": "RPM-IND-018",
+    "topic": "Interview Errors",
+    "difficulty": "Easy",
+    "question": "If an interviewer judges an applicant's performance based heavily on the performance of the previous interviewee, what type of effect is occurring?",
+    "choices": {
+      "A": "Primacy Effect",
+      "B": "Negative Information Bias",
+      "C": "Contrast Effect",
+      "D": "Similarity Bias"
+    },
+    "correct_answer": "C",
+    "explanation": "Contrast effects occur when an applicant's performance is judged in relation to the performance of the previous interviewees.",
+    "tags": ["interviews", "biases"]
+  },
+  {
+    "id": "RPM-IND-019",
+    "topic": "Types of Interview Questions",
+    "difficulty": "Easy",
+    "question": "An interviewer asks, 'Are you available to work on weekends?' Knowing that a 'No' answer will eliminate the applicant from the pool, this question is a:",
+    "choices": {
+      "A": "Skill-Level Determiner",
+      "B": "Clarifier",
+      "C": "Situational Question",
+      "D": "Disqualifier"
+    },
+    "correct_answer": "D",
+    "explanation": "Disqualifiers are questions where the wrong answer will disqualify the applicant from further consideration.",
+    "tags": ["interviews", "question-types"]
+  },
+  {
+    "id": "RPM-IND-020",
+    "topic": "Resumes",
+    "difficulty": "Medium",
+    "question": "Which type of resume combines the strengths of the chronological and functional styles by utilizing principles of memory organization and impression formation?",
+    "choices": {
+      "A": "Experiential resume",
+      "B": "Chronological resume",
+      "C": "Psychological resume",
+      "D": "Targeted resume"
+    },
+    "correct_answer": "C",
+    "explanation": "A psychological resume is based on psychological principles of memory organization and impression formation, combining the strengths of chronological and functional styles.",
+    "tags": ["selection", "resumes"]
+  },
+  {
+    "id": "RPM-IND-021",
+    "topic": "References and Recommendations",
+    "difficulty": "Medium",
+    "question": "If an organization hires an applicant without checking their references and background, and the employee later commits a crime at work, the company could be sued for:",
+    "choices": {
+      "A": "Adverse Impact",
+      "B": "Constructive Discharge",
+      "C": "Negligent Hiring",
+      "D": "Defamation"
+    },
+    "correct_answer": "C",
+    "explanation": "Negligent hiring occurs when an organization hires an applicant without checking references and background, potentially endangering others.",
+    "tags": ["selection", "references"]
+  },
+  {
+    "id": "RPM-IND-022",
+    "topic": "Applicant Testing",
+    "difficulty": "Hard",
+    "question": "Tests that include finger dexterity, manual dexterity, and response control are classified as:",
+    "choices": {
+      "A": "Cognitive ability tests",
+      "B": "Perceptual ability tests",
+      "C": "Psychomotor ability tests",
+      "D": "Physical ability tests"
+    },
+    "correct_answer": "C",
+    "explanation": "Psychomotor ability includes finger dexterity, manual dexterity, control precision, reaction time, etc.",
+    "tags": ["selection", "testing"]
+  },
+  {
+    "id": "RPM-IND-023",
+    "topic": "Applicant Testing",
+    "difficulty": "Medium",
+    "question": "An applicant participates in several job-related activities, including a simulation, and is rated by several trained evaluators. This method is called:",
+    "choices": {
+      "A": "Work sample",
+      "B": "Assessment center",
+      "C": "Biodata",
+      "D": "Experience rating"
+    },
+    "correct_answer": "B",
+    "explanation": "An assessment center is a method of selecting employees where applicants participate in job-related activities (including a simulation) and are rated by multiple trained evaluators.",
+    "tags": ["selection", "assessment-center"]
+  },
+  {
+    "id": "RPM-IND-024",
+    "topic": "Performance Evaluation Methods",
+    "difficulty": "Hard",
+    "question": "Which performance evaluation method forces the rater to distribute employees across all points on a scale, assuming performance conforms to a normal distribution?",
+    "choices": {
+      "A": "Forced Choice Method",
+      "B": "Behaviorally Anchored Rating Scales",
+      "C": "Forced Distribution Method",
+      "D": "Checklist"
+    },
+    "correct_answer": "C",
+    "explanation": "The Forced Distribution Method compels the rater to distribute employees on all points on the scale, assuming performance is conformed to a normal distribution.",
+    "tags": ["performance-appraisal", "methods"]
+  },
+  {
+    "id": "RPM-IND-025",
+    "topic": "Performance Evaluation Methods",
+    "difficulty": "Easy",
+    "question": "Which technique relies on a systematic collection of performance data on an individual from supervisors, team members, customers, peers, and the self?",
+    "choices": {
+      "A": "Critical Incidents Method",
+      "B": "360-Degree Feedback",
+      "C": "Assessment Centers",
+      "D": "Psychological Appraisals"
+    },
+    "correct_answer": "B",
+    "explanation": "360-Degree Feedback involves systematically collecting performance data from a number of stakeholders like supervisors, peers, customers, and the self.",
+    "tags": ["performance-appraisal", "360-degree"]
+  },
+  {
+    "id": "RPM-IND-026",
+    "topic": "Performance Appraisal Processes",
+    "difficulty": "Medium",
+    "question": "According to Patricia King, a legally valid performance review process must NOT be biased against any race, color, sex, religion, or nationality, and should be based on:",
+    "choices": {
+      "A": "A thorough analysis of the job",
+      "B": "Only objective performance metrics",
+      "C": "Supervisor intuition",
+      "D": "Employee self-evaluation exclusively"
+    },
+    "correct_answer": "A",
+    "explanation": "Patricia King states the law requires performance appraisals to be job-related and valid, based on a thorough analysis of the job.",
+    "tags": ["performance-appraisal", "legal"]
+  },
+  {
+    "id": "RPM-IND-027",
+    "topic": "Evaluating Selection Techniques",
+    "difficulty": "Medium",
+    "question": "The extent to which two forms of the same test are constructed similarly and uses counterbalancing refers to:",
+    "choices": {
+      "A": "Internal Reliability",
+      "B": "Test-Retest Reliability",
+      "C": "Scorer Reliability",
+      "D": "Alternate-Forms Reliability"
+    },
+    "correct_answer": "D",
+    "explanation": "Alternate-Forms Reliability is the extent to which two forms of the same test are constructed similarly and uses counterbalancing.",
+    "tags": ["testing", "reliability"]
+  },
+  {
+    "id": "RPM-IND-028",
+    "topic": "Determining Training Needs",
+    "difficulty": "Medium",
+    "question": "Which component of a training needs assessment determines if the organization has the financial means and employee willingness to conduct training?",
+    "choices": {
+      "A": "Person Analysis",
+      "B": "Task Analysis",
+      "C": "Organizational Analysis",
+      "D": "Needs Assessment Matrix"
+    },
+    "correct_answer": "C",
+    "explanation": "An organizational analysis establishes if the organization is ready for training by looking at goals, finances, physical space, and employee willingness.",
+    "tags": ["training", "needs-analysis"]
+  },
+  {
+    "id": "RPM-IND-029",
+    "topic": "Training Methods",
+    "difficulty": "Easy",
+    "question": "Which of the following is a training technique where employees observe a correct behavior, practice that behavior, and then receive feedback on their performance?",
+    "choices": {
+      "A": "Role-play",
+      "B": "Behavior modeling",
+      "C": "Living Case",
+      "D": "Programmed Instruction"
+    },
+    "correct_answer": "B",
+    "explanation": "Behavior modeling is a training technique in which employees observe correct behavior, practice it, and receive feedback.",
+    "tags": ["training", "methods"]
+  },
+  {
+    "id": "RPM-IND-030",
+    "topic": "Delivering Training",
+    "difficulty": "Medium",
+    "question": "A schedule where training is spaced out over several days rather than being concentrated into one short period is known as:",
+    "choices": {
+      "A": "Massed Practice",
+      "B": "Overlearning",
+      "C": "Programmed Instruction",
+      "D": "Distributed Practice"
+    },
+    "correct_answer": "D",
+    "explanation": "Distributed practice involves distributing the reading/learning over several days, making material easier to learn compared to massed practice.",
+    "tags": ["training", "delivery"]
+  },
+  {
+    "id": "RPM-IND-031",
+    "topic": "Distance Learning",
+    "difficulty": "Medium",
+    "question": "A non-interactive training method in which the trainer transmits training information over the Internet is called a:",
+    "choices": {
+      "A": "Webinar",
+      "B": "Webcast",
+      "C": "Blog",
+      "D": "Programmed Video"
+    },
+    "correct_answer": "B",
+    "explanation": "A webcast is a non-interactive training method transmitted over the internet, distinct from a webinar which is interactive.",
+    "tags": ["training", "distance-learning"]
+  },
+  {
+    "id": "RPM-IND-032",
+    "topic": "On-The-Job Training",
+    "difficulty": "Easy",
+    "question": "Which on-the-job training method involves teaching employees how to perform tasks traditionally performed by other employees?",
+    "choices": {
+      "A": "Mentoring",
+      "B": "Cross-Training",
+      "C": "Apprentice Training",
+      "D": "Coaching"
+    },
+    "correct_answer": "B",
+    "explanation": "Cross-training is teaching employees how to perform tasks traditionally performed by other employees.",
+    "tags": ["training", "on-the-job"]
+  },
+  {
+    "id": "RPM-IND-033",
+    "topic": "Evaluating Training Results",
+    "difficulty": "Hard",
+    "question": "Which rigorous research design for evaluating training effectiveness utilizes pretests, posttests, and control groups?",
+    "choices": {
+      "A": "Correlational Design",
+      "B": "Quasi-experimental Design",
+      "C": "Solomon Four-Groups Design",
+      "D": "Posttest Only Design"
+    },
+    "correct_answer": "C",
+    "explanation": "The Solomon Four-Groups Design is an extensive method of evaluating the effectiveness of training using pretests, posttests, and control groups.",
+    "tags": ["training", "evaluation"]
+  },
+  {
+    "id": "RPM-IND-034",
+    "topic": "Evaluating Training Results",
+    "difficulty": "Medium",
+    "question": "What level of training evaluation measures the amount of money an organization makes after subtracting the cost of the training?",
+    "choices": {
+      "A": "Application of Training",
+      "B": "Business Impact",
+      "C": "Return on Investment (ROI)",
+      "D": "Content Validity"
+    },
+    "correct_answer": "C",
+    "explanation": "Return on Investment (ROI) is the amount of money an organization makes after subtracting the cost of training or other interventions.",
+    "tags": ["training", "roi"]
+  },
+  {
+    "id": "RPM-IND-035",
+    "topic": "Employee Motivation",
+    "difficulty": "Medium",
+    "question": "According to Korman's Consistency Theory, an employee's performance is positively correlated with their:",
+    "choices": {
+      "A": "Conscientiousness",
+      "B": "Self-esteem",
+      "C": "Need for power",
+      "D": "Internal locus of control"
+    },
+    "correct_answer": "B",
+    "explanation": "Consistency Theory (Korman) states there is a positive correlation between self-esteem and performance; employees try to perform at levels consistent with their self-esteem.",
+    "tags": ["motivation", "theories"]
+  },
+  {
+    "id": "RPM-IND-036",
+    "topic": "Employee Motivation",
+    "difficulty": "Hard",
+    "question": "The concept that high self-expectations result in higher levels of performance is known as the:",
+    "choices": {
+      "A": "Golem effect",
+      "B": "Pygmalion effect",
+      "C": "Galatea effect",
+      "D": "Hawthorne effect"
+    },
+    "correct_answer": "C",
+    "explanation": "The Galatea effect is the relationship between an individual's self-expectations and their performance, where high self-expectations lead to higher performance.",
+    "tags": ["motivation", "self-fulfilling-prophecy"]
+  },
+  {
+    "id": "RPM-IND-037",
+    "topic": "Motivation Needs",
+    "difficulty": "Easy",
+    "question": "In Alderfer's ERG theory, the three levels of needs are:",
+    "choices": {
+      "A": "Existence, Relatedness, Growth",
+      "B": "Esteem, Reward, Goal",
+      "C": "Expectancy, Relevance, Growth",
+      "D": "Ego, Respect, Generativity"
+    },
+    "correct_answer": "A",
+    "explanation": "ERG Theory (Alderfer) has three levels: existence, relatedness, and growth.",
+    "tags": ["motivation", "erg"]
+  },
+  {
+    "id": "RPM-IND-038",
+    "topic": "Two-Factor Theory",
+    "difficulty": "Medium",
+    "question": "According to Herzberg's Two-Factor Theory, pay and benefits are considered:",
+    "choices": {
+      "A": "Motivators",
+      "B": "Hygiene Factors",
+      "C": "Self-Actualization Factors",
+      "D": "Intrinsic Factors"
+    },
+    "correct_answer": "B",
+    "explanation": "Hygiene factors are job-related elements that result from but do not involve the job itself, such as pay and benefits.",
+    "tags": ["motivation", "herzberg"]
+  },
+  {
+    "id": "RPM-IND-039",
+    "topic": "Goal Setting Theory",
+    "difficulty": "Medium",
+    "question": "Setting goals that are too difficult to be accomplished not only decreases performance but also increases:",
+    "choices": {
+      "A": "Extraversion",
+      "B": "Unethical behavior",
+      "C": "Affective commitment",
+      "D": "Organizational citizenship behavior"
+    },
+    "correct_answer": "B",
+    "explanation": "Properly set goals are difficult but attainable. Setting goals that are too difficult decreases performance and increases unethical behavior.",
+    "tags": ["motivation", "goal-setting"]
+  },
+  {
+    "id": "RPM-IND-040",
+    "topic": "Motivation and Reinforcement",
+    "difficulty": "Hard",
+    "question": "Constructing a 'reinforcement hierarchy' to determine individualized incentives is the primary method used in which principle?",
+    "choices": {
+      "A": "Expectancy Theory",
+      "B": "Premack Principle",
+      "C": "Operant Conditioning",
+      "D": "Goal-setting Theory"
+    },
+    "correct_answer": "B",
+    "explanation": "The Premack Principle involves constructing a reinforcement hierarchy to provide incentives that meet the individual needs of each employee based on their relative preferences.",
+    "tags": ["motivation", "premack-principle"]
+  },
+  {
+    "id": "RPM-IND-041",
+    "topic": "Group Incentive Plans",
+    "difficulty": "Easy",
+    "question": "A group incentive system in which employees are paid a bonus based on improvements in group productivity is called:",
+    "choices": {
+      "A": "Merit Pay",
+      "B": "Profit Sharing",
+      "C": "Gainsharing",
+      "D": "Stock Options"
+    },
+    "correct_answer": "C",
+    "explanation": "Gainsharing is a group incentive system where employees receive a bonus based on improvements in group productivity.",
+    "tags": ["compensation", "incentives"]
+  },
+  {
+    "id": "RPM-IND-042",
+    "topic": "Expectancy Theory",
+    "difficulty": "Medium",
+    "question": "In Vroom's Expectancy Theory, the extent to which an employee values a particular consequence is termed:",
+    "choices": {
+      "A": "Expectancy",
+      "B": "Instrumentality",
+      "C": "Valence",
+      "D": "Input/Output Ratio"
+    },
+    "correct_answer": "C",
+    "explanation": "Valence is the extent to which an employee values a particular consequence.",
+    "tags": ["motivation", "expectancy-theory"]
+  },
+  {
+    "id": "RPM-IND-043",
+    "topic": "Organizational Commitment",
+    "difficulty": "Easy",
+    "question": "Which type of organizational commitment is based on an employee's belief that they must remain with the organization due to the time, expense, and effort they have already invested?",
+    "choices": {
+      "A": "Affective Commitment",
+      "B": "Continuance Commitment",
+      "C": "Normative Commitment",
+      "D": "Instrumental Commitment"
+    },
+    "correct_answer": "B",
+    "explanation": "Continuance commitment occurs when an employee believes she must remain with the organization due to the time, expense, and effort already put into it.",
+    "tags": ["job-satisfaction", "commitment"]
+  },
+  {
+    "id": "RPM-IND-044",
+    "topic": "Job Design",
+    "difficulty": "Medium",
+    "question": "A system in which employees are given more responsibility over the tasks and decisions related to their job is called:",
+    "choices": {
+      "A": "Job Rotation",
+      "B": "Job Enlargement",
+      "C": "Task Enlargement",
+      "D": "Job Enrichment"
+    },
+    "correct_answer": "D",
+    "explanation": "Job Enrichment gives employees more responsibility over the tasks and decisions related to their job, making it more satisfying according to Hackman and Oldham.",
+    "tags": ["job-design", "enrichment"]
+  },
+  {
+    "id": "RPM-IND-045",
+    "topic": "Organizational Justice",
+    "difficulty": "Easy",
+    "question": "The perceived fairness of the methods used to arrive at a decision within an organization is known as:",
+    "choices": {
+      "A": "Distributive Justice",
+      "B": "Interactional Justice",
+      "C": "Procedural Justice",
+      "D": "Restorative Justice"
+    },
+    "correct_answer": "C",
+    "explanation": "Procedural justice is the perceived fairness of the methods used to arrive at a decision.",
+    "tags": ["job-satisfaction", "justice"]
+  },
+  {
+    "id": "RPM-IND-046",
+    "topic": "Job Satisfaction Measures",
+    "difficulty": "Hard",
+    "question": "Which widely used job satisfaction scale contains 72 job-related adjectives and statements that yield scores on supervision, pay, promotional opportunities, coworkers, and the work itself?",
+    "choices": {
+      "A": "Faces Scale",
+      "B": "Minnesota Satisfaction Questionnaire (MSQ)",
+      "C": "Job Descriptive Index (JDI)",
+      "D": "Job in General (JIG) Scale"
+    },
+    "correct_answer": "C",
+    "explanation": "The Job Descriptive Index (JDI) by Smith, Kendall, and Hulin (1969) consists of 72 items evaluating five dimensions of job satisfaction.",
+    "tags": ["job-satisfaction", "measurement"]
+  },
+  {
+    "id": "RPM-IND-047",
+    "topic": "Absenteeism",
+    "difficulty": "Medium",
+    "question": "Which of the following absence control methods involves employees being paid for their unused sick leave?",
+    "choices": {
+      "A": "Well Pay",
+      "B": "Paid-Leave Bank (PLB)",
+      "C": "Shifting Service",
+      "D": "Games"
+    },
+    "correct_answer": "A",
+    "explanation": "Well pay is a financial incentive where employees are paid for their unused sick leave to reward attendance.",
+    "tags": ["absenteeism", "interventions"]
+  },
+  {
+    "id": "RPM-IND-048",
+    "topic": "Turnover",
+    "difficulty": "Easy",
+    "question": "When an employee leaves a job due to unbearable conflict with a supervisor or coworker, this reason for turnover falls under the category of:",
+    "choices": {
+      "A": "Unavoidable reasons",
+      "B": "Escape",
+      "C": "Unmet expectations",
+      "D": "Unmet needs"
+    },
+    "correct_answer": "B",
+    "explanation": "Escape refers to leaving an organization because conflict with a supervisor, coworker, or customers becomes unbearable.",
+    "tags": ["turnover", "reasons"]
+  },
+  {
+    "id": "RPM-IND-049",
+    "topic": "Leadership Motivation",
+    "difficulty": "Hard",
+    "question": "According to Chan and Drasgow's aspects of motivation to lead, a person who seeks leadership out of a sense of responsibility is exhibiting:",
+    "choices": {
+      "A": "Affective Identity Motivation",
+      "B": "Non-calculative motivation",
+      "C": "Social-normative motivation",
+      "D": "Self-monitoring motivation"
+    },
+    "correct_answer": "C",
+    "explanation": "Social-normative motivation is seeking leadership out of a sense of responsibility.",
+    "tags": ["leadership", "motivation-to-lead"]
+  },
+  {
+    "id": "RPM-IND-050",
+    "topic": "Leadership Needs",
+    "difficulty": "Medium",
+    "question": "A leader who is concerned more with achieving results than being liked demonstrates a high:",
+    "choices": {
+      "A": "Need for Power",
+      "B": "Need for Affiliation",
+      "C": "Need for Achievement",
+      "D": "Need for Self-monitoring"
+    },
+    "correct_answer": "C",
+    "explanation": "Need for achievement implies that an effective leader should be concerned more with results than being liked.",
+    "tags": ["leadership", "needs"]
+  },
+  {
+    "id": "RPM-IND-051",
+    "topic": "Leadership Measurement",
+    "difficulty": "Hard",
+    "question": "Which test is used to measure a leader's self-perception of their leadership style, separating task from person orientation?",
+    "choices": {
+      "A": "Leader Behavior Description Questionnaire (LBDQ)",
+      "B": "Least-Preferred Coworker (LPC) Scale",
+      "C": "Leadership Opinion Questionnaire (LOQ)",
+      "D": "Job Choice Exercise (JCE)"
+    },
+    "correct_answer": "C",
+    "explanation": "The Leadership Opinion Questionnaire (LOQ) measures a leader's self-perception of their style, while the LBDQ measures subordinates' perceptions.",
+    "tags": ["leadership", "testing"]
+  },
+  {
+    "id": "RPM-IND-052",
+    "topic": "Situational Leadership",
+    "difficulty": "Medium",
+    "question": "According to Fiedler's Contingency Model, which variable measures the extent to which a leader has the authority to reward and punish subordinates?",
+    "choices": {
+      "A": "Task structuredness",
+      "B": "Leader-member relations",
+      "C": "Leader position power",
+      "D": "Least-Preferred Coworker"
+    },
+    "correct_answer": "C",
+    "explanation": "Leader position power is the extent to which a leader, by the nature of their position, has the power to reward and punish subordinates.",
+    "tags": ["leadership", "fiedler"]
+  },
+  {
+    "id": "RPM-IND-053",
+    "topic": "IMPACT Theory of Leadership",
+    "difficulty": "Hard",
+    "question": "Under IMPACT theory, a leader using the 'Magnetic style' who influences via a charismatic personality is most effective in which organizational climate?",
+    "choices": {
+      "A": "Climate of Ignorance",
+      "B": "Climate of Despair",
+      "C": "Climate of Instability",
+      "D": "Climate of Anxiety"
+    },
+    "correct_answer": "B",
+    "explanation": "The Magnetic style is most effective in a Climate of Despair, which is characterized by low morale.",
+    "tags": ["leadership", "impact-theory"]
+  },
+  {
+    "id": "RPM-IND-054",
+    "topic": "Path-Goal Theory",
+    "difficulty": "Medium",
+    "question": "Which behavioral leadership style in Path-Goal Theory involves a leader planning and organizing the activities of the employees?",
+    "choices": {
+      "A": "Instrumental style",
+      "B": "Supportive style",
+      "C": "Participative style",
+      "D": "Achievement-oriented style"
+    },
+    "correct_answer": "A",
+    "explanation": "In the Instrumental style, the leader plans and organizes the activities of the employees.",
+    "tags": ["leadership", "path-goal"]
+  },
+  {
+    "id": "RPM-IND-055",
+    "topic": "Leader-Member Exchange (LMX) Theory",
+    "difficulty": "Easy",
+    "question": "LMX theory focuses on the different relationships leaders develop with subordinates. Subordinates who have a low-quality relationship with the leader fall into the:",
+    "choices": {
+      "A": "Out-group",
+      "B": "In-group",
+      "C": "Nominal group",
+      "D": "Distal group"
+    },
+    "correct_answer": "A",
+    "explanation": "Subordinates characterized by a low-quality relationship with the leader fall into the Out-group.",
+    "tags": ["leadership", "lmx"]
+  },
+  {
+    "id": "RPM-IND-056",
+    "topic": "Vroom-Yetton Model",
+    "difficulty": "Hard",
+    "question": "Which decision-making strategy in the Vroom-Yetton Model involves the leader sharing the problem with the group as a whole, then making a decision that may or may not match the group's thinking?",
+    "choices": {
+      "A": "Autocratic II strategy",
+      "B": "Consultative I strategy",
+      "C": "Consultative II strategy",
+      "D": "Group I strategy"
+    },
+    "correct_answer": "C",
+    "explanation": "In Consultative II, leaders share the problem with the group as a whole and then make a decision that may or may not be consistent with the group's thinking.",
+    "tags": ["leadership", "decision-making"]
+  },
+  {
+    "id": "RPM-IND-057",
+    "topic": "Leadership Power",
+    "difficulty": "Easy",
+    "question": "According to French and Raven, power that individuals possess because of their knowledge is known as:",
+    "choices": {
+      "A": "Legitimate power",
+      "B": "Referent power",
+      "C": "Coercive power",
+      "D": "Expert power"
+    },
+    "correct_answer": "D",
+    "explanation": "Expert power is the power that individuals have because they have knowledge.",
+    "tags": ["leadership", "power"]
+  },
+  {
+    "id": "RPM-IND-058",
+    "topic": "Transformational Leadership",
+    "difficulty": "Medium",
+    "question": "Which dimension of transformational leadership refers to leaders who encourage change and open thinking, challenging the status quo?",
+    "choices": {
+      "A": "Idealized influence",
+      "B": "Intellectual stimulation",
+      "C": "Individual consideration",
+      "D": "Content reward"
+    },
+    "correct_answer": "B",
+    "explanation": "Intellectual stimulation refers to leaders who encourage change, open thinking, challenge the status quo, and appreciate diversity.",
+    "tags": ["leadership", "transformational"]
+  },
+  {
+    "id": "RPM-IND-059",
+    "topic": "Group Dynamics",
+    "difficulty": "Hard",
+    "question": "For a collection of people to be defined as a group according to Gordon (2001), what condition specifies that an event affecting one member must affect all members?",
+    "choices": {
+      "A": "Group Rewards",
+      "B": "Multiple Members",
+      "C": "Corresponding Effects",
+      "D": "Common Goals"
+    },
+    "correct_answer": "C",
+    "explanation": "Corresponding effects means that anything that happens to one member of the group affects every other member.",
+    "tags": ["groups", "definitions"]
+  },
+  {
+    "id": "RPM-IND-060",
+    "topic": "Group Performance",
+    "difficulty": "Medium",
+    "question": "A task where the group's performance depends on its least effective member is known as a:",
+    "choices": {
+      "A": "Additive task",
+      "B": "Disjunctive task",
+      "C": "Interacting task",
+      "D": "Conjunctive task"
+    },
+    "correct_answer": "D",
+    "explanation": "Conjunctive tasks are those where the group's performance depends on the least effective group member.",
+    "tags": ["groups", "tasks"]
+  },
+  {
+    "id": "RPM-IND-061",
+    "topic": "Social Facilitation",
+    "difficulty": "Medium",
+    "question": "The idea that an individual performs a task better or worse in the presence of others due to concern over being judged is called:",
+    "choices": {
+      "A": "Coaction effect",
+      "B": "Evaluation apprehension",
+      "C": "Mere presence",
+      "D": "Social loafing"
+    },
+    "correct_answer": "B",
+    "explanation": "Evaluation apprehension is the idea that a person performing a task becomes aroused because they are concerned that others are evaluating their performance.",
+    "tags": ["groups", "social-facilitation"]
+  },
+  {
+    "id": "RPM-IND-062",
+    "topic": "Group Roles",
+    "difficulty": "Easy",
+    "question": "Behaviors such as offering new ideas, coordinating activities, and finding new information are classified under which type of group role?",
+    "choices": {
+      "A": "Social-oriented roles",
+      "B": "Individual roles",
+      "C": "Task-oriented roles",
+      "D": "Accommodating roles"
+    },
+    "correct_answer": "C",
+    "explanation": "Task-oriented roles involve behaviors such as offering new ideas, coordinating activities, and finding new information.",
+    "tags": ["groups", "roles"]
+  },
+  {
+    "id": "RPM-IND-063",
+    "topic": "Team Types",
+    "difficulty": "Medium",
+    "question": "Which type of team consists of representatives from various departments within an organization and is also known as a cross-functional team?",
+    "choices": {
+      "A": "Work team",
+      "B": "Parallel team",
+      "C": "Project team",
+      "D": "Management team"
+    },
+    "correct_answer": "B",
+    "explanation": "Parallel teams, also called cross-functional teams, consist of representatives from various departments (functions) within an organization.",
+    "tags": ["teams", "types"]
+  },
+  {
+    "id": "RPM-IND-064",
+    "topic": "Team Development",
+    "difficulty": "Easy",
+    "question": "In which stage of team development do members begin to disagree with one another, challenge each other's ideas, and show frustration with their roles?",
+    "choices": {
+      "A": "Forming Stage",
+      "B": "Norming Stage",
+      "C": "Storming Stage",
+      "D": "Performing Stage"
+    },
+    "correct_answer": "C",
+    "explanation": "The Storming stage is when good behavior disappears, members become frustrated, and they begin to disagree and challenge each other's ideas.",
+    "tags": ["teams", "development"]
+  },
+  {
+    "id": "RPM-IND-065",
+    "topic": "Conflict Causes",
+    "difficulty": "Medium",
+    "question": "Conflict arising because the completion of a task by one person affects the completion of a task by another person is attributed to:",
+    "choices": {
+      "A": "Competition for resources",
+      "B": "Jurisdictional Ambiguity",
+      "C": "Task interdependence",
+      "D": "Psychological barriers"
+    },
+    "correct_answer": "C",
+    "explanation": "Task interdependence is a potential source of conflict that arises when the completion of a task by one person affects the completion of a task by another.",
+    "tags": ["conflict", "causes"]
+  },
+  {
+    "id": "RPM-IND-066",
+    "topic": "Conflict Styles",
+    "difficulty": "Hard",
+    "question": "Which conflict resolution style occurs when an employee discusses a conflict with a third party hoping it resolves without having to meet the other party directly?",
+    "choices": {
+      "A": "Accommodating",
+      "B": "Triangling",
+      "C": "Forcing",
+      "D": "Compromising"
+    },
+    "correct_answer": "B",
+    "explanation": "Triangling is a form of avoidance that occurs when an employee discusses the conflict with a third party instead of the person they have a conflict with.",
+    "tags": ["conflict", "styles"]
+  },
+  {
+    "id": "RPM-IND-067",
+    "topic": "Managing Change",
+    "difficulty": "Medium",
+    "question": "In organizational change, an organization-wide attempt to get rid of practices that serve no useful purpose, such as unnecessary paperwork, is called a:",
+    "choices": {
+      "A": "Sacred Cow Hunt",
+      "B": "Refreezing Stage",
+      "C": "Needs Assessment",
+      "D": "Gainsharing procedure"
+    },
+    "correct_answer": "A",
+    "explanation": "A sacred cow hunt is an attempt to get rid of practices that serve no useful purpose, such as a 'Paper Cow' (unnecessary paperwork).",
+    "tags": ["organizational-development", "change"]
+  },
+  {
+    "id": "RPM-IND-068",
+    "topic": "Employee Acceptance of Change",
+    "difficulty": "Medium",
+    "question": "In the stages of organizational change, during which stage do employees test the new system, learn how it functions, and begin to adjust their performance?",
+    "choices": {
+      "A": "Defense",
+      "B": "Discarding",
+      "C": "Adaptation",
+      "D": "Internalization"
+    },
+    "correct_answer": "C",
+    "explanation": "During the Adaptation stage, employees test the new system, learn how it functions, and make adjustments.",
+    "tags": ["organizational-development", "stages"]
+  },
+  {
+    "id": "RPM-IND-069",
+    "topic": "Organizational Culture",
+    "difficulty": "Easy",
+    "question": "Procedures in which employees participate to become 'one of the gang,' such as annual awards or staff picnics, are called:",
+    "choices": {
+      "A": "Symbols",
+      "B": "Rituals",
+      "C": "Normative tasks",
+      "D": "Socializations"
+    },
+    "correct_answer": "B",
+    "explanation": "Rituals are procedures in which employees participate to become “one of the gang,” like banquets or picnics.",
+    "tags": ["culture", "rituals"]
+  },
+  {
+    "id": "RPM-IND-070",
+    "topic": "Flexible Work Arrangements",
+    "difficulty": "Medium",
+    "question": "In a flextime schedule, what are the hours during which every employee must physically be at work?",
+    "choices": {
+      "A": "Gliding time",
+      "B": "Bandwidth",
+      "C": "Core hours",
+      "D": "Flexitour"
+    },
+    "correct_answer": "C",
+    "explanation": "Core hours are the hours in a flextime schedule during which every employee must work.",
+    "tags": ["flexible-work", "flextime"]
+  },
+  {
+    "id": "RPM-IND-071",
+    "topic": "Stress Responses",
+    "difficulty": "Easy",
+    "question": "Stress that results in positive energy and improvements in performance and health is called:",
+    "choices": {
+      "A": "Distress",
+      "B": "Eustress",
+      "C": "Neuroticism",
+      "D": "Sensitization"
+    },
+    "correct_answer": "B",
+    "explanation": "Eustress is stress that results in positive energy and improvements in performance and health.",
+    "tags": ["stress", "eustress"]
+  },
+  {
+    "id": "RPM-IND-072",
+    "topic": "Job Characteristics and Stress",
+    "difficulty": "Medium",
+    "question": "Which job characteristic causes stress when an employee’s roles and expectations are unclear?",
+    "choices": {
+      "A": "Role conflict",
+      "B": "Role ambiguity",
+      "C": "Role overload",
+      "D": "Role distance"
+    },
+    "correct_answer": "B",
+    "explanation": "Role ambiguity is the extent to which an employee's roles and expectations are unclear.",
+    "tags": ["stress", "job-characteristics"]
+  },
+  {
+    "id": "RPM-IND-073",
+    "topic": "Physical Work Environment",
+    "difficulty": "Medium",
+    "question": "High levels of noise in the workplace are more likely to decrease which aspect of performance?",
+    "choices": {
+      "A": "Quantity of performance",
+      "B": "Visual perception tasks",
+      "C": "Quality of performance",
+      "D": "Simple repetitive physical tasks"
+    },
+    "correct_answer": "C",
+    "explanation": "Noise is more likely to decrease the quality of performance rather than its quantity, especially on cognitive tasks.",
+    "tags": ["stress", "noise"]
+  },
+  {
+    "id": "RPM-IND-074",
+    "topic": "Workplace Violence",
+    "difficulty": "Hard",
+    "question": "Employees who 'go crazy' and shoot people, giving indications that they are going to commit future violence, are referred to as:",
+    "choices": {
+      "A": "Psychopaths",
+      "B": "Free-riders",
+      "C": "Berserkers",
+      "D": "Out-groups"
+    },
+    "correct_answer": "C",
+    "explanation": "Berserkers are employees who “go crazy” and shoot people, giving indications that they are going to commit future violence.",
+    "tags": ["workplace-violence", "berserkers"]
+  },
+  {
+    "id": "RPM-IND-075",
+    "topic": "Working Conditions and Ergonomics",
+    "difficulty": "Medium",
+    "question": "Carpal tunnel syndrome and tendonitis are examples of injuries caused by physical stress placed on tendons and nerves. These are categorized as:",
+    "choices": {
+      "A": "Gastrointestinal disorders",
+      "B": "Repetitive-stress injuries (RSIs)",
+      "C": "Circadian rhythm disruptions",
+      "D": "Somatic symptom disorders"
+    },
+    "correct_answer": "B",
+    "explanation": "RSIs (or cumulative trauma disorders) like carpal tunnel syndrome are the result of physical stress placed on tendons and nerves from repetitive motion.",
+    "tags": ["ergonomics", "rsi"]
+  }
+]

@@ -1,82 +1,261 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
-import type { MockExamQuestion } from "@/entities/exams/types";
+import type { FirestoreQuestion } from "@/entities/exams/types";
+import { ExitConfirmationModal } from "@/components/ui/exit-confirmation-modal";
+import { useExamStore } from "@/features/exam/store";
+import { useAuth } from "@/hooks/useAuth";
+import { useExamQuestions } from "@/hooks/useExamQuestions";
+import {
+  createExamSession,
+  deleteExamSession,
+  getExamSession,
+  saveAnalytics,
+  saveExamAttempt,
+  updateExamSession,
+} from "@/shared/firebase/firestore";
 
-// ─── Mock Data for demo (replace with API calls) ─────────────────────────────
+// ─── Local-storage key helper ─────────────────────────────────────────────────
 
-const MOCK_QUESTIONS: MockExamQuestion[] = Array.from({ length: 50 }, (_, i) => ({
-  id: i + 1,
-  question_text: [
-    "During cellular respiration, which of the following stages is primarily responsible for the generation of the largest amount of ATP, and where does this process physically occur within a eukaryotic cell?",
-    "Which of the following best describes the concept of judicial review in the Philippine legal system?",
-    "If the sequence 3, 9, 27, 81, ... continues, what is the 8th term?",
-    "In educational psychology, which learning theory emphasizes that knowledge is constructed through social interaction?",
-    "What is the primary function of the mitochondria in a cell?",
-    "Which amendment to the Philippine Constitution guarantees the right to free speech?",
-    "If a train travels 120 km in 2 hours, what is its average speed?",
-    "Which of the following is a characteristic of effective classroom management?",
-    "The process by which plants convert sunlight into chemical energy is called:",
-    "In Filipino grammar, which part of speech modifies a noun?",
-  ][i % 10],
-  question_type: "multiple_choice" as const,
-  category: ["General Information", "Applied Mathematics", "Logical Reasoning", "Reading Comprehension", "Science"][i % 5],
-  option_a: ["Glycolysis; occurring in the cytoplasm", "The power of courts to declare laws unconstitutional", "6,561", "Social Constructivism", "Energy production (ATP synthesis)"][i % 5],
-  option_b: ["Electron Transport Chain (Oxidative Phosphorylation); occurring across the inner mitochondrial membrane", "The power of the president to veto laws", "2,187", "Behaviorism", "Protein synthesis"][i % 5],
-  option_c: ["Krebs Cycle (Citric Acid Cycle); occurring in the mitochondrial matrix", "The power of Congress to impeach officials", "19,683", "Cognitivism", "Cell division"][i % 5],
-  option_d: ["Fermentation; occurring in the cytoplasm", "The power of the judiciary to interpret treaties", "59,049", "Connectivism", "Waste removal"][i % 5],
-  order: i + 1,
-}));
+function sessionStorageKey(examType: string, subject: string) {
+  return `orki_session_${examType}_${subject}`;
+}
 
-const EXAM_TITLE = "Biology 101: Cellular Metabolism";
-const EXAM_DURATION = 120; // minutes
+// ─── Loading / Error screens ──────────────────────────────────────────────────
+
+function LoadingScreen() {
+  return (
+    <div className="flex min-h-screen items-center justify-center" style={{ background: "var(--background)" }}>
+      <div className="h-7 w-7 animate-spin rounded-full border-2 border-border border-t-primary" />
+    </div>
+  );
+}
+
+function ErrorScreen({ message }: { message: string }) {
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center gap-3" style={{ background: "var(--background)" }}>
+      <svg width="40" height="40" viewBox="0 0 22 22" fill="none" className="text-muted/40">
+        <circle cx="11" cy="11" r="8.25" stroke="currentColor" strokeWidth="1.6" />
+        <path d="M11 7.333v4.584M11 13.75v.917" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      </svg>
+      <p className="text-sm text-muted">{message}</p>
+    </div>
+  );
+}
+
+// ─── Pause Overlay ────────────────────────────────────────────────────────────
+
+function PauseOverlay({ onResume }: { onResume: () => void }) {
+  return (
+    <div className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-6 bg-background/90 backdrop-blur-md">
+      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+        <svg width="28" height="28" viewBox="0 0 22 22" fill="none" className="text-primary">
+          <rect x="5.5" y="3.667" width="3.667" height="14.667" rx="1.2" fill="currentColor" />
+          <rect x="12.833" y="3.667" width="3.667" height="14.667" rx="1.2" fill="currentColor" />
+        </svg>
+      </div>
+      <div className="space-y-1 text-center">
+        <h2 className="font-heading text-2xl font-bold text-foreground">Exam Paused</h2>
+        <p className="text-sm text-muted">Your progress has been saved. Resume whenever you&apos;re ready.</p>
+      </div>
+      <button
+        type="button"
+        onClick={onResume}
+        className="flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-sm font-bold text-white transition-all hover:bg-primary/90"
+      >
+        <svg width="14" height="14" viewBox="0 0 22 22" fill="none">
+          <path d="M8.25 5.5 16.5 11l-8.25 5.5V5.5Z" fill="currentColor" />
+        </svg>
+        Resume Exam
+      </button>
+    </div>
+  );
+}
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ExamTakePage() {
-  const params = useParams();
+  const searchParams = useSearchParams();
   const router = useRouter();
-  const examId = Number(params.id);
+  const { user } = useAuth();
 
-  const [currentQ, setCurrentQ] = useState(0);
-  const [answers, setAnswers] = useState<Record<number, string>>({});
-  const [marked, setMarked] = useState<Set<number>>(new Set());
-  const [timeLeft, setTimeLeft] = useState(EXAM_DURATION * 60); // seconds
-  const [submitted, setSubmitted] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  // Route params: /exams/[id]/take?subject=English&exam_type=LEPT
+  const subject = searchParams.get("subject") ?? "";
+  const examType = searchParams.get("exam_type") ?? user?.exam_type ?? "";
 
-  // Timer
+  const { questions, loading, error } = useExamQuestions(examType || null, subject || null);
+
+  // ─── Zustand store ───────────────────────────────────────────────────────────
+  const {
+    sessionId,
+    answers,
+    correct,
+    wrong,
+    currentIndex,
+    elapsedTime,
+    status,
+    initSession,
+    recordAnswer,
+    setCurrentIndex,
+    tick,
+    pause,
+    resume,
+    complete,
+    resetSession,
+  } = useExamStore();
+
+  // ─── Local UI state ──────────────────────────────────────────────────────────
+  const [marked, setMarked] = useState<Set<string>>(new Set());
+  const [submitting, setSubmitting] = useState(false);
+  const [showExitModal, setShowExitModal] = useState(false);
+  /** Gate to prevent double-initialisation of the Firestore session. */
+  const [sessionReady, setSessionReady] = useState(false);
+
+  // ─── Refs ────────────────────────────────────────────────────────────────────
+  const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // ─── Derived values ──────────────────────────────────────────────────────────
+  const total = questions.length;
+  const question: FirestoreQuestion | undefined = questions[currentIndex];
+  const progress = total > 0 ? ((currentIndex + 1) / total) * 100 : 0;
+  const unanswered = total - Object.keys(answers).length;
+
+  // ─── Timer: elapsed seconds, counts up ──────────────────────────────────────
   useEffect(() => {
-    timerRef.current = setInterval(() => {
-      setTimeLeft((t) => {
-        if (t <= 1) {
-          clearInterval(timerRef.current!);
-          return 0;
-        }
-        return t - 1;
-      });
-    }, 1000);
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, []);
+    if (status !== "active") return;
+    const interval = setInterval(() => tick(), 1000);
+    return () => clearInterval(interval);
+  }, [status, tick]);
 
-  const formatTime = useCallback((secs: number) => {
+  // ─── Periodic autosave every 30 s ────────────────────────────────────────────
+  useEffect(() => {
+    if (status !== "active" || !sessionId) return;
+    const interval = setInterval(() => void flushSession(), 30_000);
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [status, sessionId]);
+
+  // ─── Session init / restore when questions load ──────────────────────────────
+  useEffect(() => {
+    if (loading || questions.length === 0 || sessionReady || !examType || !subject) return;
+
+    const storageKey = sessionStorageKey(examType, subject);
+    const existingId = localStorage.getItem(storageKey);
+
+    async function init() {
+      if (existingId && user?.id) {
+        try {
+          const session = await getExamSession(existingId);
+          if (session && session.status !== "completed") {
+            // Recompute tallies from saved answers to ensure consistency
+            let restoredCorrect = 0;
+            let restoredWrong = 0;
+            for (const [qId, ans] of Object.entries(session.answers)) {
+              const q = questions.find((q) => q.id === qId);
+              if (q) {
+                if (ans === q.correct_answer) restoredCorrect++;
+                else restoredWrong++;
+              }
+            }
+            initSession(session.id, examType, subject, {
+              answers: session.answers,
+              correct: restoredCorrect,
+              wrong: restoredWrong,
+              currentIndex: session.current_index,
+              elapsedTime: session.elapsed_time,
+            });
+            setSessionReady(true);
+            return;
+          }
+        } catch {
+          // Fall through — create a fresh session
+        }
+      }
+      await createFreshSession();
+    }
+
+    void init();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading, questions.length, sessionReady, examType, subject, user?.id]);
+
+  // ─── Navigation guard (browser close / hard refresh) ─────────────────────────
+  useEffect(() => {
+    const guard = (e: BeforeUnloadEvent) => {
+      if (status === "active" || status === "paused") {
+        e.preventDefault();
+        e.returnValue = "";
+      }
+    };
+    window.addEventListener("beforeunload", guard);
+    return () => window.removeEventListener("beforeunload", guard);
+  }, [status]);
+
+  // ─── Firestore helpers ────────────────────────────────────────────────────────
+
+  async function createFreshSession() {
+    let newId = "local";
+    if (user?.id) {
+      try {
+        newId = await createExamSession(String(user.id), {
+          exam_type: examType,
+          subject,
+          answers: {},
+          correct: 0,
+          wrong: 0,
+          current_index: 0,
+          elapsed_time: 0,
+          status: "active",
+        });
+        localStorage.setItem(sessionStorageKey(examType, subject), newId);
+      } catch {
+        // Offline — continue with local-only session
+      }
+    }
+    initSession(newId, examType, subject);
+    setSessionReady(true);
+  }
+
+  function flushSession(overrideStatus?: "active" | "paused" | "completed") {
+    const s = useExamStore.getState();
+    if (!s.sessionId || s.sessionId === "local" || !user?.id) return Promise.resolve();
+    return updateExamSession(s.sessionId, {
+      answers: s.answers,
+      correct: s.correct,
+      wrong: s.wrong,
+      current_index: s.currentIndex,
+      elapsed_time: s.elapsedTime,
+      status: overrideStatus ?? (s.status === "idle" ? "active" : (s.status === "completed" ? "completed" : s.status)),
+    }).catch(() => { /* best-effort */ });
+  }
+
+  function scheduleSave() {
+    if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
+    saveTimeoutRef.current = setTimeout(() => void flushSession(), 3_000);
+  }
+
+  // ─── Format elapsed timer ─────────────────────────────────────────────────────
+
+  const formatElapsed = useCallback((secs: number) => {
     const h = Math.floor(secs / 3600);
     const m = Math.floor((secs % 3600) / 60);
     const s = secs % 60;
     return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
   }, []);
 
-  const question = MOCK_QUESTIONS[currentQ];
-  const total = MOCK_QUESTIONS.length;
-  const progress = ((currentQ + 1) / total) * 100;
+  // ─── Actions ──────────────────────────────────────────────────────────────────
 
-  function selectAnswer(letter: string) {
-    setAnswers((prev) => ({ ...prev, [question.id]: letter }));
+  function selectAnswer(letter: "A" | "B" | "C" | "D") {
+    if (!question) return;
+    const prevAnswer = answers[question.id];
+    const prevWasCorrect = prevAnswer !== undefined ? prevAnswer === question.correct_answer : undefined;
+    recordAnswer(question.id, letter, letter === question.correct_answer, prevWasCorrect);
+    scheduleSave();
   }
 
   function toggleMark() {
+    if (!question) return;
     setMarked((prev) => {
       const next = new Set(prev);
       if (next.has(question.id)) next.delete(question.id);
@@ -85,59 +264,230 @@ export default function ExamTakePage() {
     });
   }
 
-  function handleSubmit() {
-    if (timerRef.current) clearInterval(timerRef.current);
-    setSubmitted(true);
-    // In production: submitExamAttempt(attemptId, EXAM_DURATION * 60 - timeLeft)
-    // Navigate to results
-    router.push(`/exams/results/${examId}`);
+  async function handlePause() {
+    pause();
+    await flushSession("paused");
   }
 
-  const options = [
-    { letter: "A", text: question.option_a },
-    { letter: "B", text: question.option_b },
-    { letter: "C", text: question.option_c },
-    { letter: "D", text: question.option_d },
-  ].filter((o) => o.text);
+  function handleResume() {
+    resume();
+  }
+
+  async function handleRestart() {
+    if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
+    if (sessionId && sessionId !== "local" && user?.id) {
+      await deleteExamSession(sessionId).catch(() => {});
+    }
+    localStorage.removeItem(sessionStorageKey(examType, subject));
+    resetSession();
+    setMarked(new Set());
+    setSessionReady(false);
+    // sessionReady → false will re-trigger the init effect → createFreshSession
+  }
+
+  async function saveAndLeave() {
+    if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
+    await flushSession("paused");
+    pause();
+    router.push("/dashboard");
+  }
+
+  async function handleSubmit() {
+    if (submitting) return;
+    if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
+    setSubmitting(true);
+    complete();
+
+    const totalCorrect = questions.filter((q) => answers[q.id] === q.correct_answer).length;
+    const totalWrong = total - totalCorrect - unanswered;
+    const score = total > 0 ? Math.round((totalCorrect / total) * 100) : 0;
+
+    try {
+      if (user?.id) {
+        const attemptId = await saveExamAttempt(String(user.id), {
+          exam_type: examType,
+          subject,
+          score,
+          total_correct: totalCorrect,
+          total_questions: total,
+          time_spent_seconds: elapsedTime,
+          answers,
+        });
+
+        await saveAnalytics(String(user.id), {
+          exam_type: examType,
+          subject,
+          score,
+          correct: totalCorrect,
+          wrong: totalWrong,
+          total,
+          percentage: score,
+          time_taken: elapsedTime,
+        }).catch(() => {});
+
+        if (sessionId && sessionId !== "local") {
+          await deleteExamSession(sessionId).catch(() => {});
+        }
+        localStorage.removeItem(sessionStorageKey(examType, subject));
+
+        router.push(`/exams/results/${attemptId}`);
+        return;
+      }
+    } catch {
+      // Fall through
+    }
+
+    router.push("/exams/results/local");
+  }
+
+  // ─── Options ──────────────────────────────────────────────────────────────────
+
+  const options: { letter: "A" | "B" | "C" | "D"; text: string }[] = question
+    ? (
+        [
+          { letter: "A" as const, text: question.choices.A },
+          { letter: "B" as const, text: question.choices.B },
+          { letter: "C" as const, text: question.choices.C },
+          { letter: "D" as const, text: question.choices.D },
+        ] as { letter: "A" | "B" | "C" | "D"; text: string }[]
+      ).filter((o) => o.text)
+    : [];
+
+  // ─── Guards ───────────────────────────────────────────────────────────────────
+
+  if (loading || !sessionReady) return <LoadingScreen />;
+  if (error) return <ErrorScreen message={error} />;
+  if (questions.length === 0) return <ErrorScreen message="No questions found for this subject." />;
+
+  // ─── Render ───────────────────────────────────────────────────────────────────
 
   return (
     <div className="min-h-screen flex flex-col" style={{ background: "var(--background)" }}>
+      {/* Pause overlay — hides question content while paused */}
+      {status === "paused" && <PauseOverlay onResume={handleResume} />}
+
+      {/* Exit confirmation modal */}
+      {showExitModal && (
+        <ExitConfirmationModal
+          onConfirm={() => { setShowExitModal(false); void saveAndLeave(); }}
+          onCancel={() => setShowExitModal(false)}
+        />
+      )}
+
       {/* Header bar */}
       <header className="sticky top-0 z-20 border-b border-border/30 bg-nav-bg backdrop-blur-sm">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-3">
-          <div className="flex items-center gap-3">
-            <svg width="20" height="20" viewBox="0 0 22 22" fill="none" className="text-primary">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-3">
+
+          {/* Left: exam info + live score */}
+          <div className="flex items-start gap-3">
+            <svg width="20" height="20" viewBox="0 0 22 22" fill="none" className="mt-0.5 shrink-0 text-primary">
               <rect x="3.667" y="2.75" width="14.667" height="16.5" rx="2.2" stroke="currentColor" strokeWidth="1.6" />
               <path d="M7.333 7.333h7.334M7.333 11h7.334" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
             </svg>
             <div>
-              <p className="text-sm font-bold text-foreground">{EXAM_TITLE}</p>
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-muted">Midterm Examination</p>
+              <p className="text-sm font-bold text-foreground">{subject} Exam</p>
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-muted">{examType}</p>
+              {/* Live score indicator */}
+              <div className="mt-1 flex items-center gap-3 text-[11px] font-semibold">
+                <span className="flex items-center gap-1 text-emerald-600">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
+                    <path d="M3 7l2.5 2.5L11 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  {correct}
+                </span>
+                <span className="flex items-center gap-1 text-red-500">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
+                    <path d="M4 4l6 6M10 4l-6 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                  </svg>
+                  {wrong}
+                </span>
+                <span className="text-muted">{unanswered} left</span>
+              </div>
             </div>
           </div>
 
-          {/* Timer */}
-          <div className="flex items-center gap-2 rounded-full bg-surface px-4 py-2">
-            <svg width="16" height="16" viewBox="0 0 22 22" fill="none" className="text-muted">
-              <circle cx="11" cy="11" r="8.25" stroke="currentColor" strokeWidth="1.6" />
-              <path d="M11 6.875V11l2.75 2.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <span className={`font-heading text-lg font-bold tabular-nums ${timeLeft < 300 ? "text-red-500" : "text-foreground"}`}>
-              {formatTime(timeLeft)}
-            </span>
+          {/* Center: elapsed timer + pause/resume */}
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 rounded-full bg-surface px-4 py-2">
+              <svg width="15" height="15" viewBox="0 0 22 22" fill="none" className="text-muted">
+                <circle cx="11" cy="11" r="8.25" stroke="currentColor" strokeWidth="1.6" />
+                <path d="M11 6.875V11l2.75 2.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span className="font-heading text-lg font-bold tabular-nums text-foreground">
+                {formatElapsed(elapsedTime)}
+              </span>
+            </div>
+
+            {status === "active" ? (
+              <button
+                type="button"
+                onClick={() => void handlePause()}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-surface transition-all hover:bg-black/8"
+                title="Pause exam"
+              >
+                <svg width="14" height="14" viewBox="0 0 22 22" fill="none" className="text-foreground">
+                  <rect x="5.5" y="3.667" width="3.667" height="14.667" rx="1.2" fill="currentColor" />
+                  <rect x="12.833" y="3.667" width="3.667" height="14.667" rx="1.2" fill="currentColor" />
+                </svg>
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={handleResume}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 transition-all hover:bg-primary/20"
+                title="Resume exam"
+              >
+                <svg width="14" height="14" viewBox="0 0 22 22" fill="none" className="text-primary">
+                  <path d="M8.25 5.5 16.5 11l-8.25 5.5V5.5Z" fill="currentColor" />
+                </svg>
+              </button>
+            )}
           </div>
 
-          {/* Submit */}
-          <button
-            type="button"
-            onClick={handleSubmit}
-            className="flex items-center gap-2 rounded-xl border border-border/60 bg-card-bg px-5 py-2 text-sm font-semibold text-foreground transition-all hover:bg-foreground hover:text-background"
-          >
-            Submit Exam
-            <svg width="14" height="14" viewBox="0 0 22 22" fill="none">
-              <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
+          {/* Right: restart + exit + submit */}
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => void handleRestart()}
+              className="flex items-center gap-1.5 rounded-xl border border-border/60 bg-card-bg px-3 py-2 text-xs font-semibold text-muted transition-all hover:text-foreground hover:border-border"
+              title="Restart exam"
+            >
+              <svg width="13" height="13" viewBox="0 0 22 22" fill="none">
+                <path d="M3.667 11A7.333 7.333 0 1 1 11 18.333" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                <path d="M3.667 15.583V11h4.583" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Restart
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setShowExitModal(true)}
+              className="flex items-center gap-1.5 rounded-xl border border-border/60 bg-card-bg px-3 py-2 text-xs font-semibold text-muted transition-all hover:text-foreground hover:border-border"
+              title="Exit exam"
+            >
+              <svg width="13" height="13" viewBox="0 0 22 22" fill="none">
+                <path d="M8.25 3.667H4.583A1.833 1.833 0 0 0 2.75 5.5v11a1.833 1.833 0 0 0 1.833 1.833H8.25" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                <path d="M14.667 15.583 19.25 11l-4.583-4.583M19.25 11H8.25" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Exit
+            </button>
+
+            <button
+              type="button"
+              onClick={() => void handleSubmit()}
+              disabled={submitting}
+              className="flex items-center gap-2 rounded-xl border border-border/60 bg-card-bg px-5 py-2 text-sm font-semibold text-foreground transition-all hover:bg-foreground hover:text-background disabled:opacity-50"
+            >
+              {submitting ? (
+                <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-muted/30 border-t-foreground" />
+              ) : (
+                <svg width="14" height="14" viewBox="0 0 22 22" fill="none">
+                  <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              )}
+              Submit
+            </button>
+          </div>
         </div>
       </header>
 
@@ -146,10 +496,10 @@ export default function ExamTakePage() {
         {/* Question meta */}
         <div className="flex items-center justify-between mb-4">
           <span className="text-sm font-semibold text-muted">
-            Question {currentQ + 1} of {total}
+            Question {currentIndex + 1} of {total}
           </span>
           <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-            Multiple Choice
+            {question?.topic ?? "Multiple Choice"}
           </span>
         </div>
 
@@ -158,15 +508,15 @@ export default function ExamTakePage() {
           <div className="h-full rounded-full bg-primary transition-all duration-500" style={{ width: `${progress}%` }} />
         </div>
 
-        {/* Unified Question Card */}
+        {/* Question Card */}
         <div className="glass-strong rounded-[2.5rem] p-8 md:p-10 mb-6 bg-card-bg shadow-sm border border-border/60">
           <p className="font-heading text-[1.35rem] font-bold leading-relaxed text-foreground mb-8">
-            {question.question_text}
+            {question?.question}
           </p>
 
           <div className="space-y-3 mb-8">
             {options.map((opt) => {
-              const isSelected = answers[question.id] === opt.letter;
+              const isSelected = question && answers[question.id] === opt.letter;
               return (
                 <button
                   key={opt.letter}
@@ -180,9 +530,7 @@ export default function ExamTakePage() {
                 >
                   <span
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold transition-colors ${
-                      isSelected
-                        ? "bg-primary text-white"
-                        : "bg-track text-muted"
+                      isSelected ? "bg-primary text-white" : "bg-track text-muted"
                     }`}
                   >
                     {opt.letter}
@@ -200,10 +548,10 @@ export default function ExamTakePage() {
               type="button"
               onClick={toggleMark}
               className={`flex items-center gap-2 text-sm font-semibold transition-colors ${
-                marked.has(question.id) ? "text-amber-600" : "text-muted hover:text-foreground"
+                question && marked.has(question.id) ? "text-amber-600" : "text-muted hover:text-foreground"
               }`}
             >
-              <svg width="14" height="14" viewBox="0 0 22 22" fill={marked.has(question.id) ? "currentColor" : "none"}>
+              <svg width="14" height="14" viewBox="0 0 22 22" fill={question && marked.has(question.id) ? "currentColor" : "none"}>
                 <path d="M5.5 3.667h11v14.666L11 14.667l-5.5 3.666V3.667Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
               </svg>
               Mark for Review
@@ -218,8 +566,8 @@ export default function ExamTakePage() {
           {/* Previous */}
           <button
             type="button"
-            onClick={() => setCurrentQ((q) => Math.max(0, q - 1))}
-            disabled={currentQ === 0}
+            onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))}
+            disabled={currentIndex === 0}
             className="flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-primary/80 disabled:text-muted disabled:cursor-not-allowed"
           >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -230,8 +578,8 @@ export default function ExamTakePage() {
 
           {/* Question navigator */}
           <div className="flex flex-wrap items-center gap-1.5 max-w-xl justify-center">
-            {MOCK_QUESTIONS.map((q, i) => {
-              const isActive = i === currentQ;
+            {questions.map((q, i) => {
+              const isActive = i === currentIndex;
               const isAnswered = !!answers[q.id];
               const isMarked = marked.has(q.id);
 
@@ -244,7 +592,7 @@ export default function ExamTakePage() {
                 <button
                   key={q.id}
                   type="button"
-                  onClick={() => setCurrentQ(i)}
+                  onClick={() => setCurrentIndex(i)}
                   className={`h-7 w-7 rounded-md text-[10px] font-bold transition-all ${bg}`}
                 >
                   {i + 1}
@@ -256,8 +604,8 @@ export default function ExamTakePage() {
           {/* Next */}
           <button
             type="button"
-            onClick={() => setCurrentQ((q) => Math.min(total - 1, q + 1))}
-            disabled={currentQ === total - 1}
+            onClick={() => setCurrentIndex(Math.min(total - 1, currentIndex + 1))}
+            disabled={currentIndex === total - 1}
             className="flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary/90 disabled:opacity-50"
           >
             Next
@@ -270,3 +618,4 @@ export default function ExamTakePage() {
     </div>
   );
 }
+

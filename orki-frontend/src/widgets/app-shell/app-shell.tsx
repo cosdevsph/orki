@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 import { useAuth } from "@/hooks/useAuth";
 import { BottomDock } from "@/widgets/navigation/bottom-dock";
@@ -32,6 +33,9 @@ type AppShellProps = {
 
 export function AppShell({ children }: AppShellProps) {
   const { user } = useAuth();
+  const pathname = usePathname();
+  // Hide bottom navigation during an active exam session
+  const isExamTakePage = /^\/exams\/[^/]+\/take(\?.*)?$/.test(pathname);
 
   return (
     <div className="ambient-bg min-h-screen text-foreground transition-colors duration-300">
@@ -56,7 +60,7 @@ export function AppShell({ children }: AppShellProps) {
       <main className="mx-auto w-full max-w-6xl px-6 pt-4 pb-32">
         {children}
       </main>
-      <BottomDock />
+      {!isExamTakePage && <BottomDock />}
     </div>
   );
 }

@@ -1,18 +1,17 @@
 /**
- * Firebase CLIENT — minimal initialisation.
+ * Firebase CLIENT — initialisation for Auth + Firestore.
  *
- * This file exists solely to provide the Firebase Auth instance needed for
- * client-side OAuth flows (Google Sign-In popup, email/password sign-in).
+ * Auth:      Used for OAuth/email sign-in; ID token is exchanged with Django
+ *            for a secure server session cookie.
+ * Firestore: Single source of truth for exam questions, subjects, and
+ *            exam-attempt analytics.  Django handles user auth state only.
  *
- * ALL auth-state management, user profiles, and onboarding data are handled
- * by the Django backend.  Firestore is NOT used from the frontend.
- *
- * Firebase web API keys are designed to be public (they identify the project,
- * not grant admin access).  Backend secrets (service account) never leave the
- * server.
+ * Firebase web API keys are public by design (they identify the project,
+ * not grant admin access).  Service-account secrets never leave the server.
  */
 import { getApp, getApps, initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 import { env } from "@/shared/config/env";
 
@@ -27,8 +26,11 @@ const firebaseConfig = {
 
 const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 
-/** Firebase Auth instance — used ONLY to perform the initial sign-in and
- *  retrieve a short-lived ID token that is immediately exchanged with the
- *  backend for a secure server session. */
+/** Firebase Auth instance — used to perform the initial sign-in and retrieve
+ *  the ID token that is exchanged with Django for a secure session cookie. */
 export const auth = getAuth(app);
+
+/** Firestore database — single source of truth for subjects, questions, and
+ *  exam-attempt analytics. */
+export const db = getFirestore(app);
 

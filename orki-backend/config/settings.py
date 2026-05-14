@@ -24,7 +24,14 @@ SECRET_KEY = os.environ.get(
 
 DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1,.onrender.com").split(",")
+# Bulletproof ALLOWED_HOSTS: strip accidental http/https prefixes and force core domains
+_env_hosts = os.environ.get("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
+ALLOWED_HOSTS = [h.replace("http://", "").replace("https://", "").strip() for h in _env_hosts if h]
+ALLOWED_HOSTS.extend([".onrender.com", "orki.cosedevs.com", "localhost", "127.0.0.1"])
+ALLOWED_HOSTS = list(set(ALLOWED_HOSTS))
+
+# Trust Render's load balancer to tell us if the request was HTTPS
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # ─── Applications ─────────────────────────────────────────────────────────────
 

@@ -31,7 +31,6 @@ class LoginSerializer(serializers.Serializer):
     """Accepts the Firebase ID token produced by the client-side SDK."""
 
     id_token = serializers.CharField(
-        max_length=4096,
         write_only=True,
         help_text="Firebase ID token from the client-side sign-in.",
     )

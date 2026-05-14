@@ -4,6 +4,7 @@
 .env
 .env.*
 *.env
+.env.local
 .env.example
 
 # ==============================
@@ -11,36 +12,121 @@
 # ==============================
 .DS_Store
 Thumbs.db
+.AppleDouble
+.LSOverride
+*.swp
+*.swo
+*~
 
 # ==============================
-# IDE
+# IDE & Editors
 # ==============================
 .vscode/
 .idea/
+.vs/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
 
 # ==============================
-# Logs
+# Logs & Debug
 # ==============================
 *.log
+*.log.*
+logs/
+debug/
 
 # ==============================
-# Node (fallback)
+# Backend (Python/Django)
 # ==============================
-node_modules/
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+.virtualenv
+pip-log.txt
+pip-delete-this-directory.txt
 
-# ==============================
-# Python (fallback)
-# ==============================
+# Python cache
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+*.pyc
+local_settings.py
 
 # ==============================
-# Secrets (Extra Protection)
+# Frontend (Node/Next.js)
+# ==============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.eslintcache
+
+# Next.js
+.next/
+out/
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+
+# ==============================
+# Secrets & Credentials
 # ==============================
 *.pem
 *.key
 *.crt
 *.p12
+*.pfx
+*.jks
+*.keystore
 
-# Firebase
+# Firebase & Google Cloud
 *serviceAccount*.json
+*-firebase-adminsdk-*.json
+firebase-key.json
+google-cloud-key.json
+
+# ==============================
+# Build & Dist
+# ==============================
+dist/
+build/
+.turbo/
+.cache/
+.nuxt/
+
+# ==============================
+# OS & System
+# ==============================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

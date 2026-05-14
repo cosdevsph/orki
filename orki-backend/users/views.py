@@ -1,16 +1,21 @@
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
+from django.utils import timezone
 from rest_framework import status
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
+import logging
 
 from core.permissions import IsSessionAuthenticated
 from core.throttling import AuthRateThrottle
 from services.firebase.verify_token import FirebaseTokenError, verify_firebase_token
+from services.paymongo import PayMongoService, PayMongoError, WebhookVerificationError, WebhookHandler
 
-from .models import UserProfile
-from .serializers import LoginSerializer, OnboardingSerializer, UserProfileSerializer
+from .models import UserProfile, Subscription
+from .serializers import LoginSerializer, OnboardingSerializer, UserProfileSerializer, SubscriptionSerializer, CheckoutResponseSerializer
+
+logger = logging.getLogger(__name__)
 
 
 # ─── CSRF Primer ──────────────────────────────────────────────────────────────
@@ -195,3 +200,180 @@ class OnboardingView(APIView):
             },
             status=status.HTTP_200_OK,
         )
+
+
+# ─── Subscription & Payments ──────────────────────────────────────────────────
+
+class SubscriptionStatusView(APIView):
+    """
+    GET /api/v1/users/subscription/
+    ==============================
+    Returns detailed subscription status for the authenticated user.
+    Frontend uses this to determine UI state (lock/unlock exams & flashcards).
+    
+    Response:
+    {
+        "status": "active|no_subscription|expired|cancelled",
+        "is_active": true/false,
+        "plan": "Orki Basic ₱49",
+        "payment_methods_allowed": ["GCash", "Maya", "Card", "QRPh"],
+        "expires_at": "2026-06-14T10:30:00Z",
+        "days_remaining": 30
+    }
+    """
+    permission_classes = [IsSessionAuthenticated]
+
+    def get(self, request):
+        subscription, _ = Subscription.objects.get_or_create(user=request.user_profile)
+        
+        # Calculate days remaining
+        days_remaining = None
+        if subscription.expiry_date:
+            delta = subscription.expiry_date - timezone.now()
+            days_remaining = max(0, delta.days)
+        
+        response_data = {
+            "status": subscription.status,
+            "is_active": subscription.is_active,
+            "plan": subscription.plan_name,
+            "payment_methods_allowed": ["GCash", "Maya", "Card", "QRPh"],
+            "expires_at": subscription.expiry_date.isoformat() if subscription.expiry_date else None,
+            "days_remaining": days_remaining,
+            "payment_method": subscription.payment_method if subscription.payment_method != "unknown" else None,
+        }
+        
+        return Response(response_data, status=status.HTTP_200_OK)
+
+
+class CreateCheckoutView(APIView):
+    """
+    POST /api/v1/payments/checkout/
+    ===============================
+    Create a PayMongo checkout session for subscription payment.
+    
+    Supports payment methods: GCash, Maya, Card, QRPh
+    
+    Request:
+    {
+        "payment_methods": ["gcash", "paymaya", "card", "qrph"]  # optional
+    }
+    
+    Response:
+    {
+        "checkout_url": "https://checkout.paymongo.com/...",
+        "reference_id": "cs_xxxxxxx"
+    }
+    
+    Frontend redirects user to checkout_url. After payment, PayMongo
+    redirects back and webhook confirms payment.
+    """
+    permission_classes = [IsSessionAuthenticated]
+
+    def post(self, request):
+        user_profile = request.user_profile
+        
+        try:
+            # Get or create subscription
+            subscription, created = Subscription.objects.get_or_create(user=user_profile)
+            
+            if created:
+                logger.info(f"✓ Created new subscription for user {user_profile.id}")
+            
+            # Check if already active subscriber
+            if subscription.is_active:
+                logger.warning(f"⚠ User {user_profile.id} attempted checkout while already subscribed")
+                return Response(
+                    {"detail": "You already have an active subscription."},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            
+            # Get payment methods from request (optional)
+            payment_methods = request.data.get("payment_methods")
+            
+            logger.info(f"📲 Creating checkout for user {user_profile.id} ({user_profile.email})")
+            
+            # Create PayMongo checkout
+            checkout = PayMongoService.create_checkout(
+                user_id=user_profile.id,
+                user_email=user_profile.email,
+                payment_methods=payment_methods,
+            )
+            
+            # Store checkout reference in subscription
+            subscription.paymongo_checkout_id = checkout["reference_id"]
+            subscription.save(update_fields=["paymongo_checkout_id", "updated_at"])
+            
+            logger.info(f"✓ Checkout created: {checkout['reference_id']}")
+            
+            response = CheckoutResponseSerializer(checkout)
+            return Response(response.data, status=status.HTTP_200_OK)
+
+        except PayMongoError as e:
+            logger.error(f"✗ PayMongo error: {str(e)}")
+            return Response(
+                {"detail": f"Payment service error: {str(e)}"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        except Exception as e:
+            logger.error(f"✗ Unexpected error: {str(e)}")
+            return Response(
+                {"detail": "Failed to create checkout session"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
+
+
+@method_decorator(csrf_exempt, name="dispatch")
+class PayMongoWebhookView(APIView):
+    """
+    POST /api/v1/payments/webhook/
+    ==============================
+    CRITICAL: PayMongo webhook endpoint for payment confirmation.
+    
+    This is the ONLY source of truth for payment confirmation.
+    
+    Security:
+    - Verifies webhook signature (HMAC-SHA256)
+    - Prevents duplicate processing (idempotency check)
+    - Updates subscription to ACTIVE when payment confirmed
+    
+    PayMongo will POST webhook events here.
+    Required header: X-Paymongo-Signature
+    
+    Only processes: checkout_session.payment.paid
+    """
+    permission_classes = [AllowAny]  # Webhook must be accessible without auth
+
+    def post(self, request):
+        """Handle PayMongo webhook event."""
+        request_body = request.body
+        
+        if not request_body:
+            logger.error("Empty webhook request body")
+            return Response(
+                {"error": "Empty request body"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        
+        try:
+            # Process webhook
+            result = WebhookHandler.process_webhook(request_body, "")
+            logger.info(f"Webhook processed successfully: {result['message']}")
+            
+            return Response(
+                result,
+                status=status.HTTP_200_OK,
+            )
+        
+        except WebhookVerificationError as e:
+            logger.error(f"Webhook verification failed: {str(e)}")
+            return Response(
+                {"error": "Webhook verification failed"},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
+        
+        except Exception as e:
+            logger.error(f"Webhook processing error: {str(e)}", exc_info=True)
+            return Response(
+                {"error": f"Webhook processing error: {str(e)}"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )

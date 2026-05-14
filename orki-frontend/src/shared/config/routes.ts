@@ -10,6 +10,7 @@ export const routes = {
   examResults: (attemptId: number) => `/exams/results/${attemptId}` as const,
   flashcards: "/flashcards",
   profile: "/profile",
+  subscribe: "/subscribe",
 } as const;
 
 export type AppRoute = (typeof routes)[keyof typeof routes];

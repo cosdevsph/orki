@@ -3,7 +3,7 @@ from rest_framework import status as http_status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from core.permissions import IsSessionAuthenticated
+from core.permissions import IsSessionAuthenticated, IsSubscriber
 
 from .models import Exam, ExamAnswer, ExamAttempt, MockExam, MockExamQuestion
 from .serializers import (
@@ -20,9 +20,11 @@ class ExamListView(APIView):
     """
     GET  /api/v1/exams/  — List all exams for the authenticated user.
     POST /api/v1/exams/  — Create a new exam.
+    
+    PREMIUM FEATURE: Requires active subscription
     """
 
-    permission_classes = [IsSessionAuthenticated]
+    permission_classes = [IsSessionAuthenticated, IsSubscriber]
 
     def get(self, request):
         exams = Exam.objects.filter(user=request.user_profile)
@@ -39,9 +41,11 @@ class ExamDetailView(APIView):
     """
     GET   /api/v1/exams/<pk>/  — Retrieve a single exam.
     PATCH /api/v1/exams/<pk>/  — Update exam status / score.
+    
+    PREMIUM FEATURE: Requires active subscription
     """
 
-    permission_classes = [IsSessionAuthenticated]
+    permission_classes = [IsSessionAuthenticated, IsSubscriber]
 
     def _get_exam(self, pk, user_profile):
         try:
@@ -82,9 +86,10 @@ class MockExamCatalogView(APIView):
     GET /api/v1/exams/catalog/
     Returns the list of available mock exams filtered by the user's exam type
     (unless an explicit ?category= override is provided).
+    Requires active subscription.
     """
 
-    permission_classes = [IsSessionAuthenticated]
+    permission_classes = [IsSessionAuthenticated, IsSubscriber]
 
     def get(self, request):
         exams = MockExam.objects.filter(is_active=True)
@@ -119,9 +124,10 @@ class MockExamDetailView(APIView):
     """
     GET /api/v1/exams/catalog/<pk>/
     Returns a mock exam with all questions (for exam taking).
+    Requires active subscription.
     """
 
-    permission_classes = [IsSessionAuthenticated]
+    permission_classes = [IsSessionAuthenticated, IsSubscriber]
 
     def get(self, request, pk):
         try:
@@ -137,9 +143,10 @@ class ExamAttemptStartView(APIView):
     """
     POST /api/v1/exams/catalog/<pk>/start/
     Start a new exam attempt.
+    Requires active subscription.
     """
 
-    permission_classes = [IsSessionAuthenticated]
+    permission_classes = [IsSessionAuthenticated, IsSubscriber]
 
     def post(self, request, pk):
         try:
@@ -170,9 +177,10 @@ class ExamAttemptAnswerView(APIView):
     POST /api/v1/exams/attempts/<attempt_pk>/answer/
     Save or update an answer for a question.
     Expects: { question: int, selected_answer: str, is_marked: bool }
+    Requires active subscription.
     """
 
-    permission_classes = [IsSessionAuthenticated]
+    permission_classes = [IsSessionAuthenticated, IsSubscriber]
 
     def post(self, request, attempt_pk):
         try:
@@ -217,9 +225,10 @@ class ExamAttemptSubmitView(APIView):
     """
     POST /api/v1/exams/attempts/<attempt_pk>/submit/
     Submit the exam attempt, calculate score.
+    Requires active subscription.
     """
 
-    permission_classes = [IsSessionAuthenticated]
+    permission_classes = [IsSessionAuthenticated, IsSubscriber]
 
     def post(self, request, attempt_pk):
         try:
@@ -260,9 +269,11 @@ class ExamAttemptResultView(APIView):
     """
     GET /api/v1/exams/attempts/<attempt_pk>/results/
     Get detailed results including questions, answers, and performance by category.
+    
+    PREMIUM FEATURE: Requires active subscription
     """
 
-    permission_classes = [IsSessionAuthenticated]
+    permission_classes = [IsSessionAuthenticated, IsSubscriber]
 
     def get(self, request, attempt_pk):
         try:

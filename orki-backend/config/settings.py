@@ -150,6 +150,7 @@ _CORS_ORIGINS = list({
     _FRONTEND_URL,
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "https://orki.cosedevs.com",
 })
 
 CORS_ALLOWED_ORIGINS = _CORS_ORIGINS

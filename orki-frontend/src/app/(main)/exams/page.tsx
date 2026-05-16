@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { useRouter } from "next/navigation";
 
 import type { FirestoreSubject } from "@/entities/exams/types";
 import { useAuth } from "@/hooks/useAuth";
 import { useExamType } from "@/hooks/useExamType";
 import { useSubjects } from "@/hooks/useSubjects";
+import { useSubscriptionStatus } from "@/hooks/useSubscriptionStatus";
 import { routes } from "@/shared/config/routes";
 import { SUBJECT_COLORS } from "@/shared/utils/exam-type";
 
@@ -93,51 +94,22 @@ export default function ExamsPage() {
   const examType = user?.exam_type ?? null;
 
   const { subjects, loading, error } = useSubjects(examType);
-  const [subscription, setSubscription] = useState<{ status: string } | null>(null);
-  const [subLoading, setSubLoading] = useState(true);
-  const [savedSubjects, setSavedSubjects] = useState<Set<string>>(new Set());
+  const { isSubscribed, subLoading, subscription } = useSubscriptionStatus(user?.id);
 
   // Detect which subjects have a saved in-progress session.
-  useEffect(() => {
-    if (!examType || subjects.length === 0) return;
+  const savedSubjects = useMemo(() => {
+    if (!examType || subjects.length === 0) return new Set<string>();
     const withSaved = new Set<string>();
     for (const subj of subjects) {
       if (localStorage.getItem(`orki_session_${examType}_${subj.name}`)) {
         withSaved.add(subj.name);
       }
     }
-    setSavedSubjects(withSaved);
+    return withSaved;
   }, [examType, subjects]);
 
-  // Fetch subscription status
-  useEffect(() => {
-    const fetchSubscription = async () => {
-      try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}users/subscription/`,
-          { credentials: "include" }
-        );
-        if (res.ok) {
-          const data = await res.json();
-          console.log("📊 Subscription status:", data.status);
-          setSubscription(data);
-        } else {
-          console.error("❌ Subscription fetch failed:", res.status);
-        }
-      } catch (error) {
-        console.error("❌ Failed to fetch subscription:", error);
-      } finally {
-        setSubLoading(false);
-      }
-    };
-
-    if (user) {
-      fetchSubscription();
-    }
-  }, [user]);
-
   // If not subscribed, show paywall
-  if (!subLoading && subscription?.status !== "active") {
+  if (!subLoading && !isSubscribed) {
     return (
       <div className="animate-page-in flex flex-col items-center justify-center py-24 text-center space-y-6">
         <svg width="60" height="60" viewBox="0 0 24 24" fill="none" className="text-muted/40">
@@ -154,6 +126,7 @@ export default function ExamsPage() {
         </div>
         {subscription?.status !== "pending" && (
           <button
+            type="button"
             onClick={() => router.push(routes.subscribe)}
             className="rounded-xl bg-primary text-white font-semibold px-6 py-3 transition hover:bg-primary/90"
           >

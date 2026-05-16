@@ -1,5 +1,7 @@
 "use client";
 
+import { memo } from "react";
+
 type FlashcardSubjectCardProps = {
   name: string;
   color: string;
@@ -105,3 +107,5 @@ export function FlashcardSubjectCard({
     </div>
   );
 }
+
+export const FlashcardSubjectCardMemo = memo(FlashcardSubjectCard);

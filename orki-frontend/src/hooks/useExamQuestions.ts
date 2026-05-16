@@ -1,8 +1,6 @@
 "use client";
 
-/* eslint-disable react-hooks/set-state-in-effect */
-
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 import type { FirestoreQuestion } from "@/entities/exams/types";
 import { getQuestionsBySubject } from "@/shared/firebase/firestore";
@@ -16,46 +14,27 @@ type UseExamQuestionsResult = {
 /**
  * Fetch exam questions from Firestore filtered by exam_type and subject.
  * Fetches up to `limit` questions (default 100).
+ *
+ * Results are cached by React Query — if the user navigates back to the same
+ * exam they started, questions are served from cache instantly.
  */
 export function useExamQuestions(
   examType: string | null,
   subject: string | null,
   limit = 100,
 ): UseExamQuestionsResult {
-  const [questions, setQuestions] = useState<FirestoreQuestion[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const { data, isLoading, error } = useQuery<FirestoreQuestion[], Error>({
+    queryKey: ["exam-questions", examType, subject, limit],
+    queryFn: () => getQuestionsBySubject(examType!, subject!, limit),
+    enabled: !!examType && !!subject,
+    staleTime: 10 * 60 * 1000,
+    gcTime: 30 * 60 * 1000,
+    throwOnError: false,
+  });
 
-  useEffect(() => {
-    if (!examType || !subject) return;
-    let cancelled = false;
-
-    setTimeout(() => {
-      if (!cancelled) {
-        setLoading(true);
-        setError(null);
-      }
-    }, 0);
-
-    getQuestionsBySubject(examType, subject, limit)
-      .then((data) => {
-        if (!cancelled) setQuestions(data);
-      })
-      .catch((err: unknown) => {
-        console.error("[useExamQuestions] Firestore error:", err);
-        if (!cancelled)
-          setError(
-            err instanceof Error ? err.message : "Failed to load questions.",
-          );
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false);
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [examType, subject, limit]);
-
-  return { questions, loading, error };
+  return {
+    questions: data ?? [],
+    loading: isLoading,
+    error: error ? (error.message || "Failed to load questions.") : null,
+  };
 }

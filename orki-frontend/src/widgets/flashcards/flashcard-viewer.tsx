@@ -1,5 +1,7 @@
 "use client";
 
+import { memo } from "react";
+
 import type { FirestoreFlashcard } from "@/entities/flashcards/types";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -22,7 +24,7 @@ type FlashcardViewerProps = {
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export function FlashcardViewer({
+function FlashcardViewerInner({
   cards,
   deckName,
   currentIndex,
@@ -169,3 +171,5 @@ export function FlashcardViewer({
     </div>
   );
 }
+
+export const FlashcardViewer = memo(FlashcardViewerInner);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 type SubscriptionStatus = {
   status: string;
@@ -17,53 +17,37 @@ type UseSubscriptionStatusReturn = {
  * Returns the raw `subscription` object, a `subLoading` flag, and a
  * derived `isSubscribed` boolean (true only when status === "active").
  *
+ * Results are cached by React Query for 5 minutes — navigating between pages
+ * will NOT trigger repeated network requests for the same user.
+ *
  * Pass `userId` (or any truthy/falsy value) to control when the fetch fires.
  * Pass `null` / `undefined` to skip fetching (e.g. while auth is loading).
  */
 export function useSubscriptionStatus(
   userId: number | null | undefined,
 ): UseSubscriptionStatusReturn {
-  const [subscription, setSubscription] = useState<SubscriptionStatus>(null);
-  const [subLoading, setSubLoading] = useState(true);
-
-  useEffect(() => {
-    if (!userId) {
-      // Don't fetch until we have a user; keep loading state true so callers
-      // can distinguish "not yet fetched" from "fetched and not subscribed".
-      // (subLoading is already initialised to `true`, so no setState needed.)
-      return;
-    }
-
-    let cancelled = false;
-
-    async function fetchSubscription() {
-      try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}users/subscription/`,
-          { credentials: "include" },
-        );
-        if (!cancelled && res.ok) {
-          const data = (await res.json()) as { status: string };
-          setSubscription(data);
-        }
-      } catch {
-        // Network error — treat as non-subscribed so the paywall is shown
-        // rather than silently letting through unverified users.
-      } finally {
-        if (!cancelled) setSubLoading(false);
-      }
-    }
-
-    void fetchSubscription();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [userId]);
+  const { data, isLoading } = useQuery<SubscriptionStatus>({
+    queryKey: ["subscription", userId],
+    queryFn: async () => {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}users/subscription/`,
+        { credentials: "include" },
+      );
+      if (!res.ok) return null;
+      return (await res.json()) as { status: string };
+    },
+    enabled: !!userId,
+    // Keep subscription fresh for 5 min; GC after 10 min of inactivity.
+    staleTime: 5 * 60 * 1000,
+    gcTime: 10 * 60 * 1000,
+    // On error treat as non-subscribed (paywall shown) — same as before.
+    throwOnError: false,
+  });
 
   return {
-    subscription,
-    subLoading,
-    isSubscribed: subscription?.status === "active",
+    subscription: data ?? null,
+    // isLoading is true only on the first fetch when there is no cached data.
+    subLoading: isLoading,
+    isSubscribed: data?.status === "active",
   };
 }

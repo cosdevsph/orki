@@ -297,9 +297,11 @@ export default function FlashcardsPage() {
     if (authLoading || !user) return;
     const progress = loadProgress(user.id);
     if (progress && progress.examType === user.exam_type) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSavedProgress(progress);
     } else {
       // Clear stale state if localStorage was wiped externally.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSavedProgress(null);
     }
   }, [authLoading, user, pathname]);
@@ -356,9 +358,9 @@ export default function FlashcardsPage() {
   );
 
   /** Show exit confirmation modal. */
-  function handleExitRequest() {
+  const handleExitRequest = useCallback(() => {
     setShowExitModal(true);
-  }
+  }, []);
 
   /** Confirmed exit: persist progress (for button-label tracking) then close viewer. */
   function handleExitConfirm() {
@@ -387,7 +389,7 @@ export default function FlashcardsPage() {
   }
 
   /** Re-fetch cards for a fresh shuffle, reset to card 0. */
-  async function handleRestart() {
+  const handleRestart = useCallback(async () => {
     if (!examType || !activeSubject) return;
     if (user) clearPersistedProgress(user.id);
     setSavedProgress(null);
@@ -399,7 +401,7 @@ export default function FlashcardsPage() {
     } catch {
       // Keep existing cards silently on fetch error.
     }
-  }
+  }, [examType, activeSubject, user]);
 
   /** Start the session from the saved progress index. */
   function handleResumeFromSave() {
@@ -416,6 +418,27 @@ export default function FlashcardsPage() {
     setSavedProgress(null);
     setIsResumeModalOpen(false);
   }
+
+  // ── Stable FlashcardViewer callbacks (required for React.memo to be effective) ─
+  const handleFlip = useCallback(() => setFlipped((f) => !f), []);
+  const handleNext = useCallback(() => {
+    setCurrentIndex((i) => {
+      if (i < activeCards.length - 1) {
+        setFlipped(false);
+        return i + 1;
+      }
+      return i;
+    });
+  }, [activeCards.length]);
+  const handlePrev = useCallback(() => {
+    setCurrentIndex((i) => {
+      if (i > 0) {
+        setFlipped(false);
+        return i - 1;
+      }
+      return i;
+    });
+  }, []);
 
   // ── Auth loading ───────────────────────────────────────────────────────────
 
@@ -504,19 +527,9 @@ export default function FlashcardsPage() {
               deckName={activeSubject}
               currentIndex={currentIndex}
               flipped={flipped}
-              onFlip={() => setFlipped((f) => !f)}
-              onNext={() => {
-                if (currentIndex < activeCards.length - 1) {
-                  setCurrentIndex((i) => i + 1);
-                  setFlipped(false);
-                }
-              }}
-              onPrev={() => {
-                if (currentIndex > 0) {
-                  setCurrentIndex((i) => i - 1);
-                  setFlipped(false);
-                }
-              }}
+              onFlip={handleFlip}
+              onNext={handleNext}
+              onPrev={handlePrev}
               onRestart={handleRestart}
               onExit={handleExitRequest}
             />

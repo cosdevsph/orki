@@ -5,6 +5,7 @@ import "./globals.css";
 import { AuthProvider } from "@/providers/auth-provider";
 import { NotificationProvider } from "@/providers/notification-provider";
 import { OnboardingProvider } from "@/providers/onboarding-provider";
+import { QueryProvider } from "@/providers/query-provider";
 import { ThemeProvider, ThemeScript } from "@/providers/theme-provider";
 
 const quicksand = Quicksand({
@@ -85,11 +86,13 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
-          <AuthProvider>
-            <NotificationProvider>
-              <OnboardingProvider>{children}</OnboardingProvider>
-            </NotificationProvider>
-          </AuthProvider>
+          <QueryProvider>
+            <AuthProvider>
+              <NotificationProvider>
+                <OnboardingProvider>{children}</OnboardingProvider>
+              </NotificationProvider>
+            </AuthProvider>
+          </QueryProvider>
         </ThemeProvider>
       </body>
     </html>

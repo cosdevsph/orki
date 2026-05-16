@@ -1,8 +1,6 @@
 "use client";
 
-/* eslint-disable react-hooks/set-state-in-effect */
-
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 import type { FirestoreSubject } from "@/entities/exams/types";
 import { getSubjectsByExamType } from "@/shared/firebase/firestore";
@@ -15,43 +13,22 @@ type UseSubjectsResult = {
 
 /**
  * Fetch subjects from Firestore filtered by exam_type.
- * Returns an empty array while loading or on error.
+ * Results are cached by React Query — navigating away from and back to the
+ * Exams page will reuse the cached list instead of hitting Firestore again.
  */
 export function useSubjects(examType: string | null): UseSubjectsResult {
-  const [subjects, setSubjects] = useState<FirestoreSubject[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const { data, isLoading, error } = useQuery<FirestoreSubject[], Error>({
+    queryKey: ["subjects", examType],
+    queryFn: () => getSubjectsByExamType(examType!),
+    enabled: !!examType,
+    staleTime: 10 * 60 * 1000,
+    gcTime: 30 * 60 * 1000,
+    throwOnError: false,
+  });
 
-  useEffect(() => {
-    if (!examType) return;
-    let cancelled = false;
-
-    setTimeout(() => {
-      if (!cancelled) {
-        setLoading(true);
-        setError(null);
-      }
-    }, 0);
-
-    getSubjectsByExamType(examType)
-      .then((data) => {
-        if (!cancelled) setSubjects(data);
-      })
-      .catch((err: unknown) => {
-        console.error("[useSubjects] Firestore error:", err);
-        if (!cancelled)
-          setError(
-            err instanceof Error ? err.message : "Failed to load subjects.",
-          );
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false);
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [examType]);
-
-  return { subjects, loading, error };
+  return {
+    subjects: data ?? [],
+    loading: isLoading,
+    error: error ? (error.message || "Failed to load subjects.") : null,
+  };
 }

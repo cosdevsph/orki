@@ -65,18 +65,18 @@ export default function ExamResultsPage() {
   const router = useRouter();
 
   const [result, setResult] = useState<ResultData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [fetchError, setFetchError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(attemptId !== "local");
+  const [fetchError, setFetchError] = useState<string | null>(
+    attemptId === "local"
+      ? "You are not signed in. Sign in to save and view detailed results."
+      : null,
+  );
   const [showReview, setShowReview] = useState(false);
   const [convertingToFlashcards, setConvertingToFlashcards] = useState(false);
   const [flashcardsCreated, setFlashcardsCreated] = useState(false);
 
   useEffect(() => {
-    if (attemptId === "local") {
-      setFetchError("You are not signed in. Sign in to save and view detailed results.");
-      setLoading(false);
-      return;
-    }
+    if (attemptId === "local") return;
 
     async function load() {
       try {

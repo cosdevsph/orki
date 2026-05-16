@@ -1,188 +1,266 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useMemo, useCallback } from "react";
 
-import type { Flashcard } from "@/entities/flashcards/types";
-import type { SubjectDeck } from "@/entities/flashcards/types";
-import { DeckCard } from "@/widgets/flashcards/deck-card";
+import type { FirestoreFlashcard } from "@/entities/flashcards/types";
+import { FlashcardSubjectCard } from "@/widgets/flashcards/flashcard-subject-card";
 import { FlashcardViewer } from "@/widgets/flashcards/flashcard-viewer";
-import { getSubjectDecks, getFlashcards, reviewFlashcard } from "@/shared/api/study";
-import { SUBJECT_COLORS } from "@/shared/utils/exam-type";
+import { getFlashcardsForSubject } from "@/shared/api/flashcards";
+import { useAuth } from "@/hooks/useAuth";
+import { getSubjectsByExam } from "@/shared/utils/exam-type";
 
-function formatLastStudied(dateStr: string | null): string {
-  if (!dateStr) return "Never";
-  const d = new Date(dateStr);
-  const now = new Date();
-  const diffMs = now.getTime() - d.getTime();
-  const diffH = Math.floor(diffMs / (1000 * 60 * 60));
-  if (diffH < 1) return "Just now";
-  if (diffH < 24) return "Today";
-  if (diffH < 48) return "Yesterday";
-  return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+const CARDS_PER_SUBJECT = 30;
+
+// ─── Sub-components ───────────────────────────────────────────────────────────
+
+function SubjectCardSkeleton() {
+  return (
+    <div className="glass animate-pulse rounded-2xl p-5 space-y-4">
+      <div className="flex items-start justify-between">
+        <div className="h-12 w-12 rounded-2xl bg-overlay-hover-strong" />
+        <div className="h-5 w-16 rounded-full bg-overlay-hover-strong" />
+      </div>
+      <div className="space-y-1.5">
+        <div className="h-4 w-3/4 rounded bg-overlay-hover-strong" />
+        <div className="h-3 w-1/2 rounded bg-overlay-hover-mid" />
+      </div>
+      <div className="h-1 w-full rounded-full bg-overlay-hover-mid" />
+      <div className="h-9 w-full rounded-xl bg-overlay-hover-mid" />
+    </div>
+  );
+}
+
+function EmptyState({ message }: { message: string }) {
+  return (
+    <div className="flex flex-col items-center justify-center gap-4 py-20 text-center">
+      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          className="text-primary"
+        >
+          <rect
+            x="2.75"
+            y="3.667"
+            width="18.5"
+            height="16.667"
+            rx="2.75"
+            stroke="currentColor"
+            strokeWidth="1.6"
+          />
+          <path
+            d="M7.5 8.5h9M7.5 12h6"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+          />
+        </svg>
+      </div>
+      <div className="space-y-1">
+        <p className="font-heading font-semibold text-foreground">
+          No Flashcards Available
+        </p>
+        <p className="max-w-xs text-sm text-muted">{message}</p>
+      </div>
+    </div>
+  );
+}
+
+function ErrorBanner({
+  message,
+  onDismiss,
+}: {
+  message: string;
+  onDismiss: () => void;
+}) {
+  return (
+    <div className="flex items-start gap-3 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 dark:border-red-900/40 dark:bg-red-950/30">
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        className="mt-0.5 shrink-0 text-red-500"
+      >
+        <path
+          d="M8 5.333v3.334M8 10.667h.007"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+        <path
+          d="M6.543 2.286 1.714 10.57A1.667 1.667 0 0 0 3.17 13h9.66a1.667 1.667 0 0 0 1.456-2.43L9.457 2.286a1.667 1.667 0 0 0-2.914 0Z"
+          stroke="currentColor"
+          strokeWidth="1.4"
+        />
+      </svg>
+      <p className="text-sm text-red-700 dark:text-red-400">{message}</p>
+      <button
+        type="button"
+        onClick={onDismiss}
+        className="ml-auto shrink-0 text-red-400 transition hover:text-red-600"
+        aria-label="Dismiss error"
+      >
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path
+            d="M10.5 3.5 3.5 10.5M3.5 3.5l7 7"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </svg>
+      </button>
+    </div>
+  );
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function FlashcardsPage() {
-  const [decks, setDecks] = useState<SubjectDeck[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [activeDeck, setActiveDeck] = useState<SubjectDeck | null>(null);
-  const [deckCards, setDeckCards] = useState<Flashcard[]>([]);
-  const [loadingCards, setLoadingCards] = useState(false);
+  const { user, loading: authLoading } = useAuth();
 
-  useEffect(() => {
-    getSubjectDecks()
-      .then(setDecks)
-      .catch(() => setDecks([]))
-      .finally(() => setLoading(false));
-  }, []);
+  const [activeSubject, setActiveSubject] = useState<string | null>(null);
+  const [activeCards, setActiveCards] = useState<FirestoreFlashcard[]>([]);
+  const [loadingSubject, setLoadingSubject] = useState<string | null>(null);
+  const [fetchError, setFetchError] = useState<string | null>(null);
 
-  async function handleStudy(deck: SubjectDeck) {
-    setLoadingCards(true);
-    try {
-      const cards = await getFlashcards(false, deck.id);
-      setDeckCards(cards);
-      setActiveDeck(deck);
-    } catch {
-      setDeckCards([]);
-    } finally {
-      setLoadingCards(false);
-    }
-  }
+  const examType = user?.exam_type ?? null;
+
+  // Derive subject list from exam type — memoised so it only recalculates when
+  // exam_type changes, not on every render.
+  const subjects = useMemo(() => getSubjectsByExam(examType), [examType]);
+
+  // Fetch cards for a given subject, then open the viewer.
+  const handleStudy = useCallback(
+    async (subjectName: string) => {
+      // Guard: don't start a second fetch while one is in flight.
+      if (!examType || loadingSubject !== null) return;
+
+      setLoadingSubject(subjectName);
+      setFetchError(null);
+
+      try {
+        const cards = await getFlashcardsForSubject(examType, subjectName);
+
+        if (cards.length === 0) {
+          setFetchError(
+            `No flashcards found for ${subjectName} yet. Check back after more questions are added.`,
+          );
+          return;
+        }
+
+        setActiveCards(cards);
+        setActiveSubject(subjectName);
+      } catch (err) {
+        console.error("[FlashcardsPage] Firestore fetch error:", err);
+        setFetchError(
+          err instanceof Error
+            ? err.message
+            : "Failed to load flashcards. Please check your connection and try again.",
+        );
+      } finally {
+        setLoadingSubject(null);
+      }
+    },
+    [examType, loadingSubject],
+  );
 
   function handleClose() {
-    setActiveDeck(null);
-    setDeckCards([]);
-    // Refresh decks so dueCount updates after review
-    getSubjectDecks().then(setDecks).catch(() => {});
+    setActiveSubject(null);
+    setActiveCards([]);
+    setFetchError(null);
   }
 
-  const totalDue = decks.reduce((a, d) => a + d.dueCount, 0);
+  // ── Auth loading ─────────────────────────────────────────────────────────
 
-  if (activeDeck) {
+  if (authLoading) {
     return (
-      <div className="animate-page-in mx-auto max-w-3xl py-4">
-        <FlashcardViewer
-          cards={deckCards}
-          deckName={activeDeck.name}
-          onClose={handleClose}
-          onReview={(cardId, quality) => reviewFlashcard(cardId, quality).catch(() => {})}
-        />
+      <div className="animate-page-in space-y-8 px-4 pb-24 pt-6 sm:px-6">
+        {/* Header skeleton */}
+        <div className="space-y-1.5">
+          <div className="h-7 w-44 animate-pulse rounded-lg bg-overlay-hover-strong" />
+          <div className="h-4 w-72 animate-pulse rounded bg-overlay-hover-mid" />
+        </div>
+        {/* Grid skeleton */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <SubjectCardSkeleton key={i} />
+          ))}
+        </div>
       </div>
     );
   }
 
-  return (
-    <div className="animate-page-in space-y-8">
-      {/* Header */}
-      <div className="flex items-end justify-between">
-        <div className="space-y-1">
-          <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground">Flashcards</h1>
-          <p className="text-base text-muted">
-            Spaced-repetition decks for long-term recall. Review what matters most.
-          </p>
-        </div>
-        <div className="glass flex items-center gap-3 rounded-2xl px-4 py-2.5">
-          <div className="h-8 w-8 rounded-xl bg-primary/10 flex items-center justify-center">
-            <svg className="text-primary" width="16" height="16" viewBox="0 0 22 22" fill="none">
-              <path d="M11 2c0 4-4 5.5-4 9a4 4 0 0 0 8 0c0-3.5-4-5-4-9Z" fill="currentColor" />
-            </svg>
-          </div>
-          <div>
-            <p className="font-heading text-lg font-bold text-primary">
-              {loading ? "—" : totalDue}
-            </p>
-            <p className="text-[10px] text-muted leading-none">cards due</p>
-          </div>
+  // ── No exam type configured ───────────────────────────────────────────────
+
+  if (!examType) {
+    return (
+      <div className="animate-page-in px-4 pb-24 pt-6 sm:px-6">
+        <EmptyState message="Complete your profile setup to unlock flashcards for your exam type." />
+      </div>
+    );
+  }
+
+  // ── Flashcard viewer ─────────────────────────────────────────────────────
+
+  if (activeSubject !== null && activeCards.length > 0) {
+    return (
+      <div className="animate-page-in px-4 pb-24 pt-6 sm:px-6">
+        <div className="mx-auto max-w-2xl">
+          <FlashcardViewer
+            cards={activeCards}
+            deckName={activeSubject}
+            onClose={handleClose}
+          />
         </div>
       </div>
+    );
+  }
 
-      {/* Decks grid */}
-      {loading ? (
-        <div className="grid grid-cols-3 gap-4">
-          {[0, 1, 2, 3].map((i) => (
-            <div key={i} className="glass animate-pulse flex flex-col gap-4 rounded-2xl p-5">
-              <div className="flex items-start justify-between">
-                <div className="h-12 w-12 rounded-2xl bg-surface" />
-                <div className="h-5 w-14 rounded-full bg-surface" />
-              </div>
-              <div className="space-y-2">
-                <div className="h-4 w-28 rounded bg-surface" />
-                <div className="h-3 w-20 rounded bg-surface" />
-              </div>
-              <div className="h-2 rounded-full bg-surface" />
-              <div className="h-9 rounded-xl bg-surface mt-2" />
-            </div>
-          ))}
-        </div>
+  // ── Subject grid ─────────────────────────────────────────────────────────
+
+  return (
+    <div className="animate-page-in space-y-8 px-4 pb-24 pt-6 sm:px-6">
+      {/* Page header */}
+      <div className="space-y-1">
+        <h1 className="font-heading text-2xl font-bold text-foreground">
+          Flashcards
+        </h1>
+        <p className="text-sm text-muted">
+          Study {examType} topics &middot; Up to {CARDS_PER_SUBJECT} randomised
+          cards per subject
+        </p>
+      </div>
+
+      {/* Error banner */}
+      {fetchError !== null && (
+        <ErrorBanner
+          message={fetchError}
+          onDismiss={() => setFetchError(null)}
+        />
+      )}
+
+      {/* Subject cards */}
+      {subjects.length === 0 ? (
+        <EmptyState
+          message={`No subjects are configured for ${examType} yet.`}
+        />
       ) : (
-        <div className="grid grid-cols-3 gap-4">
-          {decks.map((deck, idx) => (
-            <DeckCard
-              key={deck.id}
-              name={deck.name}
-              cardCount={deck.cardCount}
-              dueCount={deck.dueCount}
-              lastStudied={formatLastStudied(deck.lastStudied)}
-              color={SUBJECT_COLORS[idx % SUBJECT_COLORS.length]}
-              onStudy={() => handleStudy(deck)}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {subjects.map((subject) => (
+            <FlashcardSubjectCard
+              key={subject.name}
+              name={subject.name}
+              color={subject.color}
+              cardCount={CARDS_PER_SUBJECT}
+              loading={loadingSubject === subject.name}
+              onStudy={() => handleStudy(subject.name)}
             />
           ))}
-        </div>
-      )}
-
-      {loadingCards && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-sm">
-          <div className="glass rounded-2xl px-8 py-6 text-center space-y-3">
-            <div className="h-8 w-8 mx-auto animate-spin rounded-full border-2 border-primary border-t-transparent" />
-            <p className="text-sm font-medium text-foreground">Loading flashcards…</p>
-          </div>
-        </div>
-      )}
-
-      {/* Study all due CTA */}
-      {!loading && totalDue > 0 && decks.length > 0 && (
-        <div
-          className="card-hover flex items-center justify-between rounded-2xl p-5"
-          style={{
-            background: "linear-gradient(135deg, rgba(47,162,226,0.1) 0%, rgba(139,92,246,0.07) 100%)",
-            border: "1px solid rgba(47,162,226,0.18)",
-          }}
-        >
-          <div className="space-y-1">
-            <h3 className="font-heading text-lg font-bold text-foreground">
-              You have {totalDue} cards due across all decks
-            </h3>
-            <p className="text-sm text-muted">
-              Reviewing today keeps your retention sharp and streaks alive.
-            </p>
-          </div>
-          <button
-            type="button"
-            onClick={() => {
-              const firstDue = decks.find((d) => d.dueCount > 0);
-              if (firstDue) handleStudy(firstDue);
-            }}
-            className="flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-150 hover:bg-primary/90 hover:shadow-primary/25 active:scale-95"
-          >
-            Study All Due
-            <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-              <path d="M5.25 2.917 9.333 7 5.25 11.083" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-        </div>
-      )}
-
-      {!loading && decks.length === 0 && (
-        <div className="flex flex-col items-center gap-3 py-16 text-center">
-          <svg width="40" height="40" viewBox="0 0 22 22" fill="none" className="text-muted/40">
-            <rect x="2.75" y="6.417" width="16.5" height="11" rx="2.2" stroke="currentColor" strokeWidth="1.6" />
-            <path d="M6.417 6.417V5.042a1.833 1.833 0 0 1 1.833-1.834h5.5A1.833 1.833 0 0 1 15.583 5.042v1.375" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-          </svg>
-          <p className="text-sm text-muted">No flashcard decks yet. Make sure your exam type is set in your profile.</p>
         </div>
       )}
     </div>
   );
 }
-

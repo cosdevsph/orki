@@ -114,8 +114,14 @@ const THEME_OPTIONS: {
   {
     value: "purple",
     label: "Purple",
-    description: "Soft lavender",
+    description: "Deep twilight",
     preview: { bg: "#E8E0F8", surface: "rgba(255,255,255,0.60)", accent: "#6d28d9", text: "#15063a" },
+  },
+  {
+    value: "pink",
+    label: "Pink",
+    description: "Soft blush tone",
+    preview: { bg: "#F0D8E4", surface: "rgba(255,255,255,0.60)", accent: "#b05e74", text: "#26091a" },
   },
 ];
 
@@ -208,7 +214,7 @@ function AppearanceSection() {
           <p className="text-sm font-medium text-foreground">Theme</p>
           <p className="text-xs text-muted mt-0.5">Choose how Orki looks to you</p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="grid grid-cols-5 gap-3">
           {THEME_OPTIONS.map((opt) => (
             <ThemeCard
               key={opt.value}

@@ -17,10 +17,16 @@ import {
   updateExamSession,
 } from "@/shared/firebase/firestore";
 
-// ─── Local-storage key helper ─────────────────────────────────────────────────
+// ─── Local-storage key helpers ──────────────────────────────────────────────────
 
+/** Key that stores the Firestore session ID (or "local" for unauthenticated). */
 function sessionStorageKey(examType: string, subject: string) {
   return `orki_session_${examType}_${subject}`;
+}
+
+/** Key that stores the full serialised session state for unauthenticated/offline sessions. */
+function localSessionDataKey(examType: string, subject: string) {
+  return `orki_session_data_${examType}_${subject}`;
 }
 
 // ─── Loading / Error screens ──────────────────────────────────────────────────
@@ -91,8 +97,6 @@ export default function ExamTakePage() {
   const {
     sessionId,
     answers,
-    correct,
-    wrong,
     currentIndex,
     elapsedTime,
     status,
@@ -145,7 +149,8 @@ export default function ExamTakePage() {
     const existingId = localStorage.getItem(storageKey);
 
     async function init() {
-      if (existingId && user?.id) {
+      if (existingId && existingId !== "local" && user?.id) {
+        // ── Authenticated: restore from Firestore ──────────────────────────────
         try {
           const session = await getExamSession(existingId);
           if (session && session.status !== "completed") {
@@ -165,6 +170,41 @@ export default function ExamTakePage() {
               wrong: restoredWrong,
               currentIndex: session.current_index,
               elapsedTime: session.elapsed_time,
+            });
+            setSessionReady(true);
+            return;
+          }
+        } catch {
+          // Fall through — create a fresh session
+        }
+      } else if (existingId === "local") {
+        // ── Unauthenticated: restore from localStorage state ──────────────────
+        try {
+          const raw = localStorage.getItem(localSessionDataKey(examType, subject));
+          const data = raw ? (JSON.parse(raw) as {
+            answers: Record<string, "A" | "B" | "C" | "D">;
+            correct: number;
+            wrong: number;
+            currentIndex: number;
+            elapsedTime: number;
+          }) : null;
+          if (data && typeof data.answers === "object") {
+            // Recompute tallies from saved answers
+            let restoredCorrect = 0;
+            let restoredWrong = 0;
+            for (const [qId, ans] of Object.entries(data.answers)) {
+              const q = questions.find((q) => q.id === qId);
+              if (q) {
+                if (ans === q.correct_answer) restoredCorrect++;
+                else restoredWrong++;
+              }
+            }
+            initSession("local", examType, subject, {
+              answers: data.answers,
+              correct: restoredCorrect,
+              wrong: restoredWrong,
+              currentIndex: data.currentIndex ?? 0,
+              elapsedTime: data.elapsedTime ?? 0,
             });
             setSessionReady(true);
             return;
@@ -208,18 +248,37 @@ export default function ExamTakePage() {
           elapsed_time: 0,
           status: "active",
         });
-        localStorage.setItem(sessionStorageKey(examType, subject), newId);
       } catch {
-        // Offline — continue with local-only session
+        // Offline — fall back to local session
       }
     }
+    // Always mark the session key so the Exams page can show "Resume Exam".
+    localStorage.setItem(sessionStorageKey(examType, subject), newId);
     initSession(newId, examType, subject);
     setSessionReady(true);
   }
 
   function flushSession(overrideStatus?: "active" | "paused" | "completed") {
     const s = useExamStore.getState();
-    if (!s.sessionId || s.sessionId === "local" || !user?.id) return Promise.resolve();
+
+    // For local (unauthenticated / offline) sessions — persist state to localStorage.
+    if (!s.sessionId || s.sessionId === "local" || !user?.id) {
+      const targetStatus = overrideStatus ?? s.status;
+      if (targetStatus !== "completed") {
+        try {
+          localStorage.setItem(localSessionDataKey(examType, subject), JSON.stringify({
+            answers: s.answers,
+            correct: s.correct,
+            wrong: s.wrong,
+            currentIndex: s.currentIndex,
+            elapsedTime: s.elapsedTime,
+          }));
+        } catch { /* storage full — best effort */ }
+      }
+      return Promise.resolve();
+    }
+
+    // Authenticated: persist to Firestore.
     return updateExamSession(s.sessionId, {
       answers: s.answers,
       correct: s.correct,
@@ -279,6 +338,7 @@ export default function ExamTakePage() {
       await deleteExamSession(sessionId).catch(() => {});
     }
     localStorage.removeItem(sessionStorageKey(examType, subject));
+    localStorage.removeItem(localSessionDataKey(examType, subject));
     resetSession();
     setMarked(new Set());
     setSessionReady(false);
@@ -289,7 +349,7 @@ export default function ExamTakePage() {
     if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
     await flushSession("paused");
     pause();
-    router.push("/dashboard");
+    router.push("/exams");
   }
 
   async function handleSubmit() {
@@ -329,6 +389,7 @@ export default function ExamTakePage() {
           await deleteExamSession(sessionId).catch(() => {});
         }
         localStorage.removeItem(sessionStorageKey(examType, subject));
+        localStorage.removeItem(localSessionDataKey(examType, subject));
 
         router.push(`/exams/results/${attemptId}`);
         return;
@@ -378,7 +439,7 @@ export default function ExamTakePage() {
       <header className="sticky top-0 z-20 border-b border-border/30 bg-nav-bg backdrop-blur-sm">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-3">
 
-          {/* Left: exam info + live score */}
+          {/* Left: exam info */}
           <div className="flex items-start gap-3">
             <svg width="20" height="20" viewBox="0 0 22 22" fill="none" className="mt-0.5 shrink-0 text-primary">
               <rect x="3.667" y="2.75" width="14.667" height="16.5" rx="2.2" stroke="currentColor" strokeWidth="1.6" />
@@ -387,22 +448,6 @@ export default function ExamTakePage() {
             <div>
               <p className="text-sm font-bold text-foreground">{subject} Exam</p>
               <p className="text-[10px] font-semibold uppercase tracking-widest text-muted">{examType}</p>
-              {/* Live score indicator */}
-              <div className="mt-1 flex items-center gap-3 text-[11px] font-semibold">
-                <span className="flex items-center gap-1 text-emerald-600">
-                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-                    <path d="M3 7l2.5 2.5L11 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  {correct}
-                </span>
-                <span className="flex items-center gap-1 text-red-500">
-                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-                    <path d="M4 4l6 6M10 4l-6 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                  </svg>
-                  {wrong}
-                </span>
-                <span className="text-muted">{unanswered} left</span>
-              </div>
             </div>
           </div>
 
@@ -472,21 +517,23 @@ export default function ExamTakePage() {
               Exit
             </button>
 
-            <button
-              type="button"
-              onClick={() => void handleSubmit()}
-              disabled={submitting}
-              className="flex items-center gap-2 rounded-xl border border-border/60 bg-card-bg px-5 py-2 text-sm font-semibold text-foreground transition-all hover:bg-foreground hover:text-background disabled:opacity-50"
-            >
-              {submitting ? (
-                <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-muted/30 border-t-foreground" />
-              ) : (
-                <svg width="14" height="14" viewBox="0 0 22 22" fill="none">
-                  <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              )}
-              Submit
-            </button>
+            {unanswered === 0 && (
+              <button
+                type="button"
+                onClick={() => void handleSubmit()}
+                disabled={submitting}
+                className="flex items-center gap-2 rounded-xl border border-border/60 bg-card-bg px-5 py-2 text-sm font-semibold text-foreground transition-all hover:bg-foreground hover:text-background disabled:opacity-50"
+              >
+                {submitting ? (
+                  <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-muted/30 border-t-foreground" />
+                ) : (
+                  <svg width="14" height="14" viewBox="0 0 22 22" fill="none">
+                    <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                )}
+                Submit
+              </button>
+            )}
           </div>
         </div>
       </header>

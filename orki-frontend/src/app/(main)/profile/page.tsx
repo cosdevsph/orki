@@ -95,7 +95,7 @@ const THEME_OPTIONS: {
 }[] = [
   {
     value: "light",
-    label: "Light",
+    label: "Default",
     description: "Clean & bright",
     preview: { bg: "#ffffff", surface: "rgba(255,255,255,0.75)", accent: "#2fa2e2", text: "#001a3b" },
   },
@@ -106,10 +106,16 @@ const THEME_OPTIONS: {
     preview: { bg: "#131313", surface: "rgba(255,255,255,0.07)", accent: "#38bdf8", text: "#e2e8f0" },
   },
   {
-    value: "pink",
-    label: "Pink",
-    description: "Soft blush tone",
-    preview: { bg: "#F8E8EE", surface: "rgba(255,255,255,0.65)", accent: "#c4758a", text: "#2d1020" },
+    value: "blue",
+    label: "Blue",
+    description: "Ocean calm",
+    preview: { bg: "#EEF3FB", surface: "rgba(255,255,255,0.72)", accent: "#2563eb", text: "#0f2044" },
+  },
+  {
+    value: "purple",
+    label: "Purple",
+    description: "Soft lavender",
+    preview: { bg: "#E8E0F8", surface: "rgba(255,255,255,0.60)", accent: "#6d28d9", text: "#15063a" },
   },
 ];
 
@@ -202,7 +208,7 @@ function AppearanceSection() {
           <p className="text-sm font-medium text-foreground">Theme</p>
           <p className="text-xs text-muted mt-0.5">Choose how Orki looks to you</p>
         </div>
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {THEME_OPTIONS.map((opt) => (
             <ThemeCard
               key={opt.value}

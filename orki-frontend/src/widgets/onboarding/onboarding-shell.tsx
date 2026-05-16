@@ -24,7 +24,7 @@ function LoadingScreen() {
 export function OnboardingShell() {
   const router = useRouter();
   const { user, loading: authLoading, setUser } = useAuth();
-  const { onboardingComplete, loading: onboardingLoading, markComplete } = useOnboarding();
+  const { onboardingComplete, loading: onboardingLoading } = useOnboarding();
   const { notify } = useNotification();
 
   const [step, setStep] = useState<1 | 2>(1);
@@ -71,9 +71,11 @@ export function OnboardingShell() {
         exam_type: examType,
         exam_date: examDate,
       });
-      // Sync full user (including exam_type + professional_title) into auth state
+      // Sync full user (including exam_type + onboarding_completed: true) into auth state.
+      // Do NOT call markComplete() here — it captures a stale closure of `user` (before
+      // onboarding) and would overwrite result.user with the old profile (empty exam_type),
+      // causing "Future Professional" to display until the next page refresh.
       setUser(result.user);
-      markComplete();
       notify("Welcome to Orki — your study journey begins now.", "success");
       router.replace(routes.dashboard);
     } catch {

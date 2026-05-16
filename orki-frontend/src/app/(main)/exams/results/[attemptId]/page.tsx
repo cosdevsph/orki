@@ -1,63 +1,166 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
 
+import type { FirestoreQuestion } from "@/entities/exams/types";
 import { ProgressRing } from "@/components/ui/progress-ring";
+import { getExamAttempt, getQuestionsBySubject } from "@/shared/firebase/firestore";
 
-// ─── Mock Results Data ────────────────────────────────────────────────────────
+// ─── Types ────────────────────────────────────────────────────────────────────
 
-const MOCK_RESULT = {
-  score: 85,
-  total_correct: 42,
-  total_questions: 50,
-  percentile: 85,
-  exam_title: "Comprehensive Practice Exam #4",
-  completed_at: new Date().toISOString(),
-  categories: [
-    { name: "General Information", score: 90, correct: 9, total: 10 },
-    { name: "Applied Mathematics", score: 70, correct: 7, total: 10 },
-    { name: "Logical Reasoning", score: 85, correct: 17, total: 20 },
-    { name: "Reading Comprehension", score: 95, correct: 19, total: 20 },
-  ],
-  incorrect: [
-    { id: 1, question_text: "What is the square root of 144?", option_a: "10", option_b: "12", option_c: "14", option_d: "16", correct_answer: "B", user_answer: "A", explanation: "The square root of 144 is 12 (12 × 12 = 144).", category: "Applied Mathematics" },
-    { id: 2, question_text: "Which planet is closest to the Sun?", option_a: "Venus", option_b: "Mars", option_c: "Mercury", option_d: "Earth", correct_answer: "C", user_answer: "A", explanation: "Mercury is the closest planet to the Sun.", category: "General Information" },
-    { id: 3, question_text: "If all roses are flowers and some flowers are red, which conclusion is valid?", option_a: "All roses are red", option_b: "Some roses may be red", option_c: "No roses are red", option_d: "All red things are roses", correct_answer: "B", user_answer: "A", explanation: "We can only conclude that some roses may be red, as 'some flowers are red' doesn't specify which flowers.", category: "Logical Reasoning" },
-    { id: 4, question_text: "What is 15% of 240?", option_a: "34", option_b: "36", option_c: "38", option_d: "40", correct_answer: "B", user_answer: "D", explanation: "15% of 240 = 0.15 × 240 = 36.", category: "Applied Mathematics" },
-    { id: 5, question_text: "Who wrote 'Noli Me Tangere'?", option_a: "Andres Bonifacio", option_b: "Jose Rizal", option_c: "Apolinario Mabini", option_d: "Emilio Aguinaldo", correct_answer: "B", user_answer: "C", explanation: "Jose Rizal wrote 'Noli Me Tangere', published in 1887.", category: "General Information" },
-    { id: 6, question_text: "What is the LCM of 12 and 18?", option_a: "24", option_b: "36", option_c: "48", option_d: "72", correct_answer: "B", user_answer: "A", explanation: "LCM of 12 and 18 is 36.", category: "Applied Mathematics" },
-    { id: 7, question_text: "In the analogy: book is to library as artifact is to ___", option_a: "Gallery", option_b: "Museum", option_c: "School", option_d: "Archive", correct_answer: "B", user_answer: "D", explanation: "A museum stores artifacts, just as a library stores books.", category: "Logical Reasoning" },
-    { id: 8, question_text: "What is the derivative of x²?", option_a: "x", option_b: "2x", option_c: "x²", option_d: "2x²", correct_answer: "B", user_answer: "A", explanation: "Using the power rule, d/dx(x²) = 2x.", category: "Applied Mathematics" },
-  ],
+type CategoryStat = { name: string; score: number; correct: number; total: number };
+type IncorrectItem = {
+  id: string;
+  question_text: string;
+  choices: { A: string; B: string; C?: string; D?: string };
+  correct_answer: string;
+  user_answer: string;
+  explanation: string;
+  category: string;
+};
+
+type ResultData = {
+  score: number;
+  total_correct: number;
+  total_questions: number;
+  exam_title: string;
+  completed_at: Date | null;
+  categories: CategoryStat[];
+  incorrect: IncorrectItem[];
 };
 
 const CATEGORY_COLORS = ["#10B981", "#2FA2E2", "#8B5CF6", "#F59E0B", "#EF4444", "#06B6D4"];
 
+// ─── Loading / Error helpers ──────────────────────────────────────────────────
+
+function LoadingScreen() {
+  return (
+    <div className="flex min-h-[60vh] items-center justify-center">
+      <div className="h-7 w-7 animate-spin rounded-full border-2 border-border border-t-primary" />
+    </div>
+  );
+}
+
+function ErrorScreen({ message, onBack }: { message: string; onBack: () => void }) {
+  return (
+    <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4">
+      <p className="text-sm text-muted">{message}</p>
+      <button
+        type="button"
+        onClick={onBack}
+        className="rounded-xl bg-primary px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-primary/90"
+      >
+        Back to Dashboard
+      </button>
+    </div>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ExamResultsPage() {
+  const params = useParams();
+  const attemptId = params.attemptId as string;
   const router = useRouter();
+
+  const [result, setResult] = useState<ResultData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState<string | null>(null);
   const [showReview, setShowReview] = useState(false);
   const [convertingToFlashcards, setConvertingToFlashcards] = useState(false);
   const [flashcardsCreated, setFlashcardsCreated] = useState(false);
 
-  const result = MOCK_RESULT;
-  const scoreLabel = result.score >= 80 ? "Solid work!" : result.score >= 60 ? "Good effort!" : "Keep pushing!";
-  const scoreMessage = result.score >= 80
-    ? "You've shown strong mastery in core concepts. A little more focus on mathematical applications will push you into the top percentile."
-    : result.score >= 60
-    ? "You're making progress! Focus on your weaker categories to improve your overall score."
-    : "Don't give up! Review the incorrect answers and convert them to flashcards for better retention.";
+  useEffect(() => {
+    if (attemptId === "local") {
+      setFetchError("You are not signed in. Sign in to save and view detailed results.");
+      setLoading(false);
+      return;
+    }
+
+    async function load() {
+      try {
+        const attempt = await getExamAttempt(attemptId);
+        if (!attempt) {
+          setFetchError("Exam results not found.");
+          return;
+        }
+
+        const questions = await getQuestionsBySubject(attempt.exam_type, attempt.subject, 500);
+
+        // ─── Per-question breakdown ───────────────────────────────────────────
+        const incorrectItems: IncorrectItem[] = [];
+        const topicMap: Record<string, { correct: number; total: number }> = {};
+
+        for (const q of questions) {
+          const userAnswer = attempt.answers[q.id];
+          if (!userAnswer) continue; // unanswered — skip from breakdown
+
+          const topic = q.topic || "General";
+          if (!topicMap[topic]) topicMap[topic] = { correct: 0, total: 0 };
+          topicMap[topic].total++;
+
+          if (userAnswer === q.correct_answer) {
+            topicMap[topic].correct++;
+          } else {
+            incorrectItems.push({
+              id: q.id,
+              question_text: q.question,
+              choices: q.choices,
+              correct_answer: q.correct_answer,
+              user_answer: userAnswer,
+              explanation: q.explanation ?? "",
+              category: topic,
+            });
+          }
+        }
+
+        const categories: CategoryStat[] = Object.entries(topicMap).map(([name, stat]) => ({
+          name,
+          score: stat.total > 0 ? Math.round((stat.correct / stat.total) * 100) : 0,
+          correct: stat.correct,
+          total: stat.total,
+        }));
+
+        setResult({
+          score: attempt.score,
+          total_correct: attempt.total_correct,
+          total_questions: attempt.total_questions,
+          exam_title: `${attempt.subject} — ${attempt.exam_type}`,
+          completed_at: attempt.completed_at,
+          categories,
+          incorrect: incorrectItems,
+        });
+      } catch {
+        setFetchError("Failed to load results. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    void load();
+  }, [attemptId]);
 
   function handleConvertToFlashcards() {
     setConvertingToFlashcards(true);
-    // In production: bulkCreateFlashcards(...)
+    // TODO: wire up real flashcard creation from incorrect items
     setTimeout(() => {
       setConvertingToFlashcards(false);
       setFlashcardsCreated(true);
     }, 1500);
   }
+
+  if (loading) return <LoadingScreen />;
+  if (fetchError || !result) {
+    return <ErrorScreen message={fetchError ?? "Results unavailable."} onBack={() => router.push("/dashboard")} />;
+  }
+
+  const scoreLabel = result.score >= 80 ? "Solid work!" : result.score >= 60 ? "Good effort!" : "Keep pushing!";
+  const scoreMessage = result.score >= 80
+    ? "You've shown strong mastery in core concepts. Keep refining the areas below to reach your peak."
+    : result.score >= 60
+    ? "You're making progress! Focus on your weaker categories to improve your overall score."
+    : "Don't give up! Review the incorrect answers and convert them to flashcards for better retention.";
 
   return (
     <div className="animate-page-in space-y-8">
@@ -68,7 +171,8 @@ export default function ExamResultsPage() {
             Exam Results
           </h1>
           <p className="text-base text-muted mt-1">
-            {result.exam_title} • Completed Today
+            {result.exam_title}
+            {result.completed_at ? ` • ${result.completed_at.toLocaleDateString()}` : " • Completed"}
           </p>
         </div>
         <button
@@ -93,18 +197,22 @@ export default function ExamResultsPage() {
               <span className="font-heading text-7xl font-bold text-foreground leading-none">{result.score}</span>
               <span className="text-2xl font-medium text-muted mb-2">/100</span>
             </div>
+            <div className="flex items-center gap-4 text-sm font-semibold">
+              <span className="text-emerald-600">{result.total_correct} correct</span>
+              <span className="text-red-500">{result.total_questions - result.total_correct} wrong</span>
+              <span className="text-muted">{result.total_questions} total</span>
+            </div>
             <p className="text-sm text-muted leading-relaxed max-w-sm">{scoreLabel} {scoreMessage}</p>
           </div>
           <div className="flex flex-col items-center gap-2">
             <ProgressRing
-              value={result.percentile}
+              value={result.score}
               size={110}
               strokeWidth={10}
               color="#10B981"
-              label={`${result.percentile}%`}
+              label={`${result.score}%`}
               sublabel=""
             />
-            <span className="text-xs font-semibold text-success">Top {100 - result.percentile}%</span>
           </div>
         </div>
 
@@ -225,7 +333,7 @@ export default function ExamResultsPage() {
                 
                 <div className="grid grid-cols-2 gap-2">
                   {["A", "B", "C", "D"].map((letter) => {
-                    const text = letter === "A" ? q.option_a : letter === "B" ? q.option_b : letter === "C" ? q.option_c : q.option_d;
+                    const text = q.choices[letter as "A" | "B" | "C" | "D"];
                     if (!text) return null;
                     const isCorrect = letter === q.correct_answer;
                     const isUserAnswer = letter === q.user_answer;

@@ -135,6 +135,126 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
+   BLUE THEME  — ocean calm
+───────────────────────────────────────────────────────────────────────────── */
+[data-theme="blue"] {
+  color-scheme: light;
+
+  --background:  #EEF3FB;
+  --foreground:  #0f2044;
+  --secondary:   #2d4a8a;
+  --primary:     #2563eb;
+  --success:     #10b981;
+  --muted:       #4a6080;
+  --border:      #c5d8f0;
+
+  --surface:     rgba(255, 255, 255, 0.62);
+  --surface-mid: rgba(255, 255, 255, 0.80);
+
+  --overlay-hover:        rgba(37, 99, 235, 0.06);
+  --overlay-hover-mid:    rgba(37, 99, 235, 0.11);
+  --overlay-hover-strong: rgba(37, 99, 235, 0.16);
+
+  --divider: rgba(37, 99, 235, 0.08);
+
+  --toast-bg:     rgba(238, 246, 255, 0.95);
+  --toast-border: rgba(37, 99, 235, 0.15);
+
+  --glass-bg:            rgba(255, 255, 255, 0.62);
+  --glass-border:        rgba(255, 255, 255, 0.82);
+  --glass-shadow-a:      rgba(37, 99, 235, 0.08);
+  --glass-shadow-b:      rgba(37, 99, 235, 0.04);
+  --glass-strong-bg:     rgba(255, 255, 255, 0.78);
+  --glass-strong-border: rgba(255, 255, 255, 0.92);
+  --glass-dock-bg:       rgba(238, 246, 255, 0.84);
+  --glass-dock-border:   rgba(255, 255, 255, 0.84);
+  --glass-dock-inset:    rgba(255, 255, 255, 0.90);
+
+  --input-bg:      rgba(255, 255, 255, 0.58);
+  --input-border:  var(--border);
+
+  --card-bg:       rgba(255, 255, 255, 0.72);
+  --section-alt:   #ddeaf8;
+  --nav-bg:        rgba(238, 243, 251, 0.90);
+
+  --track:         rgba(37, 99, 235, 0.12);
+
+  --toggle-off:    rgba(37, 99, 235, 0.20);
+  --toggle-knob:   #ffffff;
+
+  --badge-amber-bg:   rgba(245, 158, 11, 0.12);
+  --badge-amber-text: #92400e;
+
+  --heading-from:  var(--primary);
+  --heading-to:    #1d4ed8;
+
+  --ambient-base: #EEF3FB;
+  --ambient-a:    rgba(37, 99, 235, 0.12);
+  --ambient-b:    rgba(96, 165, 250, 0.08);
+  --ambient-c:    rgba(37, 99, 235, 0.09);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PURPLE THEME  — deep twilight
+───────────────────────────────────────────────────────────────────────────── */
+[data-theme="purple"] {
+  color-scheme: light;
+
+  --background:  #E8E0F8;
+  --foreground:  #15063a;
+  --secondary:   #4a2e7a;
+  --primary:     #6d28d9;
+  --success:     #10b981;
+  --muted:       #6645a0;
+  --border:      #c8b0e8;
+
+  --surface:     rgba(255, 255, 255, 0.55);
+  --surface-mid: rgba(255, 255, 255, 0.74);
+
+  --overlay-hover:        rgba(109, 40, 217, 0.07);
+  --overlay-hover-mid:    rgba(109, 40, 217, 0.13);
+  --overlay-hover-strong: rgba(109, 40, 217, 0.19);
+
+  --divider: rgba(109, 40, 217, 0.10);
+
+  --toast-bg:     rgba(238, 232, 252, 0.96);
+  --toast-border: rgba(109, 40, 217, 0.18);
+
+  --glass-bg:            rgba(255, 255, 255, 0.50);
+  --glass-border:        rgba(255, 255, 255, 0.72);
+  --glass-shadow-a:      rgba(109, 40, 217, 0.12);
+  --glass-shadow-b:      rgba(109, 40, 217, 0.06);
+  --glass-strong-bg:     rgba(255, 255, 255, 0.66);
+  --glass-strong-border: rgba(255, 255, 255, 0.82);
+  --glass-dock-bg:       rgba(232, 224, 248, 0.86);
+  --glass-dock-border:   rgba(255, 255, 255, 0.74);
+  --glass-dock-inset:    rgba(255, 255, 255, 0.80);
+
+  --input-bg:      rgba(255, 255, 255, 0.48);
+  --input-border:  var(--border);
+
+  --card-bg:       rgba(255, 255, 255, 0.62);
+  --section-alt:   #d8caf0;
+  --nav-bg:        rgba(232, 224, 248, 0.92);
+
+  --track:         rgba(109, 40, 217, 0.14);
+
+  --toggle-off:    rgba(109, 40, 217, 0.24);
+  --toggle-knob:   #ffffff;
+
+  --badge-amber-bg:   rgba(245, 158, 11, 0.14);
+  --badge-amber-text: #92400e;
+
+  --heading-from:  var(--primary);
+  --heading-to:    #4c1d95;
+
+  --ambient-base: #E8E0F8;
+  --ambient-a:    rgba(109, 40, 217, 0.16);
+  --ambient-b:    rgba(139, 92, 246, 0.11);
+  --ambient-c:    rgba(109, 40, 217, 0.13);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
    PINK THEME  — soft professional blush
 ───────────────────────────────────────────────────────────────────────────── */
 [data-theme="pink"] {

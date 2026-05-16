@@ -10,7 +10,7 @@ import {
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
-export type Theme = "light" | "dark" | "pink";
+export type Theme = "light" | "dark" | "pink" | "blue" | "purple";
 
 interface ThemeContextValue {
   theme: Theme;
@@ -34,7 +34,7 @@ const THEME_SCRIPT = `
 (function(){
   try {
     var t = localStorage.getItem('orki-theme');
-    if (t === 'dark' || t === 'pink' || t === 'light') {
+    if (t === 'dark' || t === 'pink' || t === 'light' || t === 'blue' || t === 'purple') {
       document.documentElement.setAttribute('data-theme', t);
     }
   } catch(e){}
@@ -47,7 +47,7 @@ function getInitialTheme(): Theme {
   if (typeof window === "undefined") return "light";
   try {
     const stored = localStorage.getItem("orki-theme") as Theme | null;
-    if (stored === "dark" || stored === "pink" || stored === "light") return stored;
+    if (stored === "dark" || stored === "pink" || stored === "light" || stored === "blue" || stored === "purple") return stored;
   } catch {
     // localStorage unavailable
   }

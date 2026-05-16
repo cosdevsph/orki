@@ -46,3 +46,13 @@ export type FirestoreFlashcard = {
   /** Explanation shown on the back of the card */
   explanation: string;
 };
+
+// ─── Flashcard session progress ───────────────────────────────────────────────
+
+/** Persisted in localStorage to allow resume-session flows. */
+export type FlashcardProgress = {
+  examType: string;
+  subject: string;
+  currentIndex: number;
+  lastUpdated: string; // ISO timestamp
+};

@@ -15,10 +15,12 @@ import { SUBJECT_COLORS } from "@/shared/utils/exam-type";
 function SubjectCard({
   subject,
   colorFallback,
+  hasProgress,
   onStart,
 }: {
   subject: FirestoreSubject;
   colorFallback: string;
+  hasProgress: boolean;
   onStart: () => void;
 }) {
   return (
@@ -38,12 +40,28 @@ function SubjectCard({
       <button
         type="button"
         onClick={onStart}
-        className="w-full flex items-center justify-center gap-2 rounded-xl bg-primary/10 px-4 py-2.5 text-sm font-semibold text-primary transition-all duration-150 hover:bg-primary hover:text-white"
+        className={`w-full flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-150 ${
+          hasProgress
+            ? "bg-amber-500/10 text-amber-700 hover:bg-amber-500 hover:text-white"
+            : "bg-primary/10 text-primary hover:bg-primary hover:text-white"
+        }`}
       >
-        Start Exam
-        <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
-          <path d="M5.25 2.917 9.333 7 5.25 11.083" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        {hasProgress ? (
+          <>
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+              <path d="M4.083 2.917 8.167 7l-4.084 4.083" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M7.583 2.917 11.667 7l-4.084 4.083" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Resume Exam
+          </>
+        ) : (
+          <>
+            Start Exam
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
+              <path d="M5.25 2.917 9.333 7 5.25 11.083" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </>
+        )}
       </button>
     </div>
   );
@@ -77,6 +95,19 @@ export default function ExamsPage() {
   const { subjects, loading, error } = useSubjects(examType);
   const [subscription, setSubscription] = useState<{ status: string } | null>(null);
   const [subLoading, setSubLoading] = useState(true);
+  const [savedSubjects, setSavedSubjects] = useState<Set<string>>(new Set());
+
+  // Detect which subjects have a saved in-progress session.
+  useEffect(() => {
+    if (!examType || subjects.length === 0) return;
+    const withSaved = new Set<string>();
+    for (const subj of subjects) {
+      if (localStorage.getItem(`orki_session_${examType}_${subj.name}`)) {
+        withSaved.add(subj.name);
+      }
+    }
+    setSavedSubjects(withSaved);
+  }, [examType, subjects]);
 
   // Fetch subscription status
   useEffect(() => {
@@ -174,6 +205,7 @@ export default function ExamsPage() {
               key={subject.id}
               subject={subject}
               colorFallback={SUBJECT_COLORS[i % SUBJECT_COLORS.length]}
+              hasProgress={savedSubjects.has(subject.name)}
               onStart={() => handleStart(subject)}
             />
           ))}

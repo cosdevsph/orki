@@ -168,6 +168,31 @@ export async function deleteExamSession(sessionId: string): Promise<void> {
 // ─── Analytics ────────────────────────────────────────────────────────────────
 
 /**
+ * Fetch a completed exam attempt by its document ID.
+ * Returns null if the document does not exist.
+ */
+export async function getExamAttempt(
+  attemptId: string,
+): Promise<
+  | (FirestoreExamAttemptInput & {
+      id: string;
+      user_id: string;
+      completed_at: Date | null;
+    })
+  | null
+> {
+  const snap = await getDoc(doc(db, "exam_attempts", attemptId));
+  if (!snap.exists()) return null;
+  const data = snap.data();
+  return {
+    id: snap.id,
+    ...(data as FirestoreExamAttemptInput & { user_id: string }),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    completed_at: (data as any).completed_at?.toDate?.() ?? null,
+  };
+}
+
+/**
  * Write a completed-exam analytics document to the `analytics` collection.
  * Powers dashboard progress charts, subject mastery, and weak-area detection.
  */

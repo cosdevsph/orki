@@ -6,6 +6,8 @@ type FlashcardSubjectCardProps = {
   cardCount: number;
   onStudy: () => void;
   loading?: boolean;
+  /** When true, the CTA shows "Resume Progress →" instead of "Study Now →". */
+  hasProgress?: boolean;
 };
 
 const SUBJECT_ICONS: Record<string, string> = {
@@ -34,6 +36,7 @@ export function FlashcardSubjectCard({
   cardCount,
   onStudy,
   loading = false,
+  hasProgress = false,
 }: FlashcardSubjectCardProps) {
   const icon = SUBJECT_ICONS[name] ?? name.charAt(0);
   const isEmoji = SUBJECT_ICONS[name] !== undefined;
@@ -93,6 +96,8 @@ export function FlashcardSubjectCard({
             />
             Loading…
           </span>
+        ) : hasProgress ? (
+          "Resume Progress →"
         ) : (
           "Study Now →"
         )}

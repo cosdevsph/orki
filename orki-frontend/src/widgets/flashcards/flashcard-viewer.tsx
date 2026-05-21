@@ -98,7 +98,7 @@ function FlashcardViewerInner({
           }
         >
           {/* Front — question only */}
-          <div className="flashcard-face glass-strong absolute inset-0 flex flex-col items-center justify-center rounded-3xl p-8">
+          <div className="flashcard-face absolute inset-0 flex flex-col items-center justify-center rounded-3xl p-8">
             <p className="font-heading text-xl font-bold leading-snug text-center text-foreground">
               {card.front}
             </p>
@@ -109,10 +109,9 @@ function FlashcardViewerInner({
 
           {/* Back — correct answer only */}
           <div
-            className="flashcard-face flashcard-back glass-strong absolute inset-0 flex flex-col items-center justify-center rounded-3xl p-8"
+            className="flashcard-face flashcard-back absolute inset-0 flex flex-col items-center justify-center rounded-3xl p-8"
             style={{
-              background:
-                "linear-gradient(135deg, color-mix(in srgb, var(--primary) 6%, transparent) 0%, var(--glass-strong-bg) 60%)",
+              background: "color-mix(in srgb, var(--primary) 8%, var(--flashcard-face-bg))",
             }}
           >
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-primary/60">

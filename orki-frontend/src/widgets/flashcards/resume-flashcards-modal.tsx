@@ -36,7 +36,7 @@ export function ResumeFlashcardsModal({
   onClose,
 }: ResumeFlashcardsModalProps) {
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center p-4 pb-8 sm:items-center sm:pb-4">
+    <div className="fixed inset-0 z-[100] flex items-end justify-center p-4 pb-8 sm:items-center sm:pb-4">
       {/* Backdrop — clicking outside = dismiss only, no progress change */}
       <div
         className="absolute inset-0 bg-black/25 backdrop-blur-sm"

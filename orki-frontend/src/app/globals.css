@@ -49,6 +49,7 @@
 
   /* Card (solid, non-glass) */
   --card-bg:       #ffffff;
+  --flashcard-face-bg: #ffffff;
   --section-alt:   #f8fafc;
   --nav-bg:        rgba(255, 255, 255, 0.85);
 
@@ -114,6 +115,7 @@
   --input-border:  var(--border);
 
   --card-bg:       #1c1c1c;
+  --flashcard-face-bg: #1c1c1c;
   --section-alt:   #181818;
   --nav-bg:        rgba(19, 19, 19, 0.88);
 
@@ -174,6 +176,7 @@
   --input-border:  var(--border);
 
   --card-bg:       rgba(255, 255, 255, 0.72);
+  --flashcard-face-bg: #fafbfe;
   --section-alt:   #ddeaf8;
   --nav-bg:        rgba(238, 243, 251, 0.90);
 
@@ -234,6 +237,7 @@
   --input-border:  var(--border);
 
   --card-bg:       rgba(255, 255, 255, 0.62);
+  --flashcard-face-bg: #f6f3fd;
   --section-alt:   #d8caf0;
   --nav-bg:        rgba(232, 224, 248, 0.92);
 
@@ -294,6 +298,7 @@
   --input-border:  var(--border);
 
   --card-bg:       rgba(255, 255, 255, 0.62);
+  --flashcard-face-bg: #f9f0f5;
   --section-alt:   #e4c8d6;
   --nav-bg:        rgba(240, 216, 228, 0.92);
 
@@ -500,24 +505,29 @@ h6 {
 
 /* ─── Flashcard Flip ─────────────────────────────────────────────────────── */
 .flashcard-scene {
-  perspective: 1200px;
+  perspective: 900px;
 }
 
 .flashcard-inner {
-  transition: transform 0.55s cubic-bezier(0.34, 1.2, 0.64, 1);
-  transform-style: preserve-3d;
   position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .flashcard-inner.flipped {
   transform: rotateY(180deg);
 }
 
+/* Both faces — always opaque so backface-visibility works in every theme */
 .flashcard-face {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  background: var(--flashcard-face-bg);
+  border: 1px solid var(--glass-strong-border);
+  box-shadow: 0 8px 40px var(--glass-shadow-a), 0 2px 8px var(--glass-shadow-b);
 }
 
+/* Back face sits pre-rotated 180 ° in 3-D space */
 .flashcard-back {
   transform: rotateY(180deg);
 }

@@ -3,8 +3,8 @@ const chartBars = [42, 58, 50, 74, 68, 82, 94];
 
 export function ShowcaseSection() {
   return (
-    <section id="showcase" className="bg-section-alt py-28 overflow-hidden transition-colors duration-300">
-      <div className="mx-auto w-full max-w-6xl px-6 grid grid-cols-2 gap-20 items-center">
+    <section id="showcase" className="bg-section-alt py-16 lg:py-28 overflow-hidden transition-colors duration-300">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* ── Left column: copy ── */}
         <div className="flex flex-col gap-8">
           <span className="inline-flex items-center gap-2 self-start rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-sm font-medium text-primary">
@@ -12,7 +12,7 @@ export function ShowcaseSection() {
           </span>
 
           <div className="flex flex-col gap-5">
-            <h2 className="font-heading text-5xl font-bold text-foreground leading-tight">
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
               Built for focused,{" "}
               <span className="bg-linear-to-r from-[var(--heading-from)] to-[var(--heading-to)] bg-clip-text text-transparent">
                 motivated learners.
@@ -57,9 +57,9 @@ export function ShowcaseSection() {
         </div>
 
         {/* ── Right column: app mockup ── */}
-        <div className="relative">
+        <div className="relative mx-4 sm:mx-0">
           {/* Floating analytics panel */}
-          <div className="absolute -top-5 -right-5 z-20 w-48 rounded-2xl bg-card-bg border border-border shadow-xl p-4">
+          <div className="absolute -top-5 -right-5 z-20 w-40 sm:w-48 rounded-2xl bg-card-bg border border-border shadow-xl p-3 sm:p-4">
             <p className="text-xs font-semibold text-foreground mb-3">Weekly Progress</p>
             <div className="flex items-end gap-1 h-14">
               {chartBars.map((h, i) => (
@@ -78,7 +78,7 @@ export function ShowcaseSection() {
           </div>
 
           {/* Floating flashcard panel */}
-          <div className="absolute -bottom-5 -left-5 z-20 w-52 rounded-2xl bg-card-bg border border-border shadow-xl p-5">
+          <div className="absolute -bottom-5 -left-5 z-20 w-44 sm:w-52 rounded-2xl bg-card-bg border border-border shadow-xl p-3 sm:p-5">
             <div className="flex items-center justify-between mb-3">
               <span className="text-[11px] font-semibold text-primary uppercase tracking-wide">
                 Flashcard

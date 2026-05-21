@@ -199,31 +199,31 @@ const bottomRowFeatures: FeatureCardProps[] = [
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="bg-background py-28 transition-colors duration-300">
-      <div className="mx-auto w-full max-w-6xl px-6">
+    <section id="features" className="bg-background py-16 lg:py-28 transition-colors duration-300">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
         {/* Section header */}
-        <div className="flex flex-col items-center gap-4 text-center mb-16">
+        <div className="flex flex-col items-center gap-4 text-center mb-10 lg:mb-16">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-sm font-medium text-primary">
             Core Features
           </span>
-          <h2 className="font-heading text-5xl font-bold text-foreground leading-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
             Everything you need to ace your boards.
           </h2>
-          <p className="text-lg text-secondary max-w-xl leading-relaxed">
+          <p className="text-base lg:text-lg text-secondary max-w-xl leading-relaxed">
             Orki brings together every study tool you need in one intelligent, beautifully designed
             platform.
           </p>
         </div>
 
         {/* 3-column top row */}
-        <div className="grid grid-cols-3 gap-6 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
           {topRowFeatures.map((f) => (
             <FeatureCard key={f.title} {...f} />
           ))}
         </div>
 
         {/* 2-column bottom row — centered */}
-        <div className="grid grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto">
           {bottomRowFeatures.map((f) => (
             <FeatureCard key={f.title} {...f} />
           ))}

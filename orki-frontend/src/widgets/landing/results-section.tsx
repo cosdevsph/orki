@@ -51,29 +51,29 @@ function StarRow({ count }: { count: number }) {
 
 export function ResultsSection() {
   return (
-    <section id="results" className="bg-background py-28 transition-colors duration-300">
-      <div className="mx-auto w-full max-w-6xl px-6">
+    <section id="results" className="bg-background py-16 lg:py-28 transition-colors duration-300">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
         {/* Section header */}
-        <div className="flex flex-col items-center gap-4 text-center mb-16">
+        <div className="flex flex-col items-center gap-4 text-center mb-10 lg:mb-16">
           <span className="inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/8 px-4 py-1.5 text-sm font-medium text-success">
             Proven Results
           </span>
-          <h2 className="font-heading text-5xl font-bold text-foreground leading-tight">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
             Students who study with Orki pass.
           </h2>
-          <p className="text-lg text-secondary max-w-lg leading-relaxed">
+          <p className="text-base lg:text-lg text-secondary max-w-lg leading-relaxed">
             The numbers speak for themselves — and so do the students behind them.
           </p>
         </div>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-4 gap-5 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-10 lg:mb-16">
           {stats.map(({ value, label, accent }) => (
             <div
               key={label}
-              className="flex flex-col gap-2 items-center text-center rounded-3xl border border-border/60 bg-card-bg p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="flex flex-col gap-2 items-center text-center rounded-3xl border border-border/60 bg-card-bg p-6 sm:p-8 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              <span className={`font-heading text-5xl font-bold leading-none ${accent}`}>
+              <span className={`font-heading text-4xl sm:text-5xl font-bold leading-none ${accent}`}>
                 {value}
               </span>
               <span className="text-sm font-semibold text-secondary">{label}</span>
@@ -82,7 +82,7 @@ export function ResultsSection() {
         </div>
 
         {/* Testimonials */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {testimonials.map(({ quote, name, role, initials, color, stars }) => (
             <div
               key={name}

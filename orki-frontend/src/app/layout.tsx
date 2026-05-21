@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Quicksand } from "next/font/google";
 import "./globals.css";
 
+import { Analytics } from "@vercel/analytics/next";
 import { AuthProvider } from "@/providers/auth-provider";
 import { NotificationProvider } from "@/providers/notification-provider";
 import { OnboardingProvider } from "@/providers/onboarding-provider";
@@ -94,6 +95,7 @@ export default function RootLayout({
             </AuthProvider>
           </QueryProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

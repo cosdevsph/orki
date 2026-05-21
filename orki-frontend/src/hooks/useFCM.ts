@@ -1,28 +1,22 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 import { auth } from "@/shared/firebase/client";
 import { saveFCMToken } from "@/shared/firebase/preferences";
 
-import { useAuth } from "./useAuth";
-
 export type FCMPermissionState = "default" | "granted" | "denied" | "unsupported";
 
 export function useFCM() {
-  const { user } = useAuth();
-  const [permission, setPermission] = useState<FCMPermissionState>("default");
+  // Initialise directly from the Notification API so no synchronous effect is needed
+  const [permission, setPermission] = useState<FCMPermissionState>(() => {
+    if (typeof window === "undefined" || !("Notification" in window)) {
+      return "unsupported";
+    }
+    return Notification.permission as FCMPermissionState;
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [token, setToken] = useState<string | null>(null);
-
-  // Sync browser notification permission state on mount
-  useEffect(() => {
-    if (typeof window === "undefined" || !("Notification" in window)) {
-      setPermission("unsupported");
-      return;
-    }
-    setPermission(Notification.permission as FCMPermissionState);
-  }, []);
 
   /**
    * Request browser notification permission, obtain the FCM token,

@@ -3,8 +3,8 @@ import {
   onSnapshot,
   serverTimestamp,
   setDoc,
-  type DocumentSnapshot,
 } from "firebase/firestore";
+import type { DocumentSnapshot } from "@firebase/firestore";
 
 import { db } from "./client";
 

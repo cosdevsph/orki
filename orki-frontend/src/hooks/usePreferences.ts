@@ -22,6 +22,7 @@ export function usePreferences() {
   useEffect(() => {
     const firebaseUser = auth.currentUser;
     if (!user?.uid || !firebaseUser) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsLoading(false);
       return;
     }

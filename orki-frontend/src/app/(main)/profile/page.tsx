@@ -15,6 +15,7 @@ import { NextPaymentCard } from "@/widgets/profile/next-payment-card";
 import { SubscriptionHistoryCard } from "@/widgets/profile/subscription-history-card";
 import { DeactivateAccountModal } from "@/widgets/profile/deactivate-account-modal";
 import { DeleteAccountModal } from "@/widgets/profile/delete-account-modal";
+import { PreferencesCard } from "@/widgets/profile/preferences-card";
 
 // ─── Settings group ───────────────────────────────────────────────────────────
 
@@ -70,22 +71,6 @@ function SettingsGroup({
       <div className="glass overflow-hidden rounded-2xl divide-y divide-divider">
         {children}
       </div>
-    </div>
-  );
-}
-
-// ─── Toggle ────────────────────────────────────────────────────────────────────
-
-function Toggle({ checked }: { checked: boolean }) {
-  return (
-    <div
-      className="relative h-6 w-11 rounded-full transition-colors duration-200"
-      style={{ backgroundColor: checked ? "var(--primary)" : "var(--toggle-off)" }}
-    >
-      <div
-        className="absolute top-0.5 h-5 w-5 rounded-full bg-toggle-knob shadow-sm transition-transform duration-200"
-        style={{ transform: checked ? "translateX(20px)" : "translateX(2px)" }}
-      />
     </div>
   );
 }
@@ -365,7 +350,7 @@ export default function ProfilePage() {
             </div>
             <div className="px-5 py-3 border-t border-border/50">
               <p className="text-[11px] text-muted">
-                🔒 Exam type is permanently set after onboarding and cannot be changed.
+                Exam type is permanently set after onboarding and cannot be changed.
               </p>
             </div>
           </div>
@@ -382,29 +367,8 @@ export default function ProfilePage() {
         <SettingRow label="Change Password" description="Update your login password" onClick={() => {}} />
       </SettingsGroup>
 
-      {/* Preferences */}
-      <SettingsGroup title="Preferences">
-        <SettingRow
-          label="Daily Study Reminders"
-          description="Receive a nudge at your preferred study time"
-          control={<Toggle checked={true} />}
-        />
-        <SettingRow
-          label="Streak Protection"
-          description="Get notified before your streak is at risk"
-          control={<Toggle checked={true} />}
-        />
-        <SettingRow
-          label="Show Mastery Progress"
-          description="Display mastery % on flashcard decks"
-          control={<Toggle checked={false} />}
-        />
-        <SettingRow
-          label="Exam Countdown Alerts"
-          description="Reminders 3 days before an upcoming exam"
-          control={<Toggle checked={true} />}
-        />
-      </SettingsGroup>
+      {/* Preferences — fully functional, synced with Firestore + FCM */}
+      <PreferencesCard />
 
       {/* Subscription — live data */}
       <NextPaymentCard />

@@ -186,3 +186,21 @@ if not DEBUG:
 
 FIREBASE_CREDENTIALS_PATH = os.environ.get("FIREBASE_CREDENTIALS_PATH")
 FIREBASE_PROJECT_ID = os.environ.get("FIREBASE_PROJECT_ID")
+
+# ─── Email ─────────────────────────────────────────────────────────────────────
+# Defaults to console backend in development so no real emails are sent.
+# Set EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend in production.
+
+EMAIL_BACKEND = os.environ.get(
+    "EMAIL_BACKEND",
+    "django.core.mail.backends.console.EmailBackend",
+)
+EMAIL_HOST = os.environ.get("EMAIL_HOST", "smtp.gmail.com")
+EMAIL_PORT = int(os.environ.get("EMAIL_PORT", "587"))
+EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS", "True") == "True"
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL", "Orki <noreply@orki.cosedevs.com>")
+
+# Public URL used in email CTAs (e.g. the "Study with Orki Now" button)
+FRONTEND_URL = os.environ.get("FRONTEND_URL", "http://localhost:3000")

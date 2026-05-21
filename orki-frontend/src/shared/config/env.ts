@@ -13,5 +13,12 @@ export const env = {
   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: getEnv("NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET", process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET),
   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: getEnv("NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID", process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID),
   NEXT_PUBLIC_FIREBASE_APP_ID: getEnv("NEXT_PUBLIC_FIREBASE_APP_ID", process.env.NEXT_PUBLIC_FIREBASE_APP_ID),
+  /**
+   * VAPID key for FCM Web Push (optional — push notifications degrade
+   * gracefully if absent).
+   * Generate in Firebase Console → Project Settings → Cloud Messaging →
+   * Web Push certificates → Generate key pair.
+   */
+  NEXT_PUBLIC_FIREBASE_VAPID_KEY: process.env.NEXT_PUBLIC_FIREBASE_VAPID_KEY ?? "",
 };
 

@@ -64,7 +64,7 @@ export function CtaSection() {
 
             {/* Micro trust signals */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-1">
-              {["Free to start", "No credit card", "Cancel anytime"].map((item) => (
+              {["Try it at ₱ 49", "No credit card", "Cancel anytime"].map((item) => (
                 <div key={item} className="flex items-center gap-1.5 text-sm text-white/65">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <circle cx="7" cy="7" r="6" stroke="#10B981" strokeWidth="1.5" />

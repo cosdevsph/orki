@@ -128,7 +128,7 @@ export function AuthShell({ initialTab = "signin" }: AuthShellProps) {
 
               {/* Micro badges */}
               <div className="flex items-center gap-4">
-                {["Free to start", "No credit card", "Cancel anytime"].map((item) => (
+                {["Try it at ₱ 49", "No credit card", "Cancel anytime"].map((item) => (
                   <div key={item} className="flex items-center gap-1 text-[11px] text-white/40">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                       <circle cx="6" cy="6" r="5" stroke="#10B981" strokeWidth="1.5" />

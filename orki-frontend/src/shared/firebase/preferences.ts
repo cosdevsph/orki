@@ -3,6 +3,7 @@ import {
   onSnapshot,
   serverTimestamp,
   setDoc,
+  type DocumentSnapshot,
 } from "firebase/firestore";
 
 import { db } from "./client";
@@ -65,7 +66,7 @@ export function subscribeToPreferences(
   uid: string,
   callback: (prefs: UserPreferences) => void
 ): () => void {
-  return onSnapshot(userDocRef(uid), (snap) => {
+  return onSnapshot(userDocRef(uid), (snap: DocumentSnapshot) => {
     if (!snap.exists()) {
       callback(DEFAULT_PREFERENCES);
       return;

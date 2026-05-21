@@ -14,4 +14,6 @@ export type SessionUser = {
   exam_date: string | null;
   onboarding_completed: boolean;
   is_active: boolean;
+  /** Firestore-persisted avatar path, e.g. "/avatars/avatar-1.webp" */
+  avatar?: string;
 };

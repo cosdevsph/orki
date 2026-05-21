@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { useAuth } from "@/hooks/useAuth";
@@ -10,12 +10,14 @@ import { useNotification } from "@/providers/notification-provider";
 import { useTheme, type Theme } from "@/providers/theme-provider";
 import { logoutFromBackend } from "@/shared/api/auth";
 import { signOutFirebase } from "@/shared/firebase/auth";
+import { getUserAvatar, DEFAULT_AVATAR } from "@/shared/firebase/avatar";
 import { routes } from "@/shared/config/routes";
 import { NextPaymentCard } from "@/widgets/profile/next-payment-card";
 import { SubscriptionHistoryCard } from "@/widgets/profile/subscription-history-card";
 import { DeactivateAccountModal } from "@/widgets/profile/deactivate-account-modal";
 import { DeleteAccountModal } from "@/widgets/profile/delete-account-modal";
 import { PreferencesCard } from "@/widgets/profile/preferences-card";
+import { AvatarSelectorModal } from "@/widgets/profile/avatar-selector-modal";
 
 // ─── Settings group ───────────────────────────────────────────────────────────
 
@@ -229,15 +231,17 @@ export default function ProfilePage() {
 
   const [deactivateOpen, setDeactivateOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
+  const [avatarOpen, setAvatarOpen] = useState(false);
+  const [avatar, setAvatar] = useState<string>(DEFAULT_AVATAR);
+
+  // Load avatar from Firestore once the user is known
+  useEffect(() => {
+    if (!user?.uid) return;
+    getUserAvatar(user.uid).then(setAvatar).catch(() => {});
+  }, [user?.uid]);
 
   const displayName = user?.display_name || `${user?.first_name ?? ""} ${user?.last_name ?? ""}`.trim() || "Orki User";
   const email = user?.email ?? "—";
-  const initials = displayName
-    .split(" ")
-    .map((n: string) => n[0])
-    .slice(0, 2)
-    .join("")
-    .toUpperCase();
 
   const handleLogout = async () => {
     try {
@@ -261,19 +265,36 @@ export default function ProfilePage() {
 
       {/* Profile card */}
       <div className="glass rounded-2xl p-6 flex items-center gap-5">
-        {false ? ( // photoURL is managed by backend profile; placeholder for future
-          <Image
-            src=""
-            alt={displayName}
-            width={72}
-            height={72}
-            className="rounded-2xl object-cover shadow-md"
-          />
-        ) : (
-          <div className="flex h-18 w-18 items-center justify-center rounded-2xl bg-primary/15 shadow-inner">
-            <span className="font-heading text-2xl font-bold text-primary">{initials}</span>
+        {/* Avatar — clickable to open selector */}
+        <button
+          type="button"
+          onClick={() => setAvatarOpen(true)}
+          className="relative shrink-0 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          aria-label="Change avatar"
+        >
+          <div className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-primary/10 border border-primary/20">
+            <Image
+              src={avatar}
+              alt={displayName}
+              width={68}
+              height={68}
+              className="rounded-xl object-cover drop-shadow-sm"
+            />
           </div>
-        )}
+          {/* Edit badge */}
+          <span className="absolute -bottom-1.5 -right-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-primary shadow-md">
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true">
+              <path
+                d="M7.5 1.5l2 2-5.5 5.5H2v-2L7.5 1.5z"
+                stroke="white"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+        </button>
+
         <div className="flex-1 space-y-0.5">
           <p className="font-heading text-xl font-bold text-foreground">{displayName}</p>
           <p className="text-sm text-muted">{email}</p>
@@ -282,11 +303,13 @@ export default function ProfilePage() {
             <span className="text-[11px] font-semibold text-primary">Pro Plan</span>
           </div>
         </div>
+
         <button
           type="button"
+          onClick={() => setAvatarOpen(true)}
           className="rounded-xl bg-overlay-hover-mid px-4 py-2 text-xs font-semibold text-secondary transition hover:bg-overlay-hover-strong"
         >
-          Edit Profile
+          Change Avatar
         </button>
       </div>
 
@@ -360,11 +383,10 @@ export default function ProfilePage() {
       {/* Account settings */}
       <AppearanceSection />
 
-      {/* Account settings */}
+      {/* Account info — read-only */}
       <SettingsGroup title="Account">
-        <SettingRow label="Display Name" description={displayName} onClick={() => {}} />
-        <SettingRow label="Email Address" description={email} onClick={() => {}} />
-        <SettingRow label="Change Password" description="Update your login password" onClick={() => {}} />
+        <SettingRow label="Display Name" description={displayName} />
+        <SettingRow label="Email Address" description={email} />
       </SettingsGroup>
 
       {/* Preferences — fully functional, synced with Firestore + FCM */}
@@ -399,6 +421,16 @@ export default function ProfilePage() {
       </SettingsGroup>
 
       {/* Modals */}
+      <AvatarSelectorModal
+        open={avatarOpen}
+        uid={user?.uid ?? ""}
+        currentAvatar={avatar}
+        onClose={() => setAvatarOpen(false)}
+        onSave={(next) => {
+          setAvatar(next);
+          if (user) setUser({ ...user, avatar: next });
+        }}
+      />
       <DeactivateAccountModal
         open={deactivateOpen}
         onClose={() => setDeactivateOpen(false)}

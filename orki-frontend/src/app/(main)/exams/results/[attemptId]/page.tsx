@@ -4,7 +4,13 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 
 import { ProgressRing } from "@/components/ui/progress-ring";
-import { getExamAttempt, getQuestionsBySubject } from "@/shared/firebase/firestore";
+import { useAuth } from "@/hooks/useAuth";
+import { auth } from "@/shared/firebase/client";
+import {
+  getExamAttempt,
+  getQuestionsBySubject,
+  saveConvertedFlashcardDeck,
+} from "@/shared/firebase/firestore";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -62,20 +68,55 @@ export default function ExamResultsPage() {
   const params = useParams();
   const attemptId = params.attemptId as string;
   const router = useRouter();
+  const { user } = useAuth();
 
   const [result, setResult] = useState<ResultData | null>(null);
-  const [loading, setLoading] = useState(attemptId !== "local");
-  const [fetchError, setFetchError] = useState<string | null>(
-    attemptId === "local"
-      ? "You are not signed in. Sign in to save and view detailed results."
-      : null,
-  );
-  const [showReview, setShowReview] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState<string | null>(null);
   const [convertingToFlashcards, setConvertingToFlashcards] = useState(false);
   const [flashcardsCreated, setFlashcardsCreated] = useState(false);
+  const [flashcardsCount, setFlashcardsCount] = useState(0);
+  const [convertError, setConvertError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (attemptId === "local") return;
+    async function loadLocal() {
+      try {
+        const raw = localStorage.getItem("orki_last_result");
+        if (raw) {
+          const data = JSON.parse(raw) as {
+            exam_type: string;
+            subject: string;
+            score: number;
+            total_correct: number;
+            total_questions: number;
+            completed_at: string;
+          };
+          setResult({
+            score: data.score,
+            total_correct: data.total_correct,
+            total_questions: data.total_questions,
+            exam_title: `${data.subject} — ${data.exam_type}`,
+            completed_at: data.completed_at ? new Date(data.completed_at) : null,
+            categories: [],
+            incorrect: [],
+          });
+        } else {
+          setFetchError(
+            "Results are not available. Sign in to save and view detailed results.",
+          );
+        }
+      } catch {
+        setFetchError("Could not load local results.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    // ── Local / unauthenticated fallback ──────────────────────────────────────
+    if (attemptId === "local") {
+      void loadLocal();
+      return;
+    }
 
     async function load() {
       try {
@@ -87,12 +128,16 @@ export default function ExamResultsPage() {
 
         const questions = await getQuestionsBySubject(attempt.exam_type, attempt.subject, 500);
 
+        // Guard: answers can be missing from old/incomplete Firestore docs.
+        // Fall back to source_id lookup in case doc IDs changed after a re-import.
+        const answersMap: Record<string, string> = attempt.answers ?? {};
+
         // ─── Per-question breakdown ───────────────────────────────────────────
         const incorrectItems: IncorrectItem[] = [];
         const topicMap: Record<string, { correct: number; total: number }> = {};
 
         for (const q of questions) {
-          const userAnswer = attempt.answers[q.id];
+          const userAnswer = answersMap[q.id] ?? answersMap[q.source_id];
           if (!userAnswer) continue; // unanswered — skip from breakdown
 
           const topic = q.topic || "General";
@@ -130,7 +175,8 @@ export default function ExamResultsPage() {
           categories,
           incorrect: incorrectItems,
         });
-      } catch {
+      } catch (err) {
+        console.error("[ExamResults] Failed to load attempt:", err);
         setFetchError("Failed to load results. Please try again.");
       } finally {
         setLoading(false);
@@ -140,13 +186,44 @@ export default function ExamResultsPage() {
     void load();
   }, [attemptId]);
 
-  function handleConvertToFlashcards() {
+  async function handleConvertToFlashcards() {
+    if (!result || convertingToFlashcards || flashcardsCreated) return;
+    if (result.incorrect.length === 0) {
+      setConvertError("No incorrect answers to convert — great job!");
+      return;
+    }
+    setConvertError(null);
     setConvertingToFlashcards(true);
-    // TODO: wire up real flashcard creation from incorrect items
-    setTimeout(() => {
-      setConvertingToFlashcards(false);
+
+    try {
+      const uid = user?.uid ?? auth.currentUser?.uid ?? null;
+      if (!uid) throw new Error("Not authenticated");
+
+      const deckName = `${result.exam_title} (${
+        result.completed_at
+          ? result.completed_at.toLocaleDateString()
+          : new Date().toLocaleDateString()
+      })`;
+
+      const cards = result.incorrect.map((q) => ({
+        id: q.id,
+        front: q.question_text,
+        back: q.choices[q.correct_answer as "A" | "B" | "C" | "D"] ?? q.correct_answer,
+        explanation: q.explanation,
+        category: q.category,
+        choices: q.choices,
+        correct_answer: q.correct_answer,
+      }));
+
+      await saveConvertedFlashcardDeck(uid, deckName, attemptId, cards);
+      setFlashcardsCount(cards.length);
       setFlashcardsCreated(true);
-    }, 1500);
+    } catch (err) {
+      console.error("[ExamResults] Failed to convert flashcards:", err);
+      setConvertError("Failed to create flashcards. Please try again.");
+    } finally {
+      setConvertingToFlashcards(false);
+    }
   }
 
   if (loading) return <LoadingScreen />;
@@ -233,7 +310,7 @@ export default function ExamResultsPage() {
 
           <button
             type="button"
-            onClick={() => setShowReview(true)}
+            onClick={() => router.push(`/exams/results/${attemptId}/review`)}
             className="flex items-center justify-center gap-2 rounded-xl bg-foreground px-5 py-3 text-sm font-bold text-background transition-all hover:opacity-90"
           >
             <svg width="14" height="14" viewBox="0 0 22 22" fill="none">
@@ -245,7 +322,7 @@ export default function ExamResultsPage() {
 
           <button
             type="button"
-            onClick={handleConvertToFlashcards}
+            onClick={() => void handleConvertToFlashcards()}
             disabled={convertingToFlashcards || flashcardsCreated}
             className="flex items-center justify-center gap-2 rounded-xl border border-border/70 bg-card-bg px-5 py-2.5 text-sm font-semibold text-foreground transition-all hover:bg-surface disabled:opacity-60"
           >
@@ -259,7 +336,7 @@ export default function ExamResultsPage() {
                 <svg width="14" height="14" viewBox="0 0 22 22" fill="none">
                   <path d="M9 12l2 2 4-4" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                Flashcards Created!
+                Flashcards Created! ({flashcardsCount})
               </>
             ) : (
               <>
@@ -271,12 +348,30 @@ export default function ExamResultsPage() {
               </>
             )}
           </button>
+
+          {flashcardsCreated && (
+            <button
+              type="button"
+              onClick={() => router.push("/flashcards")}
+              className="flex items-center justify-center gap-1.5 text-xs font-semibold text-primary transition hover:underline"
+            >
+              View in Flashcards →
+            </button>
+          )}
+          {convertError && (
+            <p className="text-xs text-red-500 text-center">{convertError}</p>
+          )}
         </div>
       </div>
 
       {/* Performance by Category */}
       <div className="glass rounded-2xl p-6 space-y-5">
         <h2 className="font-heading text-xl font-bold text-foreground">Performance by Category</h2>
+        {result.categories.length === 0 ? (
+          <p className="text-sm text-muted py-4 text-center">
+            Category breakdown is not available for this attempt.
+          </p>
+        ) : (
         <div className="grid grid-cols-2 gap-6">
           {result.categories.map((cat, i) => {
             const color = CATEGORY_COLORS[i % CATEGORY_COLORS.length];
@@ -295,7 +390,7 @@ export default function ExamResultsPage() {
                   </div>
                   <span className="text-sm font-bold" style={{ color }}>{cat.score}%</span>
                 </div>
-                <div className="h-2 overflow-hidden rounded-full bg-black/[0.06]">
+                <div className="h-2 overflow-hidden rounded-full bg-black/6">
                   <div className="h-full rounded-full transition-all duration-700" style={{ width: `${cat.score}%`, backgroundColor: color }} />
                 </div>
                 <p className="text-xs text-muted">{feedback}</p>
@@ -303,69 +398,9 @@ export default function ExamResultsPage() {
             );
           })}
         </div>
+        )}
       </div>
 
-      {/* Review Incorrect Answers Modal/Section */}
-      {showReview && (
-        <div className="glass rounded-2xl p-6 space-y-5">
-          <div className="flex items-center justify-between">
-            <h2 className="font-heading text-xl font-bold text-foreground">
-              Review Incorrect Answers ({result.incorrect.length})
-            </h2>
-            <button
-              type="button"
-              onClick={() => setShowReview(false)}
-              className="rounded-xl bg-black/[0.05] px-3 py-1.5 text-xs font-medium text-muted transition hover:bg-black/[0.08]"
-            >
-              ✕ Close
-            </button>
-          </div>
-
-          <div className="space-y-4">
-            {result.incorrect.map((q, i) => (
-              <div key={q.id} className="rounded-2xl border border-border/40 bg-surface p-5 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-muted">Question {i + 1} • {q.category}</span>
-                  <span className="rounded-full bg-red-50 px-2 py-0.5 text-[10px] font-bold text-red-600">Incorrect</span>
-                </div>
-                <p className="text-sm font-semibold text-foreground leading-relaxed">{q.question_text}</p>
-                
-                <div className="grid grid-cols-2 gap-2">
-                  {["A", "B", "C", "D"].map((letter) => {
-                    const text = q.choices[letter as "A" | "B" | "C" | "D"];
-                    if (!text) return null;
-                    const isCorrect = letter === q.correct_answer;
-                    const isUserAnswer = letter === q.user_answer;
-                    
-                    let styles = "border-border/30 bg-surface";
-                    if (isCorrect) styles = "border-green-300 bg-green-50";
-                    if (isUserAnswer && !isCorrect) styles = "border-red-300 bg-red-50";
-                    
-                    return (
-                      <div key={letter} className={`flex items-center gap-2 rounded-xl border p-3 ${styles}`}>
-                        <span className={`flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold ${
-                          isCorrect ? "bg-green-500 text-white" : isUserAnswer ? "bg-red-500 text-white" : "bg-black/[0.06] text-muted"
-                        }`}>
-                          {letter}
-                        </span>
-                        <span className="text-xs text-foreground">{text}</span>
-                        {isCorrect && <svg width="12" height="12" viewBox="0 0 14 14" fill="none" className="ml-auto text-green-600"><path d="M4 7l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>}
-                        {isUserAnswer && !isCorrect && <svg width="12" height="12" viewBox="0 0 14 14" fill="none" className="ml-auto text-red-500"><path d="M4 4l6 6M10 4l-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>}
-                      </div>
-                    );
-                  })}
-                </div>
-                
-                {q.explanation && (
-                  <div className="rounded-xl bg-primary/5 border border-primary/10 p-3">
-                    <p className="text-xs text-foreground"><span className="font-semibold text-primary">Explanation:</span> {q.explanation}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

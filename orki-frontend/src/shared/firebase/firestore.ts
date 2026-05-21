@@ -33,6 +33,11 @@ import type {
   FirestoreSubject,
 } from "@/entities/exams/types";
 
+import type {
+  ConvertedFlashcardCard,
+  ConvertedFlashcardDeck,
+} from "@/entities/flashcards/types";
+
 import { db } from "./client";
 
 // ─── Subjects ─────────────────────────────────────────────────────────────────
@@ -205,4 +210,50 @@ export async function saveAnalytics(
     ...data,
     timestamp: serverTimestamp(),
   });
+}
+
+// ─── User-converted Flashcard Decks ──────────────────────────────────────────
+
+/**
+ * Save a flashcard deck derived from exam incorrect answers.
+ * Writes to `user_flashcard_decks/{autoId}` and returns the new document ID.
+ *
+ * Collection: user_flashcard_decks
+ */
+export async function saveConvertedFlashcardDeck(
+  userId: string,
+  name: string,
+  sourceAttemptId: string,
+  cards: ConvertedFlashcardCard[],
+): Promise<string> {
+  const ref = await addDoc(collection(db, "user_flashcard_decks"), {
+    user_id: userId,
+    name,
+    source: "exam_attempt",
+    source_id: sourceAttemptId,
+    cards,
+    card_count: cards.length,
+    created_at: serverTimestamp(),
+  });
+  return ref.id;
+}
+
+/**
+ * Fetch all flashcard decks previously converted by a user.
+ * Returns an empty array when no decks exist.
+ */
+export async function getConvertedFlashcardDecks(
+  userId: string,
+): Promise<ConvertedFlashcardDeck[]> {
+  const q = query(
+    collection(db, "user_flashcard_decks"),
+    where("user_id", "==", userId),
+  );
+  const snap = await getDocs(q);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return snap.docs.map((d: any) => ({
+    id: d.id,
+    ...(d.data() as Omit<ConvertedFlashcardDeck, "id" | "created_at">),
+    created_at: d.data().created_at?.toDate?.() ?? null,
+  }));
 }

@@ -8,6 +8,7 @@ import { ExitConfirmationModal } from "@/components/ui/exit-confirmation-modal";
 import { useExamStore } from "@/features/exam/store";
 import { useAuth } from "@/hooks/useAuth";
 import { useExamQuestions } from "@/hooks/useExamQuestions";
+import { auth } from "@/shared/firebase/client";
 import {
   createExamSession,
   deleteExamSession,
@@ -362,9 +363,14 @@ export default function ExamTakePage() {
     const totalWrong = total - totalCorrect - unanswered;
     const score = total > 0 ? Math.round((totalCorrect / total) * 100) : 0;
 
-    try {
-      if (user?.uid) {
-        const attemptId = await saveExamAttempt(user.uid, {
+    // Resolve UID from context first, then fall back to the Firebase Auth
+    // current user directly.  The context user can be null when the Django
+    // backend session call fails mid-exam while Firebase Auth is still valid.
+    const uid = user?.uid ?? auth.currentUser?.uid ?? null;
+
+    if (uid) {
+      try {
+        const attemptId = await saveExamAttempt(uid, {
           exam_type: examType,
           subject,
           score,
@@ -374,7 +380,7 @@ export default function ExamTakePage() {
           answers,
         });
 
-        await saveAnalytics(user.uid, {
+        await saveAnalytics(uid, {
           exam_type: examType,
           subject,
           score,
@@ -393,11 +399,31 @@ export default function ExamTakePage() {
 
         router.push(`/exams/results/${attemptId}`);
         return;
+      } catch {
+        // Firestore save failed — fall through to unauthenticated path
       }
-    } catch {
-      // Fall through
     }
 
+    // Unauthenticated or Firestore unavailable — store results locally so the
+    // user can still review them, then redirect to the local results screen.
+    try {
+      localStorage.setItem(
+        "orki_last_result",
+        JSON.stringify({
+          exam_type: examType,
+          subject,
+          score,
+          total_correct: totalCorrect,
+          total_questions: total,
+          time_spent_seconds: elapsedTime,
+          answers,
+          completed_at: new Date().toISOString(),
+        }),
+      );
+    } catch { /* storage full — best effort */ }
+
+    localStorage.removeItem(sessionStorageKey(examType, subject));
+    localStorage.removeItem(localSessionDataKey(examType, subject));
     router.push("/exams/results/local");
   }
 

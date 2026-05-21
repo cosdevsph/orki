@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-import type { FirestoreFlashcard, FlashcardProgress } from "@/entities/flashcards/types";
+import type { ConvertedFlashcardDeck, FirestoreFlashcard, FlashcardProgress } from "@/entities/flashcards/types";
 import { FlashcardSubjectCard } from "@/widgets/flashcards/flashcard-subject-card";
 import { FlashcardViewer } from "@/widgets/flashcards/flashcard-viewer";
 import { ResumeFlashcardsModal } from "@/widgets/flashcards/resume-flashcards-modal";
@@ -11,7 +11,7 @@ import { getFlashcardsForSubject } from "@/shared/api/flashcards";
 import { useAuth } from "@/hooks/useAuth";
 import { useSubscriptionStatus } from "@/hooks/useSubscriptionStatus";
 import { SUBJECT_COLORS } from "@/shared/utils/exam-type";
-import { getSubjectsByExamType } from "@/shared/firebase/firestore";
+import { getConvertedFlashcardDecks, getSubjectsByExamType } from "@/shared/firebase/firestore";
 import { routes } from "@/shared/config/routes";
 
 const CARDS_PER_SUBJECT = 30;
@@ -258,6 +258,9 @@ export default function FlashcardsPage() {
   // null = not yet fetched; [] = fetched but empty
   const [subjects, setSubjects] = useState<Array<{ name: string; color: string }> | null>(null);
 
+  // ── User-converted flashcard decks ────────────────────────────────────────
+  const [convertedDecks, setConvertedDecks] = useState<ConvertedFlashcardDeck[]>([]);
+
   useEffect(() => {
     if (!examType) return;
     getSubjectsByExamType(examType)
@@ -271,6 +274,14 @@ export default function FlashcardsPage() {
       })
       .catch(() => setSubjects([]));
   }, [examType]);
+
+  // Load user-converted decks whenever the authenticated user changes.
+  useEffect(() => {
+    if (!user?.uid) return;
+    getConvertedFlashcardDecks(user.uid)
+      .then(setConvertedDecks)
+      .catch(() => { /* best-effort — converted decks section is hidden on error */ });
+  }, [user?.uid]);
 
   // ── Auto-save ref ─────────────────────────────────────────────────────────
   // Kept in a ref so the beforeunload handler always sees fresh values
@@ -377,6 +388,25 @@ export default function FlashcardsPage() {
   /** Show exit confirmation modal. */
   const handleExitRequest = useCallback(() => {
     setShowExitModal(true);
+  }, []);
+
+  /** Open a converted (user-created) flashcard deck. */
+  const handleStudyConverted = useCallback((deck: ConvertedFlashcardDeck) => {
+    const cards: FirestoreFlashcard[] = deck.cards.map((c) => ({
+      id: c.id,
+      front: c.front,
+      subject: deck.name,
+      topic: c.category,
+      difficulty: "medium",
+      choices: c.choices,
+      correctAnswerKey: c.correct_answer,
+      correctAnswerText: c.choices[c.correct_answer as "A" | "B" | "C" | "D"] ?? c.correct_answer,
+      explanation: c.explanation,
+    }));
+    setCurrentIndex(0);
+    setFlipped(false);
+    setActiveCards(cards);
+    setActiveSubject(deck.name);
   }, []);
 
   /** Confirmed exit: persist progress (for button-label tracking) then close viewer. */
@@ -596,6 +626,65 @@ export default function FlashcardsPage() {
                   }}
                 />
               ))}
+            </div>
+          )}
+
+          {/* ── Converted decks from exam results ─────────────────────── */}
+          {convertedDecks.length > 0 && (
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <svg width="16" height="16" viewBox="0 0 22 22" fill="none" className="text-primary">
+                  <rect x="2.75" y="6.417" width="16.5" height="11" rx="2.2" stroke="currentColor" strokeWidth="1.6" />
+                  <path d="M11 10.083v3.667M9.167 11.917h3.666" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                </svg>
+                <h2 className="font-heading text-base font-bold text-foreground">My Study Decks</h2>
+                <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-bold text-primary">
+                  {convertedDecks.length}
+                </span>
+              </div>
+              <p className="text-xs text-muted -mt-2">
+                Flashcard decks converted from your exam incorrect answers.
+              </p>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {convertedDecks.map((deck) => (
+                  <div key={deck.id} className="glass card-hover group flex flex-col gap-4 rounded-2xl p-5 transition-all duration-200">
+                    {/* Icon + badge */}
+                    <div className="flex items-start justify-between">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" className="text-primary">
+                          <rect x="2.75" y="6.417" width="16.5" height="11" rx="2.2" stroke="currentColor" strokeWidth="1.6" />
+                          <path d="M11 10.083v3.667M9.167 11.917h3.666" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                        </svg>
+                      </div>
+                      <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">
+                        {deck.card_count} cards
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <div className="space-y-0.5">
+                      <h3 className="font-heading text-sm font-bold text-foreground leading-snug line-clamp-2">
+                        {deck.name}
+                      </h3>
+                      <p className="text-xs text-muted">
+                        {deck.created_at
+                          ? `Created ${deck.created_at.toLocaleDateString()}`
+                          : "Converted from exam"}
+                      </p>
+                    </div>
+
+                    {/* Study button */}
+                    <button
+                      type="button"
+                      onClick={() => handleStudyConverted(deck)}
+                      className="w-full rounded-xl py-2.5 text-sm font-semibold transition-all duration-150 hover:scale-[1.02] active:scale-[0.98]"
+                      style={{ backgroundColor: "color-mix(in srgb, var(--primary) 12%, transparent)", color: "var(--primary)" }}
+                    >
+                      Study Now →
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </div>

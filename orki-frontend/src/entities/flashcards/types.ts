@@ -56,3 +56,39 @@ export type FlashcardProgress = {
   currentIndex: number;
   lastUpdated: string; // ISO timestamp
 };
+
+// ─── User-converted Flashcard Decks ──────────────────────────────────────────
+
+/** A single card within a user-converted flashcard deck. */
+export type ConvertedFlashcardCard = {
+  /** Question document ID or a generated ID for locally-sourced cards. */
+  id: string;
+  /** Question text shown on the card front. */
+  front: string;
+  /** Full text of the correct answer shown on the card back. */
+  back: string;
+  /** Optional explanation shown below the answer. */
+  explanation: string;
+  /** Topic/category label, e.g. "Criminal Law". */
+  category: string;
+  /** All answer choices for reference. */
+  choices: { A: string; B: string; C?: string; D?: string };
+  /** The correct answer letter: A, B, C, or D. */
+  correct_answer: string;
+};
+
+/** A flashcard deck created by converting an exam attempt's incorrect answers. */
+export type ConvertedFlashcardDeck = {
+  /** Firestore document ID. */
+  id: string;
+  user_id: string;
+  /** Human-readable deck name, e.g. "Criminalistics — CLE (May 21, 2026)". */
+  name: string;
+  /** Source type — always "exam_attempt" for exam-derived decks. */
+  source: "exam_attempt";
+  /** Firestore exam_attempts document ID that this deck was derived from. */
+  source_id: string;
+  cards: ConvertedFlashcardCard[];
+  card_count: number;
+  created_at: Date | null;
+};

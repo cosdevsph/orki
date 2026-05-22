@@ -239,14 +239,14 @@ export default function ExamResultsPage() {
     : "Don't give up! Review the incorrect answers and convert them to flashcards for better retention.";
 
   return (
-    <div className="animate-page-in space-y-8">
+    <div className="animate-page-in space-y-5 md:space-y-8">
       {/* Header */}
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4">
         <div>
-          <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground">
+          <h1 className="font-heading text-2xl md:text-4xl font-bold tracking-tight text-foreground">
             Exam Results
           </h1>
-          <p className="text-base text-muted mt-1">
+          <p className="text-sm md:text-base text-muted mt-1">
             {result.exam_title}
             {result.completed_at ? ` • ${result.completed_at.toLocaleDateString()}` : " • Completed"}
           </p>
@@ -264,13 +264,13 @@ export default function ExamResultsPage() {
       </div>
 
       {/* Score + Next Steps row */}
-      <div className="grid grid-cols-5 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-5">
         {/* Overall Performance card */}
-        <div className="col-span-3 glass rounded-2xl p-8 flex items-center gap-8">
+        <div className="md:col-span-3 glass rounded-2xl p-5 md:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-5 md:gap-8">
           <div className="flex-1 space-y-3">
             <p className="text-sm font-semibold text-primary uppercase tracking-wider">Overall Performance</p>
             <div className="flex items-end gap-2">
-              <span className="font-heading text-7xl font-bold text-foreground leading-none">{result.score}</span>
+              <span className="font-heading text-5xl md:text-7xl font-bold text-foreground leading-none">{result.score}</span>
               <span className="text-2xl font-medium text-muted mb-2">/100</span>
             </div>
             <div className="flex items-center gap-4 text-sm font-semibold">
@@ -280,20 +280,18 @@ export default function ExamResultsPage() {
             </div>
             <p className="text-sm text-muted leading-relaxed max-w-sm">{scoreLabel} {scoreMessage}</p>
           </div>
-          <div className="flex flex-col items-center gap-2">
-            <ProgressRing
-              value={result.score}
-              size={110}
-              strokeWidth={10}
-              color="#10B981"
-              label={`${result.score}%`}
-              sublabel=""
-            />
+          <div className="flex flex-col items-center gap-2 shrink-0">
+            <div className="md:hidden">
+              <ProgressRing value={result.score} size={80} strokeWidth={8} color="#10B981" label={`${result.score}%`} sublabel="" />
+            </div>
+            <div className="hidden md:block">
+              <ProgressRing value={result.score} size={110} strokeWidth={10} color="#10B981" label={`${result.score}%`} sublabel="" />
+            </div>
           </div>
         </div>
 
         {/* Next Steps card */}
-        <div className="col-span-2 rounded-2xl p-6 flex flex-col gap-4" style={{ background: "linear-gradient(135deg, rgba(217,179,140,0.15) 0%, rgba(245,234,222,0.4) 100%)", border: "1px solid rgba(217,179,140,0.25)" }}>
+        <div className="md:col-span-2 rounded-2xl p-4 md:p-6 flex flex-col gap-4" style={{ background: "linear-gradient(135deg, rgba(217,179,140,0.15) 0%, rgba(245,234,222,0.4) 100%)", border: "1px solid rgba(217,179,140,0.25)" }}>
           <div className="flex items-center gap-2">
             <svg width="16" height="16" viewBox="0 0 22 22" fill="none" className="text-amber-700">
               <circle cx="11" cy="11" r="8.25" stroke="currentColor" strokeWidth="1.6" />
@@ -365,14 +363,14 @@ export default function ExamResultsPage() {
       </div>
 
       {/* Performance by Category */}
-      <div className="glass rounded-2xl p-6 space-y-5">
-        <h2 className="font-heading text-xl font-bold text-foreground">Performance by Category</h2>
+      <div className="glass rounded-2xl p-4 md:p-6 space-y-4 md:space-y-5">
+        <h2 className="font-heading text-base md:text-xl font-bold text-foreground">Performance by Category</h2>
         {result.categories.length === 0 ? (
           <p className="text-sm text-muted py-4 text-center">
             Category breakdown is not available for this attempt.
           </p>
         ) : (
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {result.categories.map((cat, i) => {
             const color = CATEGORY_COLORS[i % CATEGORY_COLORS.length];
             const feedback = cat.score >= 90 ? "Excellent grasp of core principles."

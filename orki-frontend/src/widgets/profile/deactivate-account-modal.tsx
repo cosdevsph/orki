@@ -52,10 +52,10 @@ export function DeactivateAccountModal({ open, onClose }: Props) {
       />
 
       {/* Panel */}
-      <div className="relative glass w-full max-w-sm rounded-2xl p-6 shadow-2xl">
+      <div className="relative glass w-full max-w-sm rounded-2xl p-5 md:p-6 shadow-2xl">
         {/* Icon */}
         <div className="mb-4 flex justify-center">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-500/10">
+          <div className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-amber-500/10">
             <svg
               width="22"
               height="22"
@@ -77,7 +77,7 @@ export function DeactivateAccountModal({ open, onClose }: Props) {
 
         <h2
           id="deactivate-modal-title"
-          className="mb-2 text-center font-heading text-lg font-bold text-foreground"
+          className="mb-2 text-center font-heading text-base md:text-lg font-bold text-foreground"
         >
           Deactivate Account
         </h2>

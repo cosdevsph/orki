@@ -4,6 +4,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 import { useAuth } from "@/hooks/useAuth";
+import { useUIStore } from "@/features/ui/store";
 import { BottomDock } from "@/widgets/navigation/bottom-dock";
 
 function ExamCountdown({ examDate }: { examDate: string }) {
@@ -34,10 +35,11 @@ type AppShellProps = {
 export function AppShell({ children }: AppShellProps) {
   const { user } = useAuth();
   const pathname = usePathname();
+  const storeDockHidden = useUIStore((s) => s.hideDock);
   // Hide bottom navigation during an active exam session or on sub-pages
   // that have their own back navigation (e.g. payment history detail).
   const isExamTakePage = /^\/exams\/[^/]+\/take(\?.*)?$/.test(pathname);
-  const hideBottomDock = isExamTakePage || pathname === "/profile/payment-history";
+  const hideBottomDock = isExamTakePage || pathname === "/profile/payment-history" || storeDockHidden;
 
   return (
     <div className="ambient-bg min-h-screen text-foreground transition-colors duration-300">

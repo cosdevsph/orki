@@ -23,12 +23,12 @@ export function ExitConfirmationModal({
       />
 
       {/* Dialog */}
-      <div className="relative glass rounded-2xl p-8 max-w-sm w-full mx-4 space-y-5 shadow-xl">
+      <div className="relative glass rounded-2xl p-5 md:p-8 max-w-sm w-full mx-4 space-y-4 md:space-y-5 shadow-xl">
         {/* Icon */}
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-100">
+        <div className="mx-auto flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-amber-100">
           <svg
-            width="22"
-            height="22"
+            width="20"
+            height="20"
             viewBox="0 0 22 22"
             fill="none"
             className="text-amber-600"
@@ -48,28 +48,28 @@ export function ExitConfirmationModal({
           </svg>
         </div>
 
-        <div className="space-y-1.5">
-          <h3 className="font-heading text-xl font-bold text-foreground">
+        <div className="space-y-1.5 text-center">
+          <h3 className="font-heading text-base md:text-xl font-bold text-foreground">
             Leave Exam?
           </h3>
-          <p className="text-sm text-muted leading-relaxed">
+          <p className="text-xs md:text-sm text-muted leading-relaxed">
             Are you sure you want to leave? Your progress will be saved and you
             can resume this exam later.
           </p>
         </div>
 
-        <div className="flex flex-col gap-2.5 pt-1">
+        <div className="flex flex-col gap-2 md:gap-2.5 pt-1">
           <button
             type="button"
             onClick={onConfirm}
-            className="w-full rounded-xl bg-foreground px-5 py-3 text-sm font-bold text-background transition-all hover:opacity-90"
+            className="w-full rounded-xl bg-foreground px-5 py-2.5 md:py-3 text-sm font-bold text-background transition-all hover:opacity-90"
           >
             Yes, save &amp; leave
           </button>
           <button
             type="button"
             onClick={onCancel}
-            className="w-full rounded-xl border border-border/70 bg-card-bg px-5 py-3 text-sm font-semibold text-foreground transition-all hover:bg-surface"
+            className="w-full rounded-xl border border-border/70 bg-card-bg px-5 py-2.5 md:py-3 text-sm font-semibold text-foreground transition-all hover:bg-surface"
           >
             No, continue exam
           </button>

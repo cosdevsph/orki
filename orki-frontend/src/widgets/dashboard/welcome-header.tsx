@@ -16,7 +16,7 @@ export function WelcomeHeader() {
         <p className="text-sm font-medium text-muted tracking-wide uppercase">
           Hello there,
         </p>
-        <h1 className="font-heading text-5xl font-extrabold tracking-tight text-foreground leading-none">
+        <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground leading-none">
           Future{" "}
           <span
             style={{
@@ -30,7 +30,7 @@ export function WelcomeHeader() {
           </span>
           !
         </h1>
-        <p className="text-base text-secondary">
+        <p className="text-sm md:text-base text-secondary">
           Welcome back, {firstName}. Your focus session awaits.
         </p>
       </div>
@@ -41,7 +41,7 @@ export function WelcomeHeader() {
           alt="Orki mascot"
           width={96}
           height={96}
-          className="animate-float-slow drop-shadow-md"
+          className="animate-float-slow drop-shadow-md w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
           priority
         />
       </div>

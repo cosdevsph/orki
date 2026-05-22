@@ -65,7 +65,7 @@ export function ExamCard({
   return (
     <div
       className={[
-        "glass card-hover group flex flex-col gap-4 rounded-2xl p-5 transition-all",
+        "glass card-hover group flex flex-col gap-3 md:gap-4 rounded-2xl p-4 md:p-5 transition-all",
         isCompleted ? "opacity-70" : "",
       ].join(" ")}
     >
@@ -93,7 +93,7 @@ export function ExamCard({
       </div>
 
       {/* Meta row */}
-      <div className="flex items-center gap-4 text-xs text-muted">
+      <div className="flex flex-wrap items-center gap-3 md:gap-4 text-xs text-muted">
         <span className="flex items-center gap-1.5">
           <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
             <circle cx="7" cy="7" r="5.5" stroke="currentColor" strokeWidth="1.4" />
@@ -121,7 +121,7 @@ export function ExamCard({
       {/* CTA */}
       {!isCompleted && (
         <div className="flex items-center justify-between pt-1">
-          <div className="h-1 flex-1 overflow-hidden rounded-full bg-black/[0.06]">
+          <div className="h-1 flex-1 overflow-hidden rounded-full bg-black/6">
             <div
               className="h-full rounded-full bg-primary/60"
               style={{ width: exam.status === "in_progress" ? "45%" : "0%" }}

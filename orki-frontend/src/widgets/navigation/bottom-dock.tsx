@@ -74,9 +74,10 @@ export function BottomDock() {
   return (
     <nav
       aria-label="Main navigation"
-      className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2"
+      className="fixed bottom-4 sm:bottom-5 left-1/2 z-50 -translate-x-1/2"
+      style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
-      <div className="glass-dock flex items-center gap-1 rounded-2xl px-2.5 py-2">
+      <div className="glass-dock flex items-center gap-0.5 sm:gap-1 rounded-2xl px-1.5 sm:px-2.5 py-1.5 sm:py-2">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           const Icon = iconMap[item.href];
@@ -87,7 +88,7 @@ export function BottomDock() {
               href={item.href}
               aria-current={isActive ? "page" : undefined}
               className={[
-                "group relative flex flex-col items-center gap-1 rounded-xl px-5 py-2.5",
+                "group relative flex flex-col items-center gap-0.5 sm:gap-1 rounded-xl px-3.5 py-2 sm:px-5 sm:py-2.5",
                 "transition-all duration-200 ease-out select-none",
                 isActive
                   ? "bg-primary/10 text-primary"
@@ -102,7 +103,7 @@ export function BottomDock() {
               {Icon && (
                 <Icon
                   className={[
-                    "h-5.5 w-5.5 transition-transform duration-200",
+                    "h-4.5 w-4.5 sm:h-5.5 sm:w-5.5 transition-transform duration-200",
                     "group-hover:scale-110",
                     isActive ? "scale-110" : "",
                   ].join(" ")}

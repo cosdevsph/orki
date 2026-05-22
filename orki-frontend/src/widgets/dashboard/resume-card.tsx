@@ -5,7 +5,7 @@ import { routes } from "@/shared/config/routes";
 export function ResumeCard() {
   return (
     <div
-      className="card-hover relative overflow-hidden rounded-2xl p-6"
+      className="card-hover relative overflow-hidden rounded-2xl p-4 md:p-6"
       style={{
         background:
           "linear-gradient(135deg, rgba(47,162,226,0.12) 0%, rgba(47,162,226,0.05) 60%, rgba(139,92,246,0.08) 100%)",
@@ -14,7 +14,7 @@ export function ResumeCard() {
         WebkitBackdropFilter: "blur(20px)",
       }}
     >
-      {/* Ambient glow */}
+      {/* Ambient glow */}}
       <div
         className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-30"
         style={{
@@ -22,14 +22,14 @@ export function ResumeCard() {
         }}
       />
 
-      <div className="relative flex items-center justify-between">
+      <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="space-y-2">
           <div className="flex items-center gap-2">
             <span className="rounded-full bg-primary/15 px-2.5 py-0.5 text-xs font-semibold text-primary">
               In Progress
             </span>
           </div>
-          <h3 className="font-heading text-xl font-bold text-foreground">
+          <h3 className="font-heading text-lg md:text-xl font-bold text-foreground">
             Anatomy – Upper Limb
           </h3>
           <p className="text-sm text-secondary">

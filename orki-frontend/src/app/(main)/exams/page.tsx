@@ -72,7 +72,7 @@ function SubjectCard({
 
 function SkeletonGrid() {
   return (
-    <div className="grid grid-cols-3 gap-5">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
       {[0, 1, 2, 3, 4, 5].map((i) => (
         <div key={i} className="glass animate-pulse flex flex-col gap-4 rounded-2xl p-5">
           <div className="h-1 w-12 rounded-full bg-surface" />
@@ -111,7 +111,7 @@ export default function ExamsPage() {
   // If not subscribed, show paywall
   if (!subLoading && !isSubscribed) {
     return (
-      <div className="animate-page-in flex flex-col items-center justify-center py-24 text-center space-y-6">
+      <div className="animate-page-in flex flex-col items-center justify-center py-12 md:py-24 text-center space-y-6">
         <svg width="60" height="60" viewBox="0 0 24 24" fill="none" className="text-muted/40">
           <path
             d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3-8c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z"
@@ -146,13 +146,13 @@ export default function ExamsPage() {
   }
 
   return (
-    <div className="animate-page-in space-y-8">
+    <div className="animate-page-in space-y-5 md:space-y-8">
       {/* Header */}
       <div className="space-y-2">
-        <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground">
+        <h1 className="font-heading text-2xl md:text-4xl font-bold tracking-tight text-foreground">
           Exam Library
         </h1>
-        <p className="text-base text-muted max-w-lg">
+        <p className="text-sm md:text-base text-muted max-w-lg">
           {examFullName
             ? `Practice modules for ${examFullName}. Choose a subject to begin a focused session.`
             : "Curated practice modules tailored for your certification."}
@@ -172,7 +172,7 @@ export default function ExamsPage() {
       )}
 
       {!loading && !error && subjects.length > 0 && (
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
           {subjects.map((subject, i) => (
             <SubjectCard
               key={subject.id}

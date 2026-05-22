@@ -72,24 +72,24 @@ export default function AnalyticsPage() {
     return diff;
   }, [trend]);
   return (
-    <div className="animate-page-in space-y-8">
+    <div className="animate-page-in space-y-5 md:space-y-8">
       {/* Header with Study Streak at top-right */}
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-0">
         <div className="space-y-1">
-          <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground">Analytics</h1>
-          <p className="text-base text-muted">
+          <h1 className="font-heading text-2xl md:text-4xl font-bold tracking-tight text-foreground">Analytics</h1>
+          <p className="text-sm md:text-base text-muted">
             {examType
               ? `${examFullName} — your progress, mastery levels, and performance trends.`
               : "Your study progress, mastery levels, and performance trends."}
           </p>
         </div>
         {/* Study Streak Badge */}
-        <div className="flex items-center gap-2 rounded-full bg-badge-amber-bg px-4 py-2.5 shadow-sm">
+        <div className="flex items-center gap-2 rounded-full bg-badge-amber-bg px-3 py-2 md:px-4 md:py-2.5 shadow-sm self-start sm:self-auto">
           <svg width="16" height="16" viewBox="0 0 22 22" fill="none">
             <path d="M11 2c0 4-4 5.5-4 9a4 4 0 0 0 8 0c0-3.5-4-5-4-9Z" fill="#F59E0B" />
           </svg>
           <div className="flex flex-col">
-            <span className="text-sm font-bold text-badge-amber-text">
+            <span className="text-xs md:text-sm font-bold text-badge-amber-text">
               {loading ? "—" : `${streakDays} ${streakDays === 1 ? "day" : "days"}`}
             </span>
             <span className="text-[9px] text-badge-amber-text/70 leading-none">Study Streak</span>
@@ -98,57 +98,51 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Top metrics row */}
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
         {/* Average score ring */}
-        <div className="glass rounded-2xl flex flex-col items-center justify-center gap-3 p-5">
-          <ProgressRing
-            value={avgScore}
-            size={110}
-            strokeWidth={10}
-            color="#2FA2E2"
-            label={loading ? "—" : `${avgScore}%`}
-            sublabel="Avg Score"
-          />
-          <div className="text-center mt-1">
-            <p className="text-sm font-semibold text-foreground">Average Score</p>
-            <p className="text-xs text-muted">Across all exams</p>
+        <div className="glass rounded-2xl flex flex-col items-center justify-center gap-2 md:gap-3 p-2 md:p-5">
+          <div className="md:hidden">
+            <ProgressRing value={avgScore} size={78} strokeWidth={7} color="#2FA2E2" label={loading ? "—" : `${avgScore}%`} sublabel="Avg Score" />
+          </div>
+          <div className="hidden md:block">
+            <ProgressRing value={avgScore} size={110} strokeWidth={10} color="#2FA2E2" label={loading ? "—" : `${avgScore}%`} sublabel="Avg Score" />
+          </div>
+          <div className="text-center mt-0.5 md:mt-1">
+            <p className="text-xs md:text-sm font-semibold text-foreground">Average Score</p>
+            <p className="text-[10px] md:text-xs text-muted">Across all exams</p>
           </div>
         </div>
 
         {/* Mastery ring */}
-        <div className="glass rounded-2xl flex flex-col items-center justify-center gap-3 p-5">
-          <ProgressRing
-            value={MASTERY_PCT[masteryLevel]}
-            size={110}
-            strokeWidth={10}
-            color="#10B981"
-            label={loading ? "—" : `${MASTERY_PCT[masteryLevel]}%`}
-            sublabel="Mastery"
-          />
-          <div className="text-center mt-1">
-            <p className="text-sm font-semibold text-foreground">{MASTERY_LABELS[masteryLevel]}</p>
-            <p className="text-xs text-muted">Knowledge level</p>
+        <div className="glass rounded-2xl flex flex-col items-center justify-center gap-2 md:gap-3 p-2 md:p-5">
+          <div className="md:hidden">
+            <ProgressRing value={MASTERY_PCT[masteryLevel]} size={78} strokeWidth={7} color="#10B981" label={loading ? "—" : `${MASTERY_PCT[masteryLevel]}%`} sublabel="Mastery" />
+          </div>
+          <div className="hidden md:block">
+            <ProgressRing value={MASTERY_PCT[masteryLevel]} size={110} strokeWidth={10} color="#10B981" label={loading ? "—" : `${MASTERY_PCT[masteryLevel]}%`} sublabel="Mastery" />
+          </div>
+          <div className="text-center mt-0.5 md:mt-1">
+            <p className="text-xs md:text-sm font-semibold text-foreground">{MASTERY_LABELS[masteryLevel]}</p>
+            <p className="text-[10px] md:text-xs text-muted">Knowledge level</p>
           </div>
         </div>
 
         {/* Study ring */}
-        <div className="glass rounded-2xl flex flex-col items-center justify-center gap-3 p-5">
-          <ProgressRing
-            value={72}
-            size={110}
-            strokeWidth={10}
-            color="#8B5CF6"
-            label="72%"
-            sublabel="Goal"
-          />
-          <div className="text-center mt-1">
-            <p className="text-sm font-semibold text-foreground">Weekly Goal</p>
-            <p className="text-xs text-muted">12 of 16.7 hrs</p>
+        <div className="glass rounded-2xl flex flex-col items-center justify-center gap-2 md:gap-3 p-2 md:p-5">
+          <div className="md:hidden">
+            <ProgressRing value={72} size={78} strokeWidth={7} color="#8B5CF6" label="72%" sublabel="Goal" />
+          </div>
+          <div className="hidden md:block">
+            <ProgressRing value={72} size={110} strokeWidth={10} color="#8B5CF6" label="72%" sublabel="Goal" />
+          </div>
+          <div className="text-center mt-0.5 md:mt-1">
+            <p className="text-xs md:text-sm font-semibold text-foreground">Weekly Goal</p>
+            <p className="text-[10px] md:text-xs text-muted">12 of 16.7 hrs</p>
           </div>
         </div>
 
         {/* Streak calendar */}
-        <div className="glass rounded-2xl p-5 flex flex-col justify-between">
+        <div className="glass rounded-2xl p-3 md:p-5 flex flex-col justify-between col-span-2 md:col-span-1">
           <div className="flex items-center justify-between">
             <h2 className="font-heading text-sm font-semibold text-foreground">Study Streak</h2>
             <div className="flex items-center gap-1 rounded-full bg-badge-amber-bg px-2 py-0.5">
@@ -187,10 +181,10 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Score trend chart */}
-      <div className="glass rounded-2xl p-6 space-y-4">
+      <div className="glass rounded-2xl p-4 md:p-6 space-y-3 md:space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="font-heading text-lg font-semibold text-foreground">Score Trend</h2>
+            <h2 className="font-heading text-base md:text-lg font-semibold text-foreground">Score Trend</h2>
             <p className="text-xs text-muted">7-day performance overview</p>
           </div>
           {trendDelta !== null && trendDelta !== 0 && (
@@ -201,7 +195,7 @@ export default function AnalyticsPage() {
         </div>
 
         {/* Bar chart */}
-        <div className="flex items-end justify-between gap-3" style={{ height: 120 }}>
+        <div className="flex items-end justify-between gap-1 md:gap-3" style={{ height: 100 }}>
           {trend.map((point, i) => {
             const heightPct = (point.score / maxScore) * 100;
             const isMax = point.score === maxScore && point.score > 0;
@@ -213,7 +207,7 @@ export default function AnalyticsPage() {
                 </div>
                 <div className="relative flex w-full items-end justify-center" style={{ height: 90 }}>
                   <div
-                    className="w-full max-w-[36px] rounded-t-xl transition-all duration-700"
+                    className="w-full max-w-5 md:max-w-9 rounded-t-xl transition-all duration-700"
                     style={{
                       height: `${Math.max(heightPct, 4)}%`,
                       background: isMax
@@ -233,9 +227,9 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Subject mastery — real data from analytics API */}
-      <div className="glass rounded-2xl p-6 space-y-4">
+      <div className="glass rounded-2xl p-4 md:p-6 space-y-3 md:space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="font-heading text-lg font-semibold text-foreground">Subject Mastery</h2>
+          <h2 className="font-heading text-base md:text-lg font-semibold text-foreground">Subject Mastery</h2>
           {examType && (
             <span
               className="rounded-full px-2.5 py-1 text-[11px] font-semibold"
@@ -246,7 +240,7 @@ export default function AnalyticsPage() {
           )}
         </div>
         {loading ? (
-          <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-3 md:gap-y-4">
             {[0, 1, 2, 3].map((i) => (
               <div key={i} className="space-y-1.5 animate-pulse">
                 <div className="flex justify-between">
@@ -258,7 +252,7 @@ export default function AnalyticsPage() {
             ))}
           </div>
         ) : subjectMasteries.length > 0 ? (
-          <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-3 md:gap-y-4">
             {subjectMasteries.map((sub, idx) => {
               const color = SUBJECT_COLORS[idx % SUBJECT_COLORS.length];
               const pct = Math.round(sub.mastery_percentage);

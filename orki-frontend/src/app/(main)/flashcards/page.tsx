@@ -13,6 +13,7 @@ import { useSubscriptionStatus } from "@/hooks/useSubscriptionStatus";
 import { SUBJECT_COLORS } from "@/shared/utils/exam-type";
 import { getConvertedFlashcardDecks, getSubjectsByExamType } from "@/shared/firebase/firestore";
 import { routes } from "@/shared/config/routes";
+import { useUIStore } from "@/features/ui/store";
 
 const CARDS_PER_SUBJECT = 30;
 
@@ -57,7 +58,7 @@ function ExitConfirmModal({
   onExit: () => void;
 }) {
   return (
-    <div className="fixed inset-0 z-[100] flex items-end justify-center p-4 pb-8 sm:items-center sm:pb-4">
+    <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
       {/* Backdrop — clicking it continues studying */}
       <div
         className="absolute inset-0 bg-black/25 backdrop-blur-sm"
@@ -65,12 +66,12 @@ function ExitConfirmModal({
         aria-hidden
       />
 
-      <div className="glass-strong relative w-full max-w-sm rounded-3xl p-8 shadow-2xl">
+      <div className="glass-strong relative w-full max-w-sm rounded-2xl md:rounded-3xl p-5 md:p-8 shadow-2xl">
         {/* Icon */}
-        <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-50 dark:bg-amber-950/30">
+        <div className="mx-auto mb-4 flex h-11 w-11 md:h-14 md:w-14 items-center justify-center rounded-2xl bg-amber-50 dark:bg-amber-950/30">
           <svg
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             className="text-amber-500"
@@ -90,11 +91,11 @@ function ExitConfirmModal({
         </div>
 
         {/* Text */}
-        <div className="mb-6 space-y-1.5 text-center">
-          <h2 className="font-heading text-lg font-bold text-foreground">
+        <div className="mb-4 md:mb-6 space-y-1 text-center">
+          <h2 className="font-heading text-base md:text-lg font-bold text-foreground">
             Leave Flashcards?
           </h2>
-          <p className="text-sm text-muted">
+          <p className="text-xs md:text-sm text-muted">
             Your progress will be saved so you can resume later.
           </p>
         </div>
@@ -489,6 +490,15 @@ export default function FlashcardsPage() {
 
   // ── Auth / subjects loading ────────────────────────────────────────────────
 
+  const inViewer = activeSubject !== null && activeCards.length > 0;
+
+  // ── Hide bottom dock while flashcard viewer is active ─────────────────────
+  const setHideDock = useUIStore((s) => s.setHideDock);
+  useEffect(() => {
+    setHideDock(inViewer);
+    return () => setHideDock(false);
+  }, [inViewer, setHideDock]);
+
   if (authLoading || subjects === null) {
     return (
       <div className="animate-page-in space-y-8 px-4 pb-24 pt-6 sm:px-6">
@@ -542,8 +552,6 @@ export default function FlashcardsPage() {
   }
 
   // ── Main render ────────────────────────────────────────────────────────────
-
-  const inViewer = activeSubject !== null && activeCards.length > 0;
 
   return (
     <>

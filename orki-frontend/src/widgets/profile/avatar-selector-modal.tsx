@@ -49,7 +49,7 @@ export function AvatarSelectorModal({ open, uid, currentAvatar, onClose, onSave 
 
   return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center sm:items-center p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="avatar-modal-title"
@@ -62,7 +62,7 @@ export function AvatarSelectorModal({ open, uid, currentAvatar, onClose, onSave 
       />
 
       {/* Panel */}
-      <div className="relative glass w-full max-w-sm rounded-2xl p-6 shadow-2xl">
+      <div className="relative glass w-full max-w-sm rounded-2xl p-5 md:p-6 shadow-2xl">
         {/* Header */}
         <div className="mb-5 flex items-start justify-between">
           <div>

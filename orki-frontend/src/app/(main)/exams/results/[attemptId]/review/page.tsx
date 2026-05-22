@@ -96,7 +96,7 @@ function QuestionCard({ item, index }: { item: IncorrectItem; index: number }) {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-start justify-between gap-4 p-5 text-left transition hover:bg-black/2"
+        className="flex w-full items-start justify-between gap-3 p-4 md:p-5 text-left transition hover:bg-black/2"
       >
         <div className="flex items-start gap-3 min-w-0">
           <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-red-500/10 text-[10px] font-bold text-red-600">
@@ -124,9 +124,9 @@ function QuestionCard({ item, index }: { item: IncorrectItem; index: number }) {
 
       {/* Expandable answer detail */}
       {open && (
-        <div className="border-t border-border/30 p-5 space-y-4">
+        <div className="border-t border-border/30 p-4 md:p-5 space-y-3 md:space-y-4">
           {/* Answer summary pills */}
-          <div className="flex items-center gap-3 text-xs font-semibold">
+          <div className="flex flex-wrap items-center gap-2 md:gap-3 text-xs font-semibold">
             <span className="flex items-center gap-1.5 rounded-full bg-red-50 px-3 py-1 text-red-600 dark:bg-red-950/30">
               <svg width="10" height="10" viewBox="0 0 14 14" fill="none">
                 <path d="M3.5 3.5 10.5 10.5M10.5 3.5 3.5 10.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
@@ -275,7 +275,7 @@ export default function ReviewIncorrectPage() {
             </svg>
             Back to Results
           </button>
-          <h1 className="font-heading text-3xl font-bold tracking-tight text-foreground">
+          <h1 className="font-heading text-2xl md:text-3xl font-bold tracking-tight text-foreground">
             Incorrect Answers
           </h1>
           <p className="mt-1 text-sm text-muted">

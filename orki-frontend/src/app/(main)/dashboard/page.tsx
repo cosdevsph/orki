@@ -52,7 +52,7 @@ function ActivityIcon({ icon }: { icon: string }) {
 function SubjectMasteryCard({ masteries, examType }: { masteries: SubjectMasteryItem[]; examType: string | null }) {
   if (masteries.length === 0) {
     return (
-      <div className="glass rounded-2xl p-6 space-y-4">
+      <div className="glass rounded-2xl p-4 md:p-6 space-y-4">
         <h2 className="font-heading text-lg font-semibold text-foreground">Subject Mastery</h2>
         <p className="text-sm text-muted text-center py-4">
           Complete your first exam to track subject mastery.
@@ -61,7 +61,7 @@ function SubjectMasteryCard({ masteries, examType }: { masteries: SubjectMastery
     );
   }
   return (
-    <div className="glass rounded-2xl p-6 space-y-4">
+    <div className="glass rounded-2xl p-4 md:p-6 space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="font-heading text-lg font-semibold text-foreground">Subject Mastery</h2>
         {examType && (
@@ -70,7 +70,7 @@ function SubjectMasteryCard({ masteries, examType }: { masteries: SubjectMastery
           </span>
         )}
       </div>
-      <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-3">
         {masteries.map((sub, idx) => {
           const color = SUBJECT_COLORS[idx % SUBJECT_COLORS.length];
           const pct = Math.round(sub.mastery_percentage);
@@ -107,7 +107,7 @@ export default function DashboardPage() {
   const subjectMasteries = stats?.subjectMasteries ?? [];
 
   return (
-    <div className="animate-page-in space-y-8">
+    <div className="animate-page-in space-y-5 md:space-y-8">
       <WelcomeHeader />
 
       {/* Daily Motivation */}
@@ -117,9 +117,9 @@ export default function DashboardPage() {
       {stats && <StatsRow stats={stats} />}
 
       {/* Overall Readiness + Recent Activity row */}
-      <div className="grid grid-cols-5 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-5">
         {/* Overall Readiness Card */}
-        <div className="col-span-3 glass rounded-2xl p-6 flex items-center gap-6">
+        <div className="md:col-span-3 glass rounded-2xl p-4 md:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6">
           <ProgressRing
             value={readiness}
             size={120}
@@ -129,7 +129,7 @@ export default function DashboardPage() {
             sublabel="READINESS"
           />
           <div className="flex-1 space-y-2">
-            <h2 className="font-heading text-2xl font-bold text-foreground">Overall Readiness</h2>
+            <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground">Overall Readiness</h2>
             <p className="text-sm text-muted leading-relaxed">
               {loading
                 ? "Loading your performance data…"
@@ -150,7 +150,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Recent Activity */}
-        <div className="col-span-2 glass rounded-2xl p-6 space-y-4">
+        <div className="md:col-span-2 glass rounded-2xl p-4 md:p-6 space-y-4">
           <h3 className="font-heading text-lg font-bold text-foreground">Recent Activity</h3>
           {loading ? (
             <div className="space-y-3">
@@ -194,9 +194,9 @@ export default function DashboardPage() {
       {/* Continue Studying */}
       <section className="space-y-4">
         <h2 className="font-heading text-lg font-semibold text-foreground">Continue Studying</h2>
-        <div className="grid grid-cols-3 gap-4">
-          <Link href="/exams" className="glass card-hover flex items-center gap-4 rounded-2xl p-5">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          <Link href="/exams" className="glass card-hover flex items-center gap-4 rounded-2xl p-4 md:p-5">
+            <div className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-2xl bg-primary/10">
               <svg width="20" height="20" viewBox="0 0 22 22" fill="none" className="text-primary">
                 <rect x="3.667" y="2.75" width="14.667" height="16.5" rx="2.2" stroke="currentColor" strokeWidth="1.6" />
                 <path d="M7.333 7.333h7.334M7.333 11h7.334" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
@@ -213,8 +213,8 @@ export default function DashboardPage() {
               </svg>
             </div>
           </Link>
-          <Link href="/flashcards" className="glass card-hover flex items-center gap-4 rounded-2xl p-5">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50">
+          <Link href="/flashcards" className="glass card-hover flex items-center gap-4 rounded-2xl p-4 md:p-5">
+            <div className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-2xl bg-amber-50">
               <svg width="20" height="20" viewBox="0 0 22 22" fill="none" className="text-amber-600">
                 <rect x="2.75" y="6.417" width="16.5" height="11" rx="2.2" stroke="currentColor" strokeWidth="1.6" />
                 <path d="M6.417 6.417V5.042a1.833 1.833 0 0 1 1.833-1.834h5.5A1.833 1.833 0 0 1 15.583 5.042v1.375" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
@@ -233,8 +233,8 @@ export default function DashboardPage() {
               </svg>
             </div>
           </Link>
-          <Link href="/analytics" className="glass card-hover flex items-center gap-4 rounded-2xl p-5">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-success/10">
+          <Link href="/analytics" className="glass card-hover flex items-center gap-4 rounded-2xl p-4 md:p-5">
+            <div className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-2xl bg-success/10">
               <svg width="20" height="20" viewBox="0 0 22 22" fill="none" className="text-success">
                 <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

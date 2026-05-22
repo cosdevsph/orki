@@ -56,7 +56,7 @@ export function NextPaymentCard() {
       <div className="glass overflow-hidden rounded-2xl">
         {/* Status header */}
         <div
-          className="border-b border-border/50 px-5 py-4"
+          className="border-b border-border/50 px-4 py-3 md:px-5 md:py-4"
           style={{
             background: isActive
               ? "linear-gradient(135deg, rgba(47,162,226,0.06) 0%, rgba(56,189,248,0.04) 100%)"
@@ -98,20 +98,20 @@ export function NextPaymentCard() {
         {/* Stats row — only when active */}
         {isActive && (
           <div className="grid grid-cols-2 divide-x divide-border/50">
-            <div className="px-5 py-4">
+            <div className="px-4 py-3 md:px-5 md:py-4">
               <p className="text-[10px] font-semibold uppercase tracking-widest text-muted">
                 Days Remaining
               </p>
               <p
                 className={[
-                  "mt-1 font-heading text-2xl font-bold",
+                  "mt-1 font-heading text-xl md:text-2xl font-bold",
                   isExpiringSoon ? "text-amber-500" : "text-foreground",
                 ].join(" ")}
               >
                 {daysRemaining ?? "—"}
               </p>
             </div>
-            <div className="px-5 py-4">
+            <div className="px-4 py-3 md:px-5 md:py-4">
               <p className="text-[10px] font-semibold uppercase tracking-widest text-muted">
                 Renewal Date
               </p>
@@ -124,7 +124,7 @@ export function NextPaymentCard() {
 
         {/* Inactive / expired CTA */}
         {!isActive && (
-          <div className="flex items-center justify-between px-5 py-4">
+          <div className="flex items-center justify-between px-4 py-3 md:px-5 md:py-4">
             <p className="text-sm text-muted">
               {subStatus === "no_subscription"
                 ? "Unlock all premium features."
@@ -142,7 +142,7 @@ export function NextPaymentCard() {
 
         {/* Expiring soon warning */}
         {isExpiringSoon && (
-          <div className="border-t border-amber-500/20 bg-amber-500/5 px-5 py-3">
+          <div className="border-t border-amber-500/20 bg-amber-500/5 px-4 py-3 md:px-5">
             <p className="text-[11px] font-medium text-amber-600 dark:text-amber-400">
               ⚠ Your subscription expires in {daysRemaining} day
               {daysRemaining !== 1 ? "s" : ""}. Renew now to avoid interruption.

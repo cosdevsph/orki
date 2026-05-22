@@ -98,29 +98,29 @@ function FlashcardViewerInner({
           }
         >
           {/* Front — question only */}
-          <div className="flashcard-face absolute inset-0 flex flex-col items-center justify-center rounded-3xl p-8">
-            <p className="font-heading text-xl font-bold leading-snug text-center text-foreground">
+          <div className="flashcard-face absolute inset-0 flex flex-col items-center justify-center rounded-3xl p-5 md:p-8">
+            <p className="font-heading text-base md:text-xl font-bold leading-snug text-center text-foreground">
               {card.front}
             </p>
-            <p className="mt-6 text-center text-xs text-muted">
+            <p className="mt-3 md:mt-6 text-center text-xs text-muted">
               Tap to reveal answer
             </p>
           </div>
 
           {/* Back — correct answer only */}
           <div
-            className="flashcard-face flashcard-back absolute inset-0 flex flex-col items-center justify-center rounded-3xl p-8"
+            className="flashcard-face flashcard-back absolute inset-0 flex flex-col items-center justify-center rounded-3xl p-5 md:p-8"
             style={{
               background: "color-mix(in srgb, var(--primary) 8%, var(--flashcard-face-bg))",
             }}
           >
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-primary/60">
+            <p className="mb-2 md:mb-3 text-[11px] font-semibold uppercase tracking-widest text-primary/60">
               Answer
             </p>
-            <p className="font-heading text-2xl font-bold leading-snug text-center text-foreground">
+            <p className="font-heading text-lg md:text-2xl font-bold leading-snug text-center text-foreground">
               {card.correctAnswerText}
             </p>
-            <p className="mt-6 text-center text-xs text-muted">
+            <p className="mt-3 md:mt-6 text-center text-xs text-muted">
               Tap to see question
             </p>
           </div>

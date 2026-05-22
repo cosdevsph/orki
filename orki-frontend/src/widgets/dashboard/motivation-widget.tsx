@@ -52,7 +52,7 @@ export function MotivationWidget() {
 
   return (
     <div
-      className="relative overflow-hidden rounded-2xl p-6"
+      className="relative overflow-hidden rounded-2xl p-4 md:p-6"
       style={{
         background:
           "linear-gradient(135deg, rgba(47,162,226,0.07) 0%, rgba(139,92,246,0.06) 50%, rgba(16,185,129,0.05) 100%)",
@@ -72,7 +72,7 @@ export function MotivationWidget() {
 
       {/* Content */}
       <div className="relative space-y-3">
-        <p className="font-heading text-lg font-semibold leading-relaxed text-foreground">
+        <p className="font-heading text-base md:text-lg font-semibold leading-relaxed text-foreground">
           &ldquo;{quote.text}&rdquo;
         </p>
         <div className="flex items-center gap-2">

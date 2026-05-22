@@ -83,6 +83,8 @@ function PauseOverlay({ onResume }: { onResume: () => void }) {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
+const QUESTIONS_PER_GROUP = 4;
+
 export default function ExamTakePage() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -126,6 +128,10 @@ export default function ExamTakePage() {
   const question: FirestoreQuestion | undefined = questions[currentIndex];
   const progress = total > 0 ? ((currentIndex + 1) / total) * 100 : 0;
   const unanswered = total - Object.keys(answers).length;
+
+  // ─── Navigator grouping ──────────────────────────────────────────────────────
+  const groupIndex = Math.floor(currentIndex / QUESTIONS_PER_GROUP);
+  const totalGroups = Math.ceil(total / QUESTIONS_PER_GROUP);
 
   // ─── Timer: elapsed seconds, counts up ──────────────────────────────────────
   useEffect(() => {
@@ -463,10 +469,10 @@ export default function ExamTakePage() {
 
       {/* Header bar */}
       <header className="sticky top-0 z-20 border-b border-border/30 bg-nav-bg backdrop-blur-sm">
-        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-3">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-2 px-3 py-2 md:gap-4 md:px-6 md:py-3">
 
           {/* Left: exam info */}
-          <div className="flex items-start gap-3">
+          <div className="hidden sm:flex items-start gap-3">
             <svg width="20" height="20" viewBox="0 0 22 22" fill="none" className="mt-0.5 shrink-0 text-primary">
               <rect x="3.667" y="2.75" width="14.667" height="16.5" rx="2.2" stroke="currentColor" strokeWidth="1.6" />
               <path d="M7.333 7.333h7.334M7.333 11h7.334" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
@@ -479,12 +485,12 @@ export default function ExamTakePage() {
 
           {/* Center: elapsed timer + pause/resume */}
           <div className="flex items-center gap-2">
-            <div className="flex items-center gap-2 rounded-full bg-surface px-4 py-2">
-              <svg width="15" height="15" viewBox="0 0 22 22" fill="none" className="text-muted">
+            <div className="flex items-center gap-1.5 rounded-full bg-surface px-2.5 py-1.5 md:px-4 md:py-2">
+              <svg width="14" height="14" viewBox="0 0 22 22" fill="none" className="text-muted">
                 <circle cx="11" cy="11" r="8.25" stroke="currentColor" strokeWidth="1.6" />
                 <path d="M11 6.875V11l2.75 2.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <span className="font-heading text-lg font-bold tabular-nums text-foreground">
+              <span className="font-heading text-sm md:text-lg font-bold tabular-nums text-foreground">
                 {formatElapsed(elapsedTime)}
               </span>
             </div>
@@ -493,7 +499,7 @@ export default function ExamTakePage() {
               <button
                 type="button"
                 onClick={() => void handlePause()}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-surface transition-all hover:bg-black/8"
+                className="flex h-8 w-8 md:h-9 md:w-9 items-center justify-center rounded-full bg-surface transition-all hover:bg-black/8"
                 title="Pause exam"
               >
                 <svg width="14" height="14" viewBox="0 0 22 22" fill="none" className="text-foreground">
@@ -505,7 +511,7 @@ export default function ExamTakePage() {
               <button
                 type="button"
                 onClick={handleResume}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 transition-all hover:bg-primary/20"
+                className="flex h-8 w-8 md:h-9 md:w-9 items-center justify-center rounded-full bg-primary/10 transition-all hover:bg-primary/20"
                 title="Resume exam"
               >
                 <svg width="14" height="14" viewBox="0 0 22 22" fill="none" className="text-primary">
@@ -520,27 +526,27 @@ export default function ExamTakePage() {
             <button
               type="button"
               onClick={() => void handleRestart()}
-              className="flex items-center gap-1.5 rounded-xl border border-border/60 bg-card-bg px-3 py-2 text-xs font-semibold text-muted transition-all hover:text-foreground hover:border-border"
+              className="flex items-center gap-1.5 rounded-xl border border-border/60 bg-card-bg px-2 py-2 md:px-3 text-xs font-semibold text-muted transition-all hover:text-foreground hover:border-border"
               title="Restart exam"
             >
               <svg width="13" height="13" viewBox="0 0 22 22" fill="none">
                 <path d="M3.667 11A7.333 7.333 0 1 1 11 18.333" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
                 <path d="M3.667 15.583V11h4.583" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              Restart
+              <span className="hidden sm:inline">Restart</span>
             </button>
 
             <button
               type="button"
               onClick={() => setShowExitModal(true)}
-              className="flex items-center gap-1.5 rounded-xl border border-border/60 bg-card-bg px-3 py-2 text-xs font-semibold text-muted transition-all hover:text-foreground hover:border-border"
+              className="flex items-center gap-1.5 rounded-xl border border-border/60 bg-card-bg px-2 py-2 md:px-3 text-xs font-semibold text-muted transition-all hover:text-foreground hover:border-border"
               title="Exit exam"
             >
               <svg width="13" height="13" viewBox="0 0 22 22" fill="none">
                 <path d="M8.25 3.667H4.583A1.833 1.833 0 0 0 2.75 5.5v11a1.833 1.833 0 0 0 1.833 1.833H8.25" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
                 <path d="M14.667 15.583 19.25 11l-4.583-4.583M19.25 11H8.25" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              Exit
+              <span className="hidden sm:inline">Exit</span>
             </button>
 
             {unanswered === 0 && (
@@ -565,9 +571,9 @@ export default function ExamTakePage() {
       </header>
 
       {/* Content */}
-      <div className="mx-auto w-full max-w-5xl flex-1 px-6 py-8">
+      <div className="mx-auto w-full max-w-5xl flex-1 px-4 py-4 md:px-6 md:py-8">
         {/* Question meta */}
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-3 md:mb-4">
           <span className="text-sm font-semibold text-muted">
             Question {currentIndex + 1} of {total}
           </span>
@@ -577,17 +583,17 @@ export default function ExamTakePage() {
         </div>
 
         {/* Progress bar */}
-        <div className="h-1.5 w-full overflow-hidden rounded-full bg-track mb-8">
+        <div className="h-1.5 w-full overflow-hidden rounded-full bg-track mb-5 md:mb-8">
           <div className="h-full rounded-full bg-primary transition-all duration-500" style={{ width: `${progress}%` }} />
         </div>
 
         {/* Question Card */}
-        <div className="glass-strong rounded-[2.5rem] p-8 md:p-10 mb-6 bg-card-bg shadow-sm border border-border/60">
-          <p className="font-heading text-[1.35rem] font-bold leading-relaxed text-foreground mb-8">
+        <div className="glass-strong rounded-2xl md:rounded-[2.5rem] p-5 md:p-8 mb-4 md:mb-6 bg-card-bg shadow-sm border border-border/60">
+          <p className="font-heading text-base md:text-[1.35rem] font-bold leading-relaxed text-foreground mb-5 md:mb-8">
             {question?.question}
           </p>
 
-          <div className="space-y-3 mb-8">
+          <div className="space-y-2 md:space-y-3 mb-5 md:mb-8">
             {options.map((opt) => {
               const isSelected = question && answers[question.id] === opt.letter;
               return (
@@ -595,14 +601,14 @@ export default function ExamTakePage() {
                   key={opt.letter}
                   type="button"
                   onClick={() => selectAnswer(opt.letter)}
-                  className={`w-full flex items-start gap-4 rounded-2xl border p-5 text-left transition-all duration-200 ${
+                  className={`w-full flex items-start gap-3 rounded-xl md:rounded-2xl border p-3 md:p-5 text-left transition-all duration-200 ${
                     isSelected
                       ? "border-primary bg-primary/5 shadow-sm"
                       : "border-border/60 bg-surface hover:border-primary/30 hover:bg-card-bg"
                   }`}
                 >
                   <span
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold transition-colors ${
+                    className={`flex h-7 w-7 md:h-8 md:w-8 shrink-0 items-center justify-center rounded-full text-xs md:text-sm font-bold transition-colors ${
                       isSelected ? "bg-primary text-white" : "bg-track text-muted"
                     }`}
                   >
@@ -635,7 +641,7 @@ export default function ExamTakePage() {
 
       {/* Bottom navigation */}
       <footer className="sticky bottom-0 border-t border-border/30 bg-nav-bg backdrop-blur-sm">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+          <div className="mx-auto flex max-w-5xl items-center justify-between px-3 py-3 md:px-6 md:py-4">
           {/* Previous */}
           <button
             type="button"
@@ -649,29 +655,61 @@ export default function ExamTakePage() {
             Previous
           </button>
 
-          {/* Question navigator */}
-          <div className="flex flex-wrap items-center gap-1.5 max-w-xl justify-center">
-            {questions.map((q, i) => {
-              const isActive = i === currentIndex;
-              const isAnswered = !!answers[q.id];
-              const isMarked = marked.has(q.id);
+          {/* Question navigator — groups of 6 */}
+          <div className="flex items-center gap-1.5">
+            {/* Prev group: jump to first question of previous group */}
+            <button
+              type="button"
+              onClick={() => setCurrentIndex(Math.max(0, (groupIndex - 1) * QUESTIONS_PER_GROUP))}
+              disabled={groupIndex === 0}
+              className="flex h-6 w-6 md:h-7 md:w-7 shrink-0 items-center justify-center rounded-md bg-surface text-muted transition-all hover:bg-track disabled:opacity-25 disabled:cursor-not-allowed"
+              title={`Questions ${(groupIndex - 1) * QUESTIONS_PER_GROUP + 1}–${groupIndex * QUESTIONS_PER_GROUP}`}
+            >
+              <svg width="10" height="10" viewBox="0 0 14 14" fill="none">
+                <path d="M8.75 11.083 4.667 7l4.083-4.083" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
 
-              let bg = "bg-track text-muted";
-              if (isActive) bg = "bg-primary text-white ring-2 ring-primary/30";
-              else if (isMarked) bg = "bg-amber-100 text-amber-700";
-              else if (isAnswered) bg = "bg-primary/20 text-primary";
+            {/* 6 question buttons for the current group */}
+            <div className="flex items-center gap-1">
+              {questions
+                .slice(groupIndex * QUESTIONS_PER_GROUP, (groupIndex + 1) * QUESTIONS_PER_GROUP)
+                .map((q, localIdx) => {
+                  const i = groupIndex * QUESTIONS_PER_GROUP + localIdx;
+                  const isActive = i === currentIndex;
+                  const isAnswered = !!answers[q.id];
+                  const isMarked = marked.has(q.id);
 
-              return (
-                <button
-                  key={q.id}
-                  type="button"
-                  onClick={() => setCurrentIndex(i)}
-                  className={`h-7 w-7 rounded-md text-[10px] font-bold transition-all ${bg}`}
-                >
-                  {i + 1}
-                </button>
-              );
-            })}
+                  let bg = "bg-track text-muted";
+                  if (isActive) bg = "bg-primary text-white ring-2 ring-primary/30";
+                  else if (isMarked) bg = "bg-amber-100 text-amber-700";
+                  else if (isAnswered) bg = "bg-primary/20 text-primary";
+
+                  return (
+                    <button
+                      key={q.id}
+                      type="button"
+                      onClick={() => setCurrentIndex(i)}
+                      className={`h-6 w-6 md:h-7 md:w-7 rounded-md text-[9px] md:text-[10px] font-bold transition-all ${bg}`}
+                    >
+                      {i + 1}
+                    </button>
+                  );
+                })}
+            </div>
+
+            {/* Next group: jump to first question of next group */}
+            <button
+              type="button"
+              onClick={() => setCurrentIndex(Math.min(total - 1, (groupIndex + 1) * QUESTIONS_PER_GROUP))}
+              disabled={groupIndex + 1 >= totalGroups}
+              className="flex h-6 w-6 md:h-7 md:w-7 shrink-0 items-center justify-center rounded-md bg-surface text-muted transition-all hover:bg-track disabled:opacity-25 disabled:cursor-not-allowed"
+              title={`Questions ${(groupIndex + 1) * QUESTIONS_PER_GROUP + 1}–${Math.min(total, (groupIndex + 2) * QUESTIONS_PER_GROUP)}`}
+            >
+              <svg width="10" height="10" viewBox="0 0 14 14" fill="none">
+                <path d="M5.25 2.917 9.333 7 5.25 11.083" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
           </div>
 
           {/* Next */}
@@ -679,7 +717,7 @@ export default function ExamTakePage() {
             type="button"
             onClick={() => setCurrentIndex(Math.min(total - 1, currentIndex + 1))}
             disabled={currentIndex === total - 1}
-            className="flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary/90 disabled:opacity-50"
+            className="flex items-center gap-1.5 md:gap-2 rounded-xl bg-primary px-3 py-2 md:px-5 md:py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary/90 disabled:opacity-50"
           >
             Next
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

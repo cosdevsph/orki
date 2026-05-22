@@ -36,7 +36,7 @@ export function ResumeFlashcardsModal({
   onClose,
 }: ResumeFlashcardsModalProps) {
   return (
-    <div className="fixed inset-0 z-[100] flex items-end justify-center p-4 pb-8 sm:items-center sm:pb-4">
+    <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
       {/* Backdrop — clicking outside = dismiss only, no progress change */}
       <div
         className="absolute inset-0 bg-black/25 backdrop-blur-sm"
@@ -44,12 +44,12 @@ export function ResumeFlashcardsModal({
         aria-hidden
       />
 
-      <div className="glass-strong relative w-full max-w-sm rounded-3xl p-8 shadow-2xl">
+      <div className="glass-strong relative w-full max-w-sm rounded-2xl md:rounded-3xl p-5 md:p-8 shadow-2xl">
         {/* Close button — dismisses modal only, progress is preserved */}
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-overlay-hover-mid text-muted transition hover:bg-overlay-hover-strong hover:text-foreground"
+          className="absolute right-3 top-3 md:right-4 md:top-4 flex h-8 w-8 items-center justify-center rounded-full bg-overlay-hover-mid text-muted transition hover:bg-overlay-hover-strong hover:text-foreground"
           aria-label="Close"
         >
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden>
@@ -63,10 +63,10 @@ export function ResumeFlashcardsModal({
         </button>
 
         {/* Icon */}
-        <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
+        <div className="mx-auto mb-4 flex h-11 w-11 md:h-14 md:w-14 items-center justify-center rounded-2xl bg-primary/10">
           <svg
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             className="text-primary"
@@ -83,11 +83,11 @@ export function ResumeFlashcardsModal({
         </div>
 
         {/* Text */}
-        <div className="mb-6 space-y-1.5 text-center">
-          <h2 className="font-heading text-lg font-bold text-foreground">
+        <div className="mb-4 md:mb-6 space-y-1 text-center">
+          <h2 className="font-heading text-base md:text-lg font-bold text-foreground">
             Resume Flashcards?
           </h2>
-          <p className="text-sm text-muted">
+          <p className="text-xs md:text-sm text-muted">
             You were studying{" "}
             <span className="font-semibold text-foreground">
               {progress.subject}
@@ -97,18 +97,18 @@ export function ResumeFlashcardsModal({
         </div>
 
         {/* Actions */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2 md:gap-3">
           <button
             type="button"
             onClick={onResume}
-            className="w-full rounded-2xl bg-primary py-3 text-sm font-semibold text-white transition hover:opacity-90 active:scale-[0.98]"
+            className="w-full rounded-2xl bg-primary py-2.5 md:py-3 text-sm font-semibold text-white transition hover:opacity-90 active:scale-[0.98]"
           >
             Resume
           </button>
           <button
             type="button"
             onClick={onStartOver}
-            className="w-full rounded-2xl bg-overlay-hover-mid py-3 text-sm font-medium text-muted transition hover:bg-overlay-hover-strong hover:text-foreground"
+            className="w-full rounded-2xl bg-overlay-hover-mid py-2.5 md:py-3 text-sm font-medium text-muted transition hover:bg-overlay-hover-strong hover:text-foreground"
           >
             Start Over
           </button>

@@ -17,7 +17,7 @@ function QuickAction({ label, description, href, icon, color }: QuickActionProps
       className="glass card-hover group flex flex-col gap-3 rounded-2xl p-4 transition-all duration-200"
     >
       <div
-        className="flex h-10 w-10 items-center justify-center rounded-xl transition-transform duration-200 group-hover:scale-110"
+        className="flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-xl transition-transform duration-200 group-hover:scale-110"
         style={{ backgroundColor: `${color}15`, color }}
       >
         {icon}
@@ -69,7 +69,7 @@ export function QuickActions() {
   return (
     <div className="space-y-3">
       <h2 className="font-heading text-lg font-semibold text-foreground">Quick Actions</h2>
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         <QuickAction
           label="Start Exam"
           description="Begin a mock test"

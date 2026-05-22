@@ -49,9 +49,9 @@ export function UpcomingExamsWidget() {
           return (
             <div
               key={exam.id}
-              className="flex items-center justify-between px-5 py-4 transition-colors hover:bg-black/[0.02]"
+              className="flex items-center justify-between px-4 py-3 md:px-5 md:py-4 transition-colors hover:bg-black/[0.02]"
             >
-              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3 md:gap-4">
                 <div
                   className="flex h-10 w-10 flex-col items-center justify-center rounded-xl text-center"
                   style={{

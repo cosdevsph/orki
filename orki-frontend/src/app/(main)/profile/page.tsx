@@ -33,7 +33,7 @@ function SettingRow({ label, description, control, onClick, destructive }: Setti
   return (
     <div
       className={[
-        "flex items-center justify-between px-5 py-3.5 transition-colors duration-200",
+        "flex items-center justify-between px-4 py-3 md:px-5 md:py-3.5 transition-colors duration-200",
         onClick ? "cursor-pointer hover:bg-overlay-hover" : "",
       ].join(" ")}
       onClick={onClick}
@@ -134,7 +134,7 @@ function ThemeCard({
       onClick={onClick}
       aria-pressed={isActive}
       className={[
-        "group relative flex flex-col gap-3 rounded-2xl border-2 p-4 transition-all duration-200 text-left w-full",
+        "group relative flex flex-col gap-2 md:gap-3 rounded-2xl border-2 p-2.5 md:p-4 transition-all duration-200 text-left w-full",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
         isActive
           ? "border-primary shadow-md shadow-primary/10"
@@ -143,7 +143,7 @@ function ThemeCard({
     >
       {/* Mini theme preview */}
       <div
-        className="relative h-20 w-full overflow-hidden rounded-xl"
+        className="relative h-14 md:h-20 w-full overflow-hidden rounded-xl"
         style={{ background: bg }}
       >
         {/* Mock card */}
@@ -166,13 +166,13 @@ function ThemeCard({
       {/* Label */}
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-semibold text-foreground">{option.label}</p>
-          <p className="text-xs text-muted">{option.description}</p>
+          <p className="text-xs md:text-sm font-semibold text-foreground">{option.label}</p>
+          <p className="text-[10px] md:text-xs text-muted">{option.description}</p>
         </div>
         {/* Active check */}
         <div
           className={[
-            "flex h-5 w-5 items-center justify-center rounded-full border-2 transition-all duration-200",
+            "flex h-4 w-4 md:h-5 md:w-5 items-center justify-center rounded-full border-2 transition-all duration-200",
             isActive
               ? "border-primary bg-primary"
               : "border-border bg-transparent",
@@ -201,12 +201,12 @@ function AppearanceSection() {
   return (
     <div className="space-y-2">
       <h3 className="px-1 text-xs font-semibold uppercase tracking-widest text-muted">Appearance</h3>
-      <div className="glass overflow-hidden rounded-2xl p-5 space-y-4">
+        <div className="glass overflow-hidden rounded-2xl p-4 md:p-5 space-y-4">
         <div>
           <p className="text-sm font-medium text-foreground">Theme</p>
           <p className="text-xs text-muted mt-0.5">Choose how Orki looks to you</p>
         </div>
-        <div className="grid grid-cols-5 gap-3">
+        <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 md:gap-3">
           {THEME_OPTIONS.map((opt) => (
             <ThemeCard
               key={opt.value}
@@ -256,15 +256,15 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="animate-page-in mx-auto max-w-2xl space-y-8">
+    <div className="animate-page-in mx-auto max-w-2xl space-y-5 md:space-y-8">
       {/* Header */}
       <div className="space-y-1">
-        <h1 className="font-heading text-4xl font-bold tracking-tight text-foreground">Profile</h1>
-        <p className="text-base text-muted">Manage your account and study preferences.</p>
+        <h1 className="font-heading text-2xl md:text-4xl font-bold tracking-tight text-foreground">Profile</h1>
+        <p className="text-sm md:text-base text-muted">Manage your account and study preferences.</p>
       </div>
 
       {/* Profile card */}
-      <div className="glass rounded-2xl p-6 flex items-center gap-5">
+      <div className="glass rounded-2xl p-4 md:p-6 flex items-center gap-3 md:gap-5">
         {/* Avatar — clickable to open selector */}
         <button
           type="button"
@@ -272,7 +272,7 @@ export default function ProfilePage() {
           className="relative shrink-0 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           aria-label="Change avatar"
         >
-          <div className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-primary/10 border border-primary/20">
+          <div className="flex h-18 w-18 items-center justify-center rounded-2xl bg-primary/10 border border-primary/20">
             <Image
               src={avatar}
               alt={displayName}
@@ -296,7 +296,7 @@ export default function ProfilePage() {
         </button>
 
         <div className="flex-1 space-y-0.5">
-          <p className="font-heading text-xl font-bold text-foreground">{displayName}</p>
+          <p className="font-heading text-base md:text-xl font-bold text-foreground">{displayName}</p>
           <p className="text-sm text-muted">{email}</p>
           <div className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-0.5">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
@@ -307,7 +307,7 @@ export default function ProfilePage() {
         <button
           type="button"
           onClick={() => setAvatarOpen(true)}
-          className="rounded-xl bg-overlay-hover-mid px-4 py-2 text-xs font-semibold text-secondary transition hover:bg-overlay-hover-strong"
+          className="hidden sm:block rounded-xl bg-overlay-hover-mid px-4 py-2 text-xs font-semibold text-secondary transition hover:bg-overlay-hover-strong"
         >
           Change Avatar
         </button>
@@ -321,7 +321,7 @@ export default function ProfilePage() {
           </p>
           <div className="glass overflow-hidden rounded-2xl">
             <div
-              className="px-5 py-4"
+              className="px-4 py-3 md:px-5 md:py-4"
               style={{
                 background:
                   "linear-gradient(135deg, rgba(47,162,226,0.07) 0%, rgba(139,92,246,0.05) 100%)",
@@ -342,9 +342,9 @@ export default function ProfilePage() {
               </div>
             </div>
             <div className="flex divide-x divide-border/50">
-              <div className="flex-1 px-5 py-4">
+              <div className="flex-1 px-4 py-3 md:px-5 md:py-4">
                 <p className="text-[10px] font-semibold uppercase tracking-widest text-muted">Professional Title</p>
-                <p className="mt-1 font-heading text-lg font-bold text-foreground">
+                <p className="mt-1 font-heading text-base md:text-lg font-bold text-foreground">
                   Future{" "}
                   <span
                     style={{
@@ -359,7 +359,7 @@ export default function ProfilePage() {
                 </p>
               </div>
               {user?.exam_date && (
-                <div className="flex-1 px-5 py-4">
+                <div className="flex-1 px-4 py-3 md:px-5 md:py-4">
                   <p className="text-[10px] font-semibold uppercase tracking-widest text-muted">Target Exam Date</p>
                   <p className="mt-1 text-sm font-semibold text-foreground">
                     {new Date(user.exam_date).toLocaleDateString("en-US", {
@@ -371,7 +371,7 @@ export default function ProfilePage() {
                 </div>
               )}
             </div>
-            <div className="px-5 py-3 border-t border-border/50">
+            <div className="px-4 py-2.5 md:px-5 md:py-3 border-t border-border/50">
               <p className="text-[11px] text-muted">
                 Exam type is permanently set after onboarding and cannot be changed.
               </p>

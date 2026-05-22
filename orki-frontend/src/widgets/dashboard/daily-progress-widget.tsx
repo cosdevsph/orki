@@ -13,7 +13,7 @@ export function DailyProgressWidget() {
         <span className="text-sm font-semibold text-primary">{totalWeek}h this week</span>
       </div>
 
-      <div className="glass rounded-2xl p-5">
+      <div className="glass rounded-2xl p-3 md:p-5">
         <div className="flex items-end justify-between gap-2" style={{ height: 100 }}>
           {DAYS.map((day, i) => {
             const heightPct = (HOURS[i] / MAX_HOURS) * 100;

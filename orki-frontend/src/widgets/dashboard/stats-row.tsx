@@ -13,18 +13,18 @@ type StatCardProps = {
 
 function StatCard({ label, value, unit, icon, accentColor = "#2FA2E2", trend }: StatCardProps) {
   return (
-    <div className="glass card-hover flex flex-1 flex-col gap-4 rounded-2xl p-5">
+    <div className="glass card-hover flex flex-1 flex-col gap-2 md:gap-4 rounded-2xl p-3 md:p-5">
       <div className="flex items-center justify-between">
         <span className="text-xs font-semibold uppercase tracking-widest text-muted">{label}</span>
         <div
-          className="flex h-9 w-9 items-center justify-center rounded-xl"
+          className="flex h-8 w-8 md:h-9 md:w-9 items-center justify-center rounded-xl"
           style={{ backgroundColor: `${accentColor}18` }}
         >
           <span style={{ color: accentColor }}>{icon}</span>
         </div>
       </div>
       <div className="flex items-end gap-1.5">
-        <span className="font-heading text-4xl font-bold leading-none text-foreground">{value}</span>
+        <span className="font-heading text-2xl md:text-4xl font-bold leading-none text-foreground">{value}</span>
         {unit && <span className="mb-0.5 text-sm font-medium text-muted">{unit}</span>}
       </div>
       {trend && (
@@ -87,7 +87,7 @@ type StatsRowProps = {
 
 export function StatsRow({ stats }: StatsRowProps) {
   return (
-    <div className="flex gap-4">
+    <div className="grid grid-cols-2 gap-3 md:flex md:gap-4">
       <StatCard
         label="Study Streak"
         value={stats.activeStreakDays}

@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "exams",
     "flashcards",
     "common",
+    "payments",
 ]
 
 # ─── Middleware ────────────────────────────────────────────────────────────────

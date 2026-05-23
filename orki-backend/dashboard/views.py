@@ -20,8 +20,25 @@ class DashboardSummaryView(APIView):
 
     permission_classes = [IsSessionAuthenticated]
 
+    _EMPTY_RESPONSE = {
+        "activeStreakDays": 0,
+        "dueFlashcards": 0,
+        "upcomingExams": 0,
+        "weeklyStudyHours": 0,
+        "overallReadiness": 0,
+        "recentActivity": [],
+        "subjectMasteries": [],
+    }
+
     def get(self, request):
+        # request.user_profile is populated by FirebaseAuthentication for any
+        # user with an existing SQLite UserProfile row.  Return empty-but-valid
+        # data when no row exists (Firebase-only user whose profile hasn't been
+        # synced to the local DB yet) instead of crashing with a 500.
         profile = request.user_profile
+        if profile is None:
+            return Response(self._EMPTY_RESPONSE)
+
         now = timezone.now()
 
         due_flashcards = Flashcard.objects.filter(

@@ -85,6 +85,52 @@ class FirebaseAuthentication(BaseAuthentication):
         # Expose uid directly on request for quick access in views
         request.firebase_uid = uid
 
+        # Populate request.user_profile with the SQLite UserProfile row so
+        # that every view can use it without doing its own lookup.  This
+        # overrides the None set by FirestoreUserMiddleware.
+        # get_or_create ensures Firebase-only users (who have never had a row
+        # created in Django's DB) get a minimal row on their first request,
+        # which prevents AttributeError crashes in any view that uses the
+        # profile as a FK.
+        try:
+            from users.models import UserProfile
+            request.user_profile, created = UserProfile.objects.get_or_create(
+                firebase_uid=uid,
+                defaults={
+                    "email": decoded.get("email", ""),
+                    "display_name": decoded.get("name", ""),
+                },
+            )
+            # On first creation, sync exam_type (and other fields) from the
+            # Firestore profile so the new row is accurate from the start.
+            if created:
+                try:
+                    from services.firebase.firestore import get_user_profile
+                    fs_profile = get_user_profile(uid) or {}
+                    update_fields = []
+                    if fs_profile.get("exam_type"):
+                        request.user_profile.exam_type = fs_profile["exam_type"]
+                        update_fields.append("exam_type")
+                    if fs_profile.get("first_name"):
+                        request.user_profile.first_name = fs_profile["first_name"]
+                        update_fields.append("first_name")
+                    if fs_profile.get("last_name"):
+                        request.user_profile.last_name = fs_profile["last_name"]
+                        update_fields.append("last_name")
+                    if fs_profile.get("age"):
+                        request.user_profile.age = fs_profile["age"]
+                        update_fields.append("age")
+                    if fs_profile.get("onboarding_completed"):
+                        request.user_profile.onboarding_completed = fs_profile["onboarding_completed"]
+                        update_fields.append("onboarding_completed")
+                    if update_fields:
+                        request.user_profile.save(update_fields=update_fields)
+                except Exception:
+                    pass  # Firestore sync failure is non-fatal; row already exists
+        except Exception:
+            # DB unavailable or unexpected error — leave as None; views handle it.
+            request.user_profile = None
+
         return (firebase_user, None)
 
     def authenticate_header(self, request) -> str:

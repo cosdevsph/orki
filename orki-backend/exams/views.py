@@ -99,9 +99,11 @@ class MockExamCatalogView(APIView):
             # Explicit category override from the client
             exams = exams.filter(category=category)
         else:
-            # Auto-filter by the user's registered exam type
-            user_exam_type = request.user_profile.exam_type
-            allowed_cats = EXAM_TYPE_CATEGORY_MAP.get(user_exam_type)
+            # Auto-filter by the user's registered exam type.
+            # user_profile may be None for Firebase-only users without a
+            # local DB row; fall back to returning all exams unfiltered.
+            user_exam_type = getattr(request.user_profile, "exam_type", None)
+            allowed_cats = EXAM_TYPE_CATEGORY_MAP.get(user_exam_type) if user_exam_type else None
             if allowed_cats:
                 exams = exams.filter(category__in=allowed_cats)
 

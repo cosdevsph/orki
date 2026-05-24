@@ -122,7 +122,7 @@ export function AuthShell({ initialTab = "signin" }: AuthShellProps) {
                   ))}
                 </div>
                 <p className="text-xs text-white/50">
-                  <span className="font-semibold text-white/75">1,000+</span> students trust Orki
+                  <span className="font-semibold text-white/75">500+</span> students trust Orki
                 </p>
               </div>
 

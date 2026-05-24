@@ -56,7 +56,7 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="text-secondary max-w-lg">
-            Have a question, feedback, or partnership inquiry? We'd love to hear from you. Our team
+            Have a question, feedback, or partnership inquiry? We&apos;d love to hear from you. Our team
             typically responds within 1–2 business days.
           </p>
         </div>

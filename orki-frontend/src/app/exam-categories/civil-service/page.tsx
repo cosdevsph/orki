@@ -217,7 +217,7 @@ export default function CivilServicePage() {
             Ready for government service?
           </h2>
           <p className="text-white/65 mb-8 max-w-md mx-auto">
-            Orki's structured CSE preparation helps you build the verbal, numerical, and analytical
+            Orki&apos;s structured CSE preparation helps you build the verbal, numerical, and analytical
             skills you need to pass — and serve with excellence.
           </p>
           <Link

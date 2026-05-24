@@ -183,7 +183,7 @@ export default function PmlePage() {
             Your PmLE journey starts here.
           </h2>
           <p className="text-white/65 mb-8 max-w-md mx-auto">
-            Join students preparing for the Psychometrician board exam with Orki's structured,
+            Join students preparing for the Psychometrician board exam with Orki&apos;s structured,
             data-driven study system.
           </p>
           <Link

@@ -188,10 +188,10 @@ export default function HelpCenterPage() {
         {/* Still need help? */}
         <div className="mt-16 rounded-3xl border border-border bg-section-alt p-8 sm:p-10 text-center transition-colors duration-300">
           <h2 className="font-heading text-xl font-bold text-foreground mb-2">
-            Still can't find what you need?
+            Still can&apos;t find what you need?
           </h2>
           <p className="text-secondary mb-6 max-w-md mx-auto">
-            Our support team is here to help. Reach out and we'll get back to you as soon as
+            Our support team is here to help. Reach out and we&apos;ll get back to you as soon as
             possible.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">

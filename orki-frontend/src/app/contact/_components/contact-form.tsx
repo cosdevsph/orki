@@ -45,7 +45,7 @@ export function ContactForm() {
         </div>
         <p className="font-heading font-bold text-foreground text-lg mb-1">Message sent!</p>
         <p className="text-secondary text-sm max-w-xs mx-auto">
-          Thank you, {form.name || "there"}. We'll get back to you at{" "}
+          Thank you, {form.name || "there"}. We&apos;ll get back to you at{" "}
           <strong>{form.email}</strong> within 1–2 business days.
         </p>
         <button

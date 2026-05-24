@@ -22,7 +22,7 @@ export default function ReportProblemPage() {
             Report a Problem
           </h1>
           <p className="text-secondary max-w-lg">
-            Found something broken or unexpected? Let us know and we'll work on a fix.
+            Found something broken or unexpected? Let us know and we&apos;ll work on a fix.
           </p>
         </div>
       </div>

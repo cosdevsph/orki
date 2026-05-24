@@ -172,7 +172,7 @@ export default function FaqPage() {
             Frequently Asked Questions
           </h1>
           <p className="text-secondary">
-            Can't find your answer?{" "}
+            Can&apos;t find your answer?{" "}
             <Link href={routes.contact} className="text-primary hover:underline">
               Contact our team
             </Link>
@@ -241,7 +241,7 @@ export default function FaqPage() {
         {/* Still need help? */}
         <div className="mt-14 pt-8 border-t border-border/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
           <div>
-            <p className="font-semibold text-foreground mb-1">Didn't find your answer?</p>
+            <p className="font-semibold text-foreground mb-1">Didn&apos;t find your answer?</p>
             <p className="text-sm text-muted">Our team responds within 1–2 business days.</p>
           </div>
           <Link

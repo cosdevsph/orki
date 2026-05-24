@@ -238,7 +238,7 @@ export default function AboutPage() {
               </p>
               <p>
                 Orki the mascot is your study buddy — always there to encourage you, celebrate your
-                milestones, and remind you that you're making progress, even on the hard days.
+                milestones, and remind you that you&apos;re making progress, even on the hard days.
               </p>
             </div>
           </div>

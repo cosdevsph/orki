@@ -55,7 +55,7 @@ export function ReportForm() {
         </div>
         <p className="font-heading font-bold text-foreground text-lg mb-1">Report received!</p>
         <p className="text-secondary text-sm max-w-xs mx-auto">
-          Thank you, {form.name || "there"}. We'll review your report and follow up at{" "}
+          Thank you, {form.name || "there"}. We&apos;ll review your report and follow up at{" "}
           <strong>{form.email}</strong> within 1–2 business days.
         </p>
         <button

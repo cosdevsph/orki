@@ -31,7 +31,7 @@ export function HeroSection() {
           {/* Trust badge */}
           <span className="inline-flex items-center gap-2 self-center lg:self-start rounded-full border border-primary/25 bg-primary/8 px-4 py-2 text-sm font-medium text-primary">
             <span className="text-[15px] leading-none">✦</span>
-            Trusted by 1,000+ students
+            Trusted by 500+ students
           </span>
 
           {/* Headline */}
@@ -88,7 +88,7 @@ export function HeroSection() {
             </div>
             <p className="text-sm text-secondary">
               Join{" "}
-              <span className="font-semibold text-foreground">1,000+</span> students crushing
+              <span className="font-semibold text-foreground">500+</span> students crushing
               their boards
             </p>
           </div>

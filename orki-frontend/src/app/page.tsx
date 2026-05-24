@@ -7,6 +7,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { routes } from "@/shared/config/routes";
 import { CtaSection } from "@/widgets/landing/cta-section";
 import { FeaturesSection } from "@/widgets/landing/features-section";
+import { Footer } from "@/widgets/landing/footer";
 import { HeroSection } from "@/widgets/landing/hero-section";
 import { LandingNav } from "@/widgets/landing/landing-nav";
 import { ResultsSection } from "@/widgets/landing/results-section";
@@ -33,6 +34,7 @@ export default function Home() {
       <ShowcaseSection />
       <ResultsSection />
       <CtaSection />
+      <Footer />
     </>
   );
 }

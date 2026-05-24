@@ -128,7 +128,7 @@ export function AuthShell({ initialTab = "signin" }: AuthShellProps) {
 
               {/* Micro badges */}
               <div className="flex items-center gap-4">
-                {["Try it at ₱ 49", "No credit card", "Cancel anytime"].map((item) => (
+                {["Try it at ₱49", "No credit card"].map((item) => (
                   <div key={item} className="flex items-center gap-1 text-[11px] text-white/40">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                       <circle cx="6" cy="6" r="5" stroke="#10B981" strokeWidth="1.5" />
@@ -212,13 +212,13 @@ export function AuthShell({ initialTab = "signin" }: AuthShellProps) {
           <div className="border-t border-border/50 px-10 py-4">
             <p className="text-center text-xs text-muted/60">
               By continuing, you agree to our{" "}
-              <button type="button" className="text-primary hover:underline">
+              <Link href={routes.terms} className="text-primary hover:underline">
                 Terms of Service
-              </button>{" "}
+              </Link>{" "}
               and{" "}
-              <button type="button" className="text-primary hover:underline">
+              <Link href={routes.privacy} className="text-primary hover:underline">
                 Privacy Policy
-              </button>
+              </Link>
               .
             </p>
           </div>

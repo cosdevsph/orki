@@ -3,14 +3,6 @@ import Link from "next/link";
 
 import { routes } from "@/shared/config/routes";
 
-const footerLinks = [
-  { label: "Dashboard", href: routes.dashboard },
-  { label: "Analytics", href: routes.analytics },
-  { label: "Exams", href: routes.exams },
-  { label: "Flashcards", href: routes.flashcards },
-  { label: "Sign In", href: routes.login },
-];
-
 export function CtaSection() {
   return (
     <section className="relative overflow-hidden bg-[#0B1D35] py-16 lg:py-28">
@@ -33,7 +25,7 @@ export function CtaSection() {
                 </span>
               </h2>
               <p className="text-lg text-white/75 leading-relaxed max-w-md">
-                Join thousands of determined students who trust Orki to organize their study journey
+                Join hundreds of determined students who trust Orki to organize their study journey
                 and guide them to the result they deserve.
               </p>
             </div>
@@ -64,7 +56,7 @@ export function CtaSection() {
 
             {/* Micro trust signals */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 pt-1">
-              {["Try it at ₱ 49", "No credit card", "Cancel anytime"].map((item) => (
+              {["₱49 / month", "No credit card"].map((item) => (
                 <div key={item} className="flex items-center gap-1.5 text-sm text-white/65">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <circle cx="7" cy="7" r="6" stroke="#10B981" strokeWidth="1.5" />
@@ -99,33 +91,7 @@ export function CtaSection() {
           </div>
         </div>
 
-        {/* ── Footer nav ── */}
-        <div className="mt-16 lg:mt-24 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-4">
-          <div className="flex items-center gap-2.5">
-            <Image
-              src="/Logo/OrkiLogo.svg"
-              alt="Orki logo"
-              width={28}
-              height={28}
-              className="rounded-lg opacity-90"
-            />
-            <span className="font-heading font-bold text-white/90 text-base">Orki</span>
-          </div>
 
-          <nav className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
-            {footerLinks.map(({ label, href }) => (
-              <Link
-                key={href}
-                href={href}
-                className="text-sm text-white/55 hover:text-white/90 transition-colors duration-150"
-              >
-                {label}
-              </Link>
-            ))}
-          </nav>
-
-          <p className="text-xs text-white/30">© 2026 Orki. All rights reserved.</p>
-        </div>
       </div>
     </section>
   );

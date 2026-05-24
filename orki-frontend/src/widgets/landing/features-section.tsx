@@ -1,15 +1,22 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
+
+import { routes } from "@/shared/config/routes";
 
 type FeatureCardProps = {
   icon: ReactNode;
   iconBg: string;
   title: string;
   description: string;
+  href?: string;
 };
 
-function FeatureCard({ icon, iconBg, title, description }: FeatureCardProps) {
-  return (
-    <div className="group flex flex-col gap-5 rounded-3xl border border-border/60 bg-card-bg p-8 shadow-sm hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20 transition-all duration-300">
+function FeatureCard({ icon, iconBg, title, description, href }: FeatureCardProps) {
+  const cardClass =
+    "group flex flex-col gap-5 rounded-3xl border border-border/60 bg-card-bg p-8 shadow-sm hover:-translate-y-2 hover:shadow-2xl hover:border-primary/20 transition-all duration-300";
+
+  const inner = (
+    <>
       <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${iconBg}`}>
         {icon}
       </div>
@@ -29,8 +36,13 @@ function FeatureCard({ icon, iconBg, title, description }: FeatureCardProps) {
           />
         </svg>
       </div>
-    </div>
+    </>
   );
+
+  if (href) {
+    return <Link href={href} className={cardClass}>{inner}</Link>;
+  }
+  return <div className={cardClass}>{inner}</div>;
 }
 
 const DashboardIcon = () => (
@@ -163,6 +175,7 @@ const topRowFeatures: FeatureCardProps[] = [
     title: "Dashboard Tracking",
     description:
       "See your full study picture at a glance. Visualize daily progress, manage your schedule, and stay relentlessly on track.",
+    href: routes.featureDashboardTracking,
   },
   {
     icon: <AnalyticsIcon />,
@@ -170,6 +183,7 @@ const topRowFeatures: FeatureCardProps[] = [
     title: "Smart Analytics",
     description:
       "Understand exactly where you're strong and where to focus. Data-driven insights to optimize every study session.",
+    href: routes.featureSmartAnalytics,
   },
   {
     icon: <ExamsIcon />,
@@ -177,6 +191,7 @@ const topRowFeatures: FeatureCardProps[] = [
     title: "Mock Exams",
     description:
       "Practice under real exam conditions with timed, adaptive mock tests that mirror actual board exam structure.",
+    href: routes.featureMockExams,
   },
 ];
 
@@ -187,6 +202,7 @@ const bottomRowFeatures: FeatureCardProps[] = [
     title: "Smart Flashcards",
     description:
       "Spaced repetition flashcards that adapt to how you learn — surfacing the right cards at exactly the right moment.",
+    href: routes.featureSmartFlashcards,
   },
   {
     icon: <ProgressIcon />,
@@ -194,6 +210,7 @@ const bottomRowFeatures: FeatureCardProps[] = [
     title: "Study Progress",
     description:
       "Milestone tracking, daily streaks, and achievement badges that keep your motivation burning through every chapter.",
+    href: routes.featureStudyProgress,
   },
 ];
 

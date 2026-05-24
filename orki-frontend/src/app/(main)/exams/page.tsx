@@ -159,6 +159,26 @@ export default function ExamsPage() {
         </p>
       </div>
 
+      {/* Disclaimer */}
+      <div className="flex gap-3 rounded-2xl border border-border bg-section-alt px-4 py-3.5 transition-colors duration-300">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          className="shrink-0 mt-0.5 text-muted"
+        >
+          <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.4" />
+          <path d="M8 5.333v3.334M8 10.333v.334" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+        </svg>
+        <p className="text-xs text-muted leading-relaxed">
+          <span className="font-semibold text-secondary">Disclaimer:</span> Orki uses PRC materials
+          and reputable online sources, but exam content may not fully reflect what appears on the
+          actual board exam. Use Orki to build your knowledge, track your progress, and study your
+          way to becoming a licensed professional.
+        </p>
+      </div>
+
       {loading && <SkeletonGrid />}
 
       {!loading && error && (

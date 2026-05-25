@@ -347,7 +347,7 @@ export default function SubjectProgressPage({ params }: Props) {
               </div>
 
               {/* Selectors */}
-              <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+              <div className="flex flex-col items-stretch gap-2">
                 <select
                   value={compareA}
                   onChange={(e) => setCompareA(e.target.value)}
@@ -361,7 +361,7 @@ export default function SubjectProgressPage({ params }: Props) {
                   ))}
                 </select>
 
-                <span className="text-sm font-bold text-muted text-center select-none">
+                <span className="text-sm font-bold text-muted text-center select-none py-1">
                   vs
                 </span>
 

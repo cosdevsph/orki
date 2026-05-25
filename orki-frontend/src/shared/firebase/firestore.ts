@@ -279,7 +279,7 @@ export type AnalyticsDocument = {
   activityGrid: Record<string, number>; // "YYYY-MM-DD" -> exam count
   currentWeekKey: string; // "YYYY-Www" ISO week format (e.g., "2026-W22")
   currentWeeklyHours: number; // Cumulative hours this week
-  updatedAt: any;
+  updatedAt: unknown;
 };
 
 /** Helper: Calculate ISO week key (YYYY-Www) from a date */

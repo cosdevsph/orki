@@ -147,8 +147,8 @@ export function ScoreTrendChart({
                 borderRadius: "8px",
                 color: "#fff",
               }}
-              formatter={(value: any) =>
-                value !== null ? `${value}%` : "No exam"
+              formatter={(value) =>
+                value != null ? `${value}%` : "No exam"
               }
             />
 

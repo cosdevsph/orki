@@ -88,7 +88,7 @@ export const useAnalyticsStore = create<AnalyticsStore>((set) => ({
       );
 
       const snap = await getDocs(q);
-      const attempts = snap.docs.map((doc: any) => {
+      const attempts = snap.docs.map((doc: (typeof snap.docs)[number]) => {
         const data = doc.data();
         return {
           id: doc.id,
@@ -117,7 +117,7 @@ export const useAnalyticsStore = create<AnalyticsStore>((set) => ({
           const avg = Math.round(
             data.scores.reduce((sum, s) => sum + s, 0) / data.scores.length
           );
-          const [year, month, day] = fullDate.split("-");
+          const [, month, day] = fullDate.split("-");
           return {
             date: `${month}/${day}`,
             fullDate,

@@ -12,17 +12,7 @@ import { getAnalyticsDocument } from "@/shared/firebase/firestore";
 import { useAnalyticsStore } from "@/shared/stores/useAnalyticsStore";
 import { SUBJECT_COLORS, getSubjectsByExam } from "@/shared/utils/exam-type";
 
-const MASTERY_LABELS: Record<AnalyticsOverview["masteryLevel"], string> = {
-  low: "Building foundation",
-  medium: "Developing mastery",
-  high: "High mastery",
-};
 
-const MASTERY_PCT: Record<AnalyticsOverview["masteryLevel"], number> = {
-  low: 30,
-  medium: 60,
-  high: 90,
-};
 
 /** Build a 42-day calendar grid (6 complete weeks) aligned to actual calendar month view.
  * Shows the current month plus leading/trailing days to fill complete weeks starting Sunday.
@@ -66,22 +56,6 @@ export default function AnalyticsPage() {
   const [loading, setLoading] = useState(true);
   const [weeklyHours, setWeeklyHours] = useState(0);
   const [readinessIndex, setReadinessIndex] = useState(0);
-
-  // Track current month to trigger calendar recalculation when month changes (sliding window)
-  const [currentMonth, setCurrentMonth] = useState(() => {
-    const now = new Date();
-    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
-  });
-
-  // Update currentMonth every minute so calendar rolls over automatically at midnight
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date();
-      const newMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
-      setCurrentMonth(newMonth);
-    }, 60000); // Check every minute
-    return () => clearInterval(timer);
-  }, []);
 
   // Zustand store for score trend
   const { examHistory, marketSentiment, isLoading: trendLoading, fetchScoreTrend } = useAnalyticsStore();
@@ -194,13 +168,11 @@ export default function AnalyticsPage() {
     ],
     [overview?.trend],
   );
-  const maxScore = useMemo(() => Math.max(...trend.map((p) => p.score), 1), [trend]);
   const streakDays = overview?.streak?.current_streak ?? 0;
-  const masteryLevel = overview?.masteryLevel ?? "low";
   const avgScore = overview?.averageScore ?? 0;
   const subjectMasteries = overview?.subjectMasteries ?? [];
-  // Recalculate grid when activity data changes OR when month changes (currentMonth triggers sliding window recalc)
-  const activityGridData = useMemo(() => buildActivityGrid(activityGrid), [activityGrid, currentMonth]);
+  // Recalculate grid when activity data changes
+  const activityGridData = useMemo(() => buildActivityGrid(activityGrid), [activityGrid]);
 
   const trendDelta = useMemo(() => {
     if (trend.length < 2) return null;

@@ -202,7 +202,7 @@ export default function ExamResultsPage() {
     }
 
     void load();
-  }, [attemptId]);
+  }, [attemptId, user?.uid]);
 
   async function handleConvertToFlashcards() {
     if (!result || convertingToFlashcards || flashcardsCreated) return;

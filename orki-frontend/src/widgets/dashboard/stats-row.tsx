@@ -1,5 +1,3 @@
-import type { DashboardSummary } from "@/entities/dashboard/types";
-
 // ─── Stat Card ────────────────────────────────────────────────────────────────
 
 type StatCardProps = {
@@ -79,46 +77,55 @@ function ClockIcon() {
   );
 }
 
+function ScoreIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
+      <path
+        d="M3.667 18.333V13.75M7.333 18.333V9.167M11 18.333V11M14.667 18.333V6.417M18.333 18.333V3.667"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 // ─── Stats Row ────────────────────────────────────────────────────────────────
 
 type StatsRowProps = {
-  stats: DashboardSummary;
+  /** Consecutive study streak days from Firestore analytics doc. */
+  streakDays: number;
+  /** Average subject mastery % across all subjects. */
+  avgScore: number;
+  /** Total hours studied this calendar week from Firestore analytics doc. */
+  weeklyHours: number;
 };
 
-export function StatsRow({ stats }: StatsRowProps) {
+export function StatsRow({ streakDays, avgScore, weeklyHours }: StatsRowProps) {
   return (
-    <div className="grid grid-cols-2 gap-3 md:flex md:gap-4">
+    <div className="grid grid-cols-3 gap-3 md:flex md:gap-4">
       <StatCard
         label="Study Streak"
-        value={stats.activeStreakDays}
+        value={streakDays}
         unit="days"
         icon={<FlameIcon />}
         accentColor="#F59E0B"
-        trend="Keep it going — you're on fire!"
+        trend={streakDays > 0 ? "Keep it going — you're on fire!" : "Start studying today"}
       />
       <StatCard
-        label="Due Flashcards"
-        value={stats.dueFlashcards}
-        unit="cards"
-        icon={<CardsIcon />}
-        accentColor="#2FA2E2"
-        trend="Review now for best retention"
-      />
-      <StatCard
-        label="Upcoming Exams"
-        value={stats.upcomingExams}
-        unit="exams"
-        icon={<ExamBellIcon />}
-        accentColor="#8B5CF6"
-        trend="Next exam in 3 days"
+        label="Avg. Score"
+        value={`${avgScore}%`}
+        icon={<ScoreIcon />}
+        accentColor="#10B981"
+        trend={avgScore >= 75 ? "Above the pass threshold!" : "Aim for 75% to pass"}
       />
       <StatCard
         label="This Week"
-        value={stats.weeklyStudyHours}
+        value={weeklyHours.toFixed(1)}
         unit="hrs"
         icon={<ClockIcon />}
-        accentColor="#10B981"
-        trend="↑ 12% vs last week"
+        accentColor="#8B5CF6"
+        trend="Total study time this week"
       />
     </div>
   );

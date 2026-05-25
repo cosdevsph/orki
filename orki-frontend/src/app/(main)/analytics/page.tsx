@@ -8,9 +8,12 @@ import { ScoreTrendChart } from "@/components/analytics/ScoreTrendChart";
 import { useExamType } from "@/hooks/useExamType";
 import { useAuth } from "@/hooks/useAuth";
 import { getAnalyticsOverview } from "@/shared/api/study";
-import { getAnalyticsDocument } from "@/shared/firebase/firestore";
+import { getAnalyticsDocument, getAttemptHistory } from "@/shared/firebase/firestore";
+import type { AttemptHistoryItem } from "@/shared/firebase/firestore";
 import { useAnalyticsStore } from "@/shared/stores/useAnalyticsStore";
 import { SUBJECT_COLORS, getSubjectsByExam } from "@/shared/utils/exam-type";
+import { ExamProgressSection } from "@/components/analytics/ExamProgressSection";
+import type { SubjectProgress } from "@/components/analytics/ExamProgressSection";
 
 
 
@@ -56,6 +59,8 @@ export default function AnalyticsPage() {
   const [loading, setLoading] = useState(true);
   const [weeklyHours, setWeeklyHours] = useState(0);
   const [readinessIndex, setReadinessIndex] = useState(0);
+  const [subjectProgress, setSubjectProgress] = useState<SubjectProgress[]>([]);
+  const [progressLoading, setProgressLoading] = useState(false);
 
   // Zustand store for score trend
   const { examHistory, marketSentiment, isLoading: trendLoading, fetchScoreTrend } = useAnalyticsStore();
@@ -160,6 +165,57 @@ export default function AnalyticsPage() {
       void fetchScoreTrend(user.uid, examType);
     }
   }, [user?.uid, examType, fetchScoreTrend]);
+
+  // Load exam attempt progression history
+  useEffect(() => {
+    const uid = user?.uid;
+    if (!uid || !examType) return;
+
+    setProgressLoading(true);
+    void (async () => {
+      try {
+        const attempts = await getAttemptHistory(uid, examType);
+
+        // Group by subject (attempts already sorted ascending by attempt_number)
+        const grouped: Record<string, AttemptHistoryItem[]> = {};
+        for (const a of attempts) {
+          if (!grouped[a.subject]) grouped[a.subject] = [];
+          grouped[a.subject].push(a);
+        }
+
+        const groups: SubjectProgress[] = Object.entries(grouped).map(
+          ([subject, subjectAttempts]) => {
+            const scores = subjectAttempts.map((a) => a.score);
+            const bestScore = Math.max(...scores);
+            const latestScore = scores[scores.length - 1];
+            const avgScore = Math.round(
+              scores.reduce((sum, s) => sum + s, 0) / scores.length,
+            );
+            const improvement =
+              scores.length >= 2
+                ? latestScore - scores[scores.length - 2]
+                : null;
+            return {
+              subject,
+              attempts: subjectAttempts,
+              bestScore,
+              latestScore,
+              avgScore,
+              improvement,
+            };
+          },
+        );
+
+        // Sort: subjects with the most retakes shown first
+        groups.sort((a, b) => b.attempts.length - a.attempts.length);
+        setSubjectProgress(groups);
+      } catch (err) {
+        console.warn("[AnalyticsPage] Failed to load attempt history:", err);
+      } finally {
+        setProgressLoading(false);
+      }
+    })();
+  }, [user?.uid, examType]);
 
   const trend = useMemo(
     () => overview?.trend ?? [
@@ -361,6 +417,12 @@ export default function AnalyticsPage() {
           </p>
         )}
       </div>
+
+      {/* Exam Progress — attempt history, score progression, retake tracking */}
+      <ExamProgressSection
+        subjectGroups={subjectProgress}
+        loading={progressLoading}
+      />
     </div>
   );
 }

@@ -3,15 +3,15 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import type { DashboardSummary } from "@/entities/dashboard/types";
 import type { SubjectMasteryItem } from "@/entities/analytics/types";
 import { ProgressRing } from "@/components/ui/progress-ring";
 import { WelcomeHeader } from "@/widgets/dashboard/welcome-header";
 import { MotivationWidget } from "@/widgets/dashboard/motivation-widget";
 import { StatsRow } from "@/widgets/dashboard/stats-row";
-import { getDashboardSummary } from "@/shared/api/study";
+import { getAnalyticsDocument, getRecentExamAttempts } from "@/shared/firebase/firestore";
+import { useAuth } from "@/hooks/useAuth";
 import { useExamType } from "@/hooks/useExamType";
-import { SUBJECT_COLORS } from "@/shared/utils/exam-type";
+import { SUBJECT_COLORS, getSubjectsByExam } from "@/shared/utils/exam-type";
 
 function formatRelativeTime(timestamp: string): string {
   const now = new Date();
@@ -91,20 +91,106 @@ function SubjectMasteryCard({ masteries, examType }: { masteries: SubjectMastery
   );
 }
 
+// ─── Readiness tier label ──────────────────────────────────────────────────────
+function readinessLabel(score: number): string {
+  if (score >= 85) return "Exam Ready";
+  if (score >= 70) return "Almost Ready";
+  if (score >= 40) return "Progressing";
+  return "Building Foundation";
+}
+
+// ─── Activity item type ────────────────────────────────────────────────────────
+type ActivityItem = {
+  title: string;
+  subtitle?: string;
+  timestamp: string;
+  icon: "exam" | "flashcard" | "other";
+};
+
 export default function DashboardPage() {
   const { examType } = useExamType();
-  const [stats, setStats] = useState<DashboardSummary | null>(null);
+  const { user } = useAuth();
+
   const [loading, setLoading] = useState(true);
+  const [readiness, setReadiness] = useState(0);
+  const [streakDays, setStreakDays] = useState(0);
+  const [weeklyHours, setWeeklyHours] = useState(0);
+  const [avgScore, setAvgScore] = useState(0);
+  const [subjectMasteries, setSubjectMasteries] = useState<SubjectMasteryItem[]>([]);
+  const [recentActivity, setRecentActivity] = useState<ActivityItem[]>([]);
 
   useEffect(() => {
-    getDashboardSummary()
-      .then(setStats)
-      .catch(() => setStats(null))
-      .finally(() => setLoading(false));
-  }, []);
+    const uid = user?.uid;
+    if (!uid || !examType) {
+      setLoading(false);
+      return;
+    }
 
-  const readiness = stats?.overallReadiness ?? 0;
-  const subjectMasteries = stats?.subjectMasteries ?? [];
+    setLoading(true);
+    void Promise.all([
+      getAnalyticsDocument(uid),
+      getRecentExamAttempts(uid, examType, 5),
+    ])
+      .then(([doc, attempts]) => {
+        if (doc && doc.examType === examType) {
+          // Build subject mastery list (mirrors analytics page logic)
+          const subjects = getSubjectsByExam(examType);
+          const masteries: SubjectMasteryItem[] = subjects
+            .filter((s) => doc.subjects[s.name] !== undefined)
+            .map((s) => {
+              const data = doc.subjects[s.name];
+              return {
+                subject: s.name,
+                exam_type: examType,
+                mastery_percentage: Math.round(data.subjectMastery),
+                total_questions_attempted: data.totalTries,
+                total_questions_correct: Math.round(
+                  (data.runningAverage / 100) * data.totalTries,
+                ),
+                weak_topics: [],
+                strong_topics: [],
+                last_updated: new Date().toISOString(),
+              };
+            });
+          setSubjectMasteries(masteries);
+
+          const avg =
+            masteries.length > 0
+              ? Math.round(
+                  masteries.reduce((sum, s) => sum + s.mastery_percentage, 0) /
+                    masteries.length,
+                )
+              : 0;
+          setAvgScore(avg);
+
+          // Readiness = avg mastery + streak bonus (same formula as analytics page)
+          const streak = doc.streak?.currentStreak ?? 0;
+          const streakBonus = Math.min(streak * 2, 40);
+          setReadiness(Math.min(avg + streakBonus, 100));
+          setStreakDays(streak);
+          setWeeklyHours(doc.currentWeeklyHours ?? 0);
+        }
+
+        // Build recent activity feed from latest exam attempts
+        setRecentActivity(
+          attempts.map((a) => ({
+            title: `${a.subject}${
+              a.attempt_number ? ` — Attempt #${a.attempt_number}` : ""
+            }`,
+            subtitle: `${a.score}% · ${a.total_correct}/${a.total_questions} correct`,
+            timestamp:
+              a.completed_at?.toISOString() ?? new Date().toISOString(),
+            icon: "exam" as const,
+          })),
+        );
+      })
+      .catch((err) => {
+        console.warn("[Dashboard] Failed to load Firestore data:", err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [user?.uid, examType]);
 
   return (
     <div className="animate-page-in space-y-5 md:space-y-8">
@@ -114,7 +200,7 @@ export default function DashboardPage() {
       <MotivationWidget />
 
       {/* Stats row */}
-      {stats && <StatsRow stats={stats} />}
+      <StatsRow streakDays={streakDays} avgScore={avgScore} weeklyHours={weeklyHours} />
 
       {/* Overall Readiness + Recent Activity row */}
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-5">
@@ -135,7 +221,7 @@ export default function DashboardPage() {
                 ? "Loading your performance data…"
                 : readiness === 0
                 ? "Start your first mock exam to track your readiness score."
-                : `You're at ${readiness}% readiness. Keep practicing to improve your score.`}
+                : `You're at ${readiness}% readiness — ${readinessLabel(readiness)}. Keep practicing to improve your score.`}
             </p>
             <Link
               href="/analytics"
@@ -164,9 +250,9 @@ export default function DashboardPage() {
                 </div>
               ))}
             </div>
-          ) : stats && stats.recentActivity.length > 0 ? (
+          ) : recentActivity.length > 0 ? (
             <div className="space-y-3">
-              {stats.recentActivity.map((activity, i) => (
+              {recentActivity.map((activity, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <ActivityIcon icon={activity.icon} />
                   <div className="flex-1 min-w-0">
@@ -223,7 +309,7 @@ export default function DashboardPage() {
             <div className="flex-1">
               <p className="text-sm font-bold text-foreground">Due Flashcards</p>
               <p className="text-xs text-muted">
-                {loading ? "Loading…" : `${stats?.dueFlashcards ?? 0} cards to review`}
+                {loading ? "Loading…" : "Review your flashcard decks"}
               </p>
             </div>
             <div className="text-xs font-medium text-primary flex items-center gap-1">
@@ -254,14 +340,14 @@ export default function DashboardPage() {
       </section>
 
       {/* Study streak badge */}
-      {stats && stats.activeStreakDays > 0 && (
+      {streakDays > 0 && (
         <div className="flex items-center justify-end">
           <div className="glass flex items-center gap-2 rounded-full px-4 py-2">
             <svg width="14" height="14" viewBox="0 0 22 22" fill="none">
               <path d="M11 2c0 4-4 5.5-4 9a4 4 0 0 0 8 0c0-3.5-4-5-4-9Z" fill="#F59E0B" />
             </svg>
             <span className="text-xs font-bold text-amber-600">
-              {stats.activeStreakDays}-day streak — keep it up!
+              {streakDays}-day streak — keep it up!
             </span>
           </div>
         </div>

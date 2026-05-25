@@ -333,8 +333,7 @@ export default function ExamResultsPage() {
           <div className="flex-1 space-y-3">
             <p className="text-sm font-semibold text-primary uppercase tracking-wider">Overall Performance</p>
             <div className="flex items-end gap-2">
-              <span className="font-heading text-5xl md:text-7xl font-bold text-foreground leading-none">{result.score}</span>
-              <span className="text-2xl font-medium text-muted mb-2">/100</span>
+              <span className="font-heading text-5xl md:text-7xl font-bold text-foreground leading-none">{result.score}%</span>
             </div>
             <div className="flex items-center gap-4 text-sm font-semibold">
               <span className="text-emerald-600">{result.total_correct} correct</span>

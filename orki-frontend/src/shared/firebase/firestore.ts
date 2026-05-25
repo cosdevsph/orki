@@ -18,6 +18,8 @@ import {
   getCountFromServer,
   getDoc,
   getDocs,
+  limit,
+  orderBy,
   query,
   serverTimestamp,
   setDoc,
@@ -573,4 +575,127 @@ export async function getAnalyticsDocument(
     console.error("[Firestore] getAnalyticsDocument failed:", err);
     return null;
   }
+}
+
+// ─── Attempt History ─────────────────────────────────────────────────────────
+
+/**
+ * Lightweight representation of a single exam attempt for history/progress display.
+ * Does not surface the `answers` map — that field is read but not included here,
+ * keeping memory usage low when loading long attempt histories.
+ */
+export type AttemptHistoryItem = {
+  id: string;
+  subject: string;
+  score: number;
+  total_correct: number;
+  total_questions: number;
+  time_spent_seconds: number;
+  completed_at: Date | null;
+  attempt_number: number;
+  attempt_id: string;
+};
+
+/**
+ * Fetch all tracked exam attempts (those carrying `attempt_number`) for a given
+ * user and exam_type, returned sorted chronologically ascending per subject.
+ *
+ * Skips pre-feature documents that lack `attempt_number` for backward compatibility.
+ *
+ * Reuses the existing composite index on exam_attempts:
+ *   user_id (ASC), exam_type (ASC), completed_at (DESC)
+ * — the same index required by the score-trend query in useAnalyticsStore.
+ */
+export async function getAttemptHistory(
+  userId: string,
+  examType: string,
+  maxResults = 50,
+): Promise<AttemptHistoryItem[]> {
+  const q = query(
+    collection(db, "exam_attempts"),
+    where("user_id", "==", userId),
+    where("exam_type", "==", examType),
+    orderBy("completed_at", "desc"),
+    limit(maxResults),
+  );
+  const snap = await getDocs(q);
+  const items: AttemptHistoryItem[] = [];
+
+  for (const d of snap.docs) {
+    const data = d.data();
+    // Skip pre-feature documents that lack attempt_number
+    if (typeof data.attempt_number !== "number") continue;
+    items.push({
+      id: d.id,
+      subject: data.subject ?? "",
+      score: data.score ?? 0,
+      total_correct: data.total_correct ?? 0,
+      total_questions: data.total_questions ?? 0,
+      time_spent_seconds: data.time_spent_seconds ?? 0,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      completed_at: (data as any).completed_at?.toDate?.() ?? null,
+      attempt_number: data.attempt_number,
+      attempt_id: data.attempt_id ?? "",
+    });
+  }
+
+  // Sort ascending by (subject alphabetically, then attempt_number) for timeline display
+  return items.sort((a, b) => {
+    if (a.subject !== b.subject) return a.subject.localeCompare(b.subject);
+    return a.attempt_number - b.attempt_number;
+  });
+}
+
+// ─── Recent Activities ────────────────────────────────────────────────────────
+
+/**
+ * Lightweight exam attempt record used by the dashboard Recent Activities feed.
+ * Intentionally omits the `answers` map to keep reads cheap.
+ */
+export type RecentExamAttempt = {
+  id: string;
+  subject: string;
+  score: number;
+  total_correct: number;
+  total_questions: number;
+  attempt_number?: number;
+  completed_at: Date | null;
+};
+
+/**
+ * Fetch the N most recent completed exam attempts for a user's current exam type.
+ * Used by the dashboard's Recent Activities section.
+ *
+ * Reuses the existing composite index on exam_attempts:
+ *   user_id (ASC), exam_type (ASC), completed_at (DESC)
+ */
+export async function getRecentExamAttempts(
+  userId: string,
+  examType: string,
+  limitCount = 5,
+): Promise<RecentExamAttempt[]> {
+  const q = query(
+    collection(db, "exam_attempts"),
+    where("user_id", "==", userId),
+    where("exam_type", "==", examType),
+    orderBy("completed_at", "desc"),
+    limit(limitCount),
+  );
+  const snap = await getDocs(q);
+  const results: RecentExamAttempt[] = [];
+  for (const d of snap.docs) {
+    const data = d.data();
+    results.push({
+      id: d.id,
+      subject: data.subject ?? "",
+      score: data.score ?? 0,
+      total_correct: data.total_correct ?? 0,
+      total_questions: data.total_questions ?? 0,
+      attempt_number:
+        typeof data.attempt_number === "number" ? data.attempt_number : undefined,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      completed_at: (data as any).completed_at?.toDate?.() ?? null,
+    });
+  }
+  return results;
 }

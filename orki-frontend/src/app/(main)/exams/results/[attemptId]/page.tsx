@@ -10,6 +10,7 @@ import {
   getExamAttempt,
   getQuestionsBySubject,
   saveConvertedFlashcardDeck,
+  updateSubjectMastery,
 } from "@/shared/firebase/firestore";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -175,6 +176,23 @@ export default function ExamResultsPage() {
           categories,
           incorrect: incorrectItems,
         });
+
+        // ─── Update subject analytics (flat /analytics/{uid}) ──────────────────
+        const uid = user?.uid ?? auth.currentUser?.uid;
+        if (uid) {
+          try {
+            await updateSubjectMastery(
+              uid,
+              attempt.exam_type,
+              attempt.subject,
+              attempt.score,
+              attempt.time_spent_seconds ?? 0
+            );
+          } catch (analyticsErr) {
+            // Log silently — don't fail page load if analytics update fails
+            console.warn("[ExamResults] Analytics update failed:", analyticsErr);
+          }
+        }
       } catch (err) {
         console.error("[ExamResults] Failed to load attempt:", err);
         setFetchError("Failed to load results. Please try again.");

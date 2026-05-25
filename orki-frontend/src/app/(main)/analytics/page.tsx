@@ -4,9 +4,13 @@ import { useEffect, useState, useMemo } from "react";
 
 import type { AnalyticsOverview } from "@/entities/analytics/types";
 import { ProgressRing } from "@/components/ui/progress-ring";
+import { ScoreTrendChart } from "@/components/analytics/ScoreTrendChart";
 import { useExamType } from "@/hooks/useExamType";
+import { useAuth } from "@/hooks/useAuth";
 import { getAnalyticsOverview } from "@/shared/api/study";
-import { SUBJECT_COLORS } from "@/shared/utils/exam-type";
+import { getAnalyticsDocument } from "@/shared/firebase/firestore";
+import { useAnalyticsStore } from "@/shared/stores/useAnalyticsStore";
+import { SUBJECT_COLORS, getSubjectsByExam } from "@/shared/utils/exam-type";
 
 const MASTERY_LABELS: Record<AnalyticsOverview["masteryLevel"], string> = {
   low: "Building foundation",
@@ -20,19 +24,35 @@ const MASTERY_PCT: Record<AnalyticsOverview["masteryLevel"], number> = {
   high: 90,
 };
 
-/** Build a 28-day calendar grid from the last_active_date streak info */
-function buildStreakCalendar(lastActiveDateStr: string | null | undefined): { active: boolean; intensity: number }[] {
+/** Build a 42-day calendar grid (6 complete weeks) aligned to actual calendar month view.
+ * Shows the current month plus leading/trailing days to fill complete weeks starting Sunday.
+ * For May 2026: April 26 - June 6
+ */
+function buildActivityGrid(activityGrid: Record<string, number> | undefined): { date: string; count: number; intensity: number }[] {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const lastActive = lastActiveDateStr ? new Date(lastActiveDateStr) : null;
-  if (lastActive) lastActive.setHours(0, 0, 0, 0);
-
-  return Array.from({ length: 28 }, (_, i) => {
-    const day = new Date(today);
-    day.setDate(today.getDate() - (27 - i));
-    // mark as active if it's <= lastActive (rough heuristic for non-zero streaks)
-    const active = lastActive ? day <= lastActive && day >= new Date(lastActive.getTime() - 27 * 86400_000) : false;
-    return { active, intensity: active ? 0.3 + (i % 5) * 0.14 : 0 };
+  
+  // Get the first day of the current month
+  const firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+  
+  // Find the Sunday at or before the first day of the month
+  const dayOfWeek = firstDayOfMonth.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+  const startDate = new Date(firstDayOfMonth);
+  startDate.setDate(firstDayOfMonth.getDate() - dayOfWeek + 1); // Go back to Sunday, plus 1
+  
+  return Array.from({ length: 42 }, (_, i) => {
+    const day = new Date(startDate);
+    day.setDate(startDate.getDate() + i);
+    const dateStr = day.toISOString().split("T")[0];
+    const count = activityGrid?.[dateStr] ?? 0;
+    
+    // Color intensity based on exam count: 0=none, 1-2=light, 3-5=medium, 6+=dark
+    let intensity = 0;
+    if (count >= 6) intensity = 1.0;
+    else if (count >= 3) intensity = 0.65;
+    else if (count >= 1) intensity = 0.3;
+    
+    return { date: dateStr, count, intensity };
   });
 }
 
@@ -40,15 +60,132 @@ function buildStreakCalendar(lastActiveDateStr: string | null | undefined): { ac
 
 export default function AnalyticsPage() {
   const { examFullName, examType } = useExamType();
+  const { user } = useAuth();
   const [overview, setOverview] = useState<AnalyticsOverview | null>(null);
+  const [activityGrid, setActivityGrid] = useState<Record<string, number>>({});
   const [loading, setLoading] = useState(true);
+  const [weeklyHours, setWeeklyHours] = useState(0);
+  const [readinessIndex, setReadinessIndex] = useState(0);
+
+  // Track current month to trigger calendar recalculation when month changes (sliding window)
+  const [currentMonth, setCurrentMonth] = useState(() => {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+  });
+
+  // Update currentMonth every minute so calendar rolls over automatically at midnight
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date();
+      const newMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+      setCurrentMonth(newMonth);
+    }, 60000); // Check every minute
+    return () => clearInterval(timer);
+  }, []);
+
+  // Zustand store for score trend
+  const { examHistory, marketSentiment, isLoading: trendLoading, fetchScoreTrend } = useAnalyticsStore();
 
   useEffect(() => {
-    getAnalyticsOverview()
-      .then(setOverview)
-      .catch(() => setOverview(null))
-      .finally(() => setLoading(false));
-  }, []);
+    async function loadAnalytics() {
+      try {
+        // If user is authenticated and has exam type, fetch from flat /analytics/{uid} collection
+        if (user?.uid && examType) {
+          const analyticsDoc = await getAnalyticsDocument(user.uid);
+          
+          if (analyticsDoc && analyticsDoc.examType === examType) {
+            // Transform flat analytics structure to AnalyticsOverview format
+            const subjects = getSubjectsByExam(examType);
+            const subjectMasteries = subjects
+              .filter(s => analyticsDoc.subjects[s.name] !== undefined)
+              .map(s => {
+                const data = analyticsDoc.subjects[s.name];
+                return {
+                  subject: s.name,
+                  exam_type: examType,
+                  mastery_percentage: Math.round(data.subjectMastery),
+                  total_questions_attempted: data.totalTries,
+                  total_questions_correct: Math.round(
+                    (data.runningAverage / 100) * data.totalTries
+                  ),
+                  weak_topics: [],
+                  strong_topics: [],
+                  last_updated: new Date().toISOString(),
+                };
+              });
+
+            // Compute overall stats
+            const avgMastery = subjectMasteries.length > 0
+              ? Math.round(
+                  subjectMasteries.reduce((sum, s) => sum + s.mastery_percentage, 0) /
+                    subjectMasteries.length
+                )
+              : 0;
+
+            // Extract streak data from Firestore
+            const currentStreak = analyticsDoc.streak?.currentStreak ?? 0;
+            const lastActiveDate = analyticsDoc.streak?.lastActiveDate ?? null;
+
+            // Calculate Readiness Index = avgMastery + (2% * currentStreak, capped at 100%)
+            const streakBonus = Math.min(currentStreak * 2, 40); // Max +40% from streak (20 days)
+            const readiness = Math.min(avgMastery + streakBonus, 100);
+            setReadinessIndex(readiness);
+
+            // Extract weekly hours (auto-resets if week changed in Firestore)
+            setWeeklyHours(analyticsDoc.currentWeeklyHours ?? 0);
+
+            setOverview({
+              subjectMasteries,
+              averageScore: avgMastery,
+              masteryLevel:
+                avgMastery >= 70 ? "high" : avgMastery >= 40 ? "medium" : "low",
+              trend: [],
+              streak: { current_streak: currentStreak, last_active_date: lastActiveDate, longest_streak: 0, updated_at: null },
+            });
+
+            // Store activity grid for rendering
+            setActivityGrid(analyticsDoc.activityGrid ?? {});
+          } else {
+            // No analytics yet for this exam type, show empty state
+            setReadinessIndex(0);
+            setWeeklyHours(0);
+            setOverview({
+              subjectMasteries: [],
+              averageScore: 0,
+              masteryLevel: "low",
+              trend: [],
+              streak: { current_streak: 0, last_active_date: null, longest_streak: 0, updated_at: null },
+            });
+            setActivityGrid({});
+          }
+        } else {
+          // Fallback to backend API if not authenticated or no examType
+          const data = await getAnalyticsOverview();
+          setOverview(data);
+          setActivityGrid({});
+          setReadinessIndex(0);
+          setWeeklyHours(0);
+        }
+      } catch (err) {
+        console.warn("[AnalyticsPage] Failed to load analytics:", err);
+        setOverview(null);
+        setActivityGrid({});
+        setReadinessIndex(0);
+        setWeeklyHours(0);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadAnalytics();
+  }, [user?.uid, examType]);
+
+  // Fetch score trend from Zustand store
+  useEffect(() => {
+    if (user?.uid && examType) {
+      void fetchScoreTrend(user.uid, examType);
+    }
+  }, [user?.uid, examType, fetchScoreTrend]);
 
   const trend = useMemo(
     () => overview?.trend ?? [
@@ -62,7 +199,8 @@ export default function AnalyticsPage() {
   const masteryLevel = overview?.masteryLevel ?? "low";
   const avgScore = overview?.averageScore ?? 0;
   const subjectMasteries = overview?.subjectMasteries ?? [];
-  const streakCalendar = useMemo(() => buildStreakCalendar(overview?.streak?.last_active_date), [overview?.streak?.last_active_date]);
+  // Recalculate grid when activity data changes OR when month changes (currentMonth triggers sliding window recalc)
+  const activityGridData = useMemo(() => buildActivityGrid(activityGrid), [activityGrid, currentMonth]);
 
   const trendDelta = useMemo(() => {
     if (trend.length < 2) return null;
@@ -113,31 +251,31 @@ export default function AnalyticsPage() {
           </div>
         </div>
 
-        {/* Mastery ring */}
+        {/* Mastery ring — Building Foundation (Readiness Index) */}
         <div className="glass rounded-2xl flex flex-col items-center justify-center gap-2 md:gap-3 p-2 md:p-5">
           <div className="md:hidden">
-            <ProgressRing value={MASTERY_PCT[masteryLevel]} size={78} strokeWidth={7} color="#10B981" label={loading ? "—" : `${MASTERY_PCT[masteryLevel]}%`} sublabel="Mastery" />
+            <ProgressRing value={readinessIndex} size={78} strokeWidth={7} color="#10B981" label={loading ? "—" : `${readinessIndex}%`} sublabel="Mastery" />
           </div>
           <div className="hidden md:block">
-            <ProgressRing value={MASTERY_PCT[masteryLevel]} size={110} strokeWidth={10} color="#10B981" label={loading ? "—" : `${MASTERY_PCT[masteryLevel]}%`} sublabel="Mastery" />
+            <ProgressRing value={readinessIndex} size={110} strokeWidth={10} color="#10B981" label={loading ? "—" : `${readinessIndex}%`} sublabel="Mastery" />
           </div>
           <div className="text-center mt-0.5 md:mt-1">
-            <p className="text-xs md:text-sm font-semibold text-foreground">{MASTERY_LABELS[masteryLevel]}</p>
-            <p className="text-[10px] md:text-xs text-muted">Knowledge level</p>
+            <p className="text-xs md:text-sm font-semibold text-foreground">Building Foundation</p>
+            <p className="text-[10px] md:text-xs text-muted">Knowledge + streak bonus</p>
           </div>
         </div>
 
-        {/* Study ring */}
+        {/* Study ring — Weekly Goal */}
         <div className="glass rounded-2xl flex flex-col items-center justify-center gap-2 md:gap-3 p-2 md:p-5">
           <div className="md:hidden">
-            <ProgressRing value={72} size={78} strokeWidth={7} color="#8B5CF6" label="72%" sublabel="Goal" />
+            <ProgressRing value={Math.min((weeklyHours / 40) * 100, 100)} size={78} strokeWidth={7} color="#8B5CF6" label={loading ? "—" : `${Math.round((weeklyHours / 40) * 100)}%`} sublabel="Goal" />
           </div>
           <div className="hidden md:block">
-            <ProgressRing value={72} size={110} strokeWidth={10} color="#8B5CF6" label="72%" sublabel="Goal" />
+            <ProgressRing value={Math.min((weeklyHours / 40) * 100, 100)} size={110} strokeWidth={10} color="#8B5CF6" label={loading ? "—" : `${Math.round((weeklyHours / 40) * 100)}%`} sublabel="Goal" />
           </div>
           <div className="text-center mt-0.5 md:mt-1">
             <p className="text-xs md:text-sm font-semibold text-foreground">Weekly Goal</p>
-            <p className="text-[10px] md:text-xs text-muted">12 of 16.7 hrs</p>
+            <p className="text-[10px] md:text-xs text-muted">{weeklyHours.toFixed(1)} of 40 hrs</p>
           </div>
         </div>
 
@@ -156,20 +294,21 @@ export default function AnalyticsPage() {
           </div>
 
           <div className="grid grid-cols-7 gap-1 mt-2">
-            {["M", "T", "W", "T", "F", "S", "S"].map((d, i) => (
+            {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
               <span key={`${d}-${i}`} className="text-center text-[9px] font-semibold text-muted">
                 {d}
               </span>
             ))}
-            {streakCalendar.map((day, i) => (
+            {activityGridData.map((day, i) => (
               <div
                 key={i}
                 className="aspect-square rounded-[3px]"
                 style={{
-                  backgroundColor: day.active
-                    ? `rgba(47,162,226,${0.2 + day.intensity * 0.7})`
+                  backgroundColor: day.intensity > 0
+                    ? `rgba(16,185,129,${day.intensity})`
                     : "var(--surface)",
                 }}
+                title={`${day.date}: ${day.count} ${day.count === 1 ? "exam" : "exams"}`}
               />
             ))}
           </div>
@@ -195,35 +334,7 @@ export default function AnalyticsPage() {
         </div>
 
         {/* Bar chart */}
-        <div className="flex items-end justify-between gap-1 md:gap-3" style={{ height: 100 }}>
-          {trend.map((point, i) => {
-            const heightPct = (point.score / maxScore) * 100;
-            const isMax = point.score === maxScore && point.score > 0;
-
-            return (
-              <div key={point.label} className="group flex flex-1 flex-col items-center gap-2">
-                <div className="mb-1 text-[11px] font-semibold text-foreground opacity-0 transition-opacity group-hover:opacity-100">
-                  {point.score > 0 ? `${point.score}%` : "—"}
-                </div>
-                <div className="relative flex w-full items-end justify-center" style={{ height: 90 }}>
-                  <div
-                    className="w-full max-w-5 md:max-w-9 rounded-t-xl transition-all duration-700"
-                    style={{
-                      height: `${Math.max(heightPct, 4)}%`,
-                      background: isMax
-                        ? "linear-gradient(to top, #2FA2E2, #60C3F0)"
-                        : i === trend.length - 1
-                        ? "rgba(47,162,226,0.4)"
-                        : "rgba(47,162,226,0.2)",
-                      boxShadow: isMax ? "0 4px 16px rgba(47,162,226,0.4)" : "none",
-                    }}
-                  />
-                </div>
-                <span className="text-[11px] font-medium text-muted">{point.label}</span>
-              </div>
-            );
-          })}
-        </div>
+        <ScoreTrendChart data={examHistory} sentiment={marketSentiment} isLoading={trendLoading} />
       </div>
 
       {/* Subject mastery — real data from analytics API */}

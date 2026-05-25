@@ -257,3 +257,202 @@ export async function getConvertedFlashcardDecks(
     created_at: d.data().created_at?.toDate?.() ?? null,
   }));
 }
+
+// ─── Subject Analytics (Flat /analytics/{uid} Collection) ────────────────────
+
+export type SubjectAnalyticData = {
+  totalTries: number;
+  runningAverage: number;
+  lastRecordedScore: number;
+  subjectMastery: number;
+};
+
+export type StreakData = {
+  currentStreak: number;
+  lastActiveDate: string | null; // "YYYY-MM-DD" format
+};
+
+export type AnalyticsDocument = {
+  examType: string;
+  subjects: Record<string, SubjectAnalyticData>;
+  streak: StreakData;
+  activityGrid: Record<string, number>; // "YYYY-MM-DD" -> exam count
+  currentWeekKey: string; // "YYYY-Www" ISO week format (e.g., "2026-W22")
+  currentWeeklyHours: number; // Cumulative hours this week
+  updatedAt: any;
+};
+
+/** Helper: Calculate ISO week key (YYYY-Www) from a date */
+function getISOWeekKey(date: Date): string {
+  const d = new Date(date);
+  d.setHours(0, 0, 0, 0);
+  // ISO week starts on Monday
+  d.setDate(d.getDate() - (d.getDay() || 7) + 1);
+  const year = d.getFullYear();
+  const firstDay = new Date(year, 0, 1);
+  const weekNumber = Math.ceil(
+    ((d.getTime() - firstDay.getTime()) / 86400000 + firstDay.getDay() + 1) / 7
+  );
+  return `${year}-W${String(weekNumber).padStart(2, '0')}`;
+}
+
+/**
+ * Update subject mastery, streak, activity grid, and weekly hours for a given exam completion.
+ * Implements the mastery formula:
+ *   totalTries = prev + 1
+ *   runningAverage = ((prev_avg * prev_tries) + latestScore) / totalTries
+ *   subjectMastery = (runningAverage * 0.4) + (latestScore * 0.6)
+ *
+ * Streak logic (using local date "YYYY-MM-DD"):
+ *   - If today == lastActiveDate: maintain streak
+ *   - If today == lastActiveDate + 1 day: increment streak
+ *   - If today > lastActiveDate + 1 day: reset streak to 1
+ *
+ * Activity grid tracks daily exam counts for contribution visualization.
+ * Weekly hours accumulates `timeSpentSeconds / 3600` (fractional hours) per exam.
+ * Writes to flat collection: `/analytics/{userId}` document
+ */
+export async function updateSubjectMastery(
+  userId: string,
+  examType: string,
+  subject: string,
+  latestScore: number,
+  timeSpentSeconds: number = 0,
+): Promise<void> {
+  const analyticsRef = doc(db, "analytics", userId);
+
+  try {
+    // Get today's date in local time as "YYYY-MM-DD"
+    const today = new Date();
+    const todayStr = today.toISOString().split("T")[0];
+    const currentWeekKey = getISOWeekKey(today);
+
+    // Convert exam time from seconds to fractional hours
+    const hoursToAdd = timeSpentSeconds / 3600;
+
+    const snap = await getDoc(analyticsRef);
+    let analyticsData = snap.exists() ? (snap.data() as AnalyticsDocument) : null;
+
+    // Initialize if doesn't exist
+    if (!analyticsData || analyticsData.examType !== examType) {
+      analyticsData = {
+        examType,
+        subjects: {},
+        streak: {
+          currentStreak: 1,
+          lastActiveDate: todayStr,
+        },
+        activityGrid: {
+          [todayStr]: 1,
+        },
+        currentWeekKey,
+        currentWeeklyHours: hoursToAdd,
+        updatedAt: null,
+      };
+    } else {
+      // Initialize streak and activityGrid if missing (backward compatibility)
+      if (!analyticsData.streak) {
+        analyticsData.streak = {
+          currentStreak: 1,
+          lastActiveDate: todayStr,
+        };
+      }
+      if (!analyticsData.activityGrid) {
+        analyticsData.activityGrid = {};
+      }
+
+      // ─── Check if week boundary crossed — auto-reset weekly hours ───
+      const storedWeekKey = analyticsData.currentWeekKey;
+      if (storedWeekKey !== currentWeekKey) {
+        // Week changed — reset weekly hours with this exam's time
+        analyticsData.currentWeekKey = currentWeekKey;
+        analyticsData.currentWeeklyHours = hoursToAdd;
+      } else {
+        // Same week — accumulate actual hours
+        analyticsData.currentWeeklyHours = (analyticsData.currentWeeklyHours || 0) + hoursToAdd;
+      }
+
+      // ─── Update streak ───────────────────────────────────────────
+      const lastActiveDate = analyticsData.streak.lastActiveDate;
+      let currentStreak = analyticsData.streak.currentStreak;
+
+      if (lastActiveDate !== todayStr) {
+        // Different day — check continuity
+        const lastDate = new Date(lastActiveDate || todayStr);
+        const daysDiff = Math.floor(
+          (new Date(todayStr).getTime() - lastDate.getTime()) / (1000 * 60 * 60 * 24)
+        );
+
+        if (daysDiff === 1) {
+          // Exactly 1 day gap — continue streak
+          currentStreak += 1;
+        } else if (daysDiff > 1) {
+          // Gap > 1 day — reset streak
+          currentStreak = 1;
+        }
+        // daysDiff === 0 shouldn't happen (already checked todayStr)
+      }
+
+      analyticsData.streak = {
+        currentStreak,
+        lastActiveDate: todayStr,
+      };
+
+      // ─── Update activity grid ─────────────────────────────────────
+      analyticsData.activityGrid = analyticsData.activityGrid || {};
+      analyticsData.activityGrid[todayStr] =
+        (analyticsData.activityGrid[todayStr] ?? 0) + 1;
+    }
+
+    // ─── Update subject mastery ───────────────────────────────────────
+    // Get existing subject stats or initialize
+    const existing = analyticsData.subjects[subject] || {
+      totalTries: 0,
+      runningAverage: 0,
+      lastRecordedScore: 0,
+      subjectMastery: 0,
+    };
+
+    // Apply mastery formula
+    const prevTotalTries = existing.totalTries;
+    const prevRunningAverage = existing.runningAverage;
+    const totalTries = prevTotalTries + 1;
+    const runningAverage =
+      (prevRunningAverage * prevTotalTries + latestScore) / totalTries;
+    const subjectMastery = runningAverage * 0.4 + latestScore * 0.6;
+
+    // Update subject data
+    analyticsData.subjects[subject] = {
+      totalTries,
+      runningAverage: Math.round(runningAverage * 100) / 100,
+      lastRecordedScore: latestScore,
+      subjectMastery: Math.round(subjectMastery * 100) / 100,
+    };
+
+    // Write to Firestore
+    await setDoc(analyticsRef, {
+      ...analyticsData,
+      updatedAt: serverTimestamp(),
+    });
+  } catch (err) {
+    console.error("[Firestore] updateSubjectMastery failed:", err);
+    throw err;
+  }
+}
+
+/**
+ * Fetch the analytics document for a user.
+ * Returns null if no analytics exist yet.
+ */
+export async function getAnalyticsDocument(
+  userId: string,
+): Promise<AnalyticsDocument | null> {
+  try {
+    const snap = await getDoc(doc(db, "analytics", userId));
+    if (!snap.exists()) return null;
+    return snap.data() as AnalyticsDocument;
+  } catch (err) {
+    console.error("[Firestore] getAnalyticsDocument failed:", err);
+    return null;
+  }
+}

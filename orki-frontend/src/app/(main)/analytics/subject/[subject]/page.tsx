@@ -99,7 +99,7 @@ export default function SubjectProgressPage({ params }: Props) {
   const { examType, examFullName } = useExamType();
 
   const [attempts, setAttempts] = useState<AttemptHistoryItem[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   // Comparison selectors
   const [compareA, setCompareA] = useState("");
@@ -107,13 +107,10 @@ export default function SubjectProgressPage({ params }: Props) {
 
   useEffect(() => {
     const uid = user?.uid;
-    if (!uid || !examType) {
-      setLoading(false);
-      return;
-    }
+    if (!uid || !examType) return;
 
-    setLoading(true);
     void (async () => {
+      setLoading(true);
       try {
         const all = await getAttemptHistory(uid, examType);
         setAttempts(all.filter((a) => a.subject === subject));

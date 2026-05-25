@@ -45,29 +45,6 @@ function FlameIcon() {
   );
 }
 
-function CardsIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
-      <rect x="2.75" y="6.417" width="16.5" height="11" rx="2.2" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M6.417 6.417V5.042a1.833 1.833 0 0 1 1.833-1.834h5.5A1.833 1.833 0 0 1 15.583 5.042v1.375" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function ExamBellIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 22 22" fill="none">
-      <path
-        d="M11 2.75A5.5 5.5 0 0 0 5.5 8.25c0 3.437-1.375 4.583-1.375 4.583h13.75S16.5 11.687 16.5 8.25A5.5 5.5 0 0 0 11 2.75Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <path d="M9.167 17.417a2.062 2.062 0 0 0 3.666 0" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 function ClockIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 22 22" fill="none">

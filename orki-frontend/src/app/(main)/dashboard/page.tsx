@@ -111,7 +111,7 @@ export default function DashboardPage() {
   const { examType } = useExamType();
   const { user } = useAuth();
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [readiness, setReadiness] = useState(0);
   const [streakDays, setStreakDays] = useState(0);
   const [weeklyHours, setWeeklyHours] = useState(0);
@@ -121,17 +121,15 @@ export default function DashboardPage() {
 
   useEffect(() => {
     const uid = user?.uid;
-    if (!uid || !examType) {
-      setLoading(false);
-      return;
-    }
+    if (!uid || !examType) return;
 
-    setLoading(true);
-    void Promise.all([
-      getAnalyticsDocument(uid),
-      getRecentExamAttempts(uid, examType, 5),
-    ])
-      .then(([doc, attempts]) => {
+    void (async () => {
+      setLoading(true);
+      try {
+        const [doc, attempts] = await Promise.all([
+          getAnalyticsDocument(uid),
+          getRecentExamAttempts(uid, examType, 5),
+        ]);
         if (doc && doc.examType === examType) {
           // Build subject mastery list (mirrors analytics page logic)
           const subjects = getSubjectsByExam(examType);
@@ -183,13 +181,12 @@ export default function DashboardPage() {
             icon: "exam" as const,
           })),
         );
-      })
-      .catch((err) => {
+      } catch (err) {
         console.warn("[Dashboard] Failed to load Firestore data:", err);
-      })
-      .finally(() => {
+      } finally {
         setLoading(false);
-      });
+      }
+    })();
   }, [user?.uid, examType]);
 
   return (

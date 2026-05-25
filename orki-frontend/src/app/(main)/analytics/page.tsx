@@ -171,8 +171,8 @@ export default function AnalyticsPage() {
     const uid = user?.uid;
     if (!uid || !examType) return;
 
-    setProgressLoading(true);
     void (async () => {
+      setProgressLoading(true);
       try {
         const attempts = await getAttemptHistory(uid, examType);
 

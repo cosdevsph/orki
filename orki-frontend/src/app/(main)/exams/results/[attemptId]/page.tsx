@@ -8,6 +8,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { auth } from "@/shared/firebase/client";
 import {
   getExamAttempt,
+  getPreviousAttempt,
   getQuestionsBySubject,
   saveConvertedFlashcardDeck,
   updateSubjectMastery,
@@ -78,6 +79,11 @@ export default function ExamResultsPage() {
   const [flashcardsCreated, setFlashcardsCreated] = useState(false);
   const [flashcardsCount, setFlashcardsCount] = useState(0);
   const [convertError, setConvertError] = useState<string | null>(null);
+  /** Attempt number + previous score for comparison display. Null until loaded. */
+  const [attemptMeta, setAttemptMeta] = useState<{
+    number: number;
+    prevScore: number | null;
+  } | null>(null);
 
   useEffect(() => {
     async function loadLocal() {
@@ -193,7 +199,24 @@ export default function ExamResultsPage() {
             console.warn("[ExamResults] Analytics update failed:", analyticsErr);
           }
         }
-      } catch (err) {
+        // ─── Attempt comparison metadata (non-critical) ─────────────────────────────
+        if (typeof attempt.attempt_number === "number") {
+          let prevScore: number | null = null;
+          if (uid && attempt.attempt_number > 1) {
+            try {
+              const prev = await getPreviousAttempt(
+                uid,
+                attempt.exam_type,
+                attempt.subject,
+                attempt.attempt_number,
+              );
+              prevScore = prev?.score ?? null;
+            } catch {
+              // Non-critical — display attempt number without score comparison
+            }
+          }
+          setAttemptMeta({ number: attempt.attempt_number, prevScore });
+        }      } catch (err) {
         console.error("[ExamResults] Failed to load attempt:", err);
         setFetchError("Failed to load results. Please try again.");
       } finally {
@@ -268,6 +291,28 @@ export default function ExamResultsPage() {
             {result.exam_title}
             {result.completed_at ? ` • ${result.completed_at.toLocaleDateString()}` : " • Completed"}
           </p>
+          {attemptMeta && (
+            <div className="flex flex-wrap items-center gap-2 mt-2">
+              <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">
+                Attempt #{attemptMeta.number}
+              </span>
+              {attemptMeta.prevScore !== null && (
+                <span
+                  className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                    result.score > attemptMeta.prevScore
+                      ? "bg-emerald-500/10 text-emerald-600"
+                      : result.score < attemptMeta.prevScore
+                        ? "bg-red-500/10 text-red-500"
+                        : "bg-muted/20 text-muted"
+                  }`}
+                >
+                  {result.score > attemptMeta.prevScore ? "↑" : result.score < attemptMeta.prevScore ? "↓" : "→"}{" "}
+                  {result.score > attemptMeta.prevScore ? "+" : ""}
+                  {result.score - attemptMeta.prevScore}% vs last attempt
+                </span>
+              )}
+            </div>
+          )}
         </div>
         <button
           type="button"
@@ -296,6 +341,27 @@ export default function ExamResultsPage() {
               <span className="text-red-500">{result.total_questions - result.total_correct} wrong</span>
               <span className="text-muted">{result.total_questions} total</span>
             </div>
+            {attemptMeta !== null && attemptMeta.prevScore !== null && (
+              <div className="flex items-center gap-2 pt-1">
+                <span className="text-xs text-muted">Previous attempt:</span>
+                <span className="text-xs font-semibold text-muted">{attemptMeta.prevScore}%</span>
+                <span
+                  className={`text-xs font-bold ${
+                    result.score > attemptMeta.prevScore
+                      ? "text-emerald-600"
+                      : result.score < attemptMeta.prevScore
+                        ? "text-red-500"
+                        : "text-muted"
+                  }`}
+                >
+                  {result.score > attemptMeta.prevScore
+                    ? `+${result.score - attemptMeta.prevScore}%`
+                    : result.score < attemptMeta.prevScore
+                      ? `${result.score - attemptMeta.prevScore}%`
+                      : "No change"}
+                </span>
+              </div>
+            )}
             <p className="text-sm text-muted leading-relaxed max-w-sm">{scoreLabel} {scoreMessage}</p>
           </div>
           <div className="flex flex-col items-center gap-2 shrink-0">

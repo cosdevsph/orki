@@ -15,6 +15,7 @@ import {
   collection,
   deleteDoc,
   doc,
+  getCountFromServer,
   getDoc,
   getDocs,
   query,
@@ -100,20 +101,93 @@ export async function getQuestionsBySubject(
 
 // ─── Exam Attempts (Analytics) ────────────────────────────────────────────────
 
+// ─── Attempt Monitoring Helpers (internal) ───────────────────────────────────
+
+/**
+ * Sanitize a string segment for use in a human-readable attempt_id.
+ * Lowercases and strips all non-alphanumeric characters.
+ */
+function sanitizeSegment(value: string): string {
+  return value.toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+/**
+ * Count how many exam attempts a user has already saved for a given
+ * exam_type + subject pair.  Used to determine the next attempt_number.
+ *
+ * Requires a Firestore composite index on exam_attempts:
+ *   user_id (ASC), exam_type (ASC), subject (ASC)
+ * Firestore will surface a console link to create the index on first query
+ * if it does not yet exist.
+ */
+async function countPreviousAttempts(
+  userId: string,
+  examType: string,
+  subject: string,
+): Promise<number> {
+  const q = query(
+    collection(db, "exam_attempts"),
+    where("user_id", "==", userId),
+    where("exam_type", "==", examType),
+    where("subject", "==", subject),
+  );
+  const snapshot = await getCountFromServer(q);
+  return snapshot.data().count;
+}
+
+/**
+ * Generate attempt metadata for a new submission:
+ *   attempt_number — 1-based retake count for this user / exam_type / subject
+ *   attempt_id     — deterministic, URL-safe ID for routing and comparison
+ *
+ * attempt_id format: {userId}_{examType}_{sanitizedSubject}_{attemptNumber}
+ * Example: "1iwucGlq82gzLqaondYsUxGQa702_pmle_abnormalpsychology_3"
+ *
+ * NOTE: There is an inherent low-probability race condition if the same user
+ * submits the same exam from two browser tabs simultaneously.  For an
+ * educational SaaS this is an acceptable tradeoff versus the complexity of
+ * a full Firestore transaction.
+ */
+async function generateAttemptMetadata(
+  userId: string,
+  examType: string,
+  subject: string,
+): Promise<{ attempt_number: number; attempt_id: string }> {
+  const existingCount = await countPreviousAttempts(userId, examType, subject);
+  const attempt_number = existingCount + 1;
+  const attempt_id = [
+    userId,
+    sanitizeSegment(examType),
+    sanitizeSegment(subject),
+    attempt_number,
+  ].join("_");
+  return { attempt_number, attempt_id };
+}
+
 /**
  * Persist a completed exam attempt to Firestore.
  * Writes to `exam_attempts/{autoId}` and returns the new document ID.
  *
  * This document is the source of truth for per-user analytics:
  *   score, subject mastery, weak topics, and history charts.
+ *
+ * Automatically generates and persists `attempt_number` and `attempt_id`
+ * so that retakes can be tracked, compared, and charted over time.
  */
 export async function saveExamAttempt(
   userId: string,
   attempt: FirestoreExamAttemptInput,
 ): Promise<string> {
+  const { attempt_number, attempt_id } = await generateAttemptMetadata(
+    userId,
+    attempt.exam_type,
+    attempt.subject,
+  );
   const ref = await addDoc(collection(db, "exam_attempts"), {
     user_id: userId,
     ...attempt,
+    attempt_number,
+    attempt_id,
     completed_at: serverTimestamp(),
   });
   return ref.id;
@@ -175,6 +249,10 @@ export async function deleteExamSession(sessionId: string): Promise<void> {
 /**
  * Fetch a completed exam attempt by its document ID.
  * Returns null if the document does not exist.
+ *
+ * Includes `attempt_number` and `attempt_id` for attempts saved after the
+ * attempt-monitoring feature was introduced; older documents will have these
+ * fields as `undefined` (handled gracefully by all callers).
  */
 export async function getExamAttempt(
   attemptId: string,
@@ -195,6 +273,46 @@ export async function getExamAttempt(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     completed_at: (data as any).completed_at?.toDate?.() ?? null,
   };
+}
+
+/**
+ * Fetch the most recent prior attempt for the same user / exam_type / subject.
+ * Used by the results page to display score improvement or decline.
+ *
+ * Returns null when:
+ *   - This is the first attempt (currentAttemptNumber <= 1)
+ *   - No previous attempt document carries `attempt_number` (pre-feature data)
+ *
+ * Queries all attempts for the user / exam_type / subject combination and
+ * filters client-side — safe for educational use where attempt counts are low.
+ *
+ * Requires a Firestore composite index on exam_attempts:
+ *   user_id (ASC), exam_type (ASC), subject (ASC)
+ */
+export async function getPreviousAttempt(
+  userId: string,
+  examType: string,
+  subject: string,
+  currentAttemptNumber: number,
+): Promise<{ score: number; attempt_number: number } | null> {
+  if (currentAttemptNumber <= 1) return null;
+
+  const q = query(
+    collection(db, "exam_attempts"),
+    where("user_id", "==", userId),
+    where("exam_type", "==", examType),
+    where("subject", "==", subject),
+  );
+  const snap = await getDocs(q);
+  const targetNumber = currentAttemptNumber - 1;
+
+  for (const d of snap.docs) {
+    const data = d.data() as { score?: number; attempt_number?: number };
+    if (data.attempt_number === targetNumber && typeof data.score === "number") {
+      return { score: data.score, attempt_number: data.attempt_number };
+    }
+  }
+  return null;
 }
 
 /**

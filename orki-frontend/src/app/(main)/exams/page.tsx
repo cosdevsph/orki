@@ -35,7 +35,10 @@ function SubjectCard({
       </h3>
 
       {/* Exam type badge */}
-      <p className="text-xs text-muted">{subject.exam_type} &middot; Practice Exam</p>
+      <p className="text-xs text-muted">
+        {subject.exam_type} &middot; Practice Exam
+        {subject.question_count !== undefined && ` \u00b7 ${Math.min(subject.question_count, 200)} questions`}
+      </p>
 
       {/* CTA */}
       <button

@@ -67,16 +67,33 @@ export async function getSubjectsByExamType(
     id: doc.id,
     ...(doc.data() as Omit<FirestoreSubject, "id">),
   }));
+
+  // Fetch question count for each subject
+  const subjectsWithCount = await Promise.all(
+    docs.map(async (subject) => {
+      const qCount = query(
+        collection(db, "questions"),
+        where("exam_type", "==", examType),
+        where("subject", "==", subject.name)
+      );
+      const countSnap = await getCountFromServer(qCount);
+      return {
+        ...subject,
+        question_count: countSnap.data().count,
+      };
+    })
+  );
+
   // Sort alphabetically by name for stable ordering
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return docs.sort((a: any, b: any) => a.name.localeCompare(b.name));
+  return subjectsWithCount.sort((a: any, b: any) => a.name.localeCompare(b.name));
 }
 
 // ─── Questions ────────────────────────────────────────────────────────────────
 
 /**
  * Fetch questions filtered by exam_type and subject.
- * Returns up to `limit` questions (default 100).
+ * Returns up to `limit` questions (default 200).
  *
  * Uses two equality filters only — no composite index required.
  * orderBy is intentionally omitted to avoid requiring a Firestore
@@ -85,7 +102,7 @@ export async function getSubjectsByExamType(
 export async function getQuestionsBySubject(
   examType: string,
   subject: string,
-  limit = 100,
+  limit = 200,
 ): Promise<FirestoreQuestion[]> {
   const q = query(
     collection(db, "questions"),

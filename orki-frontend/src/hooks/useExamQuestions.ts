@@ -13,7 +13,7 @@ type UseExamQuestionsResult = {
 
 /**
  * Fetch exam questions from Firestore filtered by exam_type and subject.
- * Fetches up to `limit` questions (default 100).
+ * Fetches up to `limit` questions (default 200).
  *
  * Results are cached by React Query — if the user navigates back to the same
  * exam they started, questions are served from cache instantly.
@@ -21,7 +21,7 @@ type UseExamQuestionsResult = {
 export function useExamQuestions(
   examType: string | null,
   subject: string | null,
-  limit = 100,
+  limit = 200,
 ): UseExamQuestionsResult {
   const { data, isLoading, error } = useQuery<FirestoreQuestion[], Error>({
     queryKey: ["exam-questions", examType, subject, limit],

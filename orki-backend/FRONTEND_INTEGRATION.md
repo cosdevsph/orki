@@ -19,12 +19,13 @@ The frontend integrates with the Orki payment system through three main API endp
 **Authentication:** ✓ Required (Firebase)
 
 **Response:**
+
 ```json
 {
   "status": "active",
   "is_active": true,
   "plan_name": "orki_premium_monthly",
-  "amount_php": 49.00,
+  "amount_php": 49.0,
   "currency": "PHP",
   "payment_method": "gcash",
   "start_date": "2026-05-14T10:30:00Z",
@@ -35,16 +36,18 @@ The frontend integrates with the Orki payment system through three main API endp
 ```
 
 **Status Values:**
+
 - `active` - User has valid, non-expired subscription
 - `no_subscription` - User never purchased subscription
 - `expired` - Subscription has expired (past expiry_date)
 - `cancelled` - User cancelled subscription
 
 **Usage in React:**
+
 ```typescript
 // Check if user can access exams
-const response = await fetch('/api/v1/users/subscription/', {
-  credentials: 'include', // Include cookies
+const response = await fetch("/api/v1/users/subscription/", {
+  credentials: "include", // Include cookies
 });
 const subscription = await response.json();
 
@@ -64,6 +67,7 @@ if (subscription.is_active) {
 **Authentication:** ✓ Required (Firebase)
 
 **Request Body (Optional):**
+
 ```json
 {
   "payment_methods": ["gcash", "paymaya", "card", "qrph"]
@@ -71,6 +75,7 @@ if (subscription.is_active) {
 ```
 
 **Supported Payment Methods:**
+
 - `gcash` - GCash (Philippine mobile wallet)
 - `paymaya` - PayMaya (Philippine mobile wallet)
 - `card` - Credit/Debit Cards (Visa, Mastercard, etc.)
@@ -79,17 +84,19 @@ if (subscription.is_active) {
 If `payment_methods` not provided, all methods are allowed.
 
 **Response:**
+
 ```json
 {
   "checkout_url": "https://checkout.paymongo.com/p/cs_xxxxx",
   "reference_id": "cs_xxxxx",
-  "amount": 49.00,
+  "amount": 49.0,
   "currency": "PHP",
   "status": "pending"
 }
 ```
 
 **Error Responses:**
+
 ```json
 // 401 - Not authenticated
 {
@@ -104,14 +111,15 @@ If `payment_methods` not provided, all methods are allowed.
 ```
 
 **Usage in React:**
+
 ```typescript
-const response = await fetch('/api/v1/payments/checkout/', {
-  method: 'POST',
-  credentials: 'include',
-  headers: { 'Content-Type': 'application/json' },
+const response = await fetch("/api/v1/payments/checkout/", {
+  method: "POST",
+  credentials: "include",
+  headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
-    payment_methods: ['gcash', 'paymaya'] // Optional
-  })
+    payment_methods: ["gcash", "paymaya"], // Optional
+  }),
 });
 
 const checkout = await response.json();
@@ -196,8 +204,8 @@ export function SubscribeButton() {
   return (
     <div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <button 
-        onClick={handleSubscribe} 
+      <button
+        onClick={handleSubscribe}
         disabled={loading}
       >
         {loading ? 'Processing...' : 'Subscribe Now - ₱49'}
@@ -232,7 +240,7 @@ export function PaymentMethodSelector() {
   return (
     <div>
       <h3>Select Payment Method</h3>
-      
+
       <label>
         <input
           type="radio"
@@ -317,8 +325,8 @@ export function ExamsPage() {
       <div style={{ textAlign: 'center', padding: '40px' }}>
         <h2>🔒 Premium Feature</h2>
         <p>Unlock Exams & Flashcards with a subscription</p>
-        
-        <button 
+
+        <button
           onClick={() => window.location.href = '/subscribe'}
           style={{
             padding: '12px 24px',
@@ -345,9 +353,9 @@ export function ExamsPage() {
   // User is subscribed - show exams
   return (
     <div>
-      <div style={{ 
-        backgroundColor: '#e8f5e9', 
-        padding: '12px', 
+      <div style={{
+        backgroundColor: '#e8f5e9',
+        padding: '12px',
         marginBottom: '20px',
         borderRadius: '4px'
       }}>
@@ -369,6 +377,7 @@ export function ExamsPage() {
 ### ✓ DO:
 
 1. **Always verify backend response**
+
    ```typescript
    if (response.ok && data.is_active) {
      // Safe to show premium content
@@ -376,17 +385,19 @@ export function ExamsPage() {
    ```
 
 2. **Send credentials with every request**
+
    ```typescript
    fetch(url, {
-     credentials: 'include' // Required for session cookies
-   })
+     credentials: "include", // Required for session cookies
+   });
    ```
 
 3. **Handle 401 Unauthorized**
+
    ```typescript
    if (response.status === 401) {
      // Redirect to login
-     window.location.href = '/login';
+     window.location.href = "/login";
    }
    ```
 
@@ -423,21 +434,25 @@ export function ExamsPage() {
 ### Common Errors & Solutions
 
 **401 Unauthorized**
+
 - User not authenticated
 - Session/Firebase token expired
 - Solution: Redirect to login
 
 **403 Forbidden**
+
 - User doesn't have active subscription
 - Subscription expired
 - Solution: Show paywall
 
 **500 Server Error**
+
 - PayMongo API unavailable
 - Database connection error
 - Solution: Retry or show error message
 
 **Network Error**
+
 - User offline
 - API unreachable
 - Solution: Retry with exponential backoff
@@ -463,6 +478,7 @@ export function ExamsPage() {
 No frontend-specific environment variables needed.
 
 Backend `.env` must have:
+
 ```env
 PAYMONGO_SECRET_KEY=sk_test_xxxxx
 PAYMONGO_WEBHOOK_SECRET=whsk_xxxxx
@@ -477,9 +493,11 @@ FRONTEND_URL=http://localhost:3000
 
 ```javascript
 // In browser console
-fetch('/api/v1/users/subscription/', {
-  credentials: 'include'
-}).then(r => r.json()).then(console.log);
+fetch("/api/v1/users/subscription/", {
+  credentials: "include",
+})
+  .then((r) => r.json())
+  .then(console.log);
 ```
 
 ### Simulate payment flow

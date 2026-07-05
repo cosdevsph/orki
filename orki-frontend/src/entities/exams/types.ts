@@ -12,6 +12,8 @@ export type FirestoreSubject = {
   name: string;
   /** URL-safe slug, e.g. "english", "verbal-ability" */
   slug: string;
+  /** Optional count of questions available in Firestore for this subject */
+  question_count?: number;
 };
 
 /**

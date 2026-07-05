@@ -63,7 +63,7 @@ export async function getSubjectsByExamType(
   );
   const snap = await getDocs(q);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const docs = snap.docs.map((doc: any) => ({
+  const docs: FirestoreSubject[] = snap.docs.map((doc: any) => ({
     id: doc.id,
     ...(doc.data() as Omit<FirestoreSubject, "id">),
   }));
